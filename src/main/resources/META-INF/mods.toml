@@ -1,10 +1,10 @@
 modLoader = "javafml"
-loaderVersion = "[41,)"
+loaderVersion = "[40,)"
 license = "MIT"
 issueTrackerURL="https://github.com/JimiIT92/BlazersMod/issues"
 [[mods]]
 modId = "blazersmod"
-version = "1.1-1.19"
+version = "1.1-1.18.2"
 displayName = "Blazers Mod"
 displayURL="https://github.com/JimiIT92/BlazersMod"
 logoFile="icon.png"
@@ -16,12 +16,12 @@ A Minecraft mod made for ErenBlaze and his community
 [[dependencies.blazersmod]]
 modId = "forge"
 mandatory = true
-versionRange = "[41,)"
+versionRange = "[40,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.blazersmod]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19,1.20)"
+versionRange = "[1.18.2,1.19)"
 ordering = "NONE"
 side = "BOTH"
