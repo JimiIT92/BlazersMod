@@ -2,22 +2,21 @@ Changelog
 
 - Aggiornato il logo della mod
 - Aggiornate le textures
+- Aggiunto l'Uranio Grezzo
+- Aggiunta la Pepita di Uranio
+- È necessario usare un piccone di Diamante (o superiore) per rompere i blocchi di Uranio
+- È necessario usare un piccone di Ferro (o superiore) per rompere i blocchi di Rubino e Zaffiro 
+- È necessario usare un piccone di Pietra (o superiore) per rompere i blocchi di Topazio, Perla, Malachite e Onice
+- È possibile utilizzare il Rubino e lo Zaffiro nel Beacon
+- I blocchi di Rubino e Zaffiro possono essere usati come base per il Beacon
 
 TO-DO
 
 -BLOCKS
 
 - Atomic TNT
-- Malachite Block
-- Onice Block
-- Pearl Block
-- Ruby Block
-- Sapphire Block
-- Topaz Block
 - Topaz Gem
 - Wither Trap
-- Uranium Block
-- Raw Uranium Block
 - Hollow Wood
 
 -ORES

@@ -7,6 +7,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.blazers.core.BLBlocks;
 import org.blazers.core.BLItems;
 
 /**
@@ -32,6 +33,7 @@ public final class BlazersMod {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         BLItems.register(eventBus);
+        BLBlocks.register(eventBus);
 
         eventBus.addListener(this::setup);
 

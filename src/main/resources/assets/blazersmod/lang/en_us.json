@@ -7,7 +7,16 @@
   "item.blazersmod.onice": "Onice",
   "item.blazersmod.carbon":  "Carbon",
   "item.blazersmod.raw_uranium": "Raw Uranium",
+  "item.blazersmod.uranium_nugget": "Uranium Nugget",
   "item.blazersmod.uranium_ingot":  "Uranium Ingot",
   "item.blazersmod.blazerite": "Blazerite",
-  "item.blazersmod.gyulianite":  "Gyulianite"
+  "item.blazersmod.gyulianite":  "Gyulianite",
+  "block.blazersmod.ruby_block": "Block of Ruby",
+  "block.blazersmod.sapphire_block": "Block of Sapphire",
+  "block.blazersmod.topaz_block": "Block of Topaz",
+  "block.blazersmod.pearl_block": "Block of Pearl",
+  "block.blazersmod.malachite_block": "Block of Malachite",
+  "block.blazersmod.onice_block": "Block of Onice",
+  "block.blazersmod.uranium_block": "Block of Uranium",
+  "block.blazersmod.raw_uranium_block": "Block of Raw Uranium"
 }

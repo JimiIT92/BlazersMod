@@ -31,6 +31,7 @@ public final class BLItems {
     public static final RegistryObject<Item> ONICE = registerSimpleItem("onice");
     public static final RegistryObject<Item> CARBON = registerSimpleItem("carbon");
     public static final RegistryObject<Item> RAW_URANIUM = registerSimpleItem("raw_uranium");
+    public static final RegistryObject<Item> URANIUM_NUGGET = registerSimpleItem("uranium_nugget");
     public static final RegistryObject<Item> URANIUM_INGOT = registerSimpleItem("uranium_ingot");
     public static final RegistryObject<Item> BLAZERITE = registerRareItem("blazerite", Rarity.EPIC);
     public static final RegistryObject<Item> GYULIANITE = registerRareItem("gyulianite", Rarity.EPIC);

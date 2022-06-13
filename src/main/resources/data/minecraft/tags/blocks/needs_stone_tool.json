@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "blazersmod:topaz_block",
+    "blazersmod:pearl_block",
+    "blazersmod:malachite_block",
+    "blazersmod:onice_block"
+  ]
+}
