@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 200,
+  "experience": 1.5,
+  "group": "uranium_ingot",
+  "ingredient": {
+    "item": "blazersmod:raw_uranium"
+  },
+  "result": "blazersmod:uranium_ingot"
+}
