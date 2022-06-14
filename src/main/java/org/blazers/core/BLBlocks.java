@@ -20,7 +20,7 @@ import org.blazers.BlazersMod;
 import java.util.function.Supplier;
 
 /**
- * {@link org.blazers.BlazersMod Blazers Mod Blocks}
+ * {@link org.blazers.BlazersMod Blazers Mod} {@link Block Blocks}
  */
 public final class BLBlocks {
 

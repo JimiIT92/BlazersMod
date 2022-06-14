@@ -3,7 +3,7 @@ package org.blazers.core;
 import net.minecraft.world.food.FoodProperties;
 
 /**
- * {@link org.blazers.BlazersMod Blazers Mod Foods}
+ * {@link org.blazers.BlazersMod Blazers Mod} {@link FoodProperties Foods}
  */
 public final class BLFoods {
 

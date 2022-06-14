@@ -12,7 +12,7 @@ import org.blazers.BlazersMod;
 import java.util.function.Supplier;
 
 /**
- * {@link org.blazers.BlazersMod Blazers Mod Items}
+ * {@link org.blazers.BlazersMod Blazers Mod} {@link Item Items}
  */
 public final class BLItems {
 

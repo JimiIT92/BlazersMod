@@ -2,6 +2,7 @@ Changelog
 
 - Aggiornato il logo della mod
 - Aggiornate le textures
+- Migliorata la compatibilità con altre mod tramite l'utilizzo dei Tag (mod/forge/minecraft)
 - Aggiunto l'Uranio Grezzo
 - Aggiunta la Pepita di Uranio
 - È necessario usare un piccone di Diamante (o superiore) per rompere i blocchi di Uranio
