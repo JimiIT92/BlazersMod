@@ -1,6 +1,6 @@
 package org.blazers.core;
 
-import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -36,6 +36,10 @@ public final class BLItems {
     public static final RegistryObject<Item> BLAZERITE = registerRareItem("blazerite", Rarity.EPIC);
     public static final RegistryObject<Item> GYULIANITE = registerRareItem("gyulianite", Rarity.EPIC);
 
+    public static final RegistryObject<Item> HOSOMAKI = registerFood("hosomaki", BLFoods.HOSOMAKI);
+    public static final RegistryObject<Item> NIGIRI = registerFood("nigiri", BLFoods.NIGIRI);
+    public static final RegistryObject<Item> SASHIMI = registerFood("sashimi", BLFoods.SASHIMI);
+
     //#endregion
 
     /**
@@ -66,6 +70,17 @@ public final class BLItems {
      */
     private static RegistryObject<Item> registerRareItem(String name, Rarity rarity) {
         return registerItem(name, () -> new Item(createSimpleItemProperties().rarity(rarity)));
+    }
+
+    /**
+     * Register a {@link Item Food Item}
+     *
+     * @param name {@link String Item Name}
+     * @param foodProperties {@link FoodProperties Food Properties}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerFood(String name, FoodProperties foodProperties) {
+        return registerItem(name, () -> new Item(createSimpleItemProperties().food(foodProperties).tab(BLTabs.TAB_FOOD)));
     }
 
     /**

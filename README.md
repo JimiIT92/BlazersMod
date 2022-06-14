@@ -13,6 +13,9 @@ Changelog
 - I minerali di Zaffiro e Topazio possono ora generarsi nella Deepslate
 - Il minerale di Uranio ora si genera nei detriti antichi
 - Il carbonio può essere ottenuto combinando un blocco di carbone e un lingotto di ferro nella Smithing Table
+- L'Hosomaki ora si crafta con 2 Seagrass e 1 Merluzzo crudo al centro
+- Il Sashimi si crafta con un singolo salmone crudo (ne ottieni 4)
+- Il Nigiri ora si crafta con 1 Seagrass sopra 1 Salmone crudo (ne ottieni 2)
 
 TO-DO
 
@@ -33,13 +36,6 @@ TO-DO
 - Topaz Ore
 - Uranium Nether Ore
 
--ITEMS
-
-- Hosomaki
-- Nigiri
-- Sashimi
-- Topaz Hammer
-
 -TOOLS
 
 - Amethist Sword
@@ -57,7 +53,8 @@ TO-DO
 - Ruby Sword
 - Sapphire Tools
 - Sapphire Sword
-- Spear
+- Spear 
+- Topaz Hammer
 
 -ARMORS
 - Amethist Armor
@@ -80,7 +77,6 @@ TO-DO
 
 - Tools (Emerald Pickaxe)
 - Combat (Katana)
-- Foodstuffs (Sashimi)
 
 -WORLD GEN
 

@@ -19,6 +19,27 @@ public final class BLTabs {
         }
     };
 
+    public static final CreativeModeTab TAB_TOOLS = new CreativeModeTab(BlazersMod.MOD_ID + ".tools") {
+        @Override
+        public @NotNull ItemStack makeIcon() {
+            return new ItemStack(BLItems.SASHIMI.get());
+        }
+    };
+
+    public static final CreativeModeTab TAB_COMBAT = new CreativeModeTab(BlazersMod.MOD_ID + ".combat") {
+        @Override
+        public @NotNull ItemStack makeIcon() {
+            return new ItemStack(BLItems.SASHIMI.get());
+        }
+    };
+
+    public static final CreativeModeTab TAB_FOOD = new CreativeModeTab(BlazersMod.MOD_ID + ".food") {
+        @Override
+        public @NotNull ItemStack makeIcon() {
+            return new ItemStack(BLItems.SASHIMI.get());
+        }
+    };
+
     public static final CreativeModeTab TAB_MISC = new CreativeModeTab(BlazersMod.MOD_ID + ".misc") {
         @Override
         public @NotNull ItemStack makeIcon() {

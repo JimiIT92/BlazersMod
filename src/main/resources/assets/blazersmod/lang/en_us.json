@@ -1,5 +1,8 @@
 {
   "itemGroup.blazersmod.building_blocks": "Building Blocks (Blazers Mod)",
+  "itemGroup.blazersmod.tools": "Tools (Blazers Mod)",
+  "itemGroup.blazersmod.combat": "Combat (Blazers Mod)",
+  "itemGroup.blazersmod.food": "Foodstuffs (Blazers Mod)",
   "itemGroup.blazersmod.misc": "Miscellaneous (Blazers Mod)",
   "item.blazersmod.ruby": "Ruby",
   "item.blazersmod.sapphire": "Sapphire",
@@ -13,6 +16,9 @@
   "item.blazersmod.uranium_ingot":  "Uranium Ingot",
   "item.blazersmod.blazerite": "Blazerite",
   "item.blazersmod.gyulianite":  "Gyulianite",
+  "item.blazersmod.hosomaki": "Hosomaki",
+  "item.blazersmod.nigiri": "Nigiri",
+  "item.blazersmod.sashimi": "Sashimi",
   "block.blazersmod.ruby_ore": "Ruby Ore",
   "block.blazersmod.sapphire_ore": "Sapphire Ore",
   "block.blazersmod.deepslate_sapphire_ore": "Deesplate Sapphire Ore",
