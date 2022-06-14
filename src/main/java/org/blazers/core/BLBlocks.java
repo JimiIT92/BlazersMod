@@ -1,9 +1,12 @@
 package org.blazers.core;
 
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.OreBlock;
+import net.minecraft.world.level.block.SandBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -28,6 +31,23 @@ public final class BLBlocks {
 
     //#region Blocks
 
+    public static final RegistryObject<Block> RUBY_ORE = registerNetherOreBlock("ruby_ore");
+    public static final RegistryObject<Block> SAPPHIRE_ORE = registerGemOreBlock("sapphire_ore", false);
+    public static final RegistryObject<Block> DEEPSLATE_SAPPHIRE_ORE = registerGemOreBlock("deepslate_sapphire_ore", true);
+    public static final RegistryObject<Block> TOPAZ_ORE = registerGemOreBlock("topaz_ore", false);
+    public static final RegistryObject<Block> DEEPSLATE_TOPAZ_ORE = registerGemOreBlock("deepslate_topaz_ore", true);
+    public static final RegistryObject<Block> PEARL_ORE = registerBlock("pearl_ore", () ->
+            new SandBlock(14406560, BlockBehaviour.Properties.of(Material.SAND, MaterialColor.SAND)
+                    .strength(0.5F)
+                    .sound(SoundType.SAND)
+                    .requiresCorrectToolForDrops()
+    ), CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> MALACHITE_ORE = registerNetherOreBlock("malachite_ore");
+    public static final RegistryObject<Block> ONICE_ORE = registerNetherOreBlock("onice_ore");
+    public static final RegistryObject<Block> URANIUM_ORE = registerBlock("uranium_ore", () -> new OreBlock(
+            BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_GREEN).requiresCorrectToolForDrops().strength(30.0F, 1200.0F).sound(SoundType.ANCIENT_DEBRIS)
+    ), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
     public static final RegistryObject<Block> RUBY_BLOCK = registerSimpleBlock("ruby_block", createGemBlockProperties(MaterialColor.COLOR_RED));
     public static final RegistryObject<Block> SAPPHIRE_BLOCK = registerSimpleBlock("sapphire_block", createGemBlockProperties(MaterialColor.COLOR_BLUE));
     public static final RegistryObject<Block> TOPAZ_BLOCK = registerSimpleBlock("topaz_block", createGemBlockProperties(MaterialColor.COLOR_ORANGE));
@@ -41,16 +61,6 @@ public final class BLBlocks {
     //#endregion
 
     /**
-     * Create the {@link BlockBehaviour.Properties Pearl Block Properties}
-     *
-     * @return {@link BlockBehaviour.Properties Block Properties}
-     */
-    private static BlockBehaviour.Properties createPearlBlockProperties() {
-        return BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK)
-                .sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F);
-    }
-
-    /**
      * Create the {@link BlockBehaviour.Properties Block Properties}
      * for a {@link Block Gem Block}
      *
@@ -62,6 +72,37 @@ public final class BLBlocks {
                 .requiresCorrectToolForDrops()
                 .strength(5.0F, 6.0F)
                 .sound(SoundType.METAL);
+    }
+
+    private static BlockBehaviour.Properties createOreBlockProperties() {
+        return BlockBehaviour.Properties.of(Material.STONE)
+                .requiresCorrectToolForDrops()
+                .strength(3.0F, 3.0F);
+    }
+
+    private static BlockBehaviour.Properties createDeepslateOreBlockProperties() {
+        return createOreBlockProperties()
+                .color(MaterialColor.DEEPSLATE)
+                .strength(4.5F, 3.0F)
+                .sound(SoundType.DEEPSLATE);
+    }
+
+    private static RegistryObject<Block> registerGemOreBlock(String name, boolean isDeepslateOre) {
+        return registerBlock(name, () -> new OreBlock(isDeepslateOre ? createDeepslateOreBlockProperties() : createOreBlockProperties(),
+                UniformInt.of(3, 7)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+    }
+
+    private static RegistryObject<Block> registerNetherOreBlock(String name) {
+        return registerBlock(name, () ->
+                        new OreBlock(createOreBlockProperties().color(MaterialColor.NETHER).sound(SoundType.NETHER_ORE),
+                                UniformInt.of(2, 5))
+                , CreativeModeTab.TAB_BUILDING_BLOCKS);
+    }
+
+    private static RegistryObject<Block> registerOreBlock(String name) {
+        return registerBlock(name, () ->
+                new OreBlock(createOreBlockProperties())
+        , CreativeModeTab.TAB_BUILDING_BLOCKS);
     }
 
     /**

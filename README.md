@@ -9,6 +9,9 @@ Changelog
 - È necessario usare un piccone di Pietra (o superiore) per rompere i blocchi di Topazio, Perla, Malachite e Onice
 - È possibile utilizzare il Rubino e lo Zaffiro nel Beacon
 - I blocchi di Rubino e Zaffiro possono essere usati come base per il Beacon
+- Il minerale di Perla ora si genera nella sabbia sui fondali delle barriere coralline
+- I minerali di Zaffiro e Topazio possono ora generarsi nella Deepslate
+- Il minerale di Uranio ora si genera nei detriti antichi
 
 TO-DO
 

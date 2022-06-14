@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "blazersmod:pearl_ore",
     "blazersmod:topaz_block",
     "blazersmod:pearl_block",
     "blazersmod:malachite_block",
