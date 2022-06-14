@@ -12,6 +12,7 @@ Changelog
 - Il minerale di Perla ora si genera nella sabbia sui fondali delle barriere coralline
 - I minerali di Zaffiro e Topazio possono ora generarsi nella Deepslate
 - Il minerale di Uranio ora si genera nei detriti antichi
+- Il carbonio può essere ottenuto combinando un blocco di carbone e un lingotto di ferro nella Smithing Table
 
 TO-DO
 

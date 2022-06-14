@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "blazersmod:sapphire"
+    },
+    {
+      "item": "blazersmod:pearl"
+    },
+    {
+      "item": "blazersmod:topaz"
+    },
+    {
+      "item": "minecraft:amethyst_shard"
+    },
+    {
+      "item": "minecraft:emerald"
+    }
+  ],
+  "result": {
+    "item": "blazersmod:gyulianite"
+  }
+}
