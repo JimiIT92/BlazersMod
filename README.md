@@ -78,8 +78,6 @@ TO-DO
 
 -TABS
 
-- Building Blocks (sapphire)
-- Materials (Ruby)
 - Tools (Emerald Pickaxe)
 - Combat (Katana)
 - Foodstuffs (Sashimi)

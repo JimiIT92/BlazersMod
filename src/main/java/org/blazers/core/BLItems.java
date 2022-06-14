@@ -44,7 +44,7 @@ public final class BLItems {
      * @return {@link Item Item}
      */
     private static Item.Properties createSimpleItemProperties() {
-        return new Item.Properties().tab(CreativeModeTab.TAB_MISC);
+        return new Item.Properties().tab(BLTabs.TAB_MISC);
     }
 
     /**
