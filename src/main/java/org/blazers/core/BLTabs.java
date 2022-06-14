@@ -22,7 +22,7 @@ public final class BLTabs {
     public static final CreativeModeTab TAB_TOOLS = new CreativeModeTab(BlazersMod.MOD_ID + ".tools") {
         @Override
         public @NotNull ItemStack makeIcon() {
-            return new ItemStack(BLItems.SASHIMI.get());
+            return new ItemStack(BLItems.EMERALD_PICKAXE.get());
         }
     };
 

@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "blazersmod:item/onice_pickaxe"
+  }
+}

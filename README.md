@@ -17,13 +17,17 @@ Changelog
 - L'Hosomaki ora si crafta con 2 Seagrass e 1 Merluzzo crudo al centro
 - Il Sashimi si crafta con un singolo salmone crudo (ne ottieni 4)
 - Il Nigiri ora si crafta con 1 Seagrass sopra 1 Salmone crudo (ne ottieni 2)
+- Attrezzi, armi e armature di Rubino, Zaffiro o Smeraldo ora sono a metà tra il diamante e la netherite
+- Gli attrezzi e le armature di Onice ora sono a metà tra il diamante e il ferro
+- La spada e armature di Perla o Ametista ora sono a metà tra il ferro e la pietra
+- La spada e armature di Blazerite o Gyulianite ora sono più potenti della Netherite
+- È ora possibile lanciare la Lancia di Malachite (come un tridente)
 
 TO-DO
 
 -BLOCKS
 
 - Atomic TNT
-- Topaz Gem
 - Wither Trap
 - Hollow Wood
 
@@ -39,44 +43,39 @@ TO-DO
 
 -TOOLS
 
-- Amethist Sword
 - Carbon Bow
-- Emerald Tools
-- Emearld Sword
 - Erenblaze Sword
 - Giulyan Sword
 - Katana (base + colored)
-- Malachite Spear
-- Onice Tools
-- Onice Sickle
-- Pearl Sword
-- Ruby Tools
-- Ruby Sword
-- Sapphire Tools
-- Sapphire Sword
-- Spear 
-- Topaz Hammer
 
 -ARMORS
 - Amethist Armor
 - Emerald Armor
+- Emerald Horse Armor
 - Erenblaze Armor
 - Giulyan Armor
 - Malachite Armor
+- Malachite Horse Armor
 - Onice Armor
 - Pearl Armor
 - Ruby Armor
+- Ruby Horse Armor
 - Sapphire Armor
+- Sapphire Horse Armor
 - Topaz Armor
+- Topaz Horse Armor
 
 -MOBS
 
 - Skeleton Wither Horse
 - Fireflies
+- Thrown Malachite Spear
+- Malachite Spear Model 
+- Thrown Spear
+- Spear Model
 
 -TABS
 
-- Tools (Emerald Pickaxe)
 - Combat (Katana)
 
 -WORLD GEN
