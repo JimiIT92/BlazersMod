@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.blazers.core.BLBlocks;
 import org.blazers.core.BLItems;
+import org.blazers.core.BLPaintings;
 
 /**
  * {@link BlazersMod Blazers Mod} main class
@@ -34,6 +35,7 @@ public final class BlazersMod {
 
         BLItems.register(eventBus);
         BLBlocks.register(eventBus);
+        BLPaintings.register(eventBus);
 
         eventBus.addListener(this::setup);
 

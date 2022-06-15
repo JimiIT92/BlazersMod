@@ -27,6 +27,7 @@ Changelog
 - La spada e armature di Blazerite o Gyulianite ora non sono utleriormente incantabili in survival
 - Le katana ora hanno gli stessi danni e utilizzi di una spada in ferro, ma sono molto più veloci
 - È possibile ora colorare il manico di una katana con tutti i 16 colori
+- Aggiunto nuovo quadro: Erenblaze
 
 TO-DO
 
@@ -82,7 +83,6 @@ TO-DO
 
 - Beacon GUI
 - Fletching Table crafting GUI
-- ErenBlaze painting
 
 -ADVANCEMENTS
 
