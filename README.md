@@ -22,6 +22,8 @@ Changelog
 - La spada e armature di Perla o Ametista ora sono a metà tra il ferro e la pietra
 - La spada e armature di Blazerite o Gyulianite ora sono più potenti della Netherite
 - È ora possibile lanciare la Lancia di Malachite (come un tridente)
+- La spada e armature di Blazerite o Gyulianite ora sono ottenibili combinando la gemma con la spada o l'amratura di Netherite
+- La spada e armature di Blazerite o Gyulianite ora non sono utleriormente incantabili in survival 
 
 TO-DO
 
@@ -44,8 +46,6 @@ TO-DO
 -TOOLS
 
 - Carbon Bow
-- Erenblaze Sword
-- Giulyan Sword
 - Katana (base + colored)
 
 -ARMORS
@@ -86,3 +86,8 @@ TO-DO
 -EVENTS
 
 - Wither Trap
+
+-GUI
+
+- Beacon GUI
+- Fletching Table crafting GUI

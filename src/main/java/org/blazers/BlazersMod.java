@@ -24,7 +24,7 @@ public final class BlazersMod {
     /**
      * {@link Logger Logger Instance}
      */
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
 
     /**
      * Initialize the {@link BlazersMod Blazers Mod}

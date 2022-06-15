@@ -2,11 +2,13 @@ package org.blazers.core;
 
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
+import org.blazers.item.PreEnchantedSwordItem;
 import org.blazers.item.SpearItem;
 
 import java.util.function.Supplier;
@@ -33,8 +35,8 @@ public final class BLItems {
     public static final RegistryObject<Item> RAW_URANIUM = registerSimpleItem("raw_uranium");
     public static final RegistryObject<Item> URANIUM_NUGGET = registerSimpleItem("uranium_nugget");
     public static final RegistryObject<Item> URANIUM_INGOT = registerSimpleItem("uranium_ingot");
-    public static final RegistryObject<Item> BLAZERITE = registerRareItem("blazerite", Rarity.EPIC);
-    public static final RegistryObject<Item> GYULIANITE = registerRareItem("gyulianite", Rarity.EPIC);
+    public static final RegistryObject<Item> BLAZERITE = registerRareItem("blazerite", Rarity.RARE);
+    public static final RegistryObject<Item> GYULIANITE = registerRareItem("gyulianite", Rarity.RARE);
 
     public static final RegistryObject<Item> HOSOMAKI = registerFood("hosomaki", BLFoods.HOSOMAKI);
     public static final RegistryObject<Item> NIGIRI = registerFood("nigiri", BLFoods.NIGIRI);
@@ -113,6 +115,11 @@ public final class BLItems {
     public static final RegistryObject<Item> AMETHYST_SWORD = registerItem("amethyst_sword", () ->
             new SwordItem(BLTiers.AMETHYST, 3, -2.4F,
                     new Item.Properties().tab(BLTabs.TAB_COMBAT)));
+
+    public static final RegistryObject<Item> BLAZERITE_SWORD = registerItem("blazerite_sword", () ->
+            new PreEnchantedSwordItem(BLTiers.BLAZERITE, 3, -2.4F, Enchantments.FIRE_ASPECT, 10));
+    public static final RegistryObject<Item> GYULIANITE_SWORD = registerItem("gyulianite_sword", () ->
+            new PreEnchantedSwordItem(BLTiers.GYULIANITE, 3, -2.4F, Enchantments.KNOCKBACK, 10));
 
     //#endregion
 
