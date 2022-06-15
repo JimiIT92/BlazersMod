@@ -28,6 +28,7 @@ Changelog
 - Le katana ora hanno gli stessi danni e utilizzi di una spada in ferro, ma sono molto più veloci
 - È possibile ora colorare il manico di una katana con tutti i 16 colori
 - Aggiunto nuovo quadro: Erenblaze
+- Aggiunte le armature per cavallo di Rubino, Zaffiro, Smeraldo, Malachite e Topazio
 
 TO-DO
 
@@ -51,14 +52,6 @@ TO-DO
 -TOOLS
 
 - Carbon Bow
-
--ARMORS
-
-- Ruby Horse Armor
-- Sapphire Horse Armor
-- Emerald Horse Armor
-- Topaz Horse Armor
-- Malachite Horse Armor
 
 -MOBS
 

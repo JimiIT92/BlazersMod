@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
+import org.blazers.item.BLHorseArmorItem;
 import org.blazers.item.PreEnchantedArmorItem;
 import org.blazers.item.PreEnchantedSwordItem;
 import org.blazers.item.SpearItem;
@@ -133,6 +134,12 @@ public final class BLItems {
     public static final RegistryObject<Item> GYULIANITE_CHESTPLATE = registerItem("gyulianite_chestplate", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.CHEST, Enchantments.PROJECTILE_PROTECTION, 4));
     public static final RegistryObject<Item> GYULIANITE_LEGGINGS = registerItem("gyulianite_leggings", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.LEGS, Enchantments.PROJECTILE_PROTECTION, 4));
     public static final RegistryObject<Item> GYULIANITE_BOOTS = registerItem("gyulianite_boots", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.FEET, Enchantments.PROJECTILE_PROTECTION, 4));
+
+    public static final RegistryObject<Item> RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", () -> new BLHorseArmorItem(13, "ruby"));
+    public static final RegistryObject<Item> SAPPHIRE_HORSE_ARMOR = registerItem("sapphire_horse_armor", () -> new BLHorseArmorItem(13, "sapphire"));
+    public static final RegistryObject<Item> EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", () -> new BLHorseArmorItem(13, "emerald"));
+    public static final RegistryObject<Item> TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", () -> new BLHorseArmorItem(8, "topaz"));
+    public static final RegistryObject<Item> MALACHITE_HORSE_ARMOR = registerItem("malachite_horse_armor", () -> new BLHorseArmorItem(8, "malachite"));
 
     //#endregion
 
