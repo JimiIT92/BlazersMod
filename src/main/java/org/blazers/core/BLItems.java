@@ -1,6 +1,10 @@
 package org.blazers.core;
 
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -9,10 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
-import org.blazers.item.BLHorseArmorItem;
-import org.blazers.item.PreEnchantedArmorItem;
-import org.blazers.item.PreEnchantedSwordItem;
-import org.blazers.item.SpearItem;
+import org.blazers.item.*;
 
 import java.util.function.Supplier;
 
@@ -140,6 +141,8 @@ public final class BLItems {
     public static final RegistryObject<Item> EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", () -> new BLHorseArmorItem(13, "emerald"));
     public static final RegistryObject<Item> TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", () -> new BLHorseArmorItem(8, "topaz"));
     public static final RegistryObject<Item> MALACHITE_HORSE_ARMOR = registerItem("malachite_horse_armor", () -> new BLHorseArmorItem(8, "malachite"));
+
+    public static final RegistryObject<Item> CARBON_BOW = registerItem("carbon_bow", CarbonBowItem::new);
 
     //#endregion
 
@@ -333,6 +336,65 @@ public final class BLItems {
      */
     private static RegistryObject<Item> registerItem(String name, Supplier<Item> itemSupplier) {
         return ITEMS.register(name, itemSupplier);
+    }
+
+    /**
+     * Register some custom {@link Item Item} properties
+     */
+    public static void registerItemProperties() {
+        registerSpearProperties(SPEAR);
+        registerSpearProperties(MALACHITE_SPEAR);
+        registerCarbonBowProperties();
+    }
+
+    /**
+     * Register some {@link Item Spear} properties
+     *
+     * @param item {@link RegistryObject<Item> Spear Item}
+     */
+    private static void registerSpearProperties(RegistryObject<Item> item) {
+        ItemProperties.register(item.get(), new ResourceLocation("throwing"), (stack, level, entity, seed) ->
+                entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
+        );
+    }
+
+    /**
+     * Register the {@link #CARBON_BOW Carbon Bow} properties
+     */
+    private static void registerCarbonBowProperties() {
+        ItemProperties.register(CARBON_BOW.get(), new ResourceLocation("pull"), (stack, level, entity, seed) ->
+                entity == null ? 0.0F : entity.getUseItem() != stack ? 0.0F : (float)(stack.getUseDuration() - entity.getUseItemRemainingTicks()) / 2.0F);
+        ItemProperties.register(CARBON_BOW.get(), new ResourceLocation("pulling"), (stack, level, entity, seed) ->
+                entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
+    }
+
+    /**
+     * Get a custom {@link Float FOV} when using a {@link #CARBON_BOW Carbon Bow}
+     *
+     * @param player {@link Player Player instance}
+     * @return {@link #CARBON_BOW Carbon Bow} {@link Float FOV}
+     */
+    public static float getCarbonBowFieldOfView(Player player) {
+        float fov = 1.0F;
+        if (player.getAbilities().flying) {
+            fov *= 1.1F;
+        }
+
+        fov *= ((float)player.getAttributeValue(Attributes.MOVEMENT_SPEED) / player.getAbilities().getWalkingSpeed() + 1.0F) / 2.0F;
+        if (player.getAbilities().getWalkingSpeed() == 0.0F || Float.isNaN(fov) || Float.isInfinite(fov)) {
+            fov = 1.0F;
+        }
+
+        int i = player.getTicksUsingItem();
+        float f1 = (float)i / 5.0F;
+        if (f1 > 1.0F) {
+            f1 = 1.0F;
+        } else {
+            f1 *= f1;
+        }
+
+        fov *= 1.0F - f1 * 0.15F;
+        return fov;
     }
 
     /**

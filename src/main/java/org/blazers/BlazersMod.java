@@ -48,6 +48,7 @@ public final class BlazersMod {
      * @param event {@link FMLClientSetupEvent Client Setup Event}
      */
     private void clientSetup(final FMLClientSetupEvent event) {
+        BLItems.registerItemProperties();
         BLBlocks.registerTransparentBlocks();
     }
 }

@@ -49,10 +49,6 @@ TO-DO
 - Topaz Ore
 - Uranium Nether Ore
 
--TOOLS
-
-- Carbon Bow
-
 -MOBS
 
 - Skeleton Wither Horse
@@ -80,3 +76,7 @@ TO-DO
 -ADVANCEMENTS
 
 - Advancements
+
+FIXES
+
+- Spear Item throwing model
