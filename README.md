@@ -19,7 +19,7 @@ Changelog
 - Il Sashimi si crafta con un singolo salmone crudo (ne ottieni 4)
 - Il Nigiri ora si crafta con 1 Seagrass sopra 1 Salmone crudo (ne ottieni 2)
 - Attrezzi, armi e armature di Rubino, Zaffiro o Smeraldo ora sono a metà tra il diamante e la netherite
-- Gli attrezzi e le armature di Onice ora sono a metà tra il diamante e il ferro
+- Gli attrezzi e le armature di Onice, Topazio e Malachite ora sono a metà tra il diamante e il ferro
 - La spada e armature di Perla o Ametista ora sono a metà tra il ferro e la pietra
 - La spada e armature di Blazerite o Gyulianite ora sono più potenti della Netherite
 - È ora possibile lanciare la Lancia di Malachite (come un tridente)
@@ -35,6 +35,7 @@ TO-DO
 - Atomic TNT
 - Wither Trap
 - Hollow Wood
+- Copper Buttons
 
 -ORES
 
@@ -51,21 +52,13 @@ TO-DO
 - Carbon Bow
 
 -ARMORS
-- Amethist Armor
-- Emerald Armor
-- Emerald Horse Armor
 - Erenblaze Armor
 - Giulyan Armor
-- Malachite Armor
-- Malachite Horse Armor
-- Onice Armor
-- Pearl Armor
-- Ruby Armor
 - Ruby Horse Armor
-- Sapphire Armor
 - Sapphire Horse Armor
-- Topaz Armor
+- Emerald Horse Armor
 - Topaz Horse Armor
+- Malachite Horse Armor
 
 -MOBS
 

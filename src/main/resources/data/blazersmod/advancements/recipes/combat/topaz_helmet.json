@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_flint": {
+    "has_topaz": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:flint"
+              "blazersmod:topaz"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "blazersmod:spear"
+        "recipe": "blazersmod:topaz_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_flint",
+      "has_topaz",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "blazersmod:spear"
+      "blazersmod:topaz_helmet"
     ]
   }
 }

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_flint": {
+    "has_ruby": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:flint"
+              "blazersmod:ruby"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "blazersmod:spear"
+        "recipe": "blazersmod:ruby_leggings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_flint",
+      "has_ruby",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "blazersmod:spear"
+      "blazersmod:ruby_leggings"
     ]
   }
 }

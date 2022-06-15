@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_flint": {
+    "has_pearl": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:flint"
+              "blazersmod:pearl"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "blazersmod:spear"
+        "recipe": "blazersmod:pearl_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_flint",
+      "has_pearl",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "blazersmod:spear"
+      "blazersmod:pearl_chestplate"
     ]
   }
 }

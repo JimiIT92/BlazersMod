@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_flint": {
+    "has_sapphire": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:flint"
+              "blazersmod:sapphire"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "blazersmod:spear"
+        "recipe": "blazersmod:sapphire_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_flint",
+      "has_sapphire",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "blazersmod:spear"
+      "blazersmod:sapphire_helmet"
     ]
   }
 }

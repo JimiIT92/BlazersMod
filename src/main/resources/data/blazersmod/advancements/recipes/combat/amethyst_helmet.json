@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_flint": {
+    "has_amethyst_shard": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:flint"
+              "minecraft:amethyst_shard"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "blazersmod:spear"
+        "recipe": "blazersmod:amethyst_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_flint",
+      "has_amethyst_shard",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "blazersmod:spear"
+      "blazersmod:amethyst_helmet"
     ]
   }
 }
