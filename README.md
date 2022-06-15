@@ -53,8 +53,7 @@ TO-DO
 - Carbon Bow
 
 -ARMORS
-- Erenblaze Armor
-- Giulyan Armor
+
 - Ruby Horse Armor
 - Sapphire Horse Armor
 - Emerald Horse Armor

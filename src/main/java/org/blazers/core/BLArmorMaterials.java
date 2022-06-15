@@ -28,7 +28,7 @@ public enum BLArmorMaterials implements ArmorMaterial {
     PEARL("pearl", 10, new int[]{2, 4, 4, 2}, 12, SoundEvents.BONE_BLOCK_BREAK, 0.0F, 0.0F, () -> Ingredient.of(BLItems.PEARL.get())),
     AMETHYST("amethyst", 10, new int[]{2, 4, 4, 2}, 12, SoundEvents.AMETHYST_BLOCK_CHIME, 0.0F, 0.0F, () -> Ingredient.of(Items.AMETHYST_SHARD)),
     BLAZERITE("blazerite", 39, new int[]{3, 6, 8, 3}, 18, SoundEvents.FIRECHARGE_USE, 4.0F, 0.2F, () -> Ingredient.of(BLItems.BLAZERITE.get())),
-    GYULIANITE("blazerite", 39, new int[]{3, 6, 8, 3}, 18, SoundEvents.NETHERRACK_HIT, 4.0F, 0.2F, () -> Ingredient.of(BLItems.GYULIANITE.get()));
+    GYULIANITE("gyulianite", 39, new int[]{3, 6, 8, 3}, 18, SoundEvents.NETHERRACK_HIT, 4.0F, 0.2F, () -> Ingredient.of(BLItems.GYULIANITE.get()));
 
     //#endregion
 

@@ -9,6 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
+import org.blazers.item.PreEnchantedArmorItem;
 import org.blazers.item.PreEnchantedSwordItem;
 import org.blazers.item.SpearItem;
 
@@ -124,6 +125,14 @@ public final class BLItems {
     public static final RegistryObject<Item> AMETHYST_CHESTPLATE = registerArmorItem("amethyst_chestplate", BLArmorMaterials.AMETHYST, EquipmentSlot.CHEST);
     public static final RegistryObject<Item> AMETHYST_LEGGINGS = registerArmorItem("amethyst_leggings", BLArmorMaterials.AMETHYST, EquipmentSlot.LEGS);
     public static final RegistryObject<Item> AMETHYST_BOOTS = registerArmorItem("amethyst_boots", BLArmorMaterials.AMETHYST, EquipmentSlot.FEET);
+    public static final RegistryObject<Item> BLAZERITE_HELMET = registerItem("blazerite_helmet", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.HEAD, Enchantments.FIRE_PROTECTION, 4));
+    public static final RegistryObject<Item> BLAZERITE_CHESTPLATE = registerItem("blazerite_chestplate", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.CHEST, Enchantments.FIRE_PROTECTION, 4));
+    public static final RegistryObject<Item> BLAZERITE_LEGGINGS = registerItem("blazerite_leggings", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.LEGS, Enchantments.FIRE_PROTECTION, 4));
+    public static final RegistryObject<Item> BLAZERITE_BOOTS = registerItem("blazerite_boots", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.FEET, Enchantments.FIRE_PROTECTION, 4));
+    public static final RegistryObject<Item> GYULIANITE_HELMET = registerItem("gyulianite_helmet", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.HEAD, Enchantments.PROJECTILE_PROTECTION, 4));
+    public static final RegistryObject<Item> GYULIANITE_CHESTPLATE = registerItem("gyulianite_chestplate", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.CHEST, Enchantments.PROJECTILE_PROTECTION, 4));
+    public static final RegistryObject<Item> GYULIANITE_LEGGINGS = registerItem("gyulianite_leggings", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.LEGS, Enchantments.PROJECTILE_PROTECTION, 4));
+    public static final RegistryObject<Item> GYULIANITE_BOOTS = registerItem("gyulianite_boots", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.FEET, Enchantments.PROJECTILE_PROTECTION, 4));
 
     //#endregion
 
