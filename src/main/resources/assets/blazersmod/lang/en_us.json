@@ -124,5 +124,21 @@
   "block.blazersmod.malachite_block": "Block of Malachite",
   "block.blazersmod.onice_block": "Block of Onice",
   "block.blazersmod.uranium_block": "Block of Uranium",
-  "block.blazersmod.raw_uranium_block": "Block of Raw Uranium"
+  "block.blazersmod.raw_uranium_block": "Block of Raw Uranium",
+  "block.blazersmod.hollow_oak_log": "Hollow Oak Wood",
+  "block.blazersmod.hollow_stripped_oak_log": "Hollow Stripped Oak Wood",
+  "block.blazersmod.hollow_spruce_log": "Hollow Spruce Wood",
+  "block.blazersmod.hollow_stripped_spruce_log": "Hollow Stripped Spruce Wood",
+  "block.blazersmod.hollow_birch_log": "Hollow Birch Wood",
+  "block.blazersmod.hollow_stripped_birch_log": "Hollow Stripped Birch Wood",
+  "block.blazersmod.hollow_jungle_log": "Hollow Jungle Wood",
+  "block.blazersmod.hollow_stripped_jungle_log": "Hollow Stripped Jungle Wood",
+  "block.blazersmod.hollow_acacia_log": "Hollow Acacia Wood",
+  "block.blazersmod.hollow_stripped_acacia_log": "Hollow Stripped Acacia Wood",
+  "block.blazersmod.hollow_dark_oak_log": "Hollow Dark Oak Wood",
+  "block.blazersmod.hollow_stripped_dark_oak_log": "Hollow Stripped Dark Oak Wood",
+  "block.blazersmod.hollow_warped_stem": "Hollow Warped Stem",
+  "block.blazersmod.hollow_stripped_warped_stem": "Hollow Stripped Warped Stem",
+  "block.blazersmod.hollow_crimson_stem": "Hollow Crimson Stem",
+  "block.blazersmod.hollow_stripped_crimson_stem": "Hollow Stripped Crimson Stem"
 }

@@ -29,6 +29,7 @@ Changelog
 - È possibile ora colorare il manico di una katana con tutti i 16 colori
 - Aggiunto nuovo quadro: Erenblaze
 - Aggiunte le armature per cavallo di Rubino, Zaffiro, Smeraldo, Malachite e Topazio
+- Aggiunti i legni cavi normali e strippati
 
 TO-DO
 
@@ -36,7 +37,6 @@ TO-DO
 
 - Atomic TNT
 - Wither Trap
-- Hollow Wood
 - Copper Buttons
 
 -ORES
@@ -70,6 +70,7 @@ TO-DO
 -EVENTS
 
 - Wither Trap
+- Hollow Wood on Axe Shift-Right Click
 
 -GUI
 

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "#blazersmod:hollow_oak_logs",
+    "#blazersmod:hollow_spruce_logs",
+    "#blazersmod:hollow_birch_logs",
+    "#blazersmod:hollow_jungle_logs",
+    "#blazersmod:hollow_acacia_logs",
+    "#blazersmod:hollow_dark_oak_logs",
+    "#blazersmod:hollow_warped_stems",
+    "#blazersmod:hollow_crimson_stems"
+  ]
+}

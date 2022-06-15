@@ -3,7 +3,7 @@ package org.blazers;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -37,7 +37,7 @@ public final class BlazersMod {
         BLBlocks.register(eventBus);
         BLPaintings.register(eventBus);
 
-        eventBus.addListener(this::setup);
+        eventBus.addListener(this::clientSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -45,9 +45,9 @@ public final class BlazersMod {
     /**
      * Setup the {@link BlazersMod Blazers Mod}
      *
-     * @param event {@link FMLCommonSetupEvent Common Setup Event}
+     * @param event {@link FMLClientSetupEvent Client Setup Event}
      */
-    private void setup(final FMLCommonSetupEvent event) {
-
+    private void clientSetup(final FMLClientSetupEvent event) {
+        BLBlocks.registerTransparentBlocks();
     }
 }

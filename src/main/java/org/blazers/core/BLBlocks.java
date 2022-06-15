@@ -1,5 +1,7 @@
 package org.blazers.core;
 
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -16,6 +18,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
+import org.blazers.block.HollowBlock;
 
 import java.util.function.Supplier;
 
@@ -57,6 +60,24 @@ public final class BLBlocks {
     public static final RegistryObject<Block> ONICE_BLOCK = registerSimpleBlock("onice_block", createGemBlockProperties(MaterialColor.TERRACOTTA_BLACK));
     public static final RegistryObject<Block> URANIUM_BLOCK = registerSimpleBlock("uranium_block", BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_GREEN).requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER));
     public static final RegistryObject<Block> RAW_URANIUM_BLOCK = registerSimpleBlock("raw_uranium_block", BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(5.0F, 6.0F));
+
+    public static final RegistryObject<Block> HOLLOW_OAK_LOG = registerBlock("hollow_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_OAK_LOG = registerBlock("hollow_stripped_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+
+    public static final RegistryObject<Block> HOLLOW_SPRUCE_LOG = registerBlock("hollow_spruce_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_SPRUCE_LOG = registerBlock("hollow_stripped_spruce_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_BIRCH_LOG = registerBlock("hollow_birch_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.QUARTZ).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_BIRCH_LOG = registerBlock("hollow_stripped_birch_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.SAND).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_JUNGLE_LOG = registerBlock("hollow_jungle_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_JUNGLE_LOG = registerBlock("hollow_stripped_jungle_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.DIRT).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_ACACIA_LOG = registerBlock("hollow_acacia_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.STONE).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_ACACIA_LOG = registerBlock("hollow_stripped_acacia_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_DARK_OAK_LOG = registerBlock("hollow_dark_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_DARK_OAK_LOG = registerBlock("hollow_stripped_dark_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_WARPED_STEM = registerBlock("hollow_warped_stem", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.WARPED_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_WARPED_STEM = registerBlock("hollow_stripped_warped_stem", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.WARPED_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_CRIMSON_STEM = registerBlock("hollow_crimson_stem", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.CRIMSON_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_CRIMSON_STEM = registerBlock("hollow_stripped_crimson_stem", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.CRIMSON_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.TAB_BUILDING_BLOCKS);
 
     //#endregion
 
@@ -171,4 +192,40 @@ public final class BLBlocks {
         BLOCKS.register(eventBus);
     }
 
+    /**
+     * Register the {@link Block Transparent Blocks}
+     */
+    public static void registerTransparentBlocks() {
+        setRenderType(RenderType.cutout(),
+                HOLLOW_OAK_LOG,
+                HOLLOW_STRIPPED_OAK_LOG,
+                HOLLOW_SPRUCE_LOG,
+                HOLLOW_STRIPPED_SPRUCE_LOG,
+                HOLLOW_BIRCH_LOG,
+                HOLLOW_STRIPPED_BIRCH_LOG,
+                HOLLOW_JUNGLE_LOG,
+                HOLLOW_STRIPPED_JUNGLE_LOG,
+                HOLLOW_ACACIA_LOG,
+                HOLLOW_STRIPPED_ACACIA_LOG,
+                HOLLOW_DARK_OAK_LOG,
+                HOLLOW_STRIPPED_DARK_OAK_LOG,
+                HOLLOW_WARPED_STEM,
+                HOLLOW_STRIPPED_WARPED_STEM,
+                HOLLOW_CRIMSON_STEM,
+                HOLLOW_STRIPPED_CRIMSON_STEM
+        );
+    }
+
+    /**
+     * Sets a {@link RenderType Render Type} for some {@link Block Blocks}
+     *
+     * @param renderType {@link RenderType Render Type}
+     * @param blocks {@link Block Blocks}
+     */
+    @SafeVarargs
+    private static void setRenderType(RenderType renderType, RegistryObject<Block>... blocks) {
+        for (RegistryObject<Block> block: blocks) {
+            ItemBlockRenderTypes.setRenderLayer(block.get(), renderType);
+        }
+    }
 }

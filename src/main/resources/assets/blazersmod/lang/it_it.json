@@ -124,5 +124,21 @@
   "block.blazersmod.malachite_block": "Blocco di malachite",
   "block.blazersmod.onice_block": "Blocco d'onice",
   "block.blazersmod.uranium_block": "Blocco di uranio",
-  "block.blazersmod.raw_uranium_block": "Blocco di uranio grezzo"
+  "block.blazersmod.raw_uranium_block": "Blocco di uranio grezzo",
+  "block.blazersmod.hollow_oak_log": "Tronco di quercia cavo",
+  "block.blazersmod.hollow_stripped_oak_log": "Tronco di quercia scortecciato cavo",
+  "block.blazersmod.hollow_spruce_log": "Tronco di abete cavo",
+  "block.blazersmod.hollow_stripped_spruce_log": "Tronco di abete scortecciato cavo",
+  "block.blazersmod.hollow_birch_log": "Tronco di betulla cavo",
+  "block.blazersmod.hollow_stripped_birch_log": "Tronco di betulla scortecciato cavo",
+  "block.blazersmod.hollow_jungle_log": "Tronco della giungla cavo",
+  "block.blazersmod.hollow_stripped_jungle_log": "Tronco della giungla scortecciato cavo",
+  "block.blazersmod.hollow_acacia_log": "Tronco di acacia cavo",
+  "block.blazersmod.hollow_stripped_acacia_log": "Tronco di acacia scortecciato cavo",
+  "block.blazersmod.hollow_dark_oak_log": "Tronco di quercia scura cavo",
+  "block.blazersmod.hollow_stripped_dark_oak_log": "Tronco di quercia scura scortecciato cavo",
+  "block.blazersmod.hollow_warped_stem": "Gambo distorto cavo",
+  "block.blazersmod.hollow_stripped_warped_stem": "Gambo distorto scortecciato cavo",
+  "block.blazersmod.hollow_crimson_stem": "Gambo cremisi cavo",
+  "block.blazersmod.hollow_stripped_crimson_stem": "Gambo cremisi scortecciato cavo"
 }
