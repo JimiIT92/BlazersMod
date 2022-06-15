@@ -42,94 +42,74 @@ public final class BLItems {
     public static final RegistryObject<Item> NIGIRI = registerFood("nigiri", BLFoods.NIGIRI);
     public static final RegistryObject<Item> SASHIMI = registerFood("sashimi", BLFoods.SASHIMI);
 
-    public static final RegistryObject<Item> RUBY_SWORD = registerItem("ruby_sword", () ->
-            new SwordItem(BLTiers.RUBY, 3, -2.4F,
-                    new Item.Properties().tab(BLTabs.TAB_COMBAT)));
-    public static final RegistryObject<Item> RUBY_SHOVEL = registerItem("ruby_shovel", () ->
-            new ShovelItem(BLTiers.RUBY, 1.5F, -3.0F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> RUBY_PICKAXE = registerItem("ruby_pickaxe", () ->
-            new PickaxeItem(BLTiers.RUBY, 1, -2.8F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> RUBY_AXE = registerItem("ruby_axe", () ->
-            new AxeItem(BLTiers.RUBY, 5.0F, -3.0F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> RUBY_HOE = registerItem("ruby_hoe", () ->
-            new HoeItem(BLTiers.RUBY, -3, 0,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> SAPPHIRE_SWORD = registerItem("sapphire_sword", () ->
-            new SwordItem(BLTiers.SAPPHIRE, 3, -2.4F,
-                    new Item.Properties().tab(BLTabs.TAB_COMBAT)));
-    public static final RegistryObject<Item> SAPPHIRE_SHOVEL = registerItem("sapphire_shovel", () ->
-            new ShovelItem(BLTiers.SAPPHIRE, 1.5F, -3.0F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> SAPPHIRE_PICKAXE = registerItem("sapphire_pickaxe", () ->
-            new PickaxeItem(BLTiers.SAPPHIRE, 1, -2.8F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> SAPPHIRE_AXE = registerItem("sapphire_axe", () ->
-            new AxeItem(BLTiers.SAPPHIRE, 5.0F, -3.0F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> SAPPHIRE_HOE = registerItem("sapphire_hoe", () ->
-            new HoeItem(BLTiers.SAPPHIRE, -3, 0,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> EMERALD_SWORD = registerItem("emerald_sword", () ->
-            new SwordItem(BLTiers.EMERALD, 3, -2.4F,
-                    new Item.Properties().tab(BLTabs.TAB_COMBAT)));
-    public static final RegistryObject<Item> EMERALD_SHOVEL = registerItem("emerald_shovel", () ->
-            new ShovelItem(BLTiers.EMERALD, 1.5F, -3.0F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> EMERALD_PICKAXE = registerItem("emerald_pickaxe", () ->
-            new PickaxeItem(BLTiers.EMERALD, 1, -2.8F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> EMERALD_AXE = registerItem("emerald_axe", () ->
-            new AxeItem(BLTiers.EMERALD, 5.0F, -3.0F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> EMERALD_HOE = registerItem("emerald_hoe", () ->
-            new HoeItem(BLTiers.EMERALD, -3, 0,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> ONICE_SHOVEL = registerItem("onice_shovel", () ->
-            new ShovelItem(BLTiers.ONICE, 1.5F, -3.0F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> ONICE_PICKAXE = registerItem("onice_pickaxe", () ->
-            new PickaxeItem(BLTiers.ONICE, 1, -2.8F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> ONICE_AXE = registerItem("onice_axe", () ->
-            new AxeItem(BLTiers.ONICE, 5.5F, -3.0F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
-    public static final RegistryObject<Item> ONICE_HOE = registerItem("onice_hoe", () ->
-            new HoeItem(BLTiers.ONICE, -2, -0.5F,
-                    new Item.Properties().tab(BLTabs.TAB_TOOLS)));
+    public static final RegistryObject<Item> RUBY_SWORD = registerSword("ruby_sword", BLTiers.RUBY);
+    public static final RegistryObject<Item> RUBY_SHOVEL = registerShovel("ruby_shovel", BLTiers.RUBY);
+    public static final RegistryObject<Item> RUBY_PICKAXE = registerPickaxe("ruby_pickaxe", BLTiers.RUBY);
+    public static final RegistryObject<Item> RUBY_AXE = registerAxe("ruby_axe", BLTiers.RUBY);
+    public static final RegistryObject<Item> RUBY_HOE = registerHoe("ruby_hoe", BLTiers.RUBY);
+    public static final RegistryObject<Item> SAPPHIRE_SWORD = registerSword("sapphire_sword", BLTiers.SAPPHIRE);
+    public static final RegistryObject<Item> SAPPHIRE_SHOVEL = registerShovel("sapphire_shovel", BLTiers.SAPPHIRE);
+    public static final RegistryObject<Item> SAPPHIRE_PICKAXE = registerPickaxe("sapphire_pickaxe", BLTiers.SAPPHIRE);
+    public static final RegistryObject<Item> SAPPHIRE_AXE = registerAxe("sapphire_axe", BLTiers.SAPPHIRE);
+    public static final RegistryObject<Item> SAPPHIRE_HOE = registerHoe("sapphire_hoe", BLTiers.SAPPHIRE);
+    public static final RegistryObject<Item> EMERALD_SWORD = registerSword("emerald_sword", BLTiers.EMERALD);
+    public static final RegistryObject<Item> EMERALD_SHOVEL = registerShovel("emerald_shovel", BLTiers.EMERALD);
+    public static final RegistryObject<Item> EMERALD_PICKAXE = registerPickaxe("emerald_pickaxe", BLTiers.EMERALD);
+    public static final RegistryObject<Item> EMERALD_AXE = registerAxe("emerald_axe", BLTiers.EMERALD);
+    public static final RegistryObject<Item> EMERALD_HOE = registerHoe("emerald_hoe", BLTiers.EMERALD);
+    public static final RegistryObject<Item> ONICE_SHOVEL = registerShovel("onice_shovel", BLTiers.ONICE);
+    public static final RegistryObject<Item> ONICE_PICKAXE = registerPickaxe("onice_pickaxe", BLTiers.ONICE);
+    public static final RegistryObject<Item> ONICE_AXE = registerAxe("onice_axe", BLTiers.ONICE, 5.5F, -3.0F);
+    public static final RegistryObject<Item> ONICE_HOE = registerHoe("onice_hoe", BLTiers.ONICE, -2, -0.5F);
     public static final RegistryObject<Item> MALACHITE_SPEAR = registerItem("malachite_spear", () ->
             new SpearItem(BLTiers.MALACHITE, 3, -2.4F));
     public static final RegistryObject<Item> SPEAR = registerItem("spear", () ->
             new SpearItem(BLTiers.FLINT, 1, -2.4F));
-    public static final RegistryObject<Item> ONICE_SICKLE = registerItem("onice_sickle", () ->
-            new SwordItem(BLTiers.ONICE, 3, -2.4F,
-                    new Item.Properties().tab(BLTabs.TAB_COMBAT)));
-    public static final RegistryObject<Item> TOPAZ_HAMMER = registerItem("topaz_hammer", () ->
-            new SwordItem(BLTiers.TOPAZ, 5, -3.0F,
-                    new Item.Properties().tab(BLTabs.TAB_COMBAT)));
-    public static final RegistryObject<Item> PEARL_SWORD = registerItem("pearl_sword", () ->
-            new SwordItem(BLTiers.PEARL, 3, -2.4F,
-                    new Item.Properties().tab(BLTabs.TAB_COMBAT)));
-    public static final RegistryObject<Item> AMETHYST_SWORD = registerItem("amethyst_sword", () ->
-            new SwordItem(BLTiers.AMETHYST, 3, -2.4F,
-                    new Item.Properties().tab(BLTabs.TAB_COMBAT)));
-
+    public static final RegistryObject<Item> ONICE_SICKLE = registerSword("onice_sickle", BLTiers.ONICE);
+    public static final RegistryObject<Item> TOPAZ_HAMMER = registerSword("topaz_hammer", BLTiers.TOPAZ, 5, -3.0F);
+    public static final RegistryObject<Item> PEARL_SWORD = registerSword("pearl_sword", BLTiers.PEARL);
+    public static final RegistryObject<Item> AMETHYST_SWORD = registerSword("amethyst_sword", BLTiers.AMETHYST);
     public static final RegistryObject<Item> BLAZERITE_SWORD = registerItem("blazerite_sword", () ->
-            new PreEnchantedSwordItem(BLTiers.BLAZERITE, 3, -2.4F, Enchantments.FIRE_ASPECT, 10));
+            new PreEnchantedSwordItem(BLTiers.BLAZERITE, Enchantments.FIRE_ASPECT, 10));
     public static final RegistryObject<Item> GYULIANITE_SWORD = registerItem("gyulianite_sword", () ->
-            new PreEnchantedSwordItem(BLTiers.GYULIANITE, 3, -2.4F, Enchantments.KNOCKBACK, 10));
+            new PreEnchantedSwordItem(BLTiers.GYULIANITE, Enchantments.KNOCKBACK, 10));
+    public static final RegistryObject<Item> KATANA = registerKatana("katana");
+    public static final RegistryObject<Item> WHITE_KATANA = registerKatana("white_katana");
+    public static final RegistryObject<Item> ORANGE_KATANA = registerKatana("orange_katana");
+    public static final RegistryObject<Item> MAGENTA_KATANA = registerKatana("magenta_katana");
+    public static final RegistryObject<Item> LIGHT_BLUE_KATANA = registerKatana("light_blue_katana");
+    public static final RegistryObject<Item> YELLOW_KATANA = registerKatana("yellow_katana");
+    public static final RegistryObject<Item> LIME_KATANA = registerKatana("lime_katana");
+    public static final RegistryObject<Item> PINK_KATANA = registerKatana("pink_katana");
+    public static final RegistryObject<Item> GRAY_KATANA = registerKatana("gray_katana");
+    public static final RegistryObject<Item> LIGHT_GRAY_KATANA = registerKatana("light_gray_katana");
+    public static final RegistryObject<Item> CYAN_KATANA = registerKatana("cyan_katana");
+    public static final RegistryObject<Item> PURPLE_KATANA = registerKatana("purple_katana");
+    public static final RegistryObject<Item> BLUE_KATANA = registerKatana("blue_katana");
+    public static final RegistryObject<Item> BROWN_KATANA = registerKatana("brown_katana");
+    public static final RegistryObject<Item> GREEN_KATANA = registerKatana("green_katana");
+    public static final RegistryObject<Item> RED_KATANA = registerKatana("red_katana");
+    public static final RegistryObject<Item> BLACK_KATANA = registerKatana("black_katana");
+
 
     //#endregion
 
     /**
-     * Create a {@link Item Simple Item}
+     * Create a {@link Item.Properties Simple Item Properties}
      *
-     * @return {@link Item Item}
+     * @return {@link Item.Properties Simple Item Properties}
      */
     private static Item.Properties createSimpleItemProperties() {
         return new Item.Properties().tab(BLTabs.TAB_MISC);
+    }
+
+    /**
+     * Create a {@link Item.Properties Tool Item Properties}
+     *
+     * @return {@link Item.Properties Tool Item Properties}
+     */
+    private static Item.Properties createToolItemProperties() {
+        return new Item.Properties().tab(BLTabs.TAB_TOOLS);
     }
 
     /**
@@ -162,6 +142,116 @@ public final class BLItems {
      */
     private static RegistryObject<Item> registerFood(String name, FoodProperties foodProperties) {
         return registerItem(name, () -> new Item(createSimpleItemProperties().food(foodProperties).tab(BLTabs.TAB_FOOD)));
+    }
+
+    /**
+     * Register a {@link ShovelItem Shovel}
+     *
+     * @param name {@link String Item Name}
+     * @param tier {@link Tier Item Tier}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerShovel(String name, Tier tier) {
+        return registerItem(name, () -> new ShovelItem(tier, 1.5F, -3.0F, createToolItemProperties()));
+    }
+
+    /**
+     * Register a {@link PickaxeItem Pickaxe}
+     *
+     * @param name {@link String Item Name}
+     * @param tier {@link Tier Item Tier}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerPickaxe(String name, Tier tier) {
+        return registerItem(name, () -> new PickaxeItem(tier, 1, -2.8F, createToolItemProperties()));
+    }
+
+    /**
+     * Register a {@link AxeItem Axe}
+     *
+     * @param name {@link String Item Name}
+     * @param tier {@link Tier Item Tier}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerAxe(String name, Tier tier) {
+        return registerAxe(name, tier, 5.0F, -3.0F);
+    }
+
+    /**
+     * Register a {@link AxeItem Axe} and apply
+     * some {@link Integer damage modifier} and
+     * {@link Float speed modifier}
+     *
+     * @param name {@link String Item Name}
+     * @param tier {@link Tier Item Tier}
+     * @param attackDamageModifier {@link Float Attack damage modifier}
+     * @param attackSpeedModifier {@link Float Attack speed modifier}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerAxe(String name, Tier tier, float attackDamageModifier, float attackSpeedModifier) {
+        return registerItem(name, () -> new AxeItem(tier, attackDamageModifier, attackSpeedModifier, createToolItemProperties()));
+    }
+
+    /**
+     * Register a {@link HoeItem Hoe}
+     *
+     * @param name {@link String Item Name}
+     * @param tier {@link Tier Item Tier}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerHoe(String name, Tier tier) {
+        return registerHoe(name, tier, -3, 0F);
+    }
+
+    /**
+     * Register a {@link HoeItem Hoe} and apply
+     * some {@link Integer damage modifier} and
+     * {@link Float speed modifier}
+     *
+     * @param name {@link String Item Name}
+     * @param tier {@link Tier Item Tier}
+     * @param attackDamageModifier {@link Integer Attack damage modifier}
+     * @param attackSpeedModifier {@link Float Attack speed modifier}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerHoe(String name, Tier tier, int attackDamageModifier, float attackSpeedModifier) {
+        return registerItem(name, () -> new HoeItem(tier, attackDamageModifier, attackSpeedModifier, createToolItemProperties()));
+    }
+
+    /**
+     * Register a {@link SwordItem Katana}
+     *
+     * @param name {@link String Item Name}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerKatana(String name) {
+        return registerSword(name, BLTiers.CARBON, 3, 0);
+    }
+
+    /**
+     * Register a {@link SwordItem Sword}
+     *
+     * @param name {@link String Item Name}
+     * @param tier {@link Tier Item Tier}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerSword(String name, Tier tier) {
+        return registerSword(name, tier, 3, -2.4F);
+    }
+
+    /**
+     * Register a {@link SwordItem Sword} and apply
+     * some {@link Integer damage modifier} and
+     * {@link Float speed modifier}
+     *
+     * @param name {@link String Item Name}
+     * @param tier {@link Tier Item Tier}
+     * @param attackDamageModifier {@link Integer Attack damage modifier}
+     * @param attackSpeedModifier {@link Float Attack speed modifier}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerSword(String name, Tier tier, int attackDamageModifier, float attackSpeedModifier) {
+        return registerItem(name, () -> new SwordItem(tier, attackDamageModifier, attackSpeedModifier, new Item.Properties().tab(BLTabs.TAB_COMBAT)));
     }
 
     /**

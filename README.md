@@ -2,6 +2,7 @@ Changelog
 
 - Aggiornato il logo della mod
 - Aggiornate le textures
+- Aggiornate le ricette di crafting
 - Migliorata la compatibilità con altre mod tramite l'utilizzo dei Tag (mod/forge/minecraft)
 - Aggiunto l'Uranio Grezzo
 - Aggiunta la Pepita di Uranio
@@ -23,7 +24,9 @@ Changelog
 - La spada e armature di Blazerite o Gyulianite ora sono più potenti della Netherite
 - È ora possibile lanciare la Lancia di Malachite (come un tridente)
 - La spada e armature di Blazerite o Gyulianite ora sono ottenibili combinando la gemma con la spada o l'amratura di Netherite
-- La spada e armature di Blazerite o Gyulianite ora non sono utleriormente incantabili in survival 
+- La spada e armature di Blazerite o Gyulianite ora non sono utleriormente incantabili in survival
+- Le katana ora hanno gli stessi danni e utilizzi di una spada in ferro, ma sono molto più veloci
+- È possibile ora colorare il manico di una katana con tutti i 16 colori
 
 TO-DO
 
@@ -46,7 +49,6 @@ TO-DO
 -TOOLS
 
 - Carbon Bow
-- Katana (base + colored)
 
 -ARMORS
 - Amethist Armor
@@ -74,10 +76,6 @@ TO-DO
 - Thrown Spear
 - Spear Model
 
--TABS
-
-- Combat (Katana)
-
 -WORLD GEN
 
 - Nether Trap
@@ -91,3 +89,8 @@ TO-DO
 
 - Beacon GUI
 - Fletching Table crafting GUI
+- ErenBlaze painting
+
+-ADVANCEMENTS
+
+- Advancements

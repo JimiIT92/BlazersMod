@@ -29,17 +29,15 @@ public class PreEnchantedSwordItem extends SwordItem {
     private final int level;
 
     /**
-     * Constructor. Set the {@link SwordItem Sword} {@link Tier Tier},
-     * {@link Integer damage modifier} and {@link Float speed modifier}
+     * Constructor. Set the {@link SwordItem Sword} {@link Tier Tier}
+     * and {@link Enchantment enchantment}
      *
      * @param tier {@link Tier Item Tier}
-     * @param attackDamageModifier {@link Integer Damage modifier}
-     * @param attackSpeedModifier {@link Float Speed modifier}
      * @param enchantment {@link Enchantment Enchantment to apply}
      * @param level {@link Integer Enchantment level to apply}
      */
-    public PreEnchantedSwordItem(Tier tier, int attackDamageModifier, float attackSpeedModifier, Enchantment enchantment, int level) {
-        super(tier, attackDamageModifier, attackSpeedModifier, new Properties().tab(BLTabs.TAB_COMBAT).rarity(Rarity.EPIC));
+    public PreEnchantedSwordItem(Tier tier, Enchantment enchantment, int level) {
+        super(tier, 3, -2.4F, new Properties().tab(BLTabs.TAB_COMBAT).rarity(Rarity.EPIC));
         this.enchantment = enchantment;
         this.level = level;
     }

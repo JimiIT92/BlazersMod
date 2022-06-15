@@ -29,7 +29,7 @@ public final class BLTabs {
     public static final CreativeModeTab TAB_COMBAT = new CreativeModeTab(BlazersMod.MOD_ID + ".combat") {
         @Override
         public @NotNull ItemStack makeIcon() {
-            return new ItemStack(BLItems.SASHIMI.get());
+            return new ItemStack(BLItems.KATANA.get());
         }
     };
 
