@@ -30,6 +30,12 @@ Changelog
 - Aggiunto nuovo quadro: Erenblaze
 - Aggiunte le armature per cavallo di Rubino, Zaffiro, Smeraldo, Malachite e Topazio
 - Aggiunti i legni cavi normali e strippati
+- Lo zaffiro ora si genera come il diamante nell'overworld, con la stessa rarità
+- Il topazio ora si genera come il diamante nell'overworld, con una rarità inferiore
+- La perla ora si genera solo negli oceani caldi
+- Il rubino ora si genera come il diamante nell'overworld, con la stessa rarità ma nel Nether
+- La malachite e l'onice ora si generano nel nether come il quarzo, con la stessa rarità
+- L'uranio si genera come i detriti antichi, nel Nether, con rarità leggermente inferiore
 
 TO-DO
 
@@ -38,16 +44,6 @@ TO-DO
 - Atomic TNT
 - Wither Trap
 - Copper Buttons
-
--ORES
-
-- Malachite Nether Ore
-- Onice Nether Ore
-- Pearl underwater Ore
-- Ruby Nether Ore
-- Sapphire Ore
-- Topaz Ore
-- Uranium Nether Ore
 
 -MOBS
 

@@ -11,7 +11,7 @@ import org.blazers.core.BLItems;
 /**
  * Event Listener for the {@link Float FOV} related events
  */
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE, modid = BlazersMod.MOD_ID, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = BlazersMod.MOD_ID, value = Dist.CLIENT)
 public final class FOVModifier {
 
     /**
@@ -21,7 +21,7 @@ public final class FOVModifier {
      * @param event {@link FOVModifierEvent FOV Modifier Event}
      */
     @SubscribeEvent
-    public static void changeFov(final FOVModifierEvent event) {
+    public static void onFOVModifier(final FOVModifierEvent event) {
         Player player = event.getEntity();
         if(player.getUseItem().getItem().equals(BLItems.CARBON_BOW.get())) {
             event.setNewfov(BLItems.getCarbonBowFieldOfView(player));
