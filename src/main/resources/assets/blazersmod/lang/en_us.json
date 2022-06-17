@@ -1,5 +1,6 @@
 {
   "itemGroup.blazersmod.building_blocks": "Building Blocks (Blazers Mod)",
+  "itemGroup.blazersmod.redstone": "Redstone (Blazers Mod)",
   "itemGroup.blazersmod.tools": "Tools (Blazers Mod)",
   "itemGroup.blazersmod.combat": "Combat (Blazers Mod)",
   "itemGroup.blazersmod.food": "Foodstuffs (Blazers Mod)",
@@ -141,5 +142,13 @@
   "block.blazersmod.hollow_warped_stem": "Hollow Warped Stem",
   "block.blazersmod.hollow_stripped_warped_stem": "Hollow Stripped Warped Stem",
   "block.blazersmod.hollow_crimson_stem": "Hollow Crimson Stem",
-  "block.blazersmod.hollow_stripped_crimson_stem": "Hollow Stripped Crimson Stem"
+  "block.blazersmod.hollow_stripped_crimson_stem": "Hollow Stripped Crimson Stem",
+  "block.blazersmod.copper_button": "Copper Button",
+  "block.blazersmod.exposed_copper_button": "Exposed Copper Button",
+  "block.blazersmod.weathered_copper_button": "Weathered Copper Button",
+  "block.blazersmod.oxidized_copper_button": "Oxidized Copper Button",
+  "block.blazersmod.waxed_copper_button": "Waxed Copper Button",
+  "block.blazersmod.waxed_exposed_copper_button": "Waxed Exposed Copper Button",
+  "block.blazersmod.waxed_weathered_copper_button": "Waxed Weathered Copper Button",
+  "block.blazersmod.waxed_oxidized_copper_button": "Waxed Oxidized Copper Button"
 }

@@ -1,5 +1,6 @@
 {
   "itemGroup.blazersmod.building_blocks": "Blocchi da costruzione (Blazers Mod)",
+  "itemGroup.blazersmod.redstone": "Pietrarossa (Blazers Mod)",
   "itemGroup.blazersmod.tools": "Attrezzi (Blazers Mod)",
   "itemGroup.blazersmod.combat": "Combattimento (Blazers Mod)",
   "itemGroup.blazersmod.food": "Cibarie (Blazers Mod)",
@@ -141,5 +142,13 @@
   "block.blazersmod.hollow_warped_stem": "Gambo distorto cavo",
   "block.blazersmod.hollow_stripped_warped_stem": "Gambo distorto scortecciato cavo",
   "block.blazersmod.hollow_crimson_stem": "Gambo cremisi cavo",
-  "block.blazersmod.hollow_stripped_crimson_stem": "Gambo cremisi scortecciato cavo"
+  "block.blazersmod.hollow_stripped_crimson_stem": "Gambo cremisi scortecciato cavo",
+  "block.blazersmod.copper_button": "Pulsante di rame",
+  "block.blazersmod.exposed_copper_button": "Pulsante di rame esposto",
+  "block.blazersmod.weathered_copper_button": "Pulsante di rame corroso",
+  "block.blazersmod.oxidized_copper_button": "Pulsante di rame ossidato",
+  "block.blazersmod.waxed_copper_button": "Pulsante di rame cerato",
+  "block.blazersmod.waxed_exposed_copper_button": "Pulsante di rame esposto cerato",
+  "block.blazersmod.waxed_weathered_copper_button": "Pulsante di rame corroso cerato",
+  "block.blazersmod.waxed_oxidized_copper_button": "Pulsante di rame ossidato cerato"
 }

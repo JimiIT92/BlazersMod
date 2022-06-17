@@ -19,6 +19,13 @@ public final class BLTabs {
         }
     };
 
+    public static final CreativeModeTab TAB_REDSTONE = new CreativeModeTab(BlazersMod.MOD_ID + ".redstone") {
+        @Override
+        public @NotNull ItemStack makeIcon() {
+            return new ItemStack(BLBlocks.COPPER_BUTTON.get());
+        }
+    };
+
     public static final CreativeModeTab TAB_TOOLS = new CreativeModeTab(BlazersMod.MOD_ID + ".tools") {
         @Override
         public @NotNull ItemStack makeIcon() {

@@ -16,6 +16,7 @@
     "blazersmod:malachite_block",
     "blazersmod:onice_block",
     "blazersmod:uranium_block",
-    "blazersmod:raw_uranium_block"
+    "blazersmod:raw_uranium_block",
+    "#blazersmod:copper_buttons"
   ]
 }
