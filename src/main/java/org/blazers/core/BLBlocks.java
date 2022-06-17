@@ -192,15 +192,6 @@ public final class BLBlocks {
     }
 
     /**
-     * Register the {@link BlazersMod Blazers Mod} {@link Block Blocks}
-     *
-     * @param eventBus {@link IEventBus Event Bus}
-     */
-    public static void register(IEventBus eventBus) {
-        BLOCKS.register(eventBus);
-    }
-
-    /**
      * Register the {@link Block Transparent Blocks}
      */
     public static void registerTransparentBlocks() {
@@ -235,5 +226,14 @@ public final class BLBlocks {
         for (RegistryObject<Block> block: blocks) {
             ItemBlockRenderTypes.setRenderLayer(block.get(), renderType);
         }
+    }
+
+    /**
+     * Register the {@link BlazersMod Blazers Mod} {@link Block Blocks}
+     *
+     * @param eventBus {@link IEventBus Event Bus}
+     */
+    public static void register(IEventBus eventBus) {
+        BLOCKS.register(eventBus);
     }
 }

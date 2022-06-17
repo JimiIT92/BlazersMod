@@ -4,6 +4,7 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.blazers.BlazersMod;
+import org.blazers.world.feature.gen.BLEntityGeneration;
 import org.blazers.world.feature.gen.BLOreGeneration;
 
 /**
@@ -21,5 +22,6 @@ public final class WorldEvents {
     @SubscribeEvent
     public static void onBiomeLoading(final BiomeLoadingEvent event) {
         BLOreGeneration.generateOres(event);
+        BLEntityGeneration.spawnEntities(event);
     }
 }

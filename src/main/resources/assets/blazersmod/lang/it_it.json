@@ -110,6 +110,7 @@
   "item.blazersmod.topaz_horse_armor": "Bardatura di topazio",
   "item.blazersmod.malachite_horse_armor": "Bardatura di malachite",
   "item.blazersmod.carbon_bow": "Arco di Carbonio",
+  "item.blazersmod.wither_skeleton_horse_spawn_egg": "Uovo generatore di cavallo scheletro wither",
   "block.blazersmod.ruby_ore": "Minerale di rubino",
   "block.blazersmod.sapphire_ore": "Minerale di zaffiro",
   "block.blazersmod.deepslate_sapphire_ore": "Minerale di zaffiro in ardesia profonda",
@@ -150,5 +151,6 @@
   "block.blazersmod.waxed_copper_button": "Pulsante di rame cerato",
   "block.blazersmod.waxed_exposed_copper_button": "Pulsante di rame esposto cerato",
   "block.blazersmod.waxed_weathered_copper_button": "Pulsante di rame corroso cerato",
-  "block.blazersmod.waxed_oxidized_copper_button": "Pulsante di rame ossidato cerato"
+  "block.blazersmod.waxed_oxidized_copper_button": "Pulsante di rame ossidato cerato",
+  "entity.blazersmod.wither_skeleton_horse": "Cavallo scheletro wither"
 }

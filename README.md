@@ -29,25 +29,24 @@ Changelog
 - È possibile ora colorare il manico di una katana con tutti i 16 colori
 - Aggiunto nuovo quadro: Erenblaze
 - Aggiunte le armature per cavallo di Rubino, Zaffiro, Smeraldo, Malachite e Topazio
-- Aggiunti i legni cavi normali e strippati
+- Aggiunti i legni cavi normali e scortecciati
 - Lo zaffiro ora si genera come il diamante nell'overworld, con la stessa rarità
 - Il topazio ora si genera come il diamante nell'overworld, con una rarità inferiore
 - La perla ora si genera solo negli oceani caldi
 - Il rubino ora si genera come il diamante nell'overworld, con la stessa rarità ma nel Nether
 - La malachite e l'onice ora si generano nel nether come il quarzo, con la stessa rarità
 - L'uranio si genera come i detriti antichi, nel Nether, con rarità leggermente inferiore
+- Aggiunti i pulsanti di rame (può essere applicata e tolta la cera come per i blocchi di rame)
+- Rimossa la trappola del Wither. Il wither skeleton horse ora spawna nei biomi del Nether
 
 TO-DO
 
 -BLOCKS
 
 - Atomic TNT
-- Wither Trap
-- Copper Buttons
 
 -MOBS
 
-- Skeleton Wither Horse
 - Fireflies
 - Thrown Malachite Spear
 - Malachite Spear Model 
@@ -56,12 +55,10 @@ TO-DO
 
 -WORLD GEN
 
-- Nether Trap
 - Improved Birch Forest
 
 -EVENTS
 
-- Wither Trap
 - Hollow Wood on Axe Shift-Right Click
 
 -GUI

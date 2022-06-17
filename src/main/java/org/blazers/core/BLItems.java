@@ -2,12 +2,15 @@ package org.blazers.core;
 
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -143,6 +146,8 @@ public final class BLItems {
     public static final RegistryObject<Item> MALACHITE_HORSE_ARMOR = registerItem("malachite_horse_armor", () -> new BLHorseArmorItem(8, "malachite"));
 
     public static final RegistryObject<Item> CARBON_BOW = registerItem("carbon_bow", CarbonBowItem::new);
+
+    public static final RegistryObject<Item> WITHER_SKELETON_HORSE_SPAWN_EGG = registerSpawnEgg("wither_skeleton_horse_spawn_egg", BLEntityTypes.WITHER_SKELETON_HORSE, 4672845, 1315860);
 
     //#endregion
 
@@ -336,6 +341,19 @@ public final class BLItems {
      */
     private static RegistryObject<Item> registerItem(String name, Supplier<Item> itemSupplier) {
         return ITEMS.register(name, itemSupplier);
+    }
+
+    /**
+     * Register a {@link ForgeSpawnEggItem Spawn Egg}
+     *
+     * @param name {@link String Spawn Egg name}
+     * @param entityType {@link EntityType Entity Type}
+     * @param primaryColor {@link Integer Span Egg primary color}
+     * @param secondaryColor {@link Integer Span Egg secondary color}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerSpawnEgg(String name, Supplier<? extends EntityType<? extends Mob>> entityType, int primaryColor, int secondaryColor) {
+        return registerItem(name, () -> new ForgeSpawnEggItem(entityType, primaryColor, secondaryColor, new Item.Properties().tab(BLTabs.TAB_MISC)));
     }
 
     /**
