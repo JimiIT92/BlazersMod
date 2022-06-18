@@ -12,7 +12,7 @@ import org.blazers.core.BLItems;
  * Event Listener for the {@link Float FOV} related events
  */
 @Mod.EventBusSubscriber(modid = BlazersMod.MOD_ID, value = Dist.CLIENT)
-public final class FOVModifier {
+public final class FOVEvents {
 
     /**
      * Change the FOV if the {@link Player Player}

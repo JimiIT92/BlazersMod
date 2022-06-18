@@ -15,6 +15,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
+import org.blazers.block.AtomicTntBlock;
 import org.blazers.block.HollowBlock;
 import org.blazers.block.WaxedCopperButtonBlock;
 import org.blazers.block.WeatheringCopperButtonBlock;
@@ -86,6 +87,8 @@ public final class BLBlocks {
     public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_BUTTON = registerBlock("waxed_weathered_copper_button", WaxedCopperButtonBlock::new, BLTabs.TAB_REDSTONE);
     public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_BUTTON = registerBlock("waxed_exposed_copper_button", WaxedCopperButtonBlock::new, BLTabs.TAB_REDSTONE);
     public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_BUTTON = registerBlock("waxed_oxidized_copper_button", WaxedCopperButtonBlock::new, BLTabs.TAB_REDSTONE);
+
+    public static final RegistryObject<Block> ATOMIC_TNT = registerBlock("atomic_tnt", AtomicTntBlock::new, BLTabs.TAB_REDSTONE);
 
     //#endregion
 

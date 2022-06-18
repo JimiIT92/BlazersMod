@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": [
+      {
+        "tag": "minecraft:sand"
+      }
+    ],
+    "X": {
+      "item": "blazersmod:uranium_ingot"
+    }
+  },
+  "pattern": [
+    "X#X",
+    "#X#",
+    "X#X"
+  ],
+  "result": {
+    "item": "blazersmod:atomic_tnt"
+  }
+}

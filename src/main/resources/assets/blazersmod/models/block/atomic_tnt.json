@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "blazersmod:block/atomic_tnt_bottom",
+    "side": "blazersmod:block/atomic_tnt_side",
+    "top": "blazersmod:block/atomic_tnt_top"
+  }
+}

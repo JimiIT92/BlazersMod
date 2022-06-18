@@ -29,7 +29,7 @@ Changelog
 - È possibile ora colorare il manico di una katana con tutti i 16 colori
 - Aggiunto nuovo quadro: Erenblaze
 - Aggiunte le armature per cavallo di Rubino, Zaffiro, Smeraldo, Malachite e Topazio
-- Aggiunti i legni cavi normali e scortecciati
+- Aggiunti i legni cavi normali e scortecciati. Ottenibili cliccando col tasto destro mentre si è shiftati un blocco di legno normale o scortecciato
 - Lo zaffiro ora si genera come il diamante nell'overworld, con la stessa rarità
 - Il topazio ora si genera come il diamante nell'overworld, con una rarità inferiore
 - La perla ora si genera solo negli oceani caldi
@@ -40,10 +40,6 @@ Changelog
 - Rimossa la trappola del Wither. Il wither skeleton horse ora spawna nei biomi del Nether
 
 TO-DO
-
--BLOCKS
-
-- Atomic TNT
 
 -MOBS
 
@@ -56,10 +52,6 @@ TO-DO
 -WORLD GEN
 
 - Improved Birch Forest
-
--EVENTS
-
-- Hollow Wood on Axe Shift-Right Click
 
 -GUI
 
