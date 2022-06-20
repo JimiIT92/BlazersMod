@@ -19,8 +19,12 @@ public final class BLEntityGeneration {
      * @param event {@link BiomeLoadingEvent Biome Loading Event}
      */
     public static void spawnEntities(final BiomeLoadingEvent event) {
-        if(Biome.BiomeCategory.NETHER.equals(event.getCategory())) {
+        Biome.BiomeCategory category = event.getCategory();
+
+        if(Biome.BiomeCategory.NETHER.equals(category)) {
             addEntityToBiomeSpawns(event, BLEntityTypes.WITHER_SKELETON_HORSE.get(), 20, 2, 4);
+        } else if(Biome.BiomeCategory.SWAMP.equals(category)) {
+            addEntityToBiomeSpawns(event, BLEntityTypes.FIREFLY.get(), 100, 15, 30);
         }
     }
 

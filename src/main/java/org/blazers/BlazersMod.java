@@ -15,6 +15,7 @@ import org.blazers.core.BLBlocks;
 import org.blazers.core.BLEntityTypes;
 import org.blazers.core.BLItems;
 import org.blazers.core.BLPaintings;
+import org.blazers.entity.Firefly;
 import org.blazers.entity.WitherSkeletonHorse;
 
 /**
@@ -68,10 +69,16 @@ public final class BlazersMod {
      * @param event {@link FMLCommonSetupEvent FML Common Setup Event}
      */
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> SpawnPlacements.register(BLEntityTypes.WITHER_SKELETON_HORSE.get(),
-                SpawnPlacements.Type.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                WitherSkeletonHorse::checkWitherSkeletonHorseSpawnRules));
+        event.enqueueWork(() -> {
+            SpawnPlacements.register(BLEntityTypes.WITHER_SKELETON_HORSE.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    WitherSkeletonHorse::checkWitherSkeletonHorseSpawnRules);
+            SpawnPlacements.register(BLEntityTypes.FIREFLY.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Firefly::checkFireflySpawnRules);
+        });
     }
 
     /**
@@ -81,5 +88,6 @@ public final class BlazersMod {
      */
     private void entityAttributeSetup(final EntityAttributeCreationEvent event) {
         event.put(BLEntityTypes.WITHER_SKELETON_HORSE.get(), WitherSkeletonHorse.createAttributes().build());
+        event.put(BLEntityTypes.FIREFLY.get(), Firefly.createAttributes().build());
     }
 }

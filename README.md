@@ -38,12 +38,12 @@ Changelog
 - L'uranio si genera come i detriti antichi, nel Nether, con rarità leggermente inferiore
 - Aggiunti i pulsanti di rame (può essere applicata e tolta la cera come per i blocchi di rame)
 - Rimossa la trappola del Wither. Il wither skeleton horse ora spawna nei biomi del Nether
+- Aggiunte le Lucciole. Spawnano nelle paludi
 
 TO-DO
 
 -MOBS
 
-- Fireflies
 - Thrown Malachite Spear
 - Malachite Spear Model 
 - Thrown Spear

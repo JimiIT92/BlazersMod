@@ -111,6 +111,7 @@
   "item.blazersmod.malachite_horse_armor": "Malachite Horse Armor",
   "item.blazersmod.carbon_bow": "Carbon Bow",
   "item.blazersmod.wither_skeleton_horse_spawn_egg": "Wither Skeleton Horse Spawn Egg",
+  "item.blazersmod.firefly_spawn_egg": "Firefly Spawn Egg",
   "block.blazersmod.ruby_ore": "Ruby Ore",
   "block.blazersmod.sapphire_ore": "Sapphire Ore",
   "block.blazersmod.deepslate_sapphire_ore": "Deesplate Sapphire Ore",
@@ -153,5 +154,6 @@
   "block.blazersmod.waxed_weathered_copper_button": "Waxed Weathered Copper Button",
   "block.blazersmod.waxed_oxidized_copper_button": "Waxed Oxidized Copper Button",
   "block.blazersmod.atomic_tnt": "Atomic TNT",
-  "entity.blazersmod.wither_skeleton_horse": "Wither Skeleton Horse"
+  "entity.blazersmod.wither_skeleton_horse": "Wither Skeleton Horse",
+  "entity.blazersmod.firefly": "Firefly"
 }

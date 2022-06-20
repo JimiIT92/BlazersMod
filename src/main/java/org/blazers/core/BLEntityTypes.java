@@ -9,9 +9,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
+import org.blazers.entity.Firefly;
 import org.blazers.entity.PrimedAtomicTnt;
 import org.blazers.entity.WitherSkeletonHorse;
 import org.blazers.entity.client.AtomicTntRenderer;
+import org.blazers.entity.client.FireflyRenderer;
 import org.blazers.entity.client.WitherSkeletonHorseRenderer;
 
 /**
@@ -31,6 +33,11 @@ public final class BLEntityTypes {
                     .sized(1.3964844F, 1.6F).clientTrackingRange(10)
                     .build(new ResourceLocation(BlazersMod.MOD_ID, "wither_skeleton_horse").toString()));
 
+    public static final RegistryObject<EntityType<Firefly>> FIREFLY = ENTITY_TYPES.register("firefly",
+            () -> EntityType.Builder.of(Firefly::new, MobCategory.AMBIENT)
+                    .sized(0.2F, 0.2F).clientTrackingRange(10)
+                    .build(new ResourceLocation(BlazersMod.MOD_ID, "firefly").toString()));
+
     public static final RegistryObject<EntityType<PrimedAtomicTnt>> PRIMED_ATOMIC_TNT = ENTITY_TYPES.register("primed_atomic_tnt",
             () -> EntityType.Builder.of(PrimedAtomicTnt::new, MobCategory.MISC)
                     .fireImmune().sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(10)
@@ -43,6 +50,7 @@ public final class BLEntityTypes {
      */
     public static void registerRenderers() {
         EntityRenderers.register(WITHER_SKELETON_HORSE.get(), WitherSkeletonHorseRenderer::new);
+        EntityRenderers.register(FIREFLY.get(), FireflyRenderer::new);
         EntityRenderers.register(PRIMED_ATOMIC_TNT.get(), AtomicTntRenderer::new);
     }
 
