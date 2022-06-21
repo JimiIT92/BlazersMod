@@ -154,6 +154,8 @@
   "block.blazersmod.waxed_weathered_copper_button": "Pulsante di rame corroso cerato",
   "block.blazersmod.waxed_oxidized_copper_button": "Pulsante di rame ossidato cerato",
   "block.blazersmod.atomic_tnt": "TNT atomica",
+  "block.blazersmod.brown_mushroom_wall_fan": "Fungo marrone",
+  "block.blazersmod.red_mushroom_wall_fan": "Fungo rosso",
   "entity.blazersmod.wither_skeleton_horse": "Cavallo scheletro wither",
   "entity.blazersmod.firefly": "Lucciola"
 }

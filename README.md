@@ -39,8 +39,13 @@ Changelog
 - Aggiunti i pulsanti di rame (può essere applicata e tolta la cera come per i blocchi di rame)
 - Rimossa la trappola del Wither. Il wither skeleton horse ora spawna nei biomi del Nether
 - Aggiunte le Lucciole. Spawnano nelle paludi
+- È ora possibile piazzare i funghi sui lati di un blocco. Per riottenere un fungo da essi bisognerà usare una zappa con silk touch
 
 TO-DO
+
+-BLOCKS
+
+- Cattails (Tife)
 
 -MOBS
 

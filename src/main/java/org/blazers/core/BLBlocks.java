@@ -90,6 +90,11 @@ public final class BLBlocks {
 
     public static final RegistryObject<Block> ATOMIC_TNT = registerBlock("atomic_tnt", AtomicTntBlock::new, BLTabs.TAB_REDSTONE);
 
+    public static final RegistryObject<Block> BROWN_MUSHROOM_WALL_FAN = registerWithoutBlockItem("brown_mushroom_wall_fan",
+            () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_BROWN).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().dropsLike(Blocks.BROWN_MUSHROOM)));
+    public static final RegistryObject<Block> RED_MUSHROOM_WALL_FAN = registerWithoutBlockItem("red_mushroom_wall_fan",
+            () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_RED).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().dropsLike(Blocks.RED_MUSHROOM)));
+
     //#endregion
 
     /**
@@ -177,9 +182,22 @@ public final class BLBlocks {
      * @return {@link RegistryObject<Item> Registered Block}
      */
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> blockSupplier, CreativeModeTab tab) {
-        RegistryObject<T> block = BLOCKS.register(name, blockSupplier);
+        RegistryObject<T> block = registerWithoutBlockItem(name, blockSupplier);
         registerBlockItem(name, block, tab);
         return block;
+    }
+
+    /**
+     * Register a {@link Block Block}
+     * without register a {@link BlockItem Block Item}
+     *
+     * @param name {@link String Block Name}
+     * @param blockSupplier {@link Supplier<Block> Block Supplier}
+     * @param <T> Block Type
+     * @return {@link RegistryObject<Item> Registered Block}
+     */
+    private static <T extends Block> RegistryObject<T> registerWithoutBlockItem(String name, Supplier<T> blockSupplier) {
+        return BLOCKS.register(name, blockSupplier);
     }
 
     /**
@@ -214,7 +232,9 @@ public final class BLBlocks {
                 HOLLOW_WARPED_STEM,
                 HOLLOW_STRIPPED_WARPED_STEM,
                 HOLLOW_CRIMSON_STEM,
-                HOLLOW_STRIPPED_CRIMSON_STEM
+                HOLLOW_STRIPPED_CRIMSON_STEM,
+                BROWN_MUSHROOM_WALL_FAN,
+                RED_MUSHROOM_WALL_FAN
         );
     }
 

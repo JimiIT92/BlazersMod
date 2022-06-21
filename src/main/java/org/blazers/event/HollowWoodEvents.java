@@ -29,7 +29,7 @@ public final class HollowWoodEvents {
      * @param event {@link PlayerInteractEvent.RightClickBlock Right Click Block Event}
      */
     @SubscribeEvent
-    public static void onFOVModifier(final PlayerInteractEvent.RightClickBlock event) {
+    public static void onRightClickBlock(final PlayerInteractEvent.RightClickBlock event) {
         Player player = event.getPlayer();
         ItemStack stack = event.getItemStack();
         if(player.isShiftKeyDown() && stack.getItem() instanceof AxeItem) {

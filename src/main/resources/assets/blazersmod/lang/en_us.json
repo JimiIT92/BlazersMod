@@ -154,6 +154,8 @@
   "block.blazersmod.waxed_weathered_copper_button": "Waxed Weathered Copper Button",
   "block.blazersmod.waxed_oxidized_copper_button": "Waxed Oxidized Copper Button",
   "block.blazersmod.atomic_tnt": "Atomic TNT",
+  "block.blazersmod.brown_mushroom_wall_fan": "Brown Mushroom Fan",
+  "block.blazersmod.red_mushroom_wall_fan": "Red Mushroom Fan",
   "entity.blazersmod.wither_skeleton_horse": "Wither Skeleton Horse",
   "entity.blazersmod.firefly": "Firefly"
 }

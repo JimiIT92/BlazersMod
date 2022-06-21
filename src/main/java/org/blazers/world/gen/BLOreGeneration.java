@@ -1,4 +1,4 @@
-package org.blazers.world.feature.gen;
+package org.blazers.world.gen;
 
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;

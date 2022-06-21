@@ -1,4 +1,4 @@
-package org.blazers.world.feature.gen;
+package org.blazers.world.gen;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
@@ -24,7 +24,7 @@ public final class BLEntityGeneration {
         if(Biome.BiomeCategory.NETHER.equals(category)) {
             addEntityToBiomeSpawns(event, BLEntityTypes.WITHER_SKELETON_HORSE.get(), 20, 2, 4);
         } else if(Biome.BiomeCategory.SWAMP.equals(category)) {
-            addEntityToBiomeSpawns(event, BLEntityTypes.FIREFLY.get(), 100, 15, 30);
+            addEntityToBiomeSpawns(event, BLEntityTypes.FIREFLY.get(), 20, 5, 6);
         }
     }
 

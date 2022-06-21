@@ -4,8 +4,8 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.blazers.BlazersMod;
-import org.blazers.world.feature.gen.BLEntityGeneration;
-import org.blazers.world.feature.gen.BLOreGeneration;
+import org.blazers.world.gen.BLEntityGeneration;
+import org.blazers.world.gen.BLOreGeneration;
 
 /**
  * Event Listener for the {@link net.minecraft.world.level.Level World} related events

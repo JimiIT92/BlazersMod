@@ -1,0 +1,6 @@
+{
+  "parent": "blazersmod:block/mushroom_wall_fan",
+  "textures": {
+    "fan": "blazersmod:block/red_mushroom_fan"
+  }
+}
