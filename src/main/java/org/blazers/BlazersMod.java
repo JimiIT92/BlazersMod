@@ -1,6 +1,8 @@
 package org.blazers;
 
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -79,6 +81,7 @@ public final class BlazersMod {
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Firefly::checkFireflySpawnRules);
         });
+        event.enqueueWork(() -> ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BLBlocks.CATTAIL.getId(), BLBlocks.POTTED_CATTAIL));
     }
 
     /**

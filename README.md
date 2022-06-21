@@ -40,12 +40,9 @@ Changelog
 - Rimossa la trappola del Wither. Il wither skeleton horse ora spawna nei biomi del Nether
 - Aggiunte le Lucciole. Spawnano nelle paludi
 - È ora possibile piazzare i funghi sui lati di un blocco. Per riottenere un fungo da essi bisognerà usare una zappa con silk touch
+- Aggiunte le Tife. Possono spawnare nelle Paludi. È possibile piazzarle in acqua (completamente o solo la metà inferiore) su terra, sabbia, sabbia rossa e ghiaia. È possibile raccoglierla con le cesoie. È possibile piantarla in un vaso
 
 TO-DO
-
--BLOCKS
-
-- Cattails (Tife)
 
 -MOBS
 

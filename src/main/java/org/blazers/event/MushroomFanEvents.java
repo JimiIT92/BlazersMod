@@ -9,6 +9,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseCoralWallFanBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -42,8 +43,9 @@ public final class MushroomFanEvents {
             Player player = event.getPlayer();
             Block block = (stack.is(Items.RED_MUSHROOM) ? BLBlocks.RED_MUSHROOM_WALL_FAN : BLBlocks.BROWN_MUSHROOM_WALL_FAN).get();
             player.playSound(SoundEvents.GRASS_PLACE, 1.0F, 1.0F);
-            world.setBlockAndUpdate(pos.offset(face.getNormal()), block.defaultBlockState()
-                            .setValue(WATERLOGGED, false)
+            BlockPos placePos = pos.offset(face.getNormal());
+            world.setBlockAndUpdate(placePos, block.defaultBlockState()
+                            .setValue(WATERLOGGED, world.getFluidState(placePos).is(Fluids.WATER))
                             .setValue(FACING, face)
             );
             if(!player.isCreative()) {

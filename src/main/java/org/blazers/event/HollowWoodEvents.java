@@ -8,12 +8,15 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.blazers.BlazersMod;
 import org.blazers.core.BLBlocks;
+
+import static org.blazers.block.HollowBlock.WATERLOGGED;
 
 /**
  * Event Listener for the {@link org.blazers.block.HollowBlock Hollow Wood Block} related events
@@ -71,12 +74,26 @@ public final class HollowWoodEvents {
                 block = BLBlocks.HOLLOW_STRIPPED_CRIMSON_STEM.get();
             }
             if(!Blocks.AIR.equals(block)) {
-                world.setBlockAndUpdate(pos, block.withPropertiesOf(state));
+                world.setBlockAndUpdate(pos, block.withPropertiesOf(state).setValue(WATERLOGGED, isUnderwater(world, pos)));
                 if(!player.isCreative()) {
                     stack.shrink(1);
                 }
                 event.setUseItem(Event.Result.DENY);
             }
         }
+    }
+
+    /**
+     * Check if the {@link Block Block} is underwater
+     *
+     * @param world {@link Level World reference}
+     * @param pos {@link BlockPos Block Pos}
+     * @return {@link Boolean True} if the {@link Block Block} is underwater
+     */
+    private static boolean isUnderwater(Level world, BlockPos pos) {
+        return world.getFluidState(pos).is(Fluids.WATER) || world.getFluidState(pos.above()).is(Fluids.WATER)
+                || world.getFluidState(pos.below()).is(Fluids.WATER) || world.getFluidState(pos.north()).is(Fluids.WATER)
+                || world.getFluidState(pos.south()).is(Fluids.WATER) || world.getFluidState(pos.east()).is(Fluids.WATER)
+                || world.getFluidState(pos.west()).is(Fluids.WATER);
     }
 }
