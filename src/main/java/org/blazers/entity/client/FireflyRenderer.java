@@ -1,6 +1,5 @@
 package org.blazers.entity.client;
 
-import net.minecraft.client.renderer.entity.AbstractHorseRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.core.BlockPos;
@@ -19,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 public class FireflyRenderer extends MobRenderer<Firefly, FireflyModel> {
 
     /**
-     * Constructor. Sets the {@link AbstractHorseRenderer Renderer properties}
+     * Constructor. Sets the {@link MobRenderer Renderer properties}
      *
      * @param context {@link EntityRendererProvider.Context Renderer Context}
      */

@@ -38,18 +38,16 @@ Changelog
 - L'uranio si genera come i detriti antichi, nel Nether, con rarità leggermente inferiore
 - Aggiunti i pulsanti di rame (può essere applicata e tolta la cera come per i blocchi di rame)
 - Rimossa la trappola del Wither. Il wither skeleton horse ora spawna nei biomi del Nether
-- Aggiunte le Lucciole. Spawnano nelle paludi
+- Aggiunte le Lucciole. Spawnano nelle paludi. Non droppano nulla (neanche XP)
 - È ora possibile piazzare i funghi sui lati di un blocco. Per riottenere un fungo da essi bisognerà usare una zappa con silk touch
 - Aggiunte le Tife. Possono spawnare nelle Paludi. È possibile piazzarle in acqua (completamente o solo la metà inferiore) su terra, sabbia, sabbia rossa e ghiaia. È possibile raccoglierla con le cesoie. È possibile piantarla in un vaso
+- La TNT di Uranio ora impiega il doppio del tempo rispetto a una TNT normale per esplodere
 
 TO-DO
 
--MOBS
+-BLOCKS
 
-- Thrown Malachite Spear
-- Malachite Spear Model 
-- Thrown Spear
-- Spear Model
+- Stonecutter variants
 
 -WORLD GEN
 
@@ -64,6 +62,10 @@ TO-DO
 
 - Advancements
 
-FIXES
+-FIXES
 
-- Spear Item throwing model
+- Spear Item throwing model in inventory
+
+-VERSIONS
+
+- Upgrade to 1.19/1.19.1

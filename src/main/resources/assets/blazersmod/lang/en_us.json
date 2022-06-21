@@ -160,5 +160,8 @@
   "block.blazersmod.cattail": "Cattail",
   "block.blazersmod.potted_cattail": "Potted Cattail",
   "entity.blazersmod.wither_skeleton_horse": "Wither Skeleton Horse",
-  "entity.blazersmod.firefly": "Firefly"
+  "entity.blazersmod.firefly": "Firefly",
+  "entity.blazersmod.spear": "Spear",
+  "death.attack.spear": "%1$s was impaled by %2$s",
+  "death.attack.spear.item": "%1$s was impaled by %2$s with %3$s"
 }

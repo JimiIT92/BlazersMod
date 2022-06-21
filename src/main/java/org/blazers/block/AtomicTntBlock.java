@@ -77,6 +77,6 @@ public class AtomicTntBlock extends TntBlock implements IForgeBlock {
      * @return {@link PrimedAtomicTnt Primed Atomic TNT Entity}
      */
     private PrimedAtomicTnt getPrimedAtomicTnt(Level level, BlockPos pos, @Nullable LivingEntity igniter) {
-        return PrimedAtomicTnt.from(level, (double)pos.getX() + 0.5D, pos.getY(), (double)pos.getZ() + 0.5D, igniter);
+        return new PrimedAtomicTnt(level, (double)pos.getX() + 0.5D, pos.getY(), (double)pos.getZ() + 0.5D, igniter);
     }
 }

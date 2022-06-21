@@ -3,8 +3,6 @@ package org.blazers.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
@@ -53,9 +51,19 @@ public class Firefly extends Animal {
      * @return {@link AttributeSupplier.Builder Firefly Attributes}
      */
     public static AttributeSupplier.@NotNull Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 6.0D)
-                .add(Attributes.FLYING_SPEED, 0.4F)
-                .add(Attributes.MOVEMENT_SPEED, 0.2F);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 0.5D)
+                .add(Attributes.FLYING_SPEED, 0.1F)
+                .add(Attributes.MOVEMENT_SPEED, 0.1F);
+    }
+
+    /**
+     * Check if the {@link Firefly Firefly} should drop experience when it dies
+     *
+     * @return {@link Boolean True} if the {@link Firefly Firefly} should drop experience when it dies
+     */
+    @Override
+    protected boolean shouldDropExperience() {
+        return false;
     }
 
     /**
@@ -67,36 +75,17 @@ public class Firefly extends Animal {
      */
     @Override
     protected float getStandingEyeHeight(@NotNull Pose pose, EntityDimensions size) {
-        return size.height/ 2.0F;
+        return size.height / 2.0F;
     }
 
     /**
-     * Get the {@link SoundEvent Firefly Hurt Sound}
+     * Check if the {@link Firefly Firefly} is silent
      *
-     * @param damageSource {@link DamageSource Damage Source}
-     * @return {@link SoundEvent Firefly Hurt Sound}
+     * @return {@link Boolean True} if the {@link Firefly Firefly} is silent
      */
-    protected SoundEvent getHurtSound(@NotNull DamageSource damageSource) {
-        return SoundEvents.PARROT_HURT;
-    }
-
-    /**
-     * Get the {@link SoundEvent Firefly Death Sound}
-     *
-     * @return {@link SoundEvent Firefly Death Sound}
-     */
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.PARROT_DEATH;
-    }
-
-    /**
-     * Get the {@link SoundEvent Firefly Step Sound}
-     *
-     * @param pos {@link BlockPos Block Pos}
-     * @param state {@link BlockState Block State}
-     */
-    protected void playStepSound(@NotNull BlockPos pos, @NotNull BlockState state) {
-        this.playSound(SoundEvents.PARROT_STEP, 0.15F, 1.0F);
+    @Override
+    public boolean isSilent() {
+        return true;
     }
 
     /**
@@ -184,7 +173,9 @@ public class Firefly extends Animal {
     @Override
     public void tick() {
         super.tick();
-        this.setDeltaMovement(this.getDeltaMovement().multiply(0.5D, 0.3D, 0.5D));
+        if(random.nextInt(5) == 0) {
+            this.setDeltaMovement(this.getDeltaMovement().multiply(0.5D, 0.3D, 0.5D));
+        }
     }
 
     /**
@@ -197,7 +188,7 @@ public class Firefly extends Animal {
             this.targetPosition = null;
         }
 
-        if (this.targetPosition == null || this.random.nextInt(30) == 0 || this.targetPosition.closerToCenterThan(this.position(), 2.0D)) {
+        if (this.targetPosition == null || this.random.nextInt(10) == 0 || this.targetPosition.closerToCenterThan(this.position(), 2.0D)) {
             this.targetPosition = new BlockPos(this.getX() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7), this.getY() + (double)this.random.nextInt(6) - 2.0D, this.getZ() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7));
         }
 

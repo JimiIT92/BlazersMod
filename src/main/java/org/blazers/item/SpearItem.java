@@ -1,16 +1,17 @@
 package org.blazers.item;
 
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import org.blazers.core.BLTabs;
-import org.blazers.core.BLTiers;
+import org.blazers.entity.ThrownSpear;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -47,55 +48,40 @@ public class SpearItem extends SwordItem implements Vanishable {
      * @return {@link Integer Use duration}
      */
     public int getUseDuration(@NotNull ItemStack itemStack) {
-        return 72000;
+        return 36000;
     }
 
     /**
      * Throw the {@link Item Spear} when an {@link LivingEntity entity} stops using it
      *
-     * @param itemStack {@link ItemStack Item Stack}
+     * @param stack {@link ItemStack Item Stack}
      * @param level {@link Level World reference}
      * @param livingEntity {@link LivingEntity The entity} that is using the {@link Item Spear}
      * @param timeLeft {@link Integer Use duration} left
      */
-    public void releaseUsing(@NotNull ItemStack itemStack, @NotNull Level level, @NotNull LivingEntity livingEntity, int timeLeft) {
+    public void releaseUsing(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity livingEntity, int timeLeft) {
         if (livingEntity instanceof Player player) {
-            int i = this.getUseDuration(itemStack) - timeLeft;
+            int i = this.getUseDuration(stack) - timeLeft;
             if (i >= 10) {
                 if (!level.isClientSide) {
-                    itemStack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(livingEntity.getUsedItemHand()));
+                    stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(livingEntity.getUsedItemHand()));
 
-//                    ThrownTrident thrownSpear = getThrownEntity(pLevel, pStack, player);
-//                    thrownSpear.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
-//                    if (player.getAbilities().instabuild) {
-//                        thrownSpear.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
-//                    }
-//
-//                    pLevel.addFreshEntity(thrownSpear);
-//                    pLevel.playSound(null, thrownSpear, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    ThrownSpear thrownSpear = new ThrownSpear(level, player, stack);
+                    thrownSpear.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+                    if (player.getAbilities().instabuild) {
+                        thrownSpear.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+                    }
+
+                    level.addFreshEntity(thrownSpear);
+                    level.playSound(null, thrownSpear, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
                     if (!player.getAbilities().instabuild) {
-                        player.getInventory().removeItem(itemStack);
+                        player.getInventory().removeItem(stack);
                     }
                 }
 
                 player.awardStat(Stats.ITEM_USED.get(this));
             }
         }
-    }
-
-    /**
-     * Get the {@link AbstractArrow thrown entity} based on the {@link Tier Spear Tier}
-     *
-     * @param level {@link Level World reference}
-     * @param itemStack {@link ItemStack Item Stack}
-     * @param player {@link Player The Player} throwing the {@link Item Spear}
-     * @return {@link AbstractArrow Thrown Spear Entity}
-     */
-    public AbstractArrow getThrownEntity(Level level, ItemStack itemStack, Player player) {
-        if (BLTiers.MALACHITE.equals(this.getTier())) {
-            return new ThrownTrident(level, player, itemStack);
-        }
-        return new ThrownTrident(level, player, itemStack);
     }
 
     /**

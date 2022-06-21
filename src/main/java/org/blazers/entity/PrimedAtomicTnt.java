@@ -30,21 +30,35 @@ public class PrimedAtomicTnt extends PrimedTnt {
         super(type, level);
     }
 
+
+    /**
+     * {@link LivingEntity Living Entity} Constructor.
+     * Sets the {@link PrimedTnt Primed Atomic TNT} properties and position
+     *
+     * @param level {@link Level World reference}
+     * @param posX {@link Double X coordinate}
+     * @param posY {@link Double Y coordinate}
+     * @param posZ {@link Double Z coordinate}
+     * @param igniter {@link LivingEntity Igniter}
+     */
+    public PrimedAtomicTnt(Level level, double posX, double posY, double posZ, @Nullable LivingEntity igniter) {
+        this(BLEntityTypes.PRIMED_ATOMIC_TNT.get(), level);
+        this.setPos(posX, posY, posZ);
+        double d0 = level.random.nextDouble() * (double)((float)Math.PI * 2F);
+        this.setDeltaMovement(-Math.sin(d0) * 0.02D, 0.2F, -Math.cos(d0) * 0.02D);
+        this.setFuse(160);
+        this.xo = posX;
+        this.yo = posY;
+        this.zo = posZ;
+        this.owner = igniter;
+    }
+
     /**
      * Creates an {@link Explosion Explosion}
      */
     @Override
     protected void explode() {
         this.level.explode(this, this.getX(), this.getY(0.0625D), this.getZ(), 32.0F, Explosion.BlockInteraction.BREAK);
-    }
-
-    /**
-     * Sets the {@link LivingEntity Igniter}
-     *
-     * @param owner {@link LivingEntity Igniter}
-     */
-    public void setOwner(@Nullable LivingEntity owner) {
-        this.owner = owner;
     }
 
     /**
@@ -55,28 +69,5 @@ public class PrimedAtomicTnt extends PrimedTnt {
     @Nullable
     public LivingEntity getOwner() {
         return this.owner;
-    }
-
-    /**
-     * Get a {@link PrimedAtomicTnt Primed Atomic TNT} instance
-     *
-     * @param level {@link Level World reference}
-     * @param posX {@link Double X coordinate}
-     * @param posY {@link Double Y coordinate}
-     * @param posZ {@link Double Z coordinate}
-     * @param igniter {@link LivingEntity Igniter}
-     * @return {@link PrimedAtomicTnt Primed Atomic TNT} instance
-     */
-    public static PrimedAtomicTnt from(Level level, double posX, double posY, double posZ, LivingEntity igniter) {
-        PrimedAtomicTnt tnt = new PrimedAtomicTnt(BLEntityTypes.PRIMED_ATOMIC_TNT.get(), level);
-        tnt.setPos(posX, posY, posZ);
-        double d0 = level.random.nextDouble() * (double)((float)Math.PI * 2F);
-        tnt.setDeltaMovement(-Math.sin(d0) * 0.02D, 0.2D, -Math.cos(d0) * 0.02D);
-        tnt.setFuse(80);
-        tnt.xo = posX;
-        tnt.yo = posY;
-        tnt.zo = posZ;
-        tnt.setOwner(igniter);
-        return tnt;
     }
 }

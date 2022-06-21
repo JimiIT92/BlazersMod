@@ -11,10 +11,9 @@ import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.entity.Firefly;
 import org.blazers.entity.PrimedAtomicTnt;
+import org.blazers.entity.ThrownSpear;
 import org.blazers.entity.WitherSkeletonHorse;
-import org.blazers.entity.client.AtomicTntRenderer;
-import org.blazers.entity.client.FireflyRenderer;
-import org.blazers.entity.client.WitherSkeletonHorseRenderer;
+import org.blazers.entity.client.*;
 
 /**
  * {@link org.blazers.BlazersMod Blazers Mod} {@link EntityType Entity Types}
@@ -39,9 +38,19 @@ public final class BLEntityTypes {
                     .build(new ResourceLocation(BlazersMod.MOD_ID, "firefly").toString()));
 
     public static final RegistryObject<EntityType<PrimedAtomicTnt>> PRIMED_ATOMIC_TNT = ENTITY_TYPES.register("primed_atomic_tnt",
-            () -> EntityType.Builder.of(PrimedAtomicTnt::new, MobCategory.MISC)
+            () -> EntityType.Builder.<PrimedAtomicTnt>of(PrimedAtomicTnt::new, MobCategory.MISC)
                     .fireImmune().sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(10)
                     .build(new ResourceLocation(BlazersMod.MOD_ID, "primed_atomic_tnt").toString()));
+
+    public static final RegistryObject<EntityType<ThrownSpear>> SPEAR = ENTITY_TYPES.register("spear",
+            () -> EntityType.Builder.<ThrownSpear>of(ThrownSpear::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20)
+                    .build(new ResourceLocation(BlazersMod.MOD_ID, "spear").toString()));
+
+    public static final RegistryObject<EntityType<ThrownSpear>> MALACHITE_SPEAR = ENTITY_TYPES.register("malachite_spear",
+            () -> EntityType.Builder.<ThrownSpear>of(ThrownSpear::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20)
+                    .build(new ResourceLocation(BlazersMod.MOD_ID, "malachite_spear").toString()));
 
     //#endregion
 
@@ -52,6 +61,8 @@ public final class BLEntityTypes {
         EntityRenderers.register(WITHER_SKELETON_HORSE.get(), WitherSkeletonHorseRenderer::new);
         EntityRenderers.register(FIREFLY.get(), FireflyRenderer::new);
         EntityRenderers.register(PRIMED_ATOMIC_TNT.get(), AtomicTntRenderer::new);
+        EntityRenderers.register(SPEAR.get(), ThrownSpearRenderer::new);
+        EntityRenderers.register(MALACHITE_SPEAR.get(), ThrownMalachiteSpearRenderer::new);
     }
 
     /**
