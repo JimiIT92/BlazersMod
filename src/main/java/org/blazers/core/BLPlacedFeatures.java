@@ -1,6 +1,7 @@
 package org.blazers.core;
 
 import net.minecraft.core.Holder;
+import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -26,6 +27,8 @@ public final class BLPlacedFeatures {
 
     public static final Holder<PlacedFeature> ORE_URANIUM = PlacementUtils.register("ore_uranium", BLConfiguredFeatures.ORE_URANIUM,
             InSquarePlacement.spread(), HeightRangePlacement.triangle(VerticalAnchor.absolute(8), VerticalAnchor.absolute(24)), BiomeFilter.biome());
+
+    public static final Holder<PlacedFeature> CATTAIL = PlacementUtils.register("cattail", BLConfiguredFeatures.CATTAIL, AquaticPlacements.seagrassPlacement(80));
 
     //#endregion
 

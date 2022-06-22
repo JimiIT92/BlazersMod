@@ -64,7 +64,7 @@ TO-DO
 
 -FIXES
 
-- Spear Item throwing model in inventory
+- Spear Item inventory texture
 
 -VERSIONS
 

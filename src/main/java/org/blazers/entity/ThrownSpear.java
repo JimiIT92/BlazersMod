@@ -15,7 +15,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.blazers.core.BLEntityTypes;
 import org.blazers.core.BLItems;
 import org.jetbrains.annotations.NotNull;
 
@@ -53,8 +52,8 @@ public class ThrownSpear extends AbstractArrow {
      * @param entity {@link LivingEntity Living Entity}
      * @param stack {@link ItemStack Spear Item}
      */
-    public ThrownSpear(Level world, LivingEntity entity, ItemStack stack) {
-        super(BLEntityTypes.SPEAR.get(), entity, world);
+    public ThrownSpear(EntityType<? extends AbstractArrow> type, Level world, LivingEntity entity, ItemStack stack) {
+        super(type, entity, world);
         this.spearItem = stack.copy();
     }
 
@@ -141,7 +140,7 @@ public class ThrownSpear extends AbstractArrow {
      * @return {@link SoundEvent Sound Effect} for when the {@link AbstractArrow Spear} hits the ground
      */
     protected @NotNull SoundEvent getDefaultHitGroundSoundEvent() {
-        return SoundEvents.TRIDENT_HIT_GROUND;
+        return SoundEvents.TRIDENT_HIT;
     }
 
     /**

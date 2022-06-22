@@ -28,10 +28,7 @@ public class ThrownSpearRenderer extends EntityRenderer<ThrownSpear> {
      * {@link ResourceLocation Spear Texture Location}
      */
     public static final ResourceLocation SPEAR_LOCATION = new ResourceLocation(BlazersMod.MOD_ID, "textures/entity/spear/regular.png");
-    /**
-     * {@link ResourceLocation Malachite Spear Texture Location}
-     */
-    public static final ResourceLocation MALACHITE_SPEAR_LOCATION = new ResourceLocation(BlazersMod.MOD_ID, "textures/entity/spear/malachite.png");
+
     /**
      * {@link ThrownSpearModel Thrown Spear Model}
      */

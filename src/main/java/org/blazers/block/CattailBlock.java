@@ -9,7 +9,10 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoublePlantBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -19,6 +22,7 @@ import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.blazers.BlazersMod;
@@ -58,7 +62,8 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
      * @return {@link DoublePlantBlock Cattail} {@link VoxelShape Shape}
      */
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
-        return Block.box(2.0D, 0.0D, 2.0D, 14.0D, 13.0D, 14.0D);
+        Vec3 offset = state.getOffset(level, pos);
+        return Block.box(5.0D, 0.0D, 5.0D, 11.0D, 16.0D, 11.0D).move(offset.x, offset.y, offset.z);
     }
 
     /**

@@ -1,5 +1,6 @@
 package org.blazers;
 
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -13,12 +14,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.blazers.core.BLBlocks;
-import org.blazers.core.BLEntityTypes;
-import org.blazers.core.BLItems;
-import org.blazers.core.BLPaintings;
+import org.blazers.core.*;
 import org.blazers.entity.Firefly;
 import org.blazers.entity.WitherSkeletonHorse;
+import org.blazers.entity.client.BLItemRenderer;
 
 /**
  * {@link BlazersMod Blazers Mod} main class
@@ -35,6 +34,10 @@ public final class BlazersMod {
      * {@link Logger Logger Instance}
      */
     public static final Logger LOGGER = LogManager.getLogger();
+    /**
+     * {@link BlazersMod Blazers Mod} {@link BlockEntityWithoutLevelRenderer Custom Item Renderer}
+     */
+    private static BlockEntityWithoutLevelRenderer ITEMS_RENDERER;
 
     /**
      * Initialize the {@link BlazersMod Blazers Mod}
@@ -46,6 +49,7 @@ public final class BlazersMod {
         BLBlocks.register(eventBus);
         BLPaintings.register(eventBus);
         BLEntityTypes.register(eventBus);
+        BLFeatures.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::commonSetup);
@@ -92,5 +96,17 @@ public final class BlazersMod {
     private void entityAttributeSetup(final EntityAttributeCreationEvent event) {
         event.put(BLEntityTypes.WITHER_SKELETON_HORSE.get(), WitherSkeletonHorse.createAttributes().build());
         event.put(BLEntityTypes.FIREFLY.get(), Firefly.createAttributes().build());
+    }
+
+    /**
+     * Get the {@link BlazersMod Blazers Mod} {@link BlockEntityWithoutLevelRenderer Items Renderer}
+     *
+     * @return {@link BlazersMod Blazers Mod} {@link BlockEntityWithoutLevelRenderer Items Renderer}
+     */
+    public static BlockEntityWithoutLevelRenderer getItemsRenderer() {
+        if(ITEMS_RENDERER == null) {
+            ITEMS_RENDERER = new BLItemRenderer();
+        }
+        return ITEMS_RENDERER;
     }
 }

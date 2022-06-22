@@ -13,7 +13,7 @@ import org.blazers.BlazersMod;
 public final class BLPaintings {
 
     /**
-     * {@link Motive Paintings} {@link DeferredRegister <Item> Registry}
+     * {@link Motive Paintings} {@link DeferredRegister<Motive> Registry}
      */
     public static final DeferredRegister<Motive> PAINTINGS = DeferredRegister.create(ForgeRegistries.PAINTING_TYPES, BlazersMod.MOD_ID);
 

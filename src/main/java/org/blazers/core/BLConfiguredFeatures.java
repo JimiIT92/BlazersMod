@@ -1,21 +1,28 @@
 package org.blazers.core;
 
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 import java.util.List;
 
 /**
- * {@link org.blazers.BlazersMod Blazers Mod} {@link Block Blocks}
+ * {@link org.blazers.BlazersMod Blazers Mod} {@link ConfiguredFeature Configured Features}
  */
 public final class BLConfiguredFeatures {
 
@@ -31,6 +38,10 @@ public final class BLConfiguredFeatures {
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_ONICE = registerNetherOre("ore_onice", BLBlocks.ONICE_ORE.get(), 7);
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_URANIUM = registerNetherOre("ore_uranium", BLBlocks.URANIUM_ORE.get(), 4);
+
+    public static final Holder<ConfiguredFeature<SimpleRandomFeatureConfiguration, ?>> CATTAIL = FeatureUtils.register("cattail", Feature.SIMPLE_RANDOM_SELECTOR,
+            new SimpleRandomFeatureConfiguration(HolderSet.direct(PlacementUtils.inlinePlaced(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
+                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BLBlocks.CATTAIL.get().defaultBlockState(), 1)))))));
 
     //#endregion
 

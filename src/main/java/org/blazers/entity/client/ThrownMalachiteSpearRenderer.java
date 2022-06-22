@@ -17,6 +17,11 @@ import org.jetbrains.annotations.NotNull;
 public class ThrownMalachiteSpearRenderer extends ThrownSpearRenderer {
 
     /**
+     * {@link ResourceLocation Spear Texture Location}
+     */
+    public static final ResourceLocation SPEAR_LOCATION = new ResourceLocation(BlazersMod.MOD_ID, "textures/entity/spear/malachite.png");
+
+    /**
      * Constructor. Sets the {@link EntityRenderer Renderer properties}
      *
      * @param context {@link EntityRendererProvider.Context Renderer Context}
@@ -34,6 +39,6 @@ public class ThrownMalachiteSpearRenderer extends ThrownSpearRenderer {
      */
     @Override
     public @NotNull ResourceLocation getTextureLocation(@NotNull ThrownSpear entity) {
-        return new ResourceLocation(BlazersMod.MOD_ID, "textures/entity/spear/malachite.png");
+        return SPEAR_LOCATION;
     }
 }
