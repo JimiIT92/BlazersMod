@@ -34,6 +34,11 @@
       "rotation": [ 0, 0, 0 ],
       "translation": [ 4, 4, 2],
       "scale":[ 0.25, 0.25, 0.25]
+    },
+    "gui": {
+      "rotation": [ 15, -25, -5 ],
+      "translation": [ 2, 3, 0 ],
+      "scale": [ 0.65, 0.65, 0.65 ]
     }
   },
   "overrides": [

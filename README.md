@@ -65,6 +65,8 @@ TO-DO
 -FIXES
 
 - Spear Item inventory texture
+- Custom Smithing Table Recipe Serializer
+- Pre-Enchant Blazerite/Gyulianite Swords in Inventory
 
 -VERSIONS
 

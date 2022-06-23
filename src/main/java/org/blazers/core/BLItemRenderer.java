@@ -1,4 +1,4 @@
-package org.blazers.entity.client;
+package org.blazers.core;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -14,8 +14,9 @@ import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import org.blazers.core.BLItems;
 import org.blazers.entity.ThrownSpear;
+import org.blazers.entity.client.ThrownMalachiteSpearRenderer;
+import org.blazers.entity.client.ThrownSpearRenderer;
 import org.blazers.entity.client.model.ThrownMalachiteSpearModel;
 import org.blazers.entity.client.model.ThrownSpearModel;
 import org.blazers.item.SpearItem;

@@ -17,7 +17,7 @@ import org.apache.logging.log4j.Logger;
 import org.blazers.core.*;
 import org.blazers.entity.Firefly;
 import org.blazers.entity.WitherSkeletonHorse;
-import org.blazers.entity.client.BLItemRenderer;
+import org.blazers.core.BLItemRenderer;
 
 /**
  * {@link BlazersMod Blazers Mod} main class
