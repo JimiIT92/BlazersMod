@@ -23,7 +23,7 @@ Changelog
 - La spada e armature di Perla o Ametista ora sono a metà tra il ferro e la pietra
 - La spada e armature di Blazerite o Gyulianite ora sono più potenti della Netherite
 - È ora possibile lanciare la Lancia di Malachite (come un tridente)
-- La spada e armature di Blazerite o Gyulianite ora sono ottenibili combinando la gemma con la spada o l'amratura di Netherite
+- La spada e armature di Blazerite o Gyulianite ora sono ottenibili combinando la gemma con la spada o l'amratura di Netherite. Questo rimuoverà qualsiasi incantesimo dalla spada o dall'armatura di Netherite
 - La spada e armature di Blazerite o Gyulianite ora non sono utleriormente incantabili in survival
 - Le katana ora hanno gli stessi danni e utilizzi di una spada in ferro, ma sono molto più veloci
 - È possibile ora colorare il manico di una katana con tutti i 16 colori

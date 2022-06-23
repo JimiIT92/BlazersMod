@@ -1,23 +1,16 @@
 package org.blazers.item;
 
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
+import com.mojang.datafixers.util.Pair;
+import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.level.Level;
 import org.blazers.core.BLTabs;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 /**
  * Implementation class for a pre-enchanted {@link SwordItem Sword}
  */
-public class PreEnchantedSwordItem extends SwordItem {
+public class PreEnchantedSwordItem extends SwordItem implements IPreEnchantedItem {
 
     /**
      * {@link SwordItem Sword} {@link Enchantment Enchantment}
@@ -43,84 +36,28 @@ public class PreEnchantedSwordItem extends SwordItem {
     }
 
     /**
-     * Enchant the {@link SwordItem Sword Item} when is crafted
+     * Get the {@link ArmorItem Armor Enchantment}ù
      *
-     * @param itemStack {@link ItemStack Item Stack}
-     * @param level {@link Level World reference}
-     * @param player {@link Player The Player} who crafted the {@link SwordItem Sword}
+     * @return {@link ArmorItem Armor Enchantment}ù
      */
     @Override
-    public void onCraftedBy(@NotNull ItemStack itemStack, @NotNull Level level, @NotNull Player player) {
-        enchant(itemStack);
-        super.onCraftedBy(itemStack, level, player);
+    public Pair<Enchantment, Integer> getEnchantment() {
+        return new Pair<>(enchantment, level);
     }
 
     /**
-     * Enchant the {@link SwordItem} in inventory
+     * Shows the {@link Enchantment Sword Enchantment} in the Creative Inventory
      *
-     * @param itemStack {@link ItemStack Item Stack}
-     * @param level {@link Level World reference}
-     * @param entity {@link Entity Entity reference}
-     * @param slotId {@link Integer Slot ID}
-     * @param isSelected {@link Boolean If the slot is being highlighted}
+     * @param tab {@link CreativeModeTab Creative Tab}
+     * @param items {@link ItemStack Items}
      */
     @Override
-    public void inventoryTick(@NotNull ItemStack itemStack, @NotNull Level level, @NotNull Entity entity, int slotId, boolean isSelected) {
-        enchant(itemStack);
-        super.inventoryTick(itemStack, level, entity, slotId, isSelected);
-    }
-
-    /**
-     * Enchant the {@link SwordItem Sword}
-     *
-     * @param itemStack {@link ItemStack Item Stack}
-     */
-    private void enchant(ItemStack itemStack) {
-        if(!itemStack.isEnchanted()) {
-            itemStack.enchant(enchantment, level);
+    public void fillItemCategory(@NotNull CreativeModeTab tab, @NotNull NonNullList<ItemStack> items) {
+        if(allowdedIn(tab)) {
+            ItemStack stack = new ItemStack(this);
+            stack.enchant(enchantment, level);
+            items.add(stack);
         }
-    }
-
-    /**
-     * Get the {@link ListTag Enchantment Tag}
-     * for the {@link SwordItem Item} tooltip
-     *
-     * @return {@link ListTag Enchantment Tag}
-     */
-    private ListTag getEnchantmentTag() {
-        ListTag compoundtag = new ListTag();
-        CompoundTag enchantmentTag = new CompoundTag();
-        enchantmentTag.putString("id", String.valueOf(this.enchantment.getRegistryName()));
-        enchantmentTag.putInt("lvl", this.level);
-        compoundtag.add(enchantmentTag);
-        return compoundtag;
-    }
-
-    /**
-     * Shows the {@link ListTag Enchantment Tag} on tooltip
-     *
-     * @param itemStack {@link ItemStack Item Stack}
-     * @param level {@link Level World reference}
-     * @param tooltip {@link List<Component> Tooltip}
-     * @param isAdvanced {@link Boolean If is showing advanced tooltips}
-     */
-    @Override
-    public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag isAdvanced) {
-        super.appendHoverText(itemStack, level, tooltip, isAdvanced);
-        if(!itemStack.isEnchanted()) {
-            ItemStack.appendEnchantmentNames(tooltip, getEnchantmentTag());
-        }
-    }
-
-    /**
-     * Apply {@link SwordItem Item} glint
-     *
-     * @param itemStack {@link ItemStack Item Stack}
-     * @return {@link Boolean True} if the {@link SwordItem Sword} should glint
-     */
-    @Override
-    public boolean isFoil(@NotNull ItemStack itemStack) {
-        return true;
     }
 
     /**

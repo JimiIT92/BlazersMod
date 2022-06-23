@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "org.blazers.mixin",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "UpgradeRecipeMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "blazersmod.mixins.refmap.json"
+}
