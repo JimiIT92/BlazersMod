@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:story/smelt_iron",
+  "criteria": {
+    "katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.story.katana.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "blazersmod:katana",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.story.katana.title"
+    }
+  },
+  "requirements": [
+    [
+      "katana"
+    ]
+  ]
+}

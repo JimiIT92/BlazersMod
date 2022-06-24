@@ -1,0 +1,77 @@
+{
+  "parent": "blazersmod:story/mine_emerald",
+  "criteria": {
+    "emerald_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:emerald_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "emerald_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:emerald_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "emerald_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:emerald_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "emerald_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:emerald_leggings"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.story.emerald_armor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "blazersmod:emerald_chestplate",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.story.emerald_armor.title"
+    }
+  },
+  "requirements": [
+    [
+      "emerald_helmet",
+      "emerald_chestplate",
+      "emerald_leggings",
+      "emerald_boots"
+    ]
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "blazersmod:katana",
+    "blazersmod:white_katana",
+    "blazersmod:orange_katana",
+    "blazersmod:magenta_katana",
+    "blazersmod:light_blue_katana",
+    "blazersmod:yellow_katana",
+    "blazersmod:lime_katana",
+    "blazersmod:pink_katana",
+    "blazersmod:gray_katana",
+    "blazersmod:light_gray_katana",
+    "blazersmod:cyan_katana",
+    "blazersmod:purple_katana",
+    "blazersmod:blue_katana",
+    "blazersmod:brown_katana",
+    "blazersmod:green_katana",
+    "blazersmod:red_katana",
+    "blazersmod:black_katana"
+  ]
+}

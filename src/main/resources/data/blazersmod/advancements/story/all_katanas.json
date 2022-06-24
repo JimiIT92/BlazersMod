@@ -1,0 +1,281 @@
+{
+  "parent": "blazersmod:story/katana",
+  "criteria": {
+    "katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "white_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:white_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "orange_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:orange_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "magenta_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:magenta_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "light_blue_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:light_blue_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "yellow_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:yellow_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "lime_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:lime_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "pink_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:pink_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "gray_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:gray_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "light_gray_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:light_gray_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "cyan_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:cyan_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "purple_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:purple_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "blue_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:blue_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "brown_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:brown_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "green_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:green_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "red_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:red_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "black_katana": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:black_katana"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.story.all_katanas.description"
+    },
+    "frame": "goal",
+    "hidden": true,
+    "icon": {
+      "item": "blazersmod:katana",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.story.all_katanas.title"
+    }
+  },
+  "requirements": [
+    [
+      "katana"
+    ],
+    [
+      "white_katana"
+    ],
+    [
+      "orange_katana"
+    ],
+    [
+      "magenta_katana"
+    ],
+    [
+      "light_blue_katana"
+    ],
+    [
+      "yellow_katana"
+    ],
+    [
+      "lime_katana"
+    ],
+    [
+      "pink_katana"
+    ],
+    [
+      "gray_katana"
+    ],
+    [
+      "light_gray_katana"
+    ],
+    [
+      "cyan_katana"
+    ],
+    [
+      "purple_katana"
+    ],
+    [
+      "blue_katana"
+    ],
+    [
+      "brown_katana"
+    ],
+    [
+      "green_katana"
+    ],
+    [
+      "red_katana"
+    ],
+    [
+      "black_katana"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}

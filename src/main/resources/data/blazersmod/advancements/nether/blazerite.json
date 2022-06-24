@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:nether/root",
+  "criteria": {
+    "blazerite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:blazerite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.nether.blazerite.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "blazersmod:blazerite"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.nether.blazerite.title"
+    }
+  },
+  "requirements": [
+    [
+      "blazerite"
+    ]
+  ]
+}

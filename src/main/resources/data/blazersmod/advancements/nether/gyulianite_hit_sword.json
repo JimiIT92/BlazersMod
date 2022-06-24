@@ -1,0 +1,45 @@
+{
+  "parent": "blazersmod:nether/gyulianite_sword",
+  "criteria": {
+    "gyulianite_sword": {
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "blazersmod:gyulianite_sword"
+              ]
+            }
+          },
+          "location": {
+            "biome": "minecraft:swamp"
+          }
+        }
+      },
+      "trigger": "minecraft:player_hurt_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.nether.gyulianite_hit_sword.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "blazersmod:gyulianite_sword"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.nether.gyulianite_hit_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "gyulianite_sword"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  }
+}

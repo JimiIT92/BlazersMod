@@ -1,0 +1,40 @@
+{
+  "parent": "blazersmod:nether/gyulianite",
+  "criteria": {
+    "gyulianite_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:gyulianite_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.nether.gyulianite_sword.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "blazersmod:gyulianite_sword"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.nether.gyulianite_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "gyulianite_sword"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}

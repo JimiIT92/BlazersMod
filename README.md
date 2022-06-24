@@ -45,6 +45,7 @@ Changelog
 - È ora possibile utilizzare la Fletching Table per craftare l'arco di carbonio, combinando un arco con un pezzo di carbonio
 - È ora possibile rendere un Item Frame invisibile/visibile shift-cliccando col mouse destro con le cesoie un Item Frame
 - È ora possiible craftare un ArmorStand con braccia aggiungendo 2 bastoncini, uno piccolo usando un lingotto di ferro o uno piccolo con braccia combinando le due ricette  
+- Aggiunti 19 nuovi advancements legati alle novità della mod
 
 TO-DO
 
@@ -55,10 +56,6 @@ TO-DO
 -WORLD GEN
 
 - Improved Birch Forest
-
--ADVANCEMENTS
-
-- Advancements
 
 -FIXES
 

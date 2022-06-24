@@ -1,0 +1,40 @@
+{
+  "parent": "blazersmod:nether/blazerite",
+  "criteria": {
+    "blazerite_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:blazerite_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.nether.blazerite_sword.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "blazersmod:blazerite_sword"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.nether.blazerite_sword.title"
+    }
+  },
+  "requirements": [
+    [
+      "blazerite_sword"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}
