@@ -95,7 +95,33 @@ public final class BLBlocks {
     public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", CattailBlock::new, BLTabs.TAB_DECORATIONS);
     public static final RegistryObject<Block> POTTED_CATTAIL = registerBlockWithoutBlockItem("potted_cattail", () -> new FlowerPotBlock(null, CATTAIL, BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
 
+    public static final RegistryObject<Block> COBBLED_ANDESITE = registerSimpleBlock("cobbled_andesite", createStoneBlockProperties());
+    public static final RegistryObject<Block> COBBLED_DIORITE = registerSimpleBlock("cobbled_diorite", createStoneBlockProperties());
+    public static final RegistryObject<Block> COBBLED_GRANITE = registerSimpleBlock("cobbled_granite", createStoneBlockProperties());
+    public static final RegistryObject<Block> CUT_BRICKS = registerSimpleBlock("cut_bricks", createStoneBlockProperties());
+    public static final RegistryObject<Block> DARK_PRISMARINE_BRICKS = registerSimpleBlock("dark_prismarine_bricks", createStoneBlockProperties());
+    public static final RegistryObject<Block> SANDSTONE_BRICKS = registerSimpleBlock("sandstone_bricks", createStoneBlockProperties());
+    public static final RegistryObject<Block> RED_SANDSTONE_BRICKS = registerSimpleBlock("red_sandstone_bricks", createStoneBlockProperties());
+    public static final RegistryObject<Block> STONE_TILES = registerSimpleBlock("stone_tiles", createStoneBlockProperties());
+    public static final RegistryObject<Block> MOSSY_STONE_TILES = registerSimpleBlock("mossy_stone_tiles", createStoneBlockProperties());
+    public static final RegistryObject<Block> END_STONE_TILES = registerSimpleBlock("end_stone_tiles", createStoneBlockProperties());
+    public static final RegistryObject<Block> POLISHED_BLACKSTONE_TILES = registerSimpleBlock("polished_blackstone_tiles", createStoneBlockProperties());
+    public static final RegistryObject<Block> PURPUR_TILES = registerSimpleBlock("purpur_tiles", createStoneBlockProperties());
+    public static final RegistryObject<Block> QUARTZ_TILES = registerSimpleBlock("quartz_tiles", createStoneBlockProperties());
+
+    //public static final RegistryObject<Block> CUT_COPPER_BRICKS = registerSimpleBlock("cut_copper_bricks", createStoneBlockProperties());
+
     //#endregion
+
+    /**
+     * Create the {@link BlockBehaviour.Properties Block Properties}
+     * for a simple Stone Block
+     *
+     * @return Stone {@link BlockBehaviour.Properties Block Properties}
+     */
+    private static BlockBehaviour.Properties createStoneBlockProperties() {
+        return BlockBehaviour.Properties.of(Material.STONE, MaterialColor.STONE).requiresCorrectToolForDrops().strength(1.5F, 6.0F);
+    }
 
     /**
      * Create the {@link BlockBehaviour.Properties Block Properties}
