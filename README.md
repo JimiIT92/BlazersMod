@@ -56,10 +56,6 @@ TO-DO
 
 - Improved Birch Forest
 
--GUI
-
-- Beacon GUI
-
 -ADVANCEMENTS
 
 - Advancements

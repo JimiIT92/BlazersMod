@@ -50,6 +50,15 @@ public class FletchingRecipe extends UpgradeRecipe {
     }
 
     /**
+     * Get the {@link ItemStack Item Stack} Toast Symbol
+     *
+     * @return {@link ItemStack Item Stack} Toast Symbol
+     */
+    public @NotNull ItemStack getToastSymbol() {
+        return new ItemStack(Blocks.FLETCHING_TABLE);
+    }
+
+    /**
      * Get the {@link RecipeSerializer Recipe Serializer}
      *
      * @return {@link RecipeSerializer Recipe Serializer}
@@ -67,16 +76,6 @@ public class FletchingRecipe extends UpgradeRecipe {
     @Override
     public @NotNull RecipeType<?> getType() {
         return Type.INSTANCE;
-    }
-
-    /**
-     * Check if the {@link FletchingRecipe Recipe} should be hidden from the Recipe Book
-     *
-     * @return {@link Boolean True} if the {@link FletchingRecipe Recipe} should be hidden from the Recipe Book
-     */
-    @Override
-    public boolean isSpecial() {
-        return true;
     }
 
     /**

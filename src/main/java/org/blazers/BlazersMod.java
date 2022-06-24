@@ -1,8 +1,10 @@
 package org.blazers;
 
+import net.minecraft.client.RecipeBookCategories;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -18,6 +20,7 @@ import org.apache.logging.log4j.Logger;
 import org.blazers.core.*;
 import org.blazers.entity.Firefly;
 import org.blazers.entity.WitherSkeletonHorse;
+import org.blazers.recipe.FletchingRecipe;
 import org.blazers.screen.FletchingScreen;
 
 /**
@@ -71,6 +74,7 @@ public final class BlazersMod {
         BLBlocks.registerTransparentBlocks();
         BLEntityTypes.registerRenderers();
         MenuScreens.register(BLMenuTypes.FLETCHING.get(), FletchingScreen::new);
+        RecipeBookCategories.create(BlazersMod.MOD_ID + ":" + FletchingRecipe.ID, new ItemStack(BLItems.CARBON_BOW.get()));
     }
 
     /**
