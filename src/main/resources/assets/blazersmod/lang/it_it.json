@@ -163,5 +163,6 @@
   "entity.blazersmod.firefly": "Lucciola",
   "entity.blazersmod.spear": "Lancia",
   "death.attack.spear": "%1$s ha impalato %2$s",
-  "death.attack.spear.item": "%1$s ha impalato %2$s con %3$s"
+  "death.attack.spear.item": "%1$s ha impalato %2$s con %3$s",
+  "container.fletching": "Banco da impennatura"
 }

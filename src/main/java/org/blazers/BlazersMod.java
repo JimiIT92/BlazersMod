@@ -1,5 +1,6 @@
 package org.blazers;
 
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.block.Blocks;
@@ -17,7 +18,7 @@ import org.apache.logging.log4j.Logger;
 import org.blazers.core.*;
 import org.blazers.entity.Firefly;
 import org.blazers.entity.WitherSkeletonHorse;
-import org.blazers.core.BLItemRenderer;
+import org.blazers.screen.FletchingScreen;
 
 /**
  * {@link BlazersMod Blazers Mod} main class
@@ -50,6 +51,7 @@ public final class BlazersMod {
         BLPaintings.register(eventBus);
         BLEntityTypes.register(eventBus);
         BLFeatures.register(eventBus);
+        BLMenuTypes.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::commonSetup);
@@ -67,6 +69,7 @@ public final class BlazersMod {
         BLItems.registerItemProperties();
         BLBlocks.registerTransparentBlocks();
         BLEntityTypes.registerRenderers();
+        MenuScreens.register(BLMenuTypes.FLETCHING.get(), FletchingScreen::new);
     }
 
     /**

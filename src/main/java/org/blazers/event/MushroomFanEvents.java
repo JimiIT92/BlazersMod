@@ -41,15 +41,18 @@ public final class MushroomFanEvents {
         BlockPos pos = event.getPos();
         if(stack.is(Tags.Items.MUSHROOMS) && isValidFace && world.getBlockState(pos).isFaceSturdy(world, pos, face)) {
             Player player = event.getPlayer();
-            Block block = (stack.is(Items.RED_MUSHROOM) ? BLBlocks.RED_MUSHROOM_WALL_FAN : BLBlocks.BROWN_MUSHROOM_WALL_FAN).get();
-            player.playSound(SoundEvents.GRASS_PLACE, 1.0F, 1.0F);
-            BlockPos placePos = pos.offset(face.getNormal());
-            world.setBlockAndUpdate(placePos, block.defaultBlockState()
-                            .setValue(WATERLOGGED, world.getFluidState(placePos).is(Fluids.WATER))
-                            .setValue(FACING, face)
-            );
-            if(!player.isCreative()) {
-                stack.shrink(1);
+            if(!world.isClientSide) {
+                Block block = (stack.is(Items.RED_MUSHROOM) ? BLBlocks.RED_MUSHROOM_WALL_FAN : BLBlocks.BROWN_MUSHROOM_WALL_FAN).get();
+                BlockPos placePos = pos.offset(face.getNormal());
+                world.setBlockAndUpdate(placePos, block.defaultBlockState()
+                        .setValue(WATERLOGGED, world.getFluidState(placePos).is(Fluids.WATER))
+                        .setValue(FACING, face)
+                );
+                if(!player.isCreative()) {
+                    stack.shrink(1);
+                }
+            } else {
+                player.playSound(SoundEvents.GRASS_PLACE, 1.0F, 1.0F);
             }
         }
     }

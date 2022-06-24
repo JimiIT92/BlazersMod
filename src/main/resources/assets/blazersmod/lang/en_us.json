@@ -163,5 +163,6 @@
   "entity.blazersmod.firefly": "Firefly",
   "entity.blazersmod.spear": "Spear",
   "death.attack.spear": "%1$s was impaled by %2$s",
-  "death.attack.spear.item": "%1$s was impaled by %2$s with %3$s"
+  "death.attack.spear.item": "%1$s was impaled by %2$s with %3$s",
+  "container.fletching": "Fletching Table"
 }

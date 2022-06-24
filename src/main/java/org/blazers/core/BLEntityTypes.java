@@ -21,7 +21,7 @@ import org.blazers.entity.client.*;
 public final class BLEntityTypes {
 
     /**
-     * {@link EntityType Entity Types} {@link DeferredRegister <Block> Registry}
+     * {@link EntityType Entity Types} {@link DeferredRegister<EntityType> Registry}
      */
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, BlazersMod.MOD_ID);
 

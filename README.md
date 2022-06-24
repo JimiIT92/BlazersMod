@@ -49,6 +49,10 @@ TO-DO
 
 - Stonecutter variants
 
+-ITEMS
+
+- Invisible Item Frames on Shitf-Click Shears interaction
+
 -WORLD GEN
 
 - Improved Birch Forest
@@ -56,7 +60,6 @@ TO-DO
 -GUI
 
 - Beacon GUI
-- Fletching Table crafting GUI
 
 -ADVANCEMENTS
 
@@ -65,8 +68,8 @@ TO-DO
 -FIXES
 
 - Spear Item inventory texture
-- Custom Smithing Table Recipe Serializer
-- Pre-Enchant Blazerite/Gyulianite Swords in Inventory
+- Craft carbon bow at fletching table
+- Craft spectral arrow at fletching table
 
 -VERSIONS
 

@@ -35,8 +35,8 @@ public final class HollowWoodEvents {
     public static void onRightClickBlock(final PlayerInteractEvent.RightClickBlock event) {
         Player player = event.getPlayer();
         ItemStack stack = event.getItemStack();
-        if(player.isShiftKeyDown() && stack.getItem() instanceof AxeItem) {
-            Level world = event.getWorld();
+        Level world = event.getWorld();
+        if(!world.isClientSide && player.isShiftKeyDown() && stack.getItem() instanceof AxeItem) {
             BlockPos pos = event.getPos();
             BlockState state = world.getBlockState(pos);
             Block block = Blocks.AIR;
@@ -76,7 +76,7 @@ public final class HollowWoodEvents {
             if(!Blocks.AIR.equals(block)) {
                 world.setBlockAndUpdate(pos, block.withPropertiesOf(state).setValue(WATERLOGGED, isUnderwater(world, pos)));
                 if(!player.isCreative()) {
-                    stack.shrink(1);
+                    stack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(event.getHand()));
                 }
                 event.setUseItem(Event.Result.DENY);
             }

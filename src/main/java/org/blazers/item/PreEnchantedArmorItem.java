@@ -63,6 +63,17 @@ public class PreEnchantedArmorItem extends ArmorItem implements IPreEnchantedIte
     }
 
     /**
+     * Check if the {@link ItemStack Item Stack} should glint
+     *
+     * @param stack {@link ItemStack Item Stack}
+     * @return {@link Boolean True} if the {@link ItemStack Item Stack} should glint
+     */
+    @Override
+    public boolean isFoil(@NotNull ItemStack stack) {
+        return true;
+    }
+
+    /**
      * Sets if the {@link SwordItem Sword} can be enchanted in an Anvil
      *
      * @param itemStack {@link ItemStack Item Stack}
