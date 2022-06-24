@@ -20,6 +20,7 @@ public final class BLPaintings {
     //#region Paintings
 
     public static RegistryObject<Motive> ERENBLAZE = PAINTINGS.register("erenblaze", () -> new Motive(32, 32));
+    public static RegistryObject<Motive> SURVIVAL = PAINTINGS.register("survival", () -> new Motive(16, 32));
 
     //#endregion
 

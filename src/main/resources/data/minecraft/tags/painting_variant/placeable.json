@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "blazersmod:erenblaze"
+    "blazersmod:erenblaze",
+    "blazersmod:survival"
   ]
 }

@@ -27,7 +27,7 @@ Changelog
 - La spada e armature di Blazerite o Gyulianite ora non sono utleriormente incantabili in survival
 - Le katana ora hanno gli stessi danni e utilizzi di una spada in ferro, ma sono molto più veloci
 - È possibile ora colorare il manico di una katana con tutti i 16 colori
-- Aggiunto nuovo quadro: Erenblaze
+- Aggiunti due nuovi quadri: Erenblaze e Survival
 - Aggiunte le armature per cavallo di Rubino, Zaffiro, Smeraldo, Malachite e Topazio
 - Aggiunti i legni cavi normali e scortecciati. Ottenibili cliccando col tasto destro mentre si è shiftati un blocco di legno normale o scortecciato
 - Lo zaffiro ora si genera come il diamante nell'overworld, con la stessa rarità
