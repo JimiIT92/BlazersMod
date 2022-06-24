@@ -52,6 +52,7 @@ public final class BlazersMod {
         BLEntityTypes.register(eventBus);
         BLFeatures.register(eventBus);
         BLMenuTypes.register(eventBus);
+        BLRecipeSerializers.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::commonSetup);

@@ -42,16 +42,15 @@ Changelog
 - È ora possibile piazzare i funghi sui lati di un blocco. Per riottenere un fungo da essi bisognerà usare una zappa con silk touch
 - Aggiunte le Tife. Possono spawnare nelle Paludi. È possibile piazzarle in acqua (completamente o solo la metà inferiore) su terra, sabbia, sabbia rossa e ghiaia. È possibile raccoglierla con le cesoie. È possibile piantarla in un vaso
 - La TNT di Uranio ora impiega il doppio del tempo rispetto a una TNT normale per esplodere
+- È ora possibile utilizzare la Fletching Table per craftare l'arco di carbonio, combinando un arco con un pezzo di carbonio
+- È ora possibile rendere un Item Frame invisibile/visibile shift-cliccando col mouse destro con le cesoie un Item Frame
+- È ora possiible craftare un ArmorStand con braccia aggiungendo 2 bastoncini, uno piccolo usando un lingotto di ferro o uno piccolo con braccia combinando le due ricette  
 
 TO-DO
 
 -BLOCKS
 
 - Stonecutter variants
-
--ITEMS
-
-- Invisible Item Frames on Shitf-Click Shears interaction
 
 -WORLD GEN
 
@@ -68,8 +67,6 @@ TO-DO
 -FIXES
 
 - Spear Item inventory texture
-- Craft carbon bow at fletching table
-- Craft spectral arrow at fletching table
 
 -VERSIONS
 

@@ -2,6 +2,7 @@ package org.blazers.event;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
@@ -32,9 +33,15 @@ public final class FletchingTableEvents {
         BlockPos pos = event.getPos();
         Level world = event.getWorld();
         BlockState state = world.getBlockState(pos);
-        if(!world.isClientSide && state.is(Blocks.FLETCHING_TABLE)) {
-            Player player = event.getPlayer();
-            player.openMenu(getMenuProvider(world, pos));
+        if(state.is(Blocks.FLETCHING_TABLE)) {
+            event.setCanceled(true);
+            if(world.isClientSide) {
+                event.setCancellationResult(InteractionResult.SUCCESS);
+            } else {
+                Player player = event.getPlayer();
+                player.openMenu(getMenuProvider(world, pos));
+                event.setCancellationResult(InteractionResult.CONSUME);
+            }
         }
     }
 

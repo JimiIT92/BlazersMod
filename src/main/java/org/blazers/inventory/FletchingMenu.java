@@ -1,19 +1,21 @@
 package org.blazers.inventory;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.ItemCombinerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.UpgradeRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.blazers.core.BLMenuTypes;
+import org.blazers.core.BLRecipeTypes;
+import org.blazers.recipe.FletchingRecipe;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -28,22 +30,22 @@ public class FletchingMenu extends ItemCombinerMenu {
      */
     private final Level level;
     /**
-     * {@link UpgradeRecipe Selected Recipe}
+     * {@link FletchingRecipe Selected Recipe}
      */
-    private UpgradeRecipe selectedRecipe;
+    private FletchingRecipe selectedRecipe;
     /**
-     * {@link List<UpgradeRecipe> Recipes}
+     * {@link List<FletchingRecipe> Recipes}
      */
-    private final List<UpgradeRecipe> recipes;
+    private final List<FletchingRecipe> recipes;
 
     /**
      * Forge Constructor. Sets the {@link ItemCombinerMenu Menu} default properties
      *
      * @param id {@link Integer Menu ID}
      * @param inventory {@link Inventory Inventory}
-     * @param friendlyByteBuf {@link FriendlyByteBuf Friendly Byte Buf}
+     * @param buffer {@link FriendlyByteBuf Byte Buffer}
      */
-    public FletchingMenu(int id, Inventory inventory, FriendlyByteBuf friendlyByteBuf) {
+    public FletchingMenu(int id, Inventory inventory, FriendlyByteBuf buffer) {
         this(id, inventory, ContainerLevelAccess.NULL);
     }
 
@@ -57,7 +59,7 @@ public class FletchingMenu extends ItemCombinerMenu {
     public FletchingMenu(int id, Inventory inventory, ContainerLevelAccess containerLevelAccess) {
         super(BLMenuTypes.FLETCHING.get(), id, inventory, containerLevelAccess);
         this.level = inventory.player.level;
-        this.recipes = this.level.getRecipeManager().getAllRecipesFor(RecipeType.SMITHING);
+        this.recipes = this.level.getRecipeManager().getAllRecipesFor(BLRecipeTypes.FLETCHING);
     }
 
     /**
@@ -94,7 +96,7 @@ public class FletchingMenu extends ItemCombinerMenu {
         this.resultSlots.awardUsedRecipes(player);
         this.shrinkStackInSlot(0);
         this.shrinkStackInSlot(1);
-        this.access.execute((level, pos) ->  level.levelEvent(1044, pos, 0));
+        this.level.playSound(player, player.blockPosition(), SoundEvents.VILLAGER_WORK_FLETCHER, SoundSource.BLOCKS, 0.75F, 1.0F);
     }
 
     /**
@@ -112,7 +114,7 @@ public class FletchingMenu extends ItemCombinerMenu {
      * Create the {@link ItemStack Crafting Result}
      */
     public void createResult() {
-        List<UpgradeRecipe> list = this.level.getRecipeManager().getRecipesFor(RecipeType.SMITHING, this.inputSlots, this.level);
+        List<FletchingRecipe> list = this.level.getRecipeManager().getRecipesFor(BLRecipeTypes.FLETCHING, this.inputSlots, this.level);
         if (list.isEmpty()) {
             this.resultSlots.setItem(0, ItemStack.EMPTY);
         } else {

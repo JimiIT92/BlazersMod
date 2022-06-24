@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:armor_stand"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "S#S",
+    " X "
+  ],
+  "result": {
+    "item": "minecraft:armor_stand",
+    "nbt": {
+      "EntityTag": {
+        "ShowArms": true,
+        "Small": true
+      }
+    }
+  }
+}

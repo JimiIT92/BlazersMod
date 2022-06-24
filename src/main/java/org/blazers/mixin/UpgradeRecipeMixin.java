@@ -40,8 +40,7 @@ public final class UpgradeRecipeMixin {
     @Inject(method = "assemble(Lnet/minecraft/world/Container;)Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"), cancellable = true)
     public void assemble(Container inv, CallbackInfoReturnable<ItemStack> infoReturnable) {
         ItemStack recipeResult = infoReturnable.getReturnValue();
-        ItemStack resultItem = UPGRADE_RECIPE.getResultItem();
-        Item item = resultItem.getItem();
+        Item item = recipeResult.getItem();
         if(item instanceof IPreEnchantedItem) {
             Pair<Enchantment, Integer> itemEnchantment = ((IPreEnchantedItem)item).getEnchantment();
             EnchantmentHelper.setEnchantments(Map.of(itemEnchantment.getFirst(), itemEnchantment.getSecond()), recipeResult);
