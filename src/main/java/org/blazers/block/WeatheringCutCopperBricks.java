@@ -5,8 +5,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.WeatheringCopper;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
@@ -18,9 +19,9 @@ import java.util.Optional;
 import java.util.Random;
 
 /**
- * Implementation class for a {@link BlazersMod Blazers Mod}  {@link ButtonBlock Copper Button Block}
+ * Implementation class for the {@link BlazersMod Blazers Mod} {@link Block Cut Copper Bricks}
  */
-public class WeatheringCopperButtonBlock extends CopperButtonBlock implements IWeatheringCopperButton {
+public class WeatheringCutCopperBricks extends Block implements IWeatheringCutCopperBricks {
 
     /**
      * {@link WeatheringCopper.WeatherState Copper Weather State}
@@ -29,16 +30,18 @@ public class WeatheringCopperButtonBlock extends CopperButtonBlock implements IW
 
     /**
      * Constructor. Sets the {@link WeatheringCopper.WeatherState Copper Weather State}
+     * and the {@link BlockBehaviour Parent Block Properties}
      *
      * @param weatherState {@link WeatheringCopper.WeatherState Copper Weather State}
+     * @param parentBlock {@link BlockBehaviour Parent Block Properties}
      */
-    public WeatheringCopperButtonBlock(WeatheringCopper.WeatherState weatherState) {
-        super();
+    public WeatheringCutCopperBricks(WeatheringCopper.WeatherState weatherState, BlockBehaviour parentBlock) {
+        super(BlockBehaviour.Properties.copy(parentBlock));
         this.weatherState = weatherState;
     }
 
     /**
-     * Oxidize the {@link ButtonBlock Copper Button}
+     * Oxidize the {@link Block Cut Copper Bricks}
      *
      * @param state {@link BlockState Block State}
      * @param level {@link ServerLevel World reference}
@@ -50,14 +53,14 @@ public class WeatheringCopperButtonBlock extends CopperButtonBlock implements IW
     }
 
     /**
-     * Randomly tick the {@link ButtonBlock Copper Button}
+     * Randomly tick the {@link Block Cut Copper Bricks}
      * if is not fully oxidized
      *
      * @param state {@link BlockState Block State}
-     * @return {@link Boolean True} if the {@link ButtonBlock Copper Button} is not fully oxidized
+     * @return {@link Boolean True} if the {@link Block Cut Copper Bricks} is not fully oxidized
      */
     public boolean isRandomlyTicking(BlockState state) {
-        return IWeatheringCopperButton.getNext(state.getBlock()).isPresent();
+        return IWeatheringCutCopperBricks.getNext(state.getBlock()).isPresent();
     }
 
     /**
@@ -71,7 +74,7 @@ public class WeatheringCopperButtonBlock extends CopperButtonBlock implements IW
     }
 
     /**
-     * Sets the {@link ButtonBlock Copper Button} variant on
+     * Sets the {@link Block Cut Copper Bricks} variant on
      * right click with an {@link AxeItem Axe}
      *
      * @param state {@link BlockState Block State}
@@ -85,7 +88,7 @@ public class WeatheringCopperButtonBlock extends CopperButtonBlock implements IW
     public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
         ItemStack stack = context.getItemInHand();
         if(stack.getItem() instanceof AxeItem && toolAction == ToolActions.AXE_WAX_OFF) {
-            Optional<BlockState> previousBlockState = IWeatheringCopperButton.getPrevious(state);
+            Optional<BlockState> previousBlockState = IWeatheringCutCopperBricks.getPrevious(state);
             if(previousBlockState.isPresent()) {
                 return previousBlockState.get();
             }

@@ -46,7 +46,7 @@ Changelog
 - È ora possibile rendere un Item Frame invisibile/visibile shift-cliccando col mouse destro con le cesoie un Item Frame
 - È ora possiible craftare un ArmorStand con braccia aggiungendo 2 bastoncini, uno piccolo usando un lingotto di ferro o uno piccolo con braccia combinando le due ricette  
 - Aggiunti 19 nuovi advancements legati alle novità della mod
-- Aggiunte la cobbled andesite/diorite/granite, i mattoni intagliati, di prismarino scuro, di sandstone/red sandstone, e le tiles di pietra, pietra muschiata, end stone, blackstone levigata, purpur, quarzo. Sono ottenibili solo dallo stonecutter  
+- Aggiunte la cobbled andesite/diorite/granite, i mattoni intagliati normali, di prismarino e prismarino scuro, di deepslate normale e levigate, di sandstone/red sandstone, di rame (normale e cerato, tutte le fasi) e le tiles di pietra, pietra muschiata, end stone, blackstone levigata, purpur, quarzo. Sono ottenibili solo dallo stonecutter  
 
 
 
@@ -54,12 +54,6 @@ TO-DO
 
 -BLOCKS
 
-- Cut copper bricks
-- Cut deepslate bricks
-- Polished deepslate bricks
-- Cut prismarine bricks
-- Infested stone tiles
-- Infested mossy stone tiles
 - Ice dripstones
 - Stone dripstones
 

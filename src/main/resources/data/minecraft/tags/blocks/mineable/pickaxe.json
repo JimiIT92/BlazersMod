@@ -22,7 +22,10 @@
     "blazersmod:cobbled_diorite",
     "blazersmod:cobbled_granite",
     "blazersmod:cut_bricks",
+    "blazersmod:cut_prismarine_bricks",
+    "blazersmod:cut_deepslate_bricks",
     "blazersmod:dark_prismarine_bricks",
+    "blazersmod:polished_deepslate_bricks",
     "blazersmod:sandstone_bricks",
     "blazersmod:red_sandstone_bricks",
     "blazersmod:stone_tiles",
@@ -30,6 +33,14 @@
     "blazersmod:end_stone_tiles",
     "blazersmod:polished_blackstone_tiles",
     "blazersmod:purpur_tiles",
-    "blazersmod:quartz_tiles"
+    "blazersmod:quartz_tiles",
+    "blazersmod:cut_copper_bricks",
+    "blazersmod:exposed_cut_copper_bricks",
+    "blazersmod:weathered_cut_copper_bricks",
+    "blazersmod:oxidized_cut_copper_bricks",
+    "blazersmod:waxed_cut_copper_bricks",
+    "blazersmod:waxed_exposed_cut_copper_bricks",
+    "blazersmod:waxed_weathered_cut_copper_bricks",
+    "blazersmod:waxed_oxidized_cut_copper_bricks"
   ]
 }

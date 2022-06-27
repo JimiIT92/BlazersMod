@@ -5,6 +5,14 @@
     "blazersmod:topaz_block",
     "blazersmod:pearl_block",
     "blazersmod:malachite_block",
-    "blazersmod:onice_block"
+    "blazersmod:onice_block",
+    "blazersmod:cut_copper_bricks",
+    "blazersmod:exposed_cut_copper_bricks",
+    "blazersmod:weathered_cut_copper_bricks",
+    "blazersmod:oxidized_cut_copper_bricks",
+    "blazersmod:waxed_cut_copper_bricks",
+    "blazersmod:waxed_exposed_cut_copper_bricks",
+    "blazersmod:waxed_weathered_cut_copper_bricks",
+    "blazersmod:waxed_oxidized_cut_copper_bricks"
   ]
 }
