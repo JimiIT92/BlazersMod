@@ -48,13 +48,9 @@ Changelog
 - Aggiunti 19 nuovi advancements legati alle novità della mod
 - Aggiunte la cobbled andesite/diorite/granite, i mattoni intagliati normali, di prismarino e prismarino scuro, di deepslate normale e levigate, di sandstone/red sandstone, di rame (normale e cerato, tutte le fasi) e le tiles di pietra, pietra muschiata, end stone, blackstone levigata, purpur, quarzo. Sono ottenibili solo dallo stonecutter  
 - Aggiunte le dripstone di ghiaccio e pietra. Ottenibili piazzando una dripstone sopra/sotto un blocco di ghiaccio/pietra. La dripstone di ghiaccio può essere ottenuta solo tramite silk touch
-
+- Nelle foreste di betulle potranno ora spawnare alberi caduti di betulla e betulla cava, a volte decorati con muschio. Inoltre spawnano molti più fiori
 
 TO-DO
-
--WORLD GEN
-
-- Improved Birch Forest
 
 -FIXES
 

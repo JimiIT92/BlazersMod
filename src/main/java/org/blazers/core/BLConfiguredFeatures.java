@@ -8,15 +8,14 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
-import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
 import java.util.List;
@@ -42,6 +41,9 @@ public final class BLConfiguredFeatures {
     public static final Holder<ConfiguredFeature<SimpleRandomFeatureConfiguration, ?>> CATTAIL = FeatureUtils.register("cattail", Feature.SIMPLE_RANDOM_SELECTOR,
             new SimpleRandomFeatureConfiguration(HolderSet.direct(PlacementUtils.inlinePlaced(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
                     new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BLBlocks.CATTAIL.get().defaultBlockState(), 1)))))));
+
+    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> FALLEN_BIRCH_TREE = FeatureUtils.register("fallen_birch_tree", BLFeatures.FALLEN_BIRCH_TREE.get(), new ProbabilityFeatureConfiguration(0.1F));
+    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> FALLEN_HOLLOW_BIRCH_TREE = FeatureUtils.register("fallen_hollow_birch_tree", BLFeatures.FALLEN_HOLLOW_BIRCH_TREE.get(), new ProbabilityFeatureConfiguration(0.1F));
 
     //#endregion
 
@@ -76,16 +78,6 @@ public final class BLConfiguredFeatures {
      */
     private static List<OreConfiguration.TargetBlockState> createNetherTargetState(Block ore) {
         return List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, ore.defaultBlockState()));
-    }
-
-    /**
-     * Get the Ancient Debris {@link OreConfiguration.TargetBlockState Target Block State}
-     *
-     * @param ore {@link Block Ore Block}
-     * @return Ancient Debris {@link OreConfiguration.TargetBlockState Target Block State}
-     */
-    private static List<OreConfiguration.TargetBlockState> createAncientDebrisTargetState(Block ore) {
-        return List.of(OreConfiguration.target(new BlockMatchTest(Blocks.ANCIENT_DEBRIS), ore.defaultBlockState()));
     }
 
     /**
@@ -125,15 +117,4 @@ public final class BLConfiguredFeatures {
         return FeatureUtils.register(name, Feature.ORE, new OreConfiguration(createNetherTargetState(ore), size));
     }
 
-    /**
-     * Register an Ancient Debris {@link ConfiguredFeature Ore Configuration}
-     *
-     * @param name {@link String Ore Feature Name}
-     * @param ore {@link Block Ore Block}
-     * @param size {@link Integer Max Vein Size}
-     * @return Ancient Debris {@link ConfiguredFeature Ore Configuration}
-     */
-    private static Holder<ConfiguredFeature<OreConfiguration, ?>> registerAncientDebrisOre(String name, Block ore, int size) {
-        return FeatureUtils.register(name, Feature.SCATTERED_ORE, new OreConfiguration(createAncientDebrisTargetState(ore), size, 1.0F));
-    }
 }

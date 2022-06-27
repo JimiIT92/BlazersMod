@@ -3,6 +3,7 @@ package org.blazers.core;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
@@ -29,6 +30,10 @@ public final class BLPlacedFeatures {
             InSquarePlacement.spread(), HeightRangePlacement.triangle(VerticalAnchor.absolute(8), VerticalAnchor.absolute(24)), BiomeFilter.biome());
 
     public static final Holder<PlacedFeature> CATTAIL = PlacementUtils.register("cattail", BLConfiguredFeatures.CATTAIL, AquaticPlacements.seagrassPlacement(80));
+
+    public static final Holder<PlacedFeature> FALLEN_BIRCH_TREE = PlacementUtils.register("fallen_birch_tree", BLConfiguredFeatures.FALLEN_BIRCH_TREE, VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1F, 2)));
+    public static final Holder<PlacedFeature> FALLEN_HOLLOW_BIRCH_TREE = PlacementUtils.register("fallen_hollow_birch_tree", BLConfiguredFeatures.FALLEN_HOLLOW_BIRCH_TREE, VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1F, 2)));
+
 
     //#endregion
 

@@ -2,6 +2,7 @@ package org.blazers.world.gen;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
@@ -29,6 +30,11 @@ public final class BLFlowerGeneration {
 
         if(Biomes.SWAMP.equals(biome)) {
             flowers.add(BLPlacedFeatures.CATTAIL);
+        } else if(Biomes.BIRCH_FOREST.equals(biome)) {
+            flowers.add(BLPlacedFeatures.FALLEN_BIRCH_TREE);
+            flowers.add(BLPlacedFeatures.FALLEN_HOLLOW_BIRCH_TREE);
+            flowers.add(VegetationPlacements.FLOWER_MEADOW);
         }
     }
+
 }
