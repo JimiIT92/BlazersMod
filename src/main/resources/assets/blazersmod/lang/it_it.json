@@ -183,6 +183,8 @@
   "block.blazersmod.waxed_weathered_cut_copper_bricks": "Mattoni incisi di rame corroso cerati",
   "block.blazersmod.waxed_exposed_cut_copper_bricks":  "Mattoni incisi di rame esposto cerati",
   "block.blazersmod.waxed_oxidized_cut_copper_bricks": "Mattoni incisi di rame ossidato cerati",
+  "block.blazersmod.pointed_ice_dripstone": "Speleotema appuntito di ghiaccio",
+  "block.blazersmod.pointed_stone_dripstone": "Speleotema appuntito di pietra",
   "entity.blazersmod.wither_skeleton_horse": "Cavallo scheletro wither",
   "entity.blazersmod.firefly": "Lucciola",
   "entity.blazersmod.spear": "Lancia",

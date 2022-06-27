@@ -41,6 +41,8 @@
     "blazersmod:waxed_cut_copper_bricks",
     "blazersmod:waxed_exposed_cut_copper_bricks",
     "blazersmod:waxed_weathered_cut_copper_bricks",
-    "blazersmod:waxed_oxidized_cut_copper_bricks"
+    "blazersmod:waxed_oxidized_cut_copper_bricks",
+    "blazersmod:pointed_ice_dripstone",
+    "blazersmod:pointed_stone_dripstone"
   ]
 }

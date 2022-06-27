@@ -121,6 +121,9 @@ public final class BLBlocks {
     public static final RegistryObject<Block> WAXED_WEATHERED_CUT_COPPER_BRICKS = registerBlock("waxed_weathered_cut_copper_bricks", () -> new WaxedCutCopperBricksBlock(Blocks.WEATHERED_CUT_COPPER), BLTabs.TAB_BUILDING_BLOCKS);
     public static final RegistryObject<Block> WAXED_OXIDIZED_CUT_COPPER_BRICKS = registerBlock("waxed_oxidized_cut_copper_bricks", () -> new WaxedCutCopperBricksBlock(Blocks.OXIDIZED_CUT_COPPER), BLTabs.TAB_BUILDING_BLOCKS);
 
+    public static final RegistryObject<Block> POINTED_ICE_DRIPSTONE = registerBlock("pointed_ice_dripstone", PointedIceDripstoneBlock::new, BLTabs.TAB_DECORATIONS);
+    public static final RegistryObject<Block> POINTED_STONE_DRIPSTONE = registerBlock("pointed_stone_dripstone", PointedStoneDripstoneBlock::new, BLTabs.TAB_DECORATIONS);
+
     //#endregion
 
     /**
@@ -262,7 +265,9 @@ public final class BLBlocks {
                 BROWN_MUSHROOM_WALL_FAN,
                 RED_MUSHROOM_WALL_FAN,
                 CATTAIL,
-                POTTED_CATTAIL
+                POTTED_CATTAIL,
+                POINTED_ICE_DRIPSTONE,
+                POINTED_STONE_DRIPSTONE
         );
     }
 
