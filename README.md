@@ -1,51 +1,78 @@
-Changelog
+# LA MOD DEI BLAZERS! <img align="left" width=4% height=4% src="src/main/resources/icon.png"/> 
+[![](https://img.shields.io/badge/Minecraft-1.18.2-success)](https://minecraft.net/) 
+[![](https://img.shields.io/badge/Forge-1.18.2--40.1.52-important?logo=curseforge)](https://forums.minecraftforge.net/) 
+[![](http://cf.way2muchnoise.eu/full_637993_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/blazers-mod)
 
-- Aggiornato il logo della mod
-- Aggiornate le textures
-- Aggiornate le ricette di crafting
-- Migliorata la compatibilità con altre mod tramite l'utilizzo dei Tag (mod/forge/minecraft)
-- Aggiunto l'Uranio Grezzo
-- Aggiunta la Pepita di Uranio
-- È necessario usare un piccone di Diamante (o superiore) per rompere i blocchi di Uranio
-- È necessario usare un piccone di Ferro (o superiore) per rompere i blocchi di Rubino e Zaffiro 
-- È necessario usare un piccone di Pietra (o superiore) per rompere i blocchi di Topazio, Perla, Malachite e Onice
-- È possibile utilizzare il Rubino e lo Zaffiro nel Beacon
-- I blocchi di Rubino e Zaffiro possono essere usati come base per il Beacon
-- Il minerale di Perla ora si genera nella sabbia sui fondali delle barriere coralline
-- I minerali di Zaffiro e Topazio possono ora generarsi nella Deepslate
-- Il minerale di Uranio ora si genera nei detriti antichi
-- Il carbonio può essere ottenuto combinando un blocco di carbone e un lingotto di ferro nella Smithing Table
-- L'Hosomaki ora si crafta con 2 Seagrass e 1 Merluzzo crudo al centro
-- Il Sashimi si crafta con un singolo salmone crudo (ne ottieni 4)
-- Il Nigiri ora si crafta con 1 Seagrass sopra 1 Salmone crudo (ne ottieni 2)
-- Attrezzi, armi e armature di Rubino, Zaffiro o Smeraldo ora sono a metà tra il diamante e la netherite
-- Gli attrezzi e le armature di Onice, Topazio e Malachite ora sono a metà tra il diamante e il ferro
-- La spada e armature di Perla o Ametista ora sono a metà tra il ferro e la pietra
-- La spada e armature di Blazerite o Gyulianite ora sono più potenti della Netherite
-- È ora possibile lanciare la Lancia di Malachite (come un tridente)
-- La spada e armature di Blazerite o Gyulianite ora sono ottenibili combinando la gemma con la spada o l'amratura di Netherite. Questo rimuoverà qualsiasi incantesimo dalla spada o dall'armatura di Netherite
-- La spada e armature di Blazerite o Gyulianite ora non sono utleriormente incantabili in survival
-- Le katana ora hanno gli stessi danni e utilizzi di una spada in ferro, ma sono molto più veloci
-- È possibile ora colorare il manico di una katana con tutti i 16 colori
-- Aggiunti due nuovi quadri: Erenblaze e Survival
-- Aggiunte le armature per cavallo di Rubino, Zaffiro, Smeraldo, Malachite e Topazio
-- Aggiunti i legni cavi normali e scortecciati. Ottenibili cliccando col tasto destro mentre si è shiftati un blocco di legno normale o scortecciato
-- Lo zaffiro ora si genera come il diamante nell'overworld, con la stessa rarità
-- Il topazio ora si genera come il diamante nell'overworld, con una rarità inferiore
-- La perla ora si genera solo negli oceani caldi
-- Il rubino ora si genera come il diamante nell'overworld, con la stessa rarità ma nel Nether
-- La malachite e l'onice ora si generano nel nether come il quarzo, con la stessa rarità
-- L'uranio si genera come i detriti antichi, nel Nether, con rarità leggermente inferiore
-- Aggiunti i pulsanti di rame (può essere applicata e tolta la cera come per i blocchi di rame)
-- Rimossa la trappola del Wither. Il wither skeleton horse ora spawna nei biomi del Nether
-- Aggiunte le Lucciole. Spawnano nelle paludi. Non droppano nulla (neanche XP)
-- È ora possibile piazzare i funghi sui lati di un blocco. Per riottenere un fungo da essi bisognerà usare una zappa con silk touch
-- Aggiunte le Tife. Possono spawnare nelle Paludi. È possibile piazzarle in acqua (completamente o solo la metà inferiore) su terra, sabbia, sabbia rossa e ghiaia. È possibile raccoglierla con le cesoie. È possibile piantarla in un vaso
-- La TNT di Uranio ora impiega il doppio del tempo rispetto a una TNT normale per esplodere
-- È ora possibile utilizzare la Fletching Table per craftare l'arco di carbonio, combinando un arco con un pezzo di carbonio
-- È ora possibile rendere un Item Frame invisibile/visibile shift-cliccando col mouse destro con le cesoie un Item Frame
-- È ora possiible craftare un ArmorStand con braccia aggiungendo 2 bastoncini, uno piccolo usando un lingotto di ferro o uno piccolo con braccia combinando le due ricette  
-- Aggiunti 19 nuovi advancements legati alle novità della mod
-- Aggiunte la cobbled andesite/diorite/granite, i mattoni intagliati normali, di prismarino e prismarino scuro, di deepslate normale e levigate, di sandstone/red sandstone, di rame (normale e cerato, tutte le fasi) e le tiles di pietra, pietra muschiata, end stone, blackstone levigata, purpur, quarzo. Sono ottenibili solo dallo stonecutter  
-- Aggiunte le dripstone di ghiaccio e pietra. Ottenibili piazzando una dripstone sopra/sotto un blocco di ghiaccio/pietra. La dripstone di ghiaccio può essere ottenuta solo tramite silk touch
-- Nelle foreste di betulle potranno ora spawnare alberi caduti di betulla e betulla cava, a volte decorati con muschio. Inoltre spawnano molti più fiori
+La prima, storica, ufficiale mod dei Blazers, i veri fan di [ErenBlaze](https://www.youtube.com/c/ErenBlaze)!
+
+# 🔥 Perchè proprio la Blazers Mod?
+
+L'obiettivo della mod è portare alcuni elementi del mondo di ErenBlaze all'interno di Minecraft, mantenendo, però, uno stile _vanilla_
+aggiungendo anche contenuti di update mancati o che comunque non stonerebbero troppo all'interno del gioco base.
+
+Quindi, benchè questa sia la _mod dei blazers_, è in realtà adatta a praticamente tutti! 😁
+
+# 🪐 Cosa aggiunge la mod?
+
+- **Due** nuovi minerali nell'Overworld: Zaffiro e Perla
+- **Quattro** nuovi minerali nel Nether: Rubino, Onice, Malachite e Uranio
+- Nuove armi, attrezzi e armature ottenuti dai minerali aggiunti e dallo Smeraldo
+- Nuovi cibi ispirati alla cultura giapponese
+- **Due** nuovi minerali "definitivi": Blazerite e Gyulianite
+- **Due** nuovi quadri
+- Alcune feature rimosse del "Wild Update": legni cavi, lucciole, tife, funghi sui lati dei tronchi, alberi caduti...
+- Una nuova tipolgia di cavallo scheletrico nel Nether: il cavallo di scheletro wither
+- Pulsanti di rame
+- Nuove varianti di mattoni per diversi materiali
+- Funzionalità per la Fletching Table
+- Possibilità di ottenere Item Frame invisibili e Armor Stand con braccia o piccoli in survival
+- Nuove stalattiti e stalagmiti di pietra e di ghiaccio
+- **Diciannove** nuovi avanzamenti
+
+# 🌐 Dove posso scaricarla?
+
+La mod è scaricabile **esclusivamente** da [CurseForge](https://www.curseforge.com/minecraft/mc-mods/blazers-mod). 
+Se avete ottenuto la mod tramite altri siti **cancellate il file immediatamente**, poichè potrebbe essere dannoso.
+
+Ogni aggiornamento e nuova release verranno rilasciate lì, seguite da un aggiornamento (per il momento) sul sito di [MineWorld](https://mineworldminecraft.altervista.org/blog/), la mia mod personale. 
+
+A breve arriverà anche un sito dedicato interamente al progetto, con la wiki dei vari crafting, blocchi, oggetti, mob..
+
+Restate sintonizzati per scoprire il futuro della Blazers Mod e come questo sarà strettamente collegato a MineWorld 👀 
+
+# 💰 Devo pagare per averla?
+
+## _NO! LA MOD È COMPLETAMENTE GRATUITA, E SEMPRE LO SARÀ!_
+
+Se avete pagato per ottenere questa mod, o se qualcuno vi chiede dei soldi per poterla avere, sappiate che vi sta truffando e, anzi,
+dovreste denunciarlo per tentata frode!
+
+Questa mod è un progetto portato avanti nel (poco) tempo libero a disposizione e chiaramente è un lavoro fatto con passione
+e senza alcun intento di lucro. Per questo motivo la mod sarà **sempre** disponibile gratuitamente per chiunque!
+
+Tuttavia, se volete supportare il progetto con una donazione, potete farlo tramite i link qui sotto, a patto che chiaramente siate
+maggiorenni o comunque abbiate l'approvazione per farlo. **Non è obbligatorio**, ma chiaramente ogni piccolo supporto al progetto
+sarà sempre ben accetto e riconosciuto 😁
+
+_[BuyMeACoffee](https://www.buymeacoffee.com/JimiIT92) | [PayPal](https://www.paypal.me/JimiIT92)_
+
+# 📃 Crediti
+
+Tutto il codice della mod è stato scritto da me, con la gentile collaborazione dei ragazzi del [Forum di Minecraft Forge](https://forums.minecraftforge.net/),
+grazie ai quali ho potuto risolvere alcuni bug ostici saltati fuori durante lo sviluppo.
+
+Le texture e l'idea originale della mod sono tutte ad opera di ErenBlaze.
+
+# 😁 Conclusioni
+
+Spero che apprezziate il lavoro svolto e l'obiettivo preposto sia stato rispettato 😁
+
+Se volete, inoltre, dare un'occhiata ai canali YouTube e Twitch miei e di ErenBlaze:
+
+- MineHendrix _[YouTube](https://www.youtube.com/c/Minehendrix) | [Twitch](https://www.twitch.tv/minehendrix)_
+- Erenblaze _[YouTube](https://www.youtube.com/c/ErenBlaze) | [Twitch](https://www.twitch.tv/erenblaze)_
+
+Per il momento questo è tutto, gente! Se avete segnalazioni o idee inerenti la mod vi invito a farle utilizzando
+[il seguente link](https://github.com/JimiIT92/BlazersMod/issues). **Non inviate messaggi privati, a me o a ErenBlaze, poichè verrebbero molto probabilmente ignorati...**
+
+_Ciao a tutti, Blazers!_ 😎
