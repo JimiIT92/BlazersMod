@@ -3,7 +3,7 @@ package org.blazers.core;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.Model;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -84,7 +84,7 @@ public class BLItemRenderer extends BlockEntityWithoutLevelRenderer {
             pose.pushPose();
             pose.scale(1.0F, -1.0F, -1.0F);
             boolean isMalachiteSpear = stack.is(BLItems.MALACHITE_SPEAR.get());
-            EntityModel<ThrownSpear> model = isMalachiteSpear ? this.malachiteSpearModel : this.spearModel;
+            Model model = isMalachiteSpear ? this.malachiteSpearModel : this.spearModel;
             ResourceLocation layerLocation = isMalachiteSpear ? ThrownMalachiteSpearRenderer.SPEAR_LOCATION : ThrownSpearRenderer.SPEAR_LOCATION;
             VertexConsumer vertexConsumer = ItemRenderer.getFoilBufferDirect(buffer, model.renderType(layerLocation), false, stack.hasFoil());
             model.renderToBuffer(pose, vertexConsumer, packedLight, packedOverlay, 1.0F, 1.0F, 1.0F, 1.0F);

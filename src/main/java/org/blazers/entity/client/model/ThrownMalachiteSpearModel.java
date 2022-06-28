@@ -2,11 +2,12 @@ package org.blazers.entity.client.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.Model;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -18,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
  * Model class for a {@link ThrownSpear Thrown Malachite Spear}
  */
 @OnlyIn(Dist.CLIENT)
-public class ThrownMalachiteSpearModel extends EntityModel<ThrownSpear> {
+public class ThrownMalachiteSpearModel extends Model {
 
     /**
      * {@link ThrownSpear Thrown Malachite Spear} {@link ModelLayerLocation Layer Location}
@@ -35,6 +36,7 @@ public class ThrownMalachiteSpearModel extends EntityModel<ThrownSpear> {
      * @param root Main {@link ThrownSpear Thrown Malachite Spear} {@link ModelPart Model Part}
      */
     public ThrownMalachiteSpearModel(ModelPart root) {
+        super(RenderType::entitySolid);
         this.main = root.getChild("main");
     }
 
@@ -60,21 +62,6 @@ public class ThrownMalachiteSpearModel extends EntityModel<ThrownSpear> {
                 PartPose.offset(0.0F, -3.0F, 0.0F));
 
         return LayerDefinition.create(meshdefinition, 32, 32);
-    }
-
-    /**
-     * Setup {@link ThrownSpear Thrown Malachite Spear} animations
-     *
-     * @param entity {@link ThrownSpear thrown Spear}
-     * @param limbSwing {@link Float Limb Swing}
-     * @param limbSwingAmount {@link Float Limb Swing Amount}
-     * @param ageInTicks {@link Float Age in ticks}
-     * @param netHeadYaw {@link Float Net Head Yaw}
-     * @param headPitch {@link Float Head Pitch}
-     */
-    @Override
-    public void setupAnim(@NotNull ThrownSpear entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-
     }
 
     /**

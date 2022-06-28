@@ -3,7 +3,7 @@ package org.blazers.entity.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Vector3f;
-import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.Model;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -32,7 +32,7 @@ public class ThrownSpearRenderer extends EntityRenderer<ThrownSpear> {
     /**
      * {@link ThrownSpearModel Thrown Spear Model}
      */
-    protected EntityModel<ThrownSpear> model;
+    protected Model model;
 
     /**
      * Constructor. Sets the {@link EntityRenderer Renderer properties}
