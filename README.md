@@ -19,7 +19,7 @@ Quindi, benchè questa sia la _mod dei blazers_, è in realtà adatta a praticam
 - Nuove armi, attrezzi e armature ottenuti dai minerali aggiunti e dallo Smeraldo
 - Nuovi cibi ispirati alla cultura giapponese
 - **Due** nuovi minerali "definitivi": Blazerite e Gyulianite
-- **Due** nuovi quadri
+- **Tre** nuovi quadri
 - Alcune feature rimosse del "Wild Update": legni cavi, lucciole, tife, funghi sui lati dei tronchi, alberi caduti...
 - Una nuova tipolgia di cavallo scheletrico nel Nether: il cavallo di scheletro wither
 - Pulsanti di rame
@@ -27,7 +27,7 @@ Quindi, benchè questa sia la _mod dei blazers_, è in realtà adatta a praticam
 - Funzionalità per la Fletching Table
 - Possibilità di ottenere Item Frame invisibili e Armor Stand con braccia o piccoli in survival
 - Nuove stalattiti e stalagmiti di pietra e di ghiaccio
-- **Diciannove** nuovi avanzamenti
+- **Venti** nuovi avanzamenti
 
 # 🌐 Dove posso scaricarla?
 

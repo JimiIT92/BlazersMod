@@ -1,0 +1,75 @@
+{
+  "parent": "minecraft:story/smelt_iron",
+  "criteria": {
+    "hurt_with_spear": {
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "blazersmod:spear"
+              ]
+            }
+          }
+        },
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:chicken"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "hurt_with_malachite_spear": {
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": [
+                "blazersmod:malachite_spear"
+              ]
+            }
+          }
+        },
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:chicken"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.story.bruh.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "blazersmod:spear"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.story.bruh.title"
+    }
+  },
+  "requirements": [
+    [
+      "hurt_with_spear",
+      "hurt_with_malachite_spear"
+    ]
+  ],
+  "rewards": {
+    "experience": 69
+  }
+}

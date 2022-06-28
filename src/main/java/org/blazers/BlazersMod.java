@@ -52,6 +52,7 @@ public final class BlazersMod {
         BLItems.register(eventBus);
         BLBlocks.register(eventBus);
         BLPaintings.register(eventBus);
+        BLSounds.register(eventBus);
         BLEntityTypes.register(eventBus);
         BLFeatures.register(eventBus);
         BLMenuTypes.register(eventBus);
