@@ -50,11 +50,11 @@ dovreste denunciarlo per tentata frode!
 Questa mod è un progetto portato avanti nel (poco) tempo libero a disposizione e chiaramente è un lavoro fatto con passione
 e senza alcun intento di lucro. Per questo motivo la mod sarà **sempre** disponibile gratuitamente per chiunque!
 
-Tuttavia, se volete supportare il progetto con una donazione, potete farlo tramite i link qui sotto, a patto che chiaramente siate
+Tuttavia, se volete supportare il progetto con una donazione, potete farlo tramite il link qui sotto, a patto che chiaramente siate
 maggiorenni o comunque abbiate l'approvazione per farlo. **Non è obbligatorio**, ma chiaramente ogni piccolo supporto al progetto
 sarà sempre ben accetto e riconosciuto 😁
 
-_[BuyMeACoffee](https://www.buymeacoffee.com/JimiIT92) | [PayPal](https://www.paypal.me/JimiIT92)_
+_[BuyMeACoffee](https://www.buymeacoffee.com/JimiIT92)_
 
 # 📃 Crediti
 
