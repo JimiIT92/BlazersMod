@@ -6,8 +6,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -405,19 +403,6 @@ public class PointedIceDripstoneBlock extends Block implements Fallable, SimpleW
     }
 
     /**
-     * Drop the {@link Block falling dripstones} after they fall
-     *
-     * @param level {@link Level World reference}
-     * @param pos {@link BlockPos Block Pos}
-     * @param fallingBlockEntity {@link FallingBlockEntity Falling Block Entity}
-     */
-    public void onBrokenAfterFall(@NotNull Level level, @NotNull BlockPos pos, FallingBlockEntity fallingBlockEntity) {
-        if (!fallingBlockEntity.isSilent()) {
-            level.playSound(null, pos, SoundEvents.GLASS_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
-        }
-    }
-
-    /**
      * Get the {@link DamageSource Fall Damage Source}
      *
      * @return {@link DamageSource Fall Damage Source}
@@ -446,7 +431,7 @@ public class PointedIceDripstoneBlock extends Block implements Fallable, SimpleW
         BlockPos.MutableBlockPos mutableBlockPos = pos.mutable();
 
         for(BlockState blockstate = state; isStalactite(blockstate); blockstate = level.getBlockState(mutableBlockPos)) {
-            FallingBlockEntity fallingblockentity = FallingBlockEntity.fall(level, mutableBlockPos, blockstate);
+            FallingBlockEntity fallingblockentity = fall(level, mutableBlockPos, blockstate);
             if (isTip(blockstate, true)) {
                 float f = Math.max(1 + pos.getY() - mutableBlockPos.getY(), 6);
                 fallingblockentity.setHurtsEntities(f, 40);
@@ -455,6 +440,22 @@ public class PointedIceDripstoneBlock extends Block implements Fallable, SimpleW
 
             mutableBlockPos.move(Direction.DOWN);
         }
+    }
+
+    /**
+     * Spawn a {@link FallingBlockEntity Falling Dripstone} that doesn't drop anything when it breaks
+     *
+     * @param level {@link Level World reference}
+     * @param pos {@link BlockPos Block Pos}
+     * @param state {@link BlockState Block State}
+     * @return {@link FallingBlockEntity Falling Dripstone}
+     */
+    public static FallingBlockEntity fall(Level level, BlockPos pos, BlockState state) {
+        FallingBlockEntity fallingblockentity = new FallingBlockEntity(level, (double)pos.getX() + 0.5D, pos.getY(), (double)pos.getZ() + 0.5D, state.hasProperty(BlockStateProperties.WATERLOGGED) ? state.setValue(BlockStateProperties.WATERLOGGED, Boolean.FALSE) : state);
+        fallingblockentity.dropItem = false;
+        level.setBlock(pos, state.getFluidState().createLegacyBlock(), 3);
+        level.addFreshEntity(fallingblockentity);
+        return fallingblockentity;
     }
 
     /**

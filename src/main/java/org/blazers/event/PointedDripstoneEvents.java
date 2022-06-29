@@ -1,10 +1,14 @@
 package org.blazers.event;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.event.entity.EntityLeaveWorldEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,6 +39,18 @@ public final class PointedDripstoneEvents {
             } else if(hitBlockState.is(Blocks.STONE)) {
                 world.setBlock(pos, BLBlocks.POINTED_STONE_DRIPSTONE.get().withPropertiesOf(blockState), 11);
             }
+        }
+    }
+
+    /**
+     * Play the break sound when the {@link FallingBlockEntity Falling Dripstone} lands
+     *
+     * @param event {@link EntityLeaveWorldEvent Entity Leave World Event}
+     */
+    @SubscribeEvent
+    public static void onFallingIceDripstoneBroken(final EntityLeaveWorldEvent event) {
+        if(event.getEntity() instanceof FallingBlockEntity entity && entity.getBlockState().is(BLBlocks.POINTED_ICE_DRIPSTONE.get())) {
+            event.getWorld().playSound(null, entity.blockPosition(), SoundEvents.GLASS_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
         }
     }
 }
