@@ -212,7 +212,7 @@
       "translate": "advancements.story.all_katanas.description"
     },
     "frame": "goal",
-    "hidden": true,
+    "hidden": false,
     "icon": {
       "item": "blazersmod:katana",
       "nbt": "{Damage:0}"

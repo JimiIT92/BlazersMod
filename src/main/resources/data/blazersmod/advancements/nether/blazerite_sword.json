@@ -20,7 +20,7 @@
       "translate": "advancements.nether.blazerite_sword.description"
     },
     "frame": "challenge",
-    "hidden": true,
+    "hidden": false,
     "icon": {
       "item": "blazersmod:blazerite_sword"
     },
