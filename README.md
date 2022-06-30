@@ -1,6 +1,6 @@
 # LA MOD DEI BLAZERS! <img align="left" width=4% height=4% src="src/main/resources/icon.png"/> 
 [![](https://img.shields.io/badge/Minecraft-1.18.2-success)](https://minecraft.net/) 
-[![](https://img.shields.io/badge/Forge-1.18.2--40.1.52-important?logo=curseforge)](https://forums.minecraftforge.net/) 
+[![](https://img.shields.io/badge/Forge-1.18.2--40.1.53-important?logo=curseforge)](https://forums.minecraftforge.net/) 
 [![](http://cf.way2muchnoise.eu/full_637993_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/blazers-mod)
 
 La prima, storica, ufficiale mod dei Blazers, i veri fan di [ErenBlaze](https://www.youtube.com/c/ErenBlaze)!
