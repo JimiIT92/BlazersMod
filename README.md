@@ -34,7 +34,7 @@ Quindi, benchè questa sia la _mod dei blazers_, è in realtà adatta a praticam
 La mod è scaricabile **esclusivamente** da [CurseForge](https://www.curseforge.com/minecraft/mc-mods/blazers-mod). 
 Se avete ottenuto la mod tramite altri siti **cancellate il file immediatamente**, poichè potrebbe essere dannoso.
 
-Ogni aggiornamento e nuova release verranno rilasciate lì, seguite da un aggiornamento (per il momento) sul sito di [MineWorld](https://mineworldminecraft.altervista.org/blog/), la mia mod personale. 
+Ogni aggiornamento e nuova release verranno rilasciate lì, seguite da un aggiornamento (per il momento) sul sito di [MineWorld](https://mineworldminecraft.altervista.org/blog/blazers-mod-versione-1-18-e-importanti-novita), la mia mod personale. 
 
 A breve arriverà anche un sito dedicato interamente al progetto, con la wiki dei vari crafting, blocchi, oggetti, mob..
 
