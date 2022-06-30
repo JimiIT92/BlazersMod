@@ -54,7 +54,7 @@ Tuttavia, se volete supportare il progetto con una donazione, potete farlo trami
 maggiorenni o comunque abbiate l'approvazione per farlo. **Non è obbligatorio**, ma chiaramente ogni piccolo supporto al progetto
 sarà sempre ben accetto e riconosciuto 😁
 
-_[BuyMeACoffee](https://www.buymeacoffee.com/JimiIT92)_
+_[Ko-Fi](https://ko-fi.com/jimi_)_
 
 # 📃 Crediti
 
