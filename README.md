@@ -61,7 +61,7 @@ _[Ko-Fi](https://ko-fi.com/jimi_)_
 Tutto il codice della mod è stato scritto da me, con la gentile collaborazione dei ragazzi del [Forum di Minecraft Forge](https://forums.minecraftforge.net/),
 grazie ai quali ho potuto risolvere alcuni bug ostici saltati fuori durante lo sviluppo.
 
-Le texture e l'idea originale della mod sono tutte ad opera di ErenBlaze.
+Le texture e l'idea originale della mod sono tutte a opera di ErenBlaze.
 
 # 😁 Conclusioni
 
