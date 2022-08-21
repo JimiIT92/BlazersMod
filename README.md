@@ -11,6 +11,7 @@ L'obiettivo della mod è portare alcuni elementi del mondo di ErenBlaze all'inte
 aggiungendo anche contenuti di update mancati o che comunque non stonerebbero troppo all'interno del gioco base.
 
 Quindi, benchè questa sia la _mod dei blazers_, è in realtà adatta a praticamente tutti! 😁
+[![BLAZE UPDATE!! La MIA MOD di MINECRAFT](https://yt-embed.herokuapp.com/embed?v=C1nPkcRmptI)](https://www.youtube.com/watch?v=C1nPkcRmptI "BLAZE UPDATE!! La MIA MOD di MINECRAFT")
 
 # 🪐 Cosa aggiunge la mod?
 
