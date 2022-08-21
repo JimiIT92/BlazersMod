@@ -40,6 +40,14 @@ A breve arriverà anche un sito dedicato interamente al progetto, con la wiki de
 
 Restate sintonizzati per scoprire il futuro della Blazers Mod e come questo sarà strettamente collegato a MineWorld 👀 
 
+# 🔗 Posso contribuire?
+
+Certo! La mod è pensata per essere un regalo alla community di ErenBlaze, pertanto chiunque faccia parte della sua community (ma non solo) può contribuire al suo miglioramento e alla sua espansione 😁
+
+Se hai un suggerimento per un futuro update puoi utilizzare [questo link](https://github.com/JimiIT92/BlazersMod/issues/new?template=richiesta-feature.md "questo link"). Ricorda però che le idee devono essere coerenti con lo spirito della mod e con il canale di Eren 😉 Cerca d'inserire quanti più dettagli possibili e, se possibile, aggiungi degli screenshot o delle texture 😁
+
+Riscontri qualche problema con la mod? Niente paura, tramite [questo link magico](https://github.com/JimiIT92/BlazersMod/issues/new?template=segnala-un-problema.md "questo link magico") potrai inoltrarci il problema riscontrato. Ricorda sempre d'inserire quanti più dettagli possibili per poterci aiutare a riprodurre il problema e risolverlo, meglio se accompagnati da qualche screenshot qualora ce ne fosse bisogno 😁
+
 # 💰 Devo pagare per averla?
 
 ## _NO! LA MOD È COMPLETAMENTE GRATUITA, E SEMPRE LO SARÀ!_
