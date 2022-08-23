@@ -55,10 +55,10 @@ public final  class CopperEvents {
      */
     @SubscribeEvent
     public static void onRightClickBlock(final PlayerInteractEvent.RightClickBlock event) {
-        Player player = event.getPlayer();
+        Player player = event.getEntity();
         ItemStack itemStack = event.getItemStack();
         Item item = itemStack.getItem();
-        Level world = event.getWorld();
+        Level world = event.getLevel();
         BlockPos blockPos = event.getPos();
         BlockState blockState = world.getBlockState(blockPos);
         Block block = blockState.getBlock();
@@ -77,6 +77,9 @@ public final  class CopperEvents {
                 }
                 world.setBlock(blockPos, state, 11);
                 world.levelEvent(player, 3003, blockPos, 0);
+                if(world.isClientSide()) {
+                    player.swing(event.getHand());
+                }
             });
         }
     }

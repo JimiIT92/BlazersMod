@@ -9,6 +9,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.blazers.BlazersMod;
 import org.blazers.entity.WitherSkeletonHorse;
+import org.blazers.entity.client.layers.WitherSkeletonHorseArmorLayer;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -24,6 +25,7 @@ public class WitherSkeletonHorseRenderer extends AbstractHorseRenderer<WitherSke
      */
     public WitherSkeletonHorseRenderer(EntityRendererProvider.Context context) {
         super(context, new HorseModel<>(context.bakeLayer(ModelLayers.HORSE)), 1.1F);
+        this.addLayer(new WitherSkeletonHorseArmorLayer(this, context.getModelSet()));
     }
 
     /**

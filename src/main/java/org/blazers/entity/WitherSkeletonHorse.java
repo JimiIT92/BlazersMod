@@ -4,16 +4,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.horse.Horse;
-import net.minecraft.world.entity.animal.horse.SkeletonHorse;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LightLayer;
 import org.blazers.BlazersMod;
@@ -22,12 +20,11 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.Objects;
-import java.util.Random;
 
 /**
  * Implementation class for a {@link Horse Wither Skeleton Horse}
  */
-public class WitherSkeletonHorse extends SkeletonHorse {
+public class WitherSkeletonHorse extends Horse {
 
     /**
      * Constructor. Sets the {@link Horse Horse properties}
@@ -35,7 +32,7 @@ public class WitherSkeletonHorse extends SkeletonHorse {
      * @param entityType {@link EntityType Entity Type}
      * @param world {@link Level World reference}
      */
-    public WitherSkeletonHorse(EntityType<? extends SkeletonHorse> entityType, Level world) {
+    public WitherSkeletonHorse(EntityType<? extends Horse> entityType, Level world) {
         super(entityType, world);
         this.setTamed(true);
     }
@@ -62,8 +59,8 @@ public class WitherSkeletonHorse extends SkeletonHorse {
     /**
      * Randomize the {@link AttributeSupplier.Builder Wither Skeleton Horse Attributes}
      */
-    protected void randomizeAttributes() {
-        Objects.requireNonNull(this.getAttribute(Attributes.JUMP_STRENGTH)).setBaseValue(this.generateRandomJumpStrength());
+    protected void randomizeAttributes(@NotNull RandomSource random) {
+        Objects.requireNonNull(this.getAttribute(Attributes.JUMP_STRENGTH)).setBaseValue(this.generateRandomJumpStrength(random));
     }
 
     /**
@@ -77,16 +74,6 @@ public class WitherSkeletonHorse extends SkeletonHorse {
     }
 
     /**
-     * Sets if {@link WitherSkeletonHorse Wither Skeleton Horse} can spawn the skeleton trap
-     *
-     * @return {@link Boolean True} if {@link WitherSkeletonHorse Wither Skeleton Horse} can spawn the skeleton trap
-     */
-    @Override
-    public boolean isTrap() {
-        return false;
-    }
-
-    /**
      * Sets if the {@link WitherSkeletonHorse Wither Skeleton Horse} can mate with another {@link Animal animal}
      *
      * @param animal {@link Animal Animal}
@@ -95,16 +82,6 @@ public class WitherSkeletonHorse extends SkeletonHorse {
     @Override
     public boolean canMate(@NotNull Animal animal) {
         return false;
-    }
-
-    /**
-     * Sets if the {@link WitherSkeletonHorse Wither Skeleton Horse} can wear an {@link net.minecraft.world.item.HorseArmorItem Horse Armor}
-     *
-     * @return {@link Boolean True} if the {@link WitherSkeletonHorse Wither Skeleton Horse} can wear an {@link net.minecraft.world.item.HorseArmorItem Horse Armor}
-     */
-    @Override
-    public boolean canWearArmor() {
-        return true;
     }
 
     /**
@@ -136,20 +113,6 @@ public class WitherSkeletonHorse extends SkeletonHorse {
             }
         }
         super.aiStep();
-    }
-
-    /**
-     * {@link WitherSkeletonHorse Wither Skeleton Horse} spawn rules
-     *
-     * @param entity {@link EntityType Entity Type}
-     * @param level {@link LevelAccessor World reference}
-     * @param spawnType {@link MobSpawnType Spawn Type}
-     * @param pos {@link BlockPos Block Pos}
-     * @param random {@link Random Random variable}
-     * @return {@link Boolean True} if the {@link WitherSkeletonHorse Wither Skeleton Horse} should spawn
-     */
-    public static boolean checkWitherSkeletonHorseSpawnRules(EntityType<WitherSkeletonHorse> entity, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, Random random) {
-        return true;
     }
 
     /**

@@ -7,6 +7,7 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
@@ -37,7 +38,6 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
-import java.util.Random;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
@@ -90,7 +90,7 @@ public class PointedIceDripstoneBlock extends Block implements Fallable, SimpleW
      * Constructor. Sets the {@link Block Pointed Dripstone} properties
      */
     public PointedIceDripstoneBlock() {
-        super(BlockBehaviour.Properties.of(Material.ICE, MaterialColor.ICE).noOcclusion().sound(SoundType.GLASS).randomTicks().strength(0.5F, 0.5F).dynamicShape());
+        super(BlockBehaviour.Properties.of(Material.ICE, MaterialColor.ICE).noOcclusion().sound(SoundType.GLASS).randomTicks().strength(0.5F, 0.5F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ));
         this.registerDefaultState(this.stateDefinition.any().setValue(TIP_DIRECTION, Direction.UP).setValue(THICKNESS, DripstoneThickness.TIP).setValue(WATERLOGGED, Boolean.FALSE));
     }
 
@@ -192,9 +192,9 @@ public class PointedIceDripstoneBlock extends Block implements Fallable, SimpleW
      * @param state {@link BlockState Block State}
      * @param level {@link Level World reference}
      * @param pos {@link BlockPos Block Pos}
-     * @param random {@link Random Random variable}
+     * @param random {@link RandomSource Random variable}
      */
-    public void animateTick(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Random random) {
+    public void animateTick(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         if (canDrip(state)) {
             float randomFloat = random.nextFloat();
             if (!(randomFloat > 0.12F)) {
@@ -209,9 +209,9 @@ public class PointedIceDripstoneBlock extends Block implements Fallable, SimpleW
      * @param state {@link BlockState Block State}
      * @param level {@link Level World reference}
      * @param pos {@link BlockPos Block Pos}
-     * @param random {@link Random Random variable}
+     * @param random {@link RandomSource Random variable}
      */
-    public void tick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random) {
+    public void tick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         if (isStalagmite(state) && !this.canSurvive(state, level, pos)) {
             level.destroyBlock(pos, true);
         } else {
@@ -225,9 +225,9 @@ public class PointedIceDripstoneBlock extends Block implements Fallable, SimpleW
      * @param state {@link BlockState Block State}
      * @param level {@link Level World reference}
      * @param pos {@link BlockPos Block Pos}
-     * @param random {@link Random Random variable}
+     * @param random {@link RandomSource Random variable}
      */
-    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, Random random) {
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, RandomSource random) {
         maybeFillCauldron(state, level, pos, random.nextFloat());
         if (random.nextFloat() < 0.011377778F && isStalactiteStartPos(state, level, pos)) {
             growStalactiteOrStalagmiteIfPossible(state, level, pos, random);
@@ -385,15 +385,6 @@ public class PointedIceDripstoneBlock extends Block implements Fallable, SimpleW
     }
 
     /**
-     * Get the {@link BlockBehaviour.OffsetType Block Offset Type}
-     *
-     * @return {@link BlockBehaviour.OffsetType Block Offset Type}
-     */
-    public BlockBehaviour.@NotNull OffsetType getOffsetType() {
-        return BlockBehaviour.OffsetType.XZ;
-    }
-
-    /**
      * Get the {@link Float Maximum horizontal offset}
      *
      * @return {@link Float Maximum horizontal offset}
@@ -464,10 +455,10 @@ public class PointedIceDripstoneBlock extends Block implements Fallable, SimpleW
      * @param state {@link BlockState Block State}
      * @param level {@link ServerLevel World reference}
      * @param pos {@link BlockPos Block Pos}
-     * @param random {@link Random Random variable}
+     * @param random {@link RandomSource Random variable}
      */
     @VisibleForTesting
-    public static void growStalactiteOrStalagmiteIfPossible(BlockState state, ServerLevel level, BlockPos pos, Random random) {
+    public static void growStalactiteOrStalagmiteIfPossible(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         BlockState blockstate = level.getBlockState(pos.above(1));
         BlockState blockstate1 = level.getBlockState(pos.above(2));
         if (canGrow(blockstate, blockstate1)) {

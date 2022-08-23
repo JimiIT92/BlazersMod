@@ -1,8 +1,8 @@
 package org.blazers.core;
 
-import net.minecraft.core.Holder;
+import com.google.common.base.Suppliers;
 import net.minecraft.core.HolderSet;
-import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.core.Registry;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.tags.BlockTags;
@@ -17,33 +17,46 @@ import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConf
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
+import org.blazers.BlazersMod;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 /**
  * {@link org.blazers.BlazersMod Blazers Mod} {@link ConfiguredFeature Configured Features}
  */
 public final class BLConfiguredFeatures {
 
+    /**
+     * {@link ConfiguredFeature Configured Features} {@link DeferredRegister <ConfiguredFeature> Registry}
+     */
+    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, BlazersMod.MOD_ID);
+
     //#region Configured Features
 
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_SAPPHIRE = registerOverworldOre("ore_sapphire", BLBlocks.SAPPHIRE_ORE.get(), BLBlocks.DEEPSLATE_SAPPHIRE_ORE.get(), 4);
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_TOPAZ = registerOverworldOre("ore_topaz", BLBlocks.TOPAZ_ORE.get(), BLBlocks.DEEPSLATE_TOPAZ_ORE.get(), 4);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_SAPPHIRE = registerOverworldOre("ore_sapphire", BLBlocks.SAPPHIRE_ORE, BLBlocks.DEEPSLATE_SAPPHIRE_ORE, 4);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_TOPAZ = registerOverworldOre("ore_topaz", BLBlocks.TOPAZ_ORE, BLBlocks.DEEPSLATE_TOPAZ_ORE, 4);
 
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_PEARL = registerUnderwaterOre("ore_pearl", BLBlocks.PEARL_ORE.get(), 4);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_PEARL = registerUnderwaterOre("ore_pearl", BLBlocks.PEARL_ORE, 4);
 
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_RUBY = registerNetherOre("ore_ruby", BLBlocks.RUBY_ORE.get(), 4);
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_MALACHITE = registerNetherOre("ore_malachite", BLBlocks.MALACHITE_ORE.get(), 7);
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_ONICE = registerNetherOre("ore_onice", BLBlocks.ONICE_ORE.get(), 7);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_RUBY = registerNetherOre("ore_ruby", BLBlocks.RUBY_ORE, 4);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_MALACHITE = registerNetherOre("ore_malachite", BLBlocks.MALACHITE_ORE, 7);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_ONICE = registerNetherOre("ore_onice", BLBlocks.ONICE_ORE, 7);
 
-    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> ORE_URANIUM = registerNetherOre("ore_uranium", BLBlocks.URANIUM_ORE.get(), 4);
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_URANIUM = registerNetherOre("ore_uranium", BLBlocks.URANIUM_ORE, 4);
 
-    public static final Holder<ConfiguredFeature<SimpleRandomFeatureConfiguration, ?>> CATTAIL = FeatureUtils.register("cattail", Feature.SIMPLE_RANDOM_SELECTOR,
-            new SimpleRandomFeatureConfiguration(HolderSet.direct(PlacementUtils.inlinePlaced(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
-                    new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BLBlocks.CATTAIL.get().defaultBlockState(), 1)))))));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> CATTAIL = CONFIGURED_FEATURES.register("cattail",
+            () -> new ConfiguredFeature<>(Feature.SIMPLE_RANDOM_SELECTOR,
+                    new SimpleRandomFeatureConfiguration(HolderSet.direct(PlacementUtils.inlinePlaced(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(
+                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(BLBlocks.CATTAIL.get().defaultBlockState(), 1))))))));
 
-    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> FALLEN_BIRCH_TREE = FeatureUtils.register("fallen_birch_tree", BLFeatures.FALLEN_BIRCH_TREE.get(), new ProbabilityFeatureConfiguration(0.1F));
-    public static final Holder<ConfiguredFeature<ProbabilityFeatureConfiguration, ?>> FALLEN_HOLLOW_BIRCH_TREE = FeatureUtils.register("fallen_hollow_birch_tree", BLFeatures.FALLEN_HOLLOW_BIRCH_TREE.get(), new ProbabilityFeatureConfiguration(0.1F));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> FALLEN_BIRCH_TREE = CONFIGURED_FEATURES.register("fallen_birch_tree", () -> new ConfiguredFeature<>(
+            BLFeatures.FALLEN_BIRCH_TREE.get(), new ProbabilityFeatureConfiguration(0.1F)));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> FALLEN_HOLLOW_BIRCH_TREE = CONFIGURED_FEATURES.register("fallen_hollow_birch_tree", () -> new ConfiguredFeature<>(
+            BLFeatures.FALLEN_HOLLOW_BIRCH_TREE.get(), new ProbabilityFeatureConfiguration(0.1F)));
 
     //#endregion
 
@@ -54,10 +67,10 @@ public final class BLConfiguredFeatures {
      * @param deepslateOre  {@link Block Deepslate Ore}
      * @return Overworld {@link OreConfiguration.TargetBlockState Target Block State}
      */
-    private static List<OreConfiguration.TargetBlockState> createOverworldTargetState(Block stoneOre, Block deepslateOre) {
-        return List.of(
-                OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, stoneOre.defaultBlockState()),
-                OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, deepslateOre.defaultBlockState()));
+    private static Supplier<List<OreConfiguration.TargetBlockState>> createOverworldTargetState(Supplier<Block> stoneOre, Supplier<Block> deepslateOre) {
+        return Suppliers.memoize(() -> List.of(
+                OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, stoneOre.get().defaultBlockState()),
+                OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, deepslateOre.get().defaultBlockState())));
     }
 
     /**
@@ -66,8 +79,8 @@ public final class BLConfiguredFeatures {
      * @param ore {@link Block Ore Block}
      * @return Underwater {@link OreConfiguration.TargetBlockState Target Block State}
      */
-    private static List<OreConfiguration.TargetBlockState> createUnderwaterTargetState(Block ore) {
-        return List.of(OreConfiguration.target(new TagMatchTest(BlockTags.SAND), ore.defaultBlockState()));
+    private static Supplier<List<OreConfiguration.TargetBlockState>> createUnderwaterTargetState(Supplier<Block> ore) {
+        return Suppliers.memoize(() -> List.of(OreConfiguration.target(new TagMatchTest(BlockTags.SAND), ore.get().defaultBlockState())));
     }
 
     /**
@@ -76,8 +89,8 @@ public final class BLConfiguredFeatures {
      * @param ore {@link Block Ore Block}
      * @return Nether {@link OreConfiguration.TargetBlockState Target Block State}
      */
-    private static List<OreConfiguration.TargetBlockState> createNetherTargetState(Block ore) {
-        return List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, ore.defaultBlockState()));
+    private static Supplier<List<OreConfiguration.TargetBlockState>> createNetherTargetState(Supplier<Block> ore) {
+        return Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, ore.get().defaultBlockState())));
     }
 
     /**
@@ -89,8 +102,8 @@ public final class BLConfiguredFeatures {
      * @param size {@link Integer Max Vein Size}
      * @return Overworld {@link ConfiguredFeature Ore Configuration}
      */
-    private static Holder<ConfiguredFeature<OreConfiguration, ?>> registerOverworldOre(String name, Block stoneOre, Block deepslateOre, int size) {
-        return FeatureUtils.register(name, Feature.ORE, new OreConfiguration(createOverworldTargetState(stoneOre, deepslateOre), size));
+    private static RegistryObject<ConfiguredFeature<?, ?>> registerOverworldOre(String name, Supplier<Block> stoneOre, Supplier<Block> deepslateOre, int size) {
+        return CONFIGURED_FEATURES.register(name, () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(createOverworldTargetState(stoneOre, deepslateOre).get(), size)));
     }
 
     /**
@@ -101,8 +114,8 @@ public final class BLConfiguredFeatures {
      * @param size {@link Integer Max Vein Size}
      * @return Underwater {@link ConfiguredFeature Ore Configuration}
      */
-    private static Holder<ConfiguredFeature<OreConfiguration, ?>> registerUnderwaterOre(String name, Block ore, int size) {
-        return FeatureUtils.register(name, Feature.ORE, new OreConfiguration(createUnderwaterTargetState(ore), size));
+    private static RegistryObject<ConfiguredFeature<?, ?>> registerUnderwaterOre(String name, Supplier<Block> ore, int size) {
+        return CONFIGURED_FEATURES.register(name, () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(createUnderwaterTargetState(ore).get(), size)));
     }
 
     /**
@@ -113,8 +126,16 @@ public final class BLConfiguredFeatures {
      * @param size {@link Integer Max Vein Size}
      * @return Nether {@link ConfiguredFeature Ore Configuration}
      */
-    private static Holder<ConfiguredFeature<OreConfiguration, ?>> registerNetherOre(String name, Block ore, int size) {
-        return FeatureUtils.register(name, Feature.ORE, new OreConfiguration(createNetherTargetState(ore), size));
+    private static RegistryObject<ConfiguredFeature<?, ?>> registerNetherOre(String name, Supplier<Block> ore, int size) {
+        return CONFIGURED_FEATURES.register(name, () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(createNetherTargetState(ore).get(), size)));
     }
 
+    /**
+     * Register the {@link BlazersMod Blazers Mod} {@link ConfiguredFeature Configured Features}
+     *
+     * @param eventBus {@link IEventBus Event Bus}
+     */
+    public static void register(IEventBus eventBus) {
+        CONFIGURED_FEATURES.register(eventBus);
+    }
 }

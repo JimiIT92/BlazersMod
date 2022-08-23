@@ -3,6 +3,7 @@ package org.blazers.entity.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.TntMinecartRenderer;
@@ -23,6 +24,11 @@ import org.jetbrains.annotations.NotNull;
 public class AtomicTntRenderer extends EntityRenderer<PrimedAtomicTnt> {
 
     /**
+     * {@link BlockRenderDispatcher Block Renderer Dispatcher}
+     */
+    private final BlockRenderDispatcher blockRenderer;
+
+    /**
      * Constructor. Sets the {@link TntRenderer Renderer properties}
      *
      * @param context {@link EntityRendererProvider.Context Renderer Context}
@@ -30,6 +36,7 @@ public class AtomicTntRenderer extends EntityRenderer<PrimedAtomicTnt> {
     public AtomicTntRenderer(EntityRendererProvider.Context context) {
         super(context);
         this.shadowRadius = 0.5F;
+        this.blockRenderer = context.getBlockRenderDispatcher();
     }
 
     /**
@@ -58,7 +65,7 @@ public class AtomicTntRenderer extends EntityRenderer<PrimedAtomicTnt> {
         pose.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
         pose.translate(-0.5D, -0.5D, 0.5D);
         pose.mulPose(Vector3f.YP.rotationDegrees(90.0F));
-        TntMinecartRenderer.renderWhiteSolidBlock(BLBlocks.ATOMIC_TNT.get().defaultBlockState(), pose, buffer, packedLight, i / 5 % 2 == 0);
+        TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, BLBlocks.ATOMIC_TNT.get().defaultBlockState(), pose, buffer, packedLight, i / 5 % 2 == 0);
         pose.popPose();
         super.render(entity, yaw, partialTicks, pose, buffer, packedLight);
     }

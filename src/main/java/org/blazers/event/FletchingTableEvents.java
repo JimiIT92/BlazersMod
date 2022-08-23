@@ -1,7 +1,7 @@
 package org.blazers.event;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
@@ -31,14 +31,14 @@ public final class FletchingTableEvents {
     @SubscribeEvent
     public static void onRightClickBlock(final PlayerInteractEvent.RightClickBlock event) {
         BlockPos pos = event.getPos();
-        Level world = event.getWorld();
+        Level world = event.getLevel();
         BlockState state = world.getBlockState(pos);
         if(state.is(Blocks.FLETCHING_TABLE)) {
             event.setCanceled(true);
             if(world.isClientSide) {
                 event.setCancellationResult(InteractionResult.SUCCESS);
             } else {
-                Player player = event.getPlayer();
+                Player player = event.getEntity();
                 player.openMenu(getMenuProvider(world, pos));
                 event.setCancellationResult(InteractionResult.CONSUME);
             }
@@ -53,7 +53,6 @@ public final class FletchingTableEvents {
      * @return {@link Blocks#FLETCHING_TABLE Fletching Table} {@link MenuProvider Menu Provider}
      */
     private static MenuProvider getMenuProvider(Level level, BlockPos pos) {
-        return new SimpleMenuProvider((id, inventory, player) -> new FletchingMenu(id, inventory, ContainerLevelAccess.create(level, pos)),
-                new TranslatableComponent("container.fletching"));
+        return new SimpleMenuProvider((id, inventory, player) -> new FletchingMenu(id, inventory, ContainerLevelAccess.create(level, pos)), Component.translatable("container.fletching"));
     }
 }

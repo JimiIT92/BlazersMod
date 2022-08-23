@@ -101,7 +101,7 @@ public class FletchingRecipe extends UpgradeRecipe {
     /**
      * {@link FletchingRecipe Fletching Recipe} {@link Serializer Serializer}
      */
-    public static class Serializer extends net.minecraftforge.registries.ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<FletchingRecipe> {
+    public static class Serializer implements RecipeSerializer<FletchingRecipe> {
 
         /**
          * Parse a {@link JsonObject Recipe JSON}

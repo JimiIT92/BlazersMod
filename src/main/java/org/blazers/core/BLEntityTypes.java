@@ -4,6 +4,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -14,6 +15,9 @@ import org.blazers.entity.PrimedAtomicTnt;
 import org.blazers.entity.ThrownSpear;
 import org.blazers.entity.WitherSkeletonHorse;
 import org.blazers.entity.client.*;
+import org.blazers.entity.client.model.FireflyModel;
+import org.blazers.entity.client.model.ThrownMalachiteSpearModel;
+import org.blazers.entity.client.model.ThrownSpearModel;
 
 /**
  * {@link org.blazers.BlazersMod Blazers Mod} {@link EntityType Entity Types}
@@ -23,7 +27,7 @@ public final class BLEntityTypes {
     /**
      * {@link EntityType Entity Types} {@link DeferredRegister<EntityType> Registry}
      */
-    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, BlazersMod.MOD_ID);
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, BlazersMod.MOD_ID);
 
     //#region Entity Types
 
@@ -63,6 +67,17 @@ public final class BLEntityTypes {
         EntityRenderers.register(PRIMED_ATOMIC_TNT.get(), AtomicTntRenderer::new);
         EntityRenderers.register(SPEAR.get(), ThrownSpearRenderer::new);
         EntityRenderers.register(MALACHITE_SPEAR.get(), ThrownMalachiteSpearRenderer::new);
+    }
+
+    /**
+     * Register Entity Layers
+     *
+     * @param event {@link EntityRenderersEvent.RegisterLayerDefinitions Register Layers Definitions Event}
+     */
+    public static void registerLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(FireflyModel.LAYER_LOCATION, FireflyModel::createBodyLayer);
+        event.registerLayerDefinition(ThrownSpearModel.LAYER_LOCATION, ThrownSpearModel::createBodyLayer);
+        event.registerLayerDefinition(ThrownMalachiteSpearModel.LAYER_LOCATION, ThrownMalachiteSpearModel::createBodyLayer);
     }
 
     /**

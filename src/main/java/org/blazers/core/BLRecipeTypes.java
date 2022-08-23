@@ -1,12 +1,11 @@
 package org.blazers.core;
 
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegisterEvent;
 import org.blazers.BlazersMod;
 import org.blazers.recipe.FletchingRecipe;
 
@@ -16,19 +15,14 @@ import org.blazers.recipe.FletchingRecipe;
 @Mod.EventBusSubscriber(modid = BlazersMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class BLRecipeTypes {
 
-    //#region Recipe Types
-
-    public static RecipeType<FletchingRecipe> FLETCHING;
-
-    //#endregion
-
     /**
      * Register the {@link BlazersMod Blazers Mod} {@link RecipeType Recipe Types}
      *
-     * @param event {@link RegistryEvent.Register<RecipeSerializer> Recipe Serializer Register Event}
+     * @param event {@link RegisterEvent Recipe Serializer Register Event}
      */
     @SubscribeEvent
-    public static void registerRecipeType(final RegistryEvent.Register<RecipeSerializer<?>> event) {
-        FLETCHING = Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(BlazersMod.MOD_ID, FletchingRecipe.Type.ID), FletchingRecipe.Type.INSTANCE);
+    public static void registerRecipeTypes(final RegisterEvent event) {
+        event.register(ForgeRegistries.Keys.RECIPE_TYPES, helper ->
+                helper.register(new ResourceLocation(BlazersMod.MOD_ID, FletchingRecipe.Type.ID), FletchingRecipe.Type.INSTANCE));
     }
 }

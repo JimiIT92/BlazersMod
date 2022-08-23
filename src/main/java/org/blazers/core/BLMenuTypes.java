@@ -19,7 +19,7 @@ public final class BLMenuTypes {
     /**
      * {@link MenuType Menu Types} {@link DeferredRegister<MenuType> Registry}
      */
-    public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.CONTAINERS, BlazersMod.MOD_ID);
+    public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(ForgeRegistries.MENU_TYPES, BlazersMod.MOD_ID);
 
     //#region Menu Types
 
