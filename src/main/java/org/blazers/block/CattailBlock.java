@@ -45,7 +45,7 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
      * Constructor. Sets the {@link DoublePlantBlock Cattail} {@link BlockBehaviour.Properties Block Properties}
      */
     public CattailBlock() {
-        super(BlockBehaviour.Properties.of(Material.PLANT).noCollission().noOcclusion().instabreak().sound(SoundType.SMALL_DRIPLEAF));
+        super(BlockBehaviour.Properties.of(Material.PLANT).noCollission().noOcclusion().instabreak().sound(SoundType.SMALL_DRIPLEAF).offsetType(BlockBehaviour.OffsetType.XZ));
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(HALF, DoubleBlockHalf.LOWER)
                 .setValue(WATERLOGGED, Boolean.FALSE)
@@ -164,15 +164,6 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
      */
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
         stateBuilder.add(HALF, WATERLOGGED);
-    }
-
-    /**
-     * Get the {@link BlockBehaviour.OffsetType Block Offset Type}
-     *
-     * @return {@link BlockBehaviour.OffsetType Block Offset Type}
-     */
-    public BlockBehaviour.@NotNull OffsetType getOffsetType() {
-        return BlockBehaviour.OffsetType.XYZ;
     }
 
     /**

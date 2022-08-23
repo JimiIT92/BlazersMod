@@ -1,5 +1,7 @@
 package org.blazers.block;
 
+import com.google.common.base.Suppliers;
+import com.google.common.collect.ImmutableMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.AxeItem;
@@ -29,10 +31,47 @@ import org.blazers.core.BLBlocks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
+
 /**
  * Implementation class for a {@link BlazersMod Blazers Mod}  {@link RotatedPillarBlock Hollow Block}
  */
 public class HollowBlock extends RotatedPillarBlock implements SimpleWaterloggedBlock {
+
+    /**
+     * Hollowable {@link Block Logs}
+     */
+    public static final Supplier<Map<Block, Block>> HOLLOWABLES = Suppliers.memoize(() -> ImmutableMap.<Block, Block>builder()
+            .put(Blocks.OAK_LOG, BLBlocks.HOLLOW_OAK_LOG.get())
+            .put(Blocks.STRIPPED_OAK_LOG, BLBlocks.HOLLOW_STRIPPED_OAK_LOG.get())
+            .put(BLBlocks.HOLLOW_OAK_LOG.get(), BLBlocks.HOLLOW_STRIPPED_OAK_LOG.get())
+            .put(Blocks.SPRUCE_LOG, BLBlocks.HOLLOW_SPRUCE_LOG.get())
+            .put(Blocks.STRIPPED_SPRUCE_LOG, BLBlocks.HOLLOW_STRIPPED_SPRUCE_LOG.get())
+            .put(BLBlocks.HOLLOW_SPRUCE_LOG.get(), BLBlocks.HOLLOW_STRIPPED_SPRUCE_LOG.get())
+            .put(Blocks.BIRCH_LOG, BLBlocks.HOLLOW_BIRCH_LOG.get())
+            .put(Blocks.STRIPPED_BIRCH_LOG, BLBlocks.HOLLOW_STRIPPED_BIRCH_LOG.get())
+            .put(BLBlocks.HOLLOW_BIRCH_LOG.get(), BLBlocks.HOLLOW_STRIPPED_BIRCH_LOG.get())
+            .put(Blocks.JUNGLE_LOG, BLBlocks.HOLLOW_JUNGLE_LOG.get())
+            .put(Blocks.STRIPPED_JUNGLE_LOG, BLBlocks.HOLLOW_STRIPPED_JUNGLE_LOG.get())
+            .put(BLBlocks.HOLLOW_JUNGLE_LOG.get(), BLBlocks.HOLLOW_STRIPPED_JUNGLE_LOG.get())
+            .put(Blocks.ACACIA_LOG, BLBlocks.HOLLOW_ACACIA_LOG.get())
+            .put(Blocks.STRIPPED_ACACIA_LOG, BLBlocks.HOLLOW_STRIPPED_ACACIA_LOG.get())
+            .put(BLBlocks.HOLLOW_ACACIA_LOG.get(), BLBlocks.HOLLOW_STRIPPED_ACACIA_LOG.get())
+            .put(Blocks.DARK_OAK_LOG, BLBlocks.HOLLOW_DARK_OAK_LOG.get())
+            .put(Blocks.STRIPPED_DARK_OAK_LOG, BLBlocks.HOLLOW_STRIPPED_DARK_OAK_LOG.get())
+            .put(BLBlocks.HOLLOW_DARK_OAK_LOG.get(), BLBlocks.HOLLOW_STRIPPED_DARK_OAK_LOG.get())
+            .put(Blocks.MANGROVE_LOG, BLBlocks.HOLLOW_MANGROVE_LOG.get())
+            .put(Blocks.STRIPPED_MANGROVE_LOG, BLBlocks.HOLLOW_STRIPPED_MANGROVE_LOG.get())
+            .put(BLBlocks.HOLLOW_MANGROVE_LOG.get(), BLBlocks.HOLLOW_STRIPPED_MANGROVE_LOG.get())
+            .put(Blocks.CRIMSON_STEM, BLBlocks.HOLLOW_CRIMSON_STEM.get())
+            .put(Blocks.STRIPPED_CRIMSON_STEM, BLBlocks.HOLLOW_STRIPPED_CRIMSON_STEM.get())
+            .put(BLBlocks.HOLLOW_CRIMSON_STEM.get(), BLBlocks.HOLLOW_STRIPPED_CRIMSON_STEM.get())
+            .put(Blocks.WARPED_STEM, BLBlocks.HOLLOW_WARPED_STEM.get())
+            .put(Blocks.STRIPPED_WARPED_STEM, BLBlocks.HOLLOW_STRIPPED_WARPED_STEM.get())
+            .put(BLBlocks.HOLLOW_WARPED_STEM.get(), BLBlocks.HOLLOW_STRIPPED_WARPED_STEM.get())
+            .build());
 
     /**
      * {@link BooleanProperty Waterlogged Property}
@@ -106,26 +145,9 @@ public class HollowBlock extends RotatedPillarBlock implements SimpleWaterlogged
     public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
         ItemStack stack = context.getItemInHand();
         if(stack.getItem() instanceof AxeItem && toolAction == ToolActions.AXE_STRIP) {
-            Block block = Blocks.AIR;
-            if(state.is(BLBlocks.HOLLOW_OAK_LOG.get())) {
-                block = BLBlocks.HOLLOW_STRIPPED_OAK_LOG.get();
-            } else if(state.is(BLBlocks.HOLLOW_SPRUCE_LOG.get())) {
-                block = BLBlocks.HOLLOW_STRIPPED_SPRUCE_LOG.get();
-            } else if(state.is(BLBlocks.HOLLOW_BIRCH_LOG.get())) {
-                block = BLBlocks.HOLLOW_STRIPPED_BIRCH_LOG.get();
-            } else if(state.is(BLBlocks.HOLLOW_JUNGLE_LOG.get())) {
-                block = BLBlocks.HOLLOW_STRIPPED_JUNGLE_LOG.get();
-            } else if(state.is(BLBlocks.HOLLOW_ACACIA_LOG.get())) {
-                block = BLBlocks.HOLLOW_STRIPPED_ACACIA_LOG.get();
-            } else if(state.is(BLBlocks.HOLLOW_DARK_OAK_LOG.get())) {
-                block = BLBlocks.HOLLOW_STRIPPED_DARK_OAK_LOG.get();
-            } else if(state.is(BLBlocks.HOLLOW_WARPED_STEM.get())) {
-                block = BLBlocks.HOLLOW_STRIPPED_WARPED_STEM.get();
-            } else if(state.is(BLBlocks.HOLLOW_CRIMSON_STEM.get())) {
-                block = BLBlocks.HOLLOW_STRIPPED_CRIMSON_STEM.get();
-            }
-            if(!Blocks.AIR.equals(block)) {
-                return block.defaultBlockState().setValue(AXIS, state.getValue(AXIS)).setValue(WATERLOGGED, state.getValue(WATERLOGGED));
+            Optional<BlockState> optionalHollowState = getHollow(state);
+            if(optionalHollowState.isPresent()) {
+                return optionalHollowState.get().setValue(AXIS, state.getValue(AXIS)).setValue(WATERLOGGED, state.getValue(WATERLOGGED));
             }
         }
         return super.getToolModifiedState(state, context, toolAction, simulate);
@@ -252,5 +274,16 @@ public class HollowBlock extends RotatedPillarBlock implements SimpleWaterlogged
                     Block.box(12, 1, 0, 15, 15, 16)
             );
         };
+    }
+
+    /**
+     * Get the Hollow {@link Block Log}
+     * based on the current {@link BlockState Block State}
+     *
+     * @param state Current {@link BlockState Block State}
+     * @return Hollow {@link Block Log}
+     */
+    public static Optional<BlockState> getHollow(BlockState state) {
+        return Optional.ofNullable(HollowBlock.HOLLOWABLES.get().get(state.getBlock())).map(block -> block.withPropertiesOf(state));
     }
 }

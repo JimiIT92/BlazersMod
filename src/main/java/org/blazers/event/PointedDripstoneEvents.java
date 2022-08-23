@@ -8,8 +8,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.entity.EntityLeaveWorldEvent;
-import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.blazers.BlazersMod;
@@ -32,7 +32,7 @@ public final class PointedDripstoneEvents {
         BlockState blockState = event.getPlacedBlock();
         BlockState hitBlockState = event.getPlacedAgainst();
         if(blockState.is(Blocks.POINTED_DRIPSTONE) && event.getEntity() instanceof Player player && !player.isShiftKeyDown()) {
-            LevelAccessor world = event.getWorld();
+            LevelAccessor world = event.getLevel();
             BlockPos pos = event.getPos();
             if(hitBlockState.is(Blocks.ICE)) {
                 world.setBlock(pos, BLBlocks.POINTED_ICE_DRIPSTONE.get().withPropertiesOf(blockState), 11);
@@ -45,12 +45,12 @@ public final class PointedDripstoneEvents {
     /**
      * Play the break sound when the {@link FallingBlockEntity Falling Dripstone} lands
      *
-     * @param event {@link EntityLeaveWorldEvent Entity Leave World Event}
+     * @param event {@link EntityLeaveLevelEvent Entity Leave World Event}
      */
     @SubscribeEvent
-    public static void onFallingIceDripstoneBroken(final EntityLeaveWorldEvent event) {
+    public static void onFallingIceDripstoneBroken(final EntityLeaveLevelEvent event) {
         if(event.getEntity() instanceof FallingBlockEntity entity && entity.getBlockState().is(BLBlocks.POINTED_ICE_DRIPSTONE.get())) {
-            event.getWorld().playSound(null, entity.blockPosition(), SoundEvents.GLASS_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
+            event.getLevel().playSound(null, entity.blockPosition(), SoundEvents.GLASS_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
         }
     }
 }

@@ -3,6 +3,7 @@ package org.blazers.world.feature;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -42,7 +43,7 @@ public class FallenTreeFeature extends Feature<ProbabilityFeatureConfiguration> 
      */
     @Override
     public boolean place(FeaturePlaceContext<ProbabilityFeatureConfiguration> context) {
-        Random random = context.random();
+        RandomSource random = context.random();
         WorldGenLevel worldgenlevel = context.level();
         BlockPos blockpos = context.origin();
         ProbabilityFeatureConfiguration probabilityfeatureconfiguration = context.config();
@@ -74,7 +75,7 @@ public class FallenTreeFeature extends Feature<ProbabilityFeatureConfiguration> 
      * @param pos {@link BlockPos Block Pos}
      * @param random {@link Random Random variable}
      */
-    private void tryPlaceMoss(WorldGenLevel level, BlockPos pos, Random random) {
+    private void tryPlaceMoss(WorldGenLevel level, BlockPos pos, RandomSource random) {
         if(random.nextBoolean() && level.isEmptyBlock(pos.above(2))) {
             level.setBlock(pos.above(), Blocks.MOSS_CARPET.defaultBlockState(), 11);
         }

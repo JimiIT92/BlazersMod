@@ -14,7 +14,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.blazers.core.BLMenuTypes;
-import org.blazers.core.BLRecipeTypes;
 import org.blazers.recipe.FletchingRecipe;
 import org.jetbrains.annotations.NotNull;
 
@@ -59,7 +58,7 @@ public class FletchingMenu extends ItemCombinerMenu {
     public FletchingMenu(int id, Inventory inventory, ContainerLevelAccess containerLevelAccess) {
         super(BLMenuTypes.FLETCHING.get(), id, inventory, containerLevelAccess);
         this.level = inventory.player.level;
-        this.recipes = this.level.getRecipeManager().getAllRecipesFor(BLRecipeTypes.FLETCHING);
+        this.recipes = this.level.getRecipeManager().getAllRecipesFor(FletchingRecipe.Type.INSTANCE);
     }
 
     /**
@@ -114,7 +113,7 @@ public class FletchingMenu extends ItemCombinerMenu {
      * Create the {@link ItemStack Crafting Result}
      */
     public void createResult() {
-        List<FletchingRecipe> list = this.level.getRecipeManager().getRecipesFor(BLRecipeTypes.FLETCHING, this.inputSlots, this.level);
+        List<FletchingRecipe> list = this.level.getRecipeManager().getRecipesFor(FletchingRecipe.Type.INSTANCE, this.inputSlots, this.level);
         if (list.isEmpty()) {
             this.resultSlots.setItem(0, ItemStack.EMPTY);
         } else {

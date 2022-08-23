@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.IItemRenderProperties;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.blazers.BlazersMod;
 import org.blazers.core.BLEntityTypes;
 import org.blazers.core.BLItems;
@@ -108,13 +108,13 @@ public class SpearItem extends SwordItem implements Vanishable {
      * Make the {@link Item Spear} look like the {@link ThrownSpear Thrown Spear} entity
      * in Inventory or while throwing it
      *
-     * @param consumer {@link Consumer<IItemRenderProperties> IItemRenderProperties Consumer}
+     * @param consumer {@link Consumer<IClientItemExtensions> IItemRenderProperties Consumer}
      */
     @Override
-    public void initializeClient(Consumer<IItemRenderProperties> consumer) {
-        consumer.accept(new IItemRenderProperties() {
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        consumer.accept(new IClientItemExtensions() {
             @Override
-            public BlockEntityWithoutLevelRenderer getItemStackRenderer() {
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
                 return BlazersMod.getItemsRenderer();
             }
         });

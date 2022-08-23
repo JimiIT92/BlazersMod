@@ -3,6 +3,7 @@ package org.blazers;
 import net.minecraft.client.RecipeBookCategories;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
@@ -55,6 +56,8 @@ public final class BlazersMod {
         BLSounds.register(eventBus);
         BLEntityTypes.register(eventBus);
         BLFeatures.register(eventBus);
+        BLConfiguredFeatures.register(eventBus);
+        BLPlacedFeatures.register(eventBus);
         BLMenuTypes.register(eventBus);
         BLRecipeSerializers.register(eventBus);
 
@@ -72,7 +75,6 @@ public final class BlazersMod {
      */
     private void clientSetup(final FMLClientSetupEvent event) {
         BLItems.registerItemProperties();
-        BLBlocks.registerTransparentBlocks();
         BLEntityTypes.registerRenderers();
         MenuScreens.register(BLMenuTypes.FLETCHING.get(), FletchingScreen::new);
         RecipeBookCategories.create(BlazersMod.MOD_ID + ":" + FletchingRecipe.ID, new ItemStack(BLItems.CARBON_BOW.get()));
@@ -88,11 +90,12 @@ public final class BlazersMod {
             SpawnPlacements.register(BLEntityTypes.WITHER_SKELETON_HORSE.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    WitherSkeletonHorse::checkWitherSkeletonHorseSpawnRules);
+                    (entity, level, spawnType, pos, random) -> true);
             SpawnPlacements.register(BLEntityTypes.FIREFLY.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Firefly::checkFireflySpawnRules);
+                    (entity, level, spawn, pos, random) ->
+                            level.getBlockState(pos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON));
         });
         event.enqueueWork(() -> ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BLBlocks.CATTAIL.getId(), BLBlocks.POTTED_CATTAIL));
     }

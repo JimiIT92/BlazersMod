@@ -2,6 +2,7 @@ package org.blazers.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
@@ -48,7 +49,7 @@ public class WeatheringCutCopperBricks extends Block implements IWeatheringCutCo
      * @param pos {@link BlockPos Block Pos}
      * @param random {@link Random Random variable}
      */
-    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull Random random) {
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
         this.onRandomTick(state, level, pos, random);
     }
 

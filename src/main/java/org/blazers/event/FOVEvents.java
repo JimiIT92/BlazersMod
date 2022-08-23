@@ -2,7 +2,7 @@ package org.blazers.event;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.FOVModifierEvent;
+import net.minecraftforge.client.event.ComputeFovModifierEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.blazers.BlazersMod;
@@ -18,13 +18,13 @@ public final class FOVEvents {
      * Change the FOV if the {@link Player Player}
      * is using a {@link BLItems#CARBON_BOW Carbon Bow}
      *
-     * @param event {@link FOVModifierEvent FOV Modifier Event}
+     * @param event {@link ComputeFovModifierEvent FOV Modifier Event}
      */
     @SubscribeEvent
-    public static void onFOVModifier(final FOVModifierEvent event) {
-        Player player = event.getEntity();
+    public static void onFOVModifier(final ComputeFovModifierEvent event) {
+        Player player = event.getPlayer();
         if(player.getUseItem().getItem().equals(BLItems.CARBON_BOW.get())) {
-            event.setNewfov(BLItems.getCarbonBowFieldOfView(player));
+            event.setNewFovModifier(BLItems.getCarbonBowFieldOfView(player));
         }
     }
 }

@@ -1,6 +1,7 @@
 {
   "parent": "block/block",
   "credit": "Made with Blockbench",
+  "render_type": "cutout",
   "textures": {
     "stem": "blazersmod:block/cattail_stem",
     "stem_top": "blazersmod:block/cattail_stem_top",

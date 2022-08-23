@@ -53,7 +53,7 @@ public class PreEnchantedSwordItem extends SwordItem implements IPreEnchantedIte
      */
     @Override
     public void fillItemCategory(@NotNull CreativeModeTab tab, @NotNull NonNullList<ItemStack> items) {
-        if(allowdedIn(tab)) {
+        if(allowedIn(tab)) {
             ItemStack stack = new ItemStack(this);
             stack.enchant(enchantment, level);
             items.add(stack);

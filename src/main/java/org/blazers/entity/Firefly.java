@@ -3,7 +3,6 @@ package org.blazers.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -12,17 +11,15 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.fluids.FluidType;
 import org.blazers.BlazersMod;
-import org.blazers.core.BLEntityTypes;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 /**
  * Implementation class for a {@link FlyingAnimal Firefly}
@@ -62,7 +59,7 @@ public class Firefly extends Animal {
      * @return {@link Boolean True} if the {@link Firefly Firefly} should drop experience when it dies
      */
     @Override
-    protected boolean shouldDropExperience() {
+    public boolean shouldDropExperience() {
         return false;
     }
 
@@ -121,6 +118,25 @@ public class Firefly extends Animal {
     }
 
     /**
+     * Check if the {@link Firefly Firefly} can be pushed by a {@link FluidType Fluid}
+     *
+     * @param type {@link FluidType Fluid}
+     * @return {@link Boolean True} if the {@link Firefly Firefly} can be pushed by a {@link FluidType Fluid}
+     */
+    @Override
+    public boolean isPushedByFluid(FluidType type) {
+        return false;
+    }
+
+    /**
+     * Makes the {@link Firefly Firefly} unable to push other entities
+     */
+    @Override
+    protected void pushEntities() {
+
+    }
+
+    /**
      * Get the {@link Firefly Firefly} {@link ResourceLocation Loot Table}
      *
      * @return {@link Firefly Firefly} {@link ResourceLocation Loot Table}
@@ -128,32 +144,6 @@ public class Firefly extends Animal {
     @Override
     protected @NotNull ResourceLocation getDefaultLootTable() {
         return new ResourceLocation(BlazersMod.MOD_ID, "entities/firefly");
-    }
-
-    /**
-     * {@link Firefly Firefly} spawn rules
-     *
-     * @param entity {@link EntityType Entity Type}
-     * @param level {@link LevelAccessor World reference}
-     * @param spawnType {@link MobSpawnType Spawn Type}
-     * @param pos {@link BlockPos Block Pos}
-     * @param random {@link Random Random variable}
-     * @return {@link Boolean True} if the {@link Firefly Firefly} should spawn
-     */
-    public static boolean checkFireflySpawnRules(EntityType<Firefly> entity, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, Random random) {
-        return level.getBlockState(pos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON);
-    }
-
-    /**
-     * {@link Firefly Firefly} spawn rules
-     *
-     * @param level {@link LevelAccessor World reference}
-     * @param spawnType {@link MobSpawnType Spawn Type}
-     * @return {@link Boolean True} if the {@link Firefly Firefly} should spawn
-     */
-    @Override
-    public boolean checkSpawnRules(@NotNull LevelAccessor level, @NotNull MobSpawnType spawnType) {
-        return checkFireflySpawnRules(BLEntityTypes.FIREFLY.get(), level, spawnType, this.blockPosition(), this.random);
     }
 
     /**

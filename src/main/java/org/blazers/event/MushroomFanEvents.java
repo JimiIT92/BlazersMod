@@ -37,10 +37,10 @@ public final class MushroomFanEvents {
         ItemStack stack = event.getItemStack();
         Direction face = event.getFace();
         boolean isValidFace = face != null && face != Direction.DOWN && face != Direction.UP;
-        Level world = event.getWorld();
+        Level world = event.getLevel();
         BlockPos pos = event.getPos();
         if(stack.is(Tags.Items.MUSHROOMS) && isValidFace && world.getBlockState(pos).isFaceSturdy(world, pos, face)) {
-            Player player = event.getPlayer();
+            Player player = event.getEntity();
             if(!world.isClientSide) {
                 Block block = (stack.is(Items.RED_MUSHROOM) ? BLBlocks.RED_MUSHROOM_WALL_FAN : BLBlocks.BROWN_MUSHROOM_WALL_FAN).get();
                 BlockPos placePos = pos.offset(face.getNormal());
@@ -52,6 +52,7 @@ public final class MushroomFanEvents {
                     stack.shrink(1);
                 }
             } else {
+                player.swing(event.getHand());
                 player.playSound(SoundEvents.GRASS_PLACE, 1.0F, 1.0F);
             }
         }

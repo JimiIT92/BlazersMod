@@ -6,8 +6,8 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.entity.EntityLeaveWorldEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.blazers.BlazersMod;
@@ -15,7 +15,7 @@ import org.blazers.core.BLPaintings;
 import org.blazers.core.BLSounds;
 
 /**
- * Event Listener for the {@link net.minecraft.world.entity.decoration.Motive Painting} related events
+ * Event Listener for the {@link net.minecraft.world.entity.decoration.Painting Painting} related events
  */
 @Mod.EventBusSubscriber(modid = BlazersMod.MOD_ID)
 public final class PaintingEvents {
@@ -23,24 +23,24 @@ public final class PaintingEvents {
     /**
      * Play a {@link SoundEvents Sound} when the painting is placed
      *
-     * @param event {@link EntityJoinWorldEvent Entity Join World Event}
+     * @param event {@link EntityJoinLevelEvent Entity Join World Event}
      */
     @SubscribeEvent
-    public static void onPaintingPlaced(final EntityJoinWorldEvent event) {
-        if(event.getEntity() instanceof Painting painting && painting.motive.equals((BLPaintings.BRUH.get()))) {
-            playSound(event.getWorld(), painting.getPos(), BLSounds.BRUH.get());
+    public static void onPaintingPlaced(final EntityJoinLevelEvent event) {
+        if(event.getEntity() instanceof Painting painting && painting.getVariant().get().equals((BLPaintings.BRUH.get())) && !event.loadedFromDisk()) {
+            playSound(event.getLevel(), painting.getPos(), BLSounds.BRUH.get());
         }
     }
 
     /**
      * Play a {@link SoundEvents Sound} when the painting is destroyed
      *
-     * @param event {@link EntityLeaveWorldEvent Entity Leave World Event}
+     * @param event {@link EntityLeaveLevelEvent Entity Leave World Event}
      */
     @SubscribeEvent
-    public static void onPaintingDestroyed(final EntityLeaveWorldEvent event) {
-        if(event.getEntity() instanceof Painting painting && painting.motive.equals((BLPaintings.BRUH.get()))) {
-            playSound(event.getWorld(), painting.getPos(), BLSounds.REVERSED_BRUH.get());
+    public static void onPaintingDestroyed(final EntityLeaveLevelEvent event) {
+        if(event.getEntity() instanceof Painting painting && painting.getVariant().get().equals((BLPaintings.BRUH.get()))) {
+            playSound(event.getLevel(), painting.getPos(), BLSounds.REVERSED_BRUH.get());
         }
     }
 
