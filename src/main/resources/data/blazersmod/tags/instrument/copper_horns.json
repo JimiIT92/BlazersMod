@@ -1,7 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#blazersmod:regular_copper_horns",
-    "#blazersmod:screaming_copper_horns"
+    "#blazersmod:bass_copper_horns",
+    "#blazersmod:harmony_copper_horns",
+    "#blazersmod:melody_copper_horns"
   ]
 }

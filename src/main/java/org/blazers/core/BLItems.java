@@ -155,7 +155,7 @@ public final class BLItems {
     public static final RegistryObject<Item> WITHER_SKELETON_HORSE_SPAWN_EGG = registerSpawnEgg("wither_skeleton_horse_spawn_egg", BLEntityTypes.WITHER_SKELETON_HORSE, 4672845, 1315860);
     public static final RegistryObject<Item> FIREFLY_SPAWN_EGG = registerSpawnEgg("firefly_spawn_egg", BLEntityTypes.FIREFLY, 0x0A0A0A, 0xF0C43E);
 
-    public static final RegistryObject<Item> COPPER_HORN = registerItem("copper_horn", () -> new CopperHornItem(BLTags.Instruments.COPPER_HORNS), BLTabSortGroups.COPPER_HORNS);
+    public static final RegistryObject<Item> COPPER_HORN = registerItem("copper_horn", CopperHornItem::new, BLTabSortGroups.COPPER_HORNS);
 
     //#endregion
 

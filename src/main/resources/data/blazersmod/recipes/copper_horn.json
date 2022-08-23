@@ -1,11 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "X": {
-      "item": "minecraft:copper_ingot"
-    },
     "#": {
       "item": "minecraft:goat_horn"
+    },
+    "X": {
+      "item": "minecraft:copper_ingot"
     }
   },
   "pattern": [

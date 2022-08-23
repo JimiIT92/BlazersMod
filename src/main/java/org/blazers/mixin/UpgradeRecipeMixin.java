@@ -22,11 +22,6 @@ import java.util.Map;
 public final class UpgradeRecipeMixin {
 
     /**
-     * {@link UpgradeRecipe UpgradeRecipe Class Instance}
-     */
-    private final UpgradeRecipe UPGRADE_RECIPE = (UpgradeRecipe)(Object)this;
-
-    /**
      * Allows the {@link UpgradeRecipe UpgradeRecipe} to copy JSON NBT Tags
      * into the {@link ItemStack Recipe Result}
      *

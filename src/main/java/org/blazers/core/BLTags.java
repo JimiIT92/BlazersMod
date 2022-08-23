@@ -42,6 +42,9 @@ public final class BLTags {
 
         //#region Tags
 
+        public static final TagKey<Instrument> BASS_COPPER_HORNS = tag("bass_copper_horns");
+        public static final TagKey<Instrument> HARMONY_COPPER_HORNS = tag("harmony_copper_horns");
+        public static final TagKey<Instrument> MELODY_COPPER_HORNS = tag("melody_copper_horns");
         public static final TagKey<Instrument> COPPER_HORNS = tag("copper_horns");
 
         /**

@@ -31,7 +31,7 @@ import static net.minecraft.world.level.block.ButtonBlock.POWERED;
  * Event Listener for the {@link WeatheringCopper Copper Blocks} related events
  */
 @Mod.EventBusSubscriber(modid = BlazersMod.MOD_ID)
-public final  class CopperEvents {
+public final class CopperEvents {
 
     /**
      * Waxable {@link WeatheringCopper Copper Blocks}
