@@ -69,7 +69,7 @@ public final class BlazersMod {
     }
 
     /**
-     * Setup the {@link BlazersMod Blazers Mod} Client stuffs
+     * Set up the {@link BlazersMod Blazers Mod} Client stuffs
      *
      * @param event {@link FMLClientSetupEvent FML Client Setup Event}
      */
@@ -81,7 +81,7 @@ public final class BlazersMod {
     }
 
     /**
-     * Setup the {@link BlazersMod Blazers Mod} Common stuffs
+     * Set up the {@link BlazersMod Blazers Mod} Common stuffs
      *
      * @param event {@link FMLCommonSetupEvent FML Common Setup Event}
      */
@@ -98,6 +98,7 @@ public final class BlazersMod {
                             level.getBlockState(pos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON));
         });
         event.enqueueWork(() -> ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BLBlocks.CATTAIL.getId(), BLBlocks.POTTED_CATTAIL));
+        event.enqueueWork(BLInstruments::register);
     }
 
     /**

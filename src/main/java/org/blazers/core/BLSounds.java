@@ -22,6 +22,7 @@ public final class BLSounds {
 
     public static final RegistryObject<SoundEvent> BRUH = register("bruh");
     public static final RegistryObject<SoundEvent> REVERSED_BRUH = register("reversed_bruh");
+    public static final RegistryObject<SoundEvent> BRO = register("bro");
 
     //#endregion
 

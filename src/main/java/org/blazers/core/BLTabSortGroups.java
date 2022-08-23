@@ -23,6 +23,7 @@ public enum BLTabSortGroups {
     NUGGETS,
     SPAWN_EGGS,
     HORSE_ARMORS,
+    COPPER_HORNS,
     FOOD,
     TOOLS,
     BOWS,
@@ -30,5 +31,6 @@ public enum BLTabSortGroups {
     WEAPONS,
     KATANAS,
     ARMORS,
-    SPEARS
+    SPEARS,
+    NONE
 }

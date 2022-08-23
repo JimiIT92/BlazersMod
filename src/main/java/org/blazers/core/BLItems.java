@@ -22,7 +22,7 @@ import java.util.AbstractMap;
 import java.util.function.Supplier;
 
 /**
- * {@link org.blazers.BlazersMod Blazers Mod} {@link Item Items}
+ * {@link BlazersMod Blazers Mod} {@link Item Items}
  */
 public final class BLItems {
 
@@ -154,6 +154,8 @@ public final class BLItems {
 
     public static final RegistryObject<Item> WITHER_SKELETON_HORSE_SPAWN_EGG = registerSpawnEgg("wither_skeleton_horse_spawn_egg", BLEntityTypes.WITHER_SKELETON_HORSE, 4672845, 1315860);
     public static final RegistryObject<Item> FIREFLY_SPAWN_EGG = registerSpawnEgg("firefly_spawn_egg", BLEntityTypes.FIREFLY, 0x0A0A0A, 0xF0C43E);
+
+    public static final RegistryObject<Item> COPPER_HORN = registerItem("copper_horn", () -> new CopperHornItem(BLTags.Instruments.COPPER_HORNS), BLTabSortGroups.COPPER_HORNS);
 
     //#endregion
 
@@ -373,18 +375,22 @@ public final class BLItems {
      * Register some custom {@link Item Item} properties
      */
     public static void registerItemProperties() {
-        registerSpearProperties(SPEAR);
-        registerSpearProperties(MALACHITE_SPEAR);
         registerCarbonBowProperties();
+        registerUseItemProperty(SPEAR, "throwing");
+        registerUseItemProperty(MALACHITE_SPEAR, "throwing");
+        registerUseItemProperty(COPPER_HORN, "tooting");
     }
 
     /**
-     * Register some {@link Item Spear} properties
+     * Register a property for when
+     * an {@link net.minecraft.world.entity.Entity Entity} is
+     * using an {@link RegistryObject<Item> Item}
      *
-     * @param item {@link RegistryObject<Item> Spear Item}
+     * @param item {@link RegistryObject<Item> Item}
+     * @param name {@link String Property name}
      */
-    private static void registerSpearProperties(RegistryObject<Item> item) {
-        ItemProperties.register(item.get(), new ResourceLocation("throwing"), (stack, level, entity, seed) ->
+    private static void registerUseItemProperty(RegistryObject<Item> item, String name) {
+        ItemProperties.register(item.get(), new ResourceLocation(name), (stack, level, entity, seed) ->
                 entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
         );
     }
@@ -395,8 +401,7 @@ public final class BLItems {
     private static void registerCarbonBowProperties() {
         ItemProperties.register(CARBON_BOW.get(), new ResourceLocation("pull"), (stack, level, entity, seed) ->
                 entity == null ? 0.0F : entity.getUseItem() != stack ? 0.0F : (float)(stack.getUseDuration() - entity.getUseItemRemainingTicks()) / 2.0F);
-        ItemProperties.register(CARBON_BOW.get(), new ResourceLocation("pulling"), (stack, level, entity, seed) ->
-                entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
+        registerUseItemProperty(CARBON_BOW, "pulling");
     }
 
     /**

@@ -10,5 +10,11 @@
     "sounds": [
       "blazersmod:reversed_bruh"
     ]
+  },
+  "bro": {
+  "subtitle": "subtitles.item.goat_horn.play",
+  "sounds": [
+      "blazersmod:bro"
+    ]
   }
 }

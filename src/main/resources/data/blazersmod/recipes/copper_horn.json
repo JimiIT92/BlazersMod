@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minecraft:copper_ingot"
+    },
+    "#": {
+      "item": "minecraft:goat_horn"
+    }
+  },
+  "pattern": [
+    "X#X",
+    " X "
+  ],
+  "result": {
+    "item": "blazersmod:copper_horn"
+  }
+}

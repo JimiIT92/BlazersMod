@@ -113,6 +113,7 @@
   "item.blazersmod.carbon_bow": "Carbon Bow",
   "item.blazersmod.wither_skeleton_horse_spawn_egg": "Wither Skeleton Horse Spawn Egg",
   "item.blazersmod.firefly_spawn_egg": "Firefly Spawn Egg",
+  "item.blazersmod.copper_horn": "Copper Horn",
   "block.blazersmod.ruby_ore": "Ruby Ore",
   "block.blazersmod.sapphire_ore": "Sapphire Ore",
   "block.blazersmod.deepslate_sapphire_ore": "Deesplate Sapphire Ore",
@@ -233,6 +234,8 @@
   "advancements.nether.gyulianite_hit_sword.description": "Hit an entity with a Gyulianite sword in the swamp biome",
   "advancements.story.bruh.title": "Bruh",
   "advancements.story.bruh.description": "Bruh",
+  "instrument.blazersmod.bro_goat_horn": "Bro",
   "sounds.blazersmod.bruh": "Bruh painting places",
-  "sounds.blazersmod.reversed_bruh": "Bruh painting breaks"
+  "sounds.blazersmod.reversed_bruh": "Bruh painting breaks",
+  "sounds.blazersmod.bro": "Brooooo"
 }
