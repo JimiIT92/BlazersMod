@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "blazersmod:item/music_disc_enderman_vs_blaze"
+  }
+}

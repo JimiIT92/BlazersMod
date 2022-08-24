@@ -57,6 +57,9 @@ public final class BLSounds {
     public static final RegistryObject<SoundEvent> COPPER_HORN_SWEET_MOON_LOVE_BASS = register("copper_horn_sweet_moon_love_bass");
     public static final RegistryObject<SoundEvent> COPPER_HORN_SWEET_MOON_LOVE_HARMONY = register("copper_horn_sweet_moon_love_harmony");
 
+    public static final RegistryObject<SoundEvent> MUSIC_DISC_SURVIVAL = register("music_disc_survival");
+    public static final RegistryObject<SoundEvent> MUSIC_DISC_ENDERMAN_VS_BLAZE = register("music_disc_enderman_vs_blaze");
+
     //#endregion
 
     /**

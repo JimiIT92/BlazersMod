@@ -1,0 +1,11 @@
+{
+  "type": "blazersmod:music_disc_loot_modifier",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/jungle_temple"
+    }
+  ],
+  "music_disc": "blazersmod:music_disc_survival",
+  "chance": 0.025
+}

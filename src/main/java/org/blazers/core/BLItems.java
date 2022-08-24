@@ -2,6 +2,7 @@ package org.blazers.core;
 
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
@@ -156,6 +157,9 @@ public final class BLItems {
     public static final RegistryObject<Item> FIREFLY_SPAWN_EGG = registerSpawnEgg("firefly_spawn_egg", BLEntityTypes.FIREFLY, 0x0A0A0A, 0xF0C43E);
 
     public static final RegistryObject<Item> COPPER_HORN = registerItem("copper_horn", CopperHornItem::new, BLTabSortGroups.COPPER_HORNS);
+
+    public static final RegistryObject<Item> MUSIC_DISC_SURVIVAL = registerMusicDisc("music_disc_survival", BLSounds.MUSIC_DISC_SURVIVAL, 28);
+    public static final RegistryObject<Item> MUSIC_DISC_ENDERMAN_VS_BLAZE = registerMusicDisc("music_disc_enderman_vs_blaze", BLSounds.MUSIC_DISC_ENDERMAN_VS_BLAZE, 173);
 
     //#endregion
 
@@ -355,6 +359,18 @@ public final class BLItems {
      */
     private static RegistryObject<Item> registerSpawnEgg(String name, Supplier<? extends EntityType<? extends Mob>> entityType, int primaryColor, int secondaryColor) {
         return registerItem(name, () -> new ForgeSpawnEggItem(entityType, primaryColor, secondaryColor, new Item.Properties().tab(BLTabs.TAB_MISC)), BLTabSortGroups.SPAWN_EGGS);
+    }
+
+    /**
+     * Register a {@link RecordItem Music Disc}
+     *
+     * @param name {@link String Music Disc Name}
+     * @param sound {@link RegistryObject<SoundEvent> Music Disc Sound}
+     * @param length {@link Integer Music Disc Length}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerMusicDisc(String name, RegistryObject<SoundEvent> sound, int length) {
+        return registerItem(name, () -> new RecordItem(15, sound, new Item.Properties().tab(BLTabs.TAB_MISC).rarity(Rarity.RARE).stacksTo(1), length * 20), BLTabSortGroups.MUSIC_DISCS);
     }
 
     /**

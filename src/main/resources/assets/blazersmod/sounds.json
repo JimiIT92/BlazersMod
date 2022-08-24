@@ -208,5 +208,21 @@
     "sounds": [
       "blazersmod:copper_horn_sweet_moon_love_harmony"
     ]
+  },
+  "music_disc_survival": {
+    "sounds": [
+      {
+        "name": "blazersmod:music_disc_survival",
+        "stream": true
+      }
+    ]
+  },
+  "music_disc_enderman_vs_blaze": {
+    "sounds": [
+      {
+        "name": "blazersmod:music_disc_enderman_vs_blaze",
+        "stream": true
+      }
+    ]
   }
 }

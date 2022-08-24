@@ -1,0 +1,40 @@
+{
+  "parent": "minecraft:story/root",
+  "criteria": {
+    "music_disc_survival": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blazersmod:music_disc_survival"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.story.music_disc_survival.description"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "blazersmod:music_disc_survival"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.story.music_disc_survival.title"
+    }
+  },
+  "requirements": [
+    [
+      "music_disc_survival"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  }
+}

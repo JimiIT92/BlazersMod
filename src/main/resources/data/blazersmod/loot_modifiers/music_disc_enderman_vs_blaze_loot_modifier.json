@@ -1,0 +1,11 @@
+{
+  "type": "blazersmod:music_disc_loot_modifier",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/nether_bridge"
+    }
+  ],
+  "music_disc": "blazersmod:music_disc_enderman_vs_blaze",
+  "chance": 0.056
+}

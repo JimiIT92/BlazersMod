@@ -23,6 +23,7 @@ public enum BLTabSortGroups {
     NUGGETS,
     SPAWN_EGGS,
     HORSE_ARMORS,
+    MUSIC_DISCS,
     COPPER_HORNS,
     FOOD,
     TOOLS,
