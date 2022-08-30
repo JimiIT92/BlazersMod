@@ -76,7 +76,7 @@ public final class CopperEvents {
                     itemStack.shrink(1);
                 }
                 world.setBlock(blockPos, state, 11);
-                world.levelEvent(player, 3003, blockPos, 0);
+                EventUtils.fireWorldEvent(world, player, EventUtils.WorldEvents.HONEYCOMB_WAX_ON, blockPos);
                 if(world.isClientSide()) {
                     player.swing(event.getHand());
                 }

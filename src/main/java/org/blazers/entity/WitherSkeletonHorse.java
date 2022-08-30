@@ -101,15 +101,17 @@ public class WitherSkeletonHorse extends Horse {
      * on {@link Horse Horse} step
      */
     public void aiStep() {
-        if (this.level.isClientSide) {
-            for(int i = 0; i < 2; ++i) {
-                this.level.addParticle(ParticleTypes.SMOKE,
-                        this.getRandomX(0.5D),
-                        this.getRandomY() - 0.25D,
-                        this.getRandomZ(0.5D),
-                        0,
-                        0,
-                        0);
+        if(this.isAlive()) {
+            if (this.level.isClientSide) {
+                for(int i = 0; i < 2; ++i) {
+                    this.level.addParticle(ParticleTypes.SMOKE,
+                            this.getRandomX(0.5D),
+                            this.getRandomY() - 0.25D,
+                            this.getRandomZ(0.5D),
+                            0,
+                            0,
+                            0);
+                }
             }
         }
         super.aiStep();

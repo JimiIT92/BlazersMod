@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import org.blazers.BlazersMod;
+import org.blazers.event.EventUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -88,9 +89,10 @@ public class WeatheringCutCopperBricks extends Block implements IWeatheringCutCo
     @Override
     public BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
         ItemStack stack = context.getItemInHand();
-        if(stack.getItem() instanceof AxeItem && toolAction == ToolActions.AXE_WAX_OFF) {
+        if(stack.getItem() instanceof AxeItem && toolAction == ToolActions.AXE_SCRAPE) {
             Optional<BlockState> previousBlockState = IWeatheringCutCopperBricks.getPrevious(state);
             if(previousBlockState.isPresent()) {
+                EventUtils.fireWorldEvent(context.getLevel(), context.getPlayer(), EventUtils.WorldEvents.AXE_SCRAPE, context.getClickedPos());
                 return previousBlockState.get();
             }
         }

@@ -49,8 +49,8 @@ public class Firefly extends Animal {
      */
     public static AttributeSupplier.@NotNull Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 0.5D)
-                .add(Attributes.FLYING_SPEED, 0.1F)
-                .add(Attributes.MOVEMENT_SPEED, 0.1F);
+                .add(Attributes.FLYING_SPEED, 0.01F)
+                .add(Attributes.MOVEMENT_SPEED, 0.01F);
     }
 
     /**
@@ -161,11 +161,13 @@ public class Firefly extends Animal {
      * Make the {@link Firefly Firefly} wander around
      */
     @Override
-    public void tick() {
-        super.tick();
-        if(random.nextInt(5) == 0) {
-            this.setDeltaMovement(this.getDeltaMovement().multiply(0.5D, 0.3D, 0.5D));
+    public void aiStep() {
+        if(this.isAlive()) {
+            if(random.nextInt(5) == 0) {
+                this.setDeltaMovement(this.getDeltaMovement().multiply(0.5D, 0.3D, 0.5D));
+            }
         }
+        super.aiStep();
     }
 
     /**
