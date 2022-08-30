@@ -212,7 +212,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
      * @param weatherState {@link WeatheringCopper.WeatherState Weather State}
      * @param playSound {@link Boolean If effects should play} after setting the {@link WeatheringCopper.WeatherState Weather State}
      */
-    private void setWeatherState(final WeatheringCopper.WeatherState weatherState, boolean playSound) {
+    public void setWeatherState(final WeatheringCopper.WeatherState weatherState, boolean playSound) {
         if(weatherState.equals(WeatheringCopper.WeatherState.OXIDIZED)) {
             this.goalSelector.getRunningGoals().forEach(WrappedGoal::stop);
             this.goalSelector.removeAllGoals();
@@ -382,11 +382,11 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
             return null;
         }
         return switch(random.nextInt(5)) {
-            default -> SoundEvents.AXE_SCRAPE;
-            case 1 -> SoundEvents.AXE_WAX_OFF;
-            case 2 -> SoundEvents.COPPER_STEP;
-            case 3 -> SoundEvents.COPPER_FALL;
-            case 4 -> SoundEvents.COPPER_PLACE;
+            default -> SoundEvents.COPPER_STEP;
+            case 1 -> SoundEvents.COPPER_FALL;
+            case 2 -> SoundEvents.COPPER_PLACE;
+            case 3 -> SoundEvents.COPPER_BREAK;
+            case 4 -> SoundEvents.COPPER_HIT;
         };
     }
 
@@ -399,7 +399,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     @Nullable
     @Override
     protected SoundEvent getHurtSound(@NotNull DamageSource source) {
-        return SoundEvents.COPPER_HIT;
+        return SoundEvents.AXE_WAX_OFF;
     }
 
     /**
@@ -410,7 +410,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.COPPER_BREAK;
+        return SoundEvents.AXE_SCRAPE;
     }
 
     /**
@@ -422,7 +422,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     @Override
     protected void playStepSound(@NotNull BlockPos pos, @NotNull BlockState state) {
         if(!isOxidized()) {
-            this.playSound(getAmbientSound(), 0.15F, 1.0F);
+            this.playSound(getAmbientSound());
         }
     }
 
