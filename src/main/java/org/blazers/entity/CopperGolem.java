@@ -3,6 +3,7 @@ package org.blazers.entity;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -32,6 +33,7 @@ import org.blazers.BlazersMod;
 import org.blazers.block.WaxedCutCopperBricksBlock;
 import org.blazers.block.WeatheringCutCopperBricks;
 import org.blazers.core.BLEntityTypes;
+import org.blazers.entity.goal.CopperGolemRandomStrollGoal;
 import org.blazers.event.EventUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -120,7 +122,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.0D));
         this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0D, 20));
+        this.goalSelector.addGoal(5, new CopperGolemRandomStrollGoal(this));
     }
 
     /**
@@ -160,6 +162,15 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
         this.setWaxed(nbt.getBoolean(WAXED_NBT_TAG), false);
         this.oxidationTicks = nbt.getInt(OXIDATION_TIME_NBT_TAG);
         this.entityData.set(IS_PRESSING_COPPER_BUTTON, nbt.getBoolean(IS_PRESSING_COPPER_BUTTON_NBT_TAG));
+    }
+
+    /**
+     * Send the Debug Packets
+     */
+    @Override
+    protected void sendDebugPackets() {
+        super.sendDebugPackets();
+        DebugPackets.sendEntityBrain(this);
     }
 
     /**
@@ -554,6 +565,15 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     }
 
     /**
+     * Check if the {@link CopperGolem Copper Golem} is pressing a {@link org.blazers.block.CopperButtonBlock Copper Button}
+     *
+     * @return {@link Boolean True} if the {@link CopperGolem Copper Golem} is pressing a {@link org.blazers.block.CopperButtonBlock Copper Button}
+     */
+    public boolean isPressingCopperButton() {
+        return this.entityData.get(IS_PRESSING_COPPER_BUTTON);
+    }
+
+    /**
      * Get the {@link CopperGolem Copper Golem} animation
      *
      * @param event {@link AnimationEvent<T> Animation Event}
@@ -562,8 +582,8 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
      */
     private <T extends IAnimatable> PlayState predicate(AnimationEvent<T> event) {
         if(!isOxidized()) {
-            final AnimationController<CopperGolem> controller = event.getController();
-            if(this.entityData.get(IS_PRESSING_COPPER_BUTTON)) {
+            AnimationController<CopperGolem> controller = event.getController();
+            if(isPressingCopperButton()) {
                 setAnimation(controller, "animation.copper_golem.interact", false);
                 this.setPressingCopperButton(false);
             }
