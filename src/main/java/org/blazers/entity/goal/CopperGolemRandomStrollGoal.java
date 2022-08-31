@@ -23,7 +23,7 @@ public class CopperGolemRandomStrollGoal extends RandomStrollGoal {
      * @param copperGolem {@link CopperGolem Copper Golem}
      */
     public CopperGolemRandomStrollGoal(final CopperGolem copperGolem) {
-        super(copperGolem, 1.0D, 10);
+        super(copperGolem, 1.0D, 120);
     }
 
     /**
@@ -34,13 +34,16 @@ public class CopperGolemRandomStrollGoal extends RandomStrollGoal {
     public void stop() {
         super.stop();
         getRandomNearbyCopperButton().ifPresent(copperButton -> {
-            Path path = this.mob.getNavigation().createPath(copperButton, 2);
-            if(path != null) {
-                path.advance();
-                Level world = this.mob.getLevel();
-                BlockState state = world.getBlockState(copperButton);
-                ((CopperGolem)this.mob).setPressingCopperButton(true);
-                ((CopperButtonBlock)state.getBlock()).press(state, world, copperButton);
+            CopperGolem copperGolem = ((CopperGolem)this.mob);
+            if(!copperGolem.isPressingCopperButton()) {
+                Path path = this.mob.getNavigation().createPath(copperButton, 2);
+                if(path != null) {
+                    path.advance();
+                    Level world = this.mob.getLevel();
+                    BlockState state = world.getBlockState(copperButton);
+                    copperGolem.setPressingCopperButton(true);
+                    ((CopperButtonBlock)state.getBlock()).press(state, world, copperButton);
+                }
             }
         });
     }
