@@ -606,9 +606,8 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
             else {
                 setAnimation(controller, event.isMoving() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
             }
-            return PlayState.CONTINUE;
         }
-        return PlayState.STOP;
+        return PlayState.CONTINUE;
     }
 
     /**
