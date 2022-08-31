@@ -1,5 +1,6 @@
 package org.blazers.entity;
 
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -7,6 +8,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
@@ -24,9 +26,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.WeatheringCopper;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import org.blazers.BlazersMod;
+import org.blazers.block.WaxedCutCopperBricksBlock;
+import org.blazers.block.WeatheringCutCopperBricks;
+import org.blazers.core.BLEntityTypes;
 import org.blazers.event.EventUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -367,6 +372,10 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
      */
     @Override
     public void thunderHit(@NotNull ServerLevel world, @NotNull LightningBolt lightningBolt) {
+        if(isWaxed()) {
+            setWaxed(false, true);
+            return;
+        }
         unoxidize();
     }
 
@@ -604,5 +613,93 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     @Override
     public AnimationFactory getFactory() {
         return this.factory;
+    }
+
+    /**
+     * Check if a {@link Block Block} is a Coppper {@link Block Block}
+     *
+     * @param block {@link Block Block} to check
+     * @return {@link Boolean True} if the {@link Block Block} is a Coppper {@link Block Block}
+     */
+    private static boolean isValidBlockForGolemSpawning(final Block block) {
+        return block instanceof WeatheringCutCopperBricks || block instanceof  WeatheringCopperFullBlock
+                || isWaxedBlock(block);
+    }
+
+    /**
+     * Check if a {@link Block Block} is waxed
+     *
+     * @param block {@link Block Block} to check
+     * @return {@link Boolean True} if the {@link Block Block} is waxed
+     */
+    private static boolean isWaxedBlock(final Block block) {
+        return block instanceof  WaxedCutCopperBricksBlock || block.equals(Blocks.WAXED_COPPER_BLOCK) ||
+                block.equals(Blocks.WAXED_EXPOSED_COPPER) || block.equals(Blocks.WAXED_WEATHERED_COPPER) ||
+                block.equals(Blocks.WAXED_OXIDIZED_COPPER) || block.equals(Blocks.WAXED_CUT_COPPER) ||
+                block.equals(Blocks.WAXED_EXPOSED_CUT_COPPER) || block.equals(Blocks.WAXED_WEATHERED_CUT_COPPER) ||
+                block.equals(Blocks.WAXED_OXIDIZED_CUT_COPPER);
+    }
+
+    /**
+     * Get the {@link WeatheringCopper.WeatherState Weather State} from a {@link Block Block}
+     *
+     * @param block {@link Block Block}
+     * @return {@link WeatheringCopper.WeatherState Weather State}
+     */
+    private static WeatheringCopper.WeatherState getWeatherStateFromBlock(final Block block) {
+        if(!isWaxedBlock(block)) {
+            return ((ChangeOverTimeBlock<WeatheringCopper.WeatherState>)block).getAge();
+        }
+        if(block.equals(Blocks.WAXED_OXIDIZED_COPPER) || block.equals(Blocks.WAXED_OXIDIZED_CUT_COPPER)) {
+            return WeatheringCopper.WeatherState.UNAFFECTED;
+        }
+        if(block.equals(Blocks.WAXED_EXPOSED_COPPER) || block.equals(Blocks.WAXED_EXPOSED_CUT_COPPER)) {
+            return WeatheringCopper.WeatherState.EXPOSED;
+        }
+        if(block.equals(Blocks.WAXED_WEATHERED_COPPER) || block.equals(Blocks.WAXED_WEATHERED_CUT_COPPER)) {
+            return WeatheringCopper.WeatherState.WEATHERED;
+        }
+        return WeatheringCopper.WeatherState.UNAFFECTED;
+    }
+
+    /**
+     * Try to spawn a {@link CopperGolem Copper Golem}
+     *
+     * @param world {@link Level World Reference}
+     * @param pos {@link BlockPos Block Pos}
+     * @param player {@link Player Player}
+     * @param itemStack {@link ItemStack Item Stack}
+     * @param hand {@link InteractionHand Interaction Hand}
+     */
+    public static void trySpawnGolem(final Level world, final BlockPos pos, final Player player, final ItemStack itemStack, final InteractionHand hand) {
+        Block below = world.getBlockState(pos.below()).getBlock();
+        boolean isWaxed = isWaxedBlock(below);
+        if(isValidBlockForGolemSpawning(below)) {
+            world.destroyBlock(pos, false);
+            world.destroyBlock(pos.below(), false);
+            CopperGolem copperGolem = new CopperGolem(BLEntityTypes.COPPER_GOLEM.get(), world);
+            copperGolem.setPos(pos.getX() + 0.5F, pos.getY() - 0.5F, pos.getZ() + 0.5F);
+            copperGolem.setWeatherState(getWeatherStateFromBlock(below), false);
+            copperGolem.setWaxed(isWaxed, false);
+            EventUtils.fireWorldEvent(world, player, EventUtils.WorldEvents.AXE_SCRAPE, pos);
+            if(player != null) {
+                copperGolem.setPersistenceRequired();
+                player.playSound(SoundEvents.ZOMBIE_VILLAGER_CURE);
+                player.playSound(SoundEvents.GENERIC_EXTINGUISH_FIRE);
+
+                if(!itemStack.isEmpty()) {
+                    if (player instanceof ServerPlayer) {
+                        CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer)player, pos, itemStack);
+                    }
+                    if(!player.isCreative()) {
+                        itemStack.shrink(1);
+                    }
+                    if(world.isClientSide() && hand != null) {
+                        player.swing(hand);
+                    }
+                }
+            }
+            world.addFreshEntity(copperGolem);
+        }
     }
 }
