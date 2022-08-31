@@ -92,6 +92,14 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
      * {@link Integer Ticks elapsed} since last oxidation
      */
     private int oxidationTicks = 0;
+    /**
+     * {@link Integer Ticks for} pressing a {@link org.blazers.block.CopperButtonBlock Copper Button}
+     */
+    private final int pressingButtonTicks = 50;
+    /**
+     * Current {@link Integer Ticks for} pressing a {@link org.blazers.block.CopperButtonBlock Copper Button}
+     */
+    private int currentPressingButtonTicks = pressingButtonTicks;
 
     /**
      * Constructor. Sets the {@link PathfinderMob Copper Golem properties}
@@ -471,6 +479,12 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     @Override
     public void aiStep() {
         if(this.isAlive()) {
+            if(this.isPressingCopperButton()) {
+                currentPressingButtonTicks--;
+                if(currentPressingButtonTicks <= 0) {
+                    setPressingCopperButton(false);
+                }
+            }
             if(!isOxidized() && !isWaxed()) {
                 this.oxidationTicks++;
                 if(this.oxidationTicks >= 1200) {
@@ -561,6 +575,9 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
      * @param isPressing {@link Boolean If the Copper Golem is pressing a Copper Button}
      */
     public void setPressingCopperButton(final boolean isPressing) {
+        if(isPressing) {
+            this.currentPressingButtonTicks = pressingButtonTicks;
+        }
         this.entityData.set(IS_PRESSING_COPPER_BUTTON, isPressing);
     }
 
@@ -585,7 +602,6 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
             AnimationController<CopperGolem> controller = event.getController();
             if(isPressingCopperButton()) {
                 setAnimation(controller, "animation.copper_golem.interact", false);
-                this.setPressingCopperButton(false);
             }
             else {
                 setAnimation(controller, event.isMoving() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
