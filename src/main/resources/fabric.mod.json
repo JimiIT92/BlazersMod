@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "blazersmod",
+  "version": "${version}",
+  "name": "Blazers Mod",
+  "description": "A Minecraft mod made for ErenBlaze and his community",
+  "authors": [
+    "JimiIT92"
+  ],
+  "contact": {
+    "homepage": "https://github.com/JimiIT92/BlazersMod",
+    "sources": "https://github.com/JimiIT92/BlazersMod"
+  },
+  "license": "MIT",
+  "icon": "assets/blazersmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.blazers.BlazersMod"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
