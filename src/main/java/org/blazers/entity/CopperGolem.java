@@ -748,7 +748,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
 
                 if(!itemStack.isEmpty()) {
                     if (player instanceof ServerPlayer) {
-                        CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer)player, pos, itemStack);
+                        CriteriaTriggers.SUMMONED_ENTITY.trigger((ServerPlayer)player, copperGolem);
                     }
                     if(!player.isCreative()) {
                         itemStack.shrink(1);

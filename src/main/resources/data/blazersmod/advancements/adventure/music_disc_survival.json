@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:story/root",
+  "parent": "minecraft:adventure/root",
   "criteria": {
     "music_disc_survival": {
       "conditions": {
@@ -17,7 +17,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.story.music_disc_survival.description"
+      "translate": "advancements.adventure.music_disc_survival.description"
     },
     "frame": "goal",
     "hidden": false,
@@ -26,7 +26,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.story.music_disc_survival.title"
+      "translate": "advancements.adventure.music_disc_survival.title"
     }
   },
   "requirements": [
