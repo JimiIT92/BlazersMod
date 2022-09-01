@@ -95,11 +95,23 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     /**
      * {@link Integer Ticks for} pressing a {@link org.blazers.block.CopperButtonBlock Copper Button}
      */
-    private final int pressingButtonTicks = 50;
+    private final int pressingButtonTicks = 40;
     /**
      * Current {@link Integer Ticks for} pressing a {@link org.blazers.block.CopperButtonBlock Copper Button}
      */
     private int currentPressingButtonTicks = pressingButtonTicks;
+    /**
+     * {@link Boolean If the Copper Golem can press Copper Buttons}
+     */
+    private boolean canPressCopperButtons = true;
+    /**
+     * {@link Integer Minimum ticks} that must be elapsed before two presses of a {@link org.blazers.block.CopperButtonBlock Copper Button}
+     */
+    private final int ticksBeforeNextPress = 400;
+    /**
+     * {@link Integer Ticks elapsed} since the last press of a {@link org.blazers.block.CopperButtonBlock Copper Button}
+     */
+    private int ticksSinceLastPress = 0;
 
     /**
      * Constructor. Sets the {@link PathfinderMob Copper Golem properties}
@@ -479,6 +491,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     @Override
     public void aiStep() {
         if(this.isAlive()) {
+            ticksSinceLastPress = Math.min(ticksSinceLastPress + 1, ticksBeforeNextPress);
             if(this.isPressingCopperButton()) {
                 currentPressingButtonTicks--;
                 if(currentPressingButtonTicks <= 0) {
@@ -575,10 +588,21 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
      * @param isPressing {@link Boolean If the Copper Golem is pressing a Copper Button}
      */
     public void setPressingCopperButton(final boolean isPressing) {
+        this.currentPressingButtonTicks = pressingButtonTicks;
+        this.canPressCopperButtons = !this.canPressCopperButtons;
         if(isPressing) {
-            this.currentPressingButtonTicks = pressingButtonTicks;
+            this.ticksSinceLastPress = 0;
         }
         this.entityData.set(IS_PRESSING_COPPER_BUTTON, isPressing);
+    }
+
+    /**
+     * Check if the {@link CopperGolem Copper Golem} can press a {@link org.blazers.block.CopperButtonBlock Copper Button}
+     *
+     * @return {@link Boolean True} if the {@link CopperGolem Copper Golem} can press a {@link org.blazers.block.CopperButtonBlock Copper Button}
+     */
+    public boolean canPressCopperButton() {
+        return this.canPressCopperButtons && this.ticksSinceLastPress >= this.ticksBeforeNextPress;
     }
 
     /**

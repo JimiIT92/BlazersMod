@@ -35,7 +35,7 @@ public class CopperGolemRandomStrollGoal extends RandomStrollGoal {
         super.stop();
         getRandomNearbyCopperButton().ifPresent(copperButton -> {
             CopperGolem copperGolem = ((CopperGolem)this.mob);
-            if(!copperGolem.isPressingCopperButton()) {
+            if(copperGolem.canPressCopperButton() && !copperGolem.isPressingCopperButton()) {
                 Path path = this.mob.getNavigation().createPath(copperButton, 2);
                 if(path != null) {
                     path.advance();
