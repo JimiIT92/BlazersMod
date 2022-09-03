@@ -2,7 +2,7 @@
   "required": true,
   "package": "org.blazers.mixin",
   "minVersion": "0.8",
-  "compatibilityLevel": "JAVA_18",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [
     "UpgradeRecipeMixin"
   ],
