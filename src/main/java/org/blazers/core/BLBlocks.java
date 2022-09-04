@@ -104,7 +104,8 @@ public final class BLBlocks {
     public static final Block WAXED_WEATHERED_CUT_COPPER_BRICKS = registerBlock("waxed_weathered_cut_copper_bricks", new Block(FabricBlockSettings.copyOf(Blocks.WAXED_WEATHERED_CUT_COPPER)), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
     public static final Block WAXED_OXIDIZED_CUT_COPPER_BRICKS = registerBlock("waxed_oxidized_cut_copper_bricks", new Block(FabricBlockSettings.copyOf(Blocks.WAXED_OXIDIZED_CUT_COPPER)), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
 
-    //dripstones
+    public static final Block POINTED_STONE_DRIPSTONE = registerBlock("pointed_stone_dripstone", new PointedStoneDripstoneBlock(), BLTabs.TAB_DECORATIONS, BLTabs.BLTabSortGroups.DRIPSTONES);
+    public static final Block POINTED_ICE_DRIPSTONE = registerBlock("pointed_ice_dripstone", new PointedIceDripstoneBlock(), BLTabs.TAB_DECORATIONS, BLTabs.BLTabSortGroups.DRIPSTONES);
 
     private static FabricBlockSettings createGemBlockProperties(MapColor mapColor) {
         return FabricBlockSettings.of(Material.METAL, mapColor)
