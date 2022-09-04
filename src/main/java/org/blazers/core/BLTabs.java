@@ -19,6 +19,15 @@ public final class BLTabs {
             BLTabSortGroups.COBBLESTONES, BLTabSortGroups.OVERWORLD_ORES, BLTabSortGroups.NETHER_ORES, BLTabSortGroups.RAW_STORAGE_BLOCKS, BLTabSortGroups.STORAGE_BLOCKS,
             BLTabSortGroups.COPPER_BLOCKS, BLTabSortGroups.HOLLOW_LOGS, BLTabSortGroups.HOLLOW_STRIPPED_LOGS, BLTabSortGroups.CUT_BRICKS);
 
+    //dec
+    //red
+    public static final ItemGroup TAB_TOOLS = createTab("tools", () -> new ItemStack(BLItems.EMERALD_PICKAXE), BLTabSortGroups.TOOLS);
+
+    public static final ItemGroup TAB_COMBAT = createTab("combat", () -> new ItemStack(BLItems.KATANA),
+            BLTabSortGroups.BOWS, BLTabSortGroups.SWORDS, BLTabSortGroups.WEAPONS, BLTabSortGroups.KATANAS, BLTabSortGroups.ARMORS, BLTabSortGroups.SPEARS);
+
+    public static final ItemGroup TAB_FOOD = createTab("food", () -> new ItemStack(BLItems.SASHIMI), BLTabSortGroups.FOOD);
+
     public static final ItemGroup TAB_MISC = createTab("misc", () -> new ItemStack(BLItems.SAPPHIRE),
             BLTabSortGroups.GEMS, BLTabSortGroups.RAW_GEMS_AND_INGOTS, BLTabSortGroups.MATERIALS, BLTabSortGroups.NUGGETS, BLTabSortGroups.SPAWN_EGGS, BLTabSortGroups.HORSE_ARMORS);
 

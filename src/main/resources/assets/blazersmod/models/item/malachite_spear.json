@@ -1,52 +1,7 @@
 {
-  "loader": "forge:separate_transforms",
+  "parent": "item/generated",
   "gui_light": "front",
-  "base": {
-    "parent": "builtin/entity",
-    "gui_light": "front",
-    "textures": {
-      "particle": "blazersmod:item/malachite_spear"
-    },
-    "display": {
-      "thirdperson_righthand": {
-        "rotation": [ 0, 60, 0 ],
-        "translation": [ 11, 17, -2 ],
-        "scale": [ 1, 1, 1 ]
-      },
-      "thirdperson_lefthand": {
-        "rotation": [ 0, 60, 0 ],
-        "translation": [ 3, 17, 12 ],
-        "scale": [ 1, 1, 1 ]
-      },
-      "firstperson_righthand": {
-        "rotation": [ 0, -90, 25 ],
-        "translation": [ -3, 17, 1],
-        "scale": [ 1, 1, 1 ]
-      },
-      "firstperson_lefthand": {
-        "rotation": [ 0, 90, -25 ],
-        "translation": [ 13, 17, 1],
-        "scale": [ 1, 1, 1 ]
-      }
-    }
-  },
-  "perspectives": {
-    "gui": {
-      "parent": "blazersmod:item/malachite_spear_inventory"
-    },
-    "fixed": {
-      "parent": "blazersmod:item/malachite_spear_inventory"
-    },
-    "ground": {
-      "parent": "blazersmod:item/malachite_spear_inventory"
-    }
-  },
-  "overrides": [
-    {
-      "predicate": {
-        "throwing": 1
-      },
-      "model": "blazersmod:item/malachite_spear_throwing"
-    }
-  ]
+  "textures": {
+    "layer0": "blazersmod:item/malachite_spear"
+  }
 }
