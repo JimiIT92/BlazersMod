@@ -10,8 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import org.blazers.BlazersMod;
-import org.blazers.block.CattailBlock;
-import org.blazers.block.HollowBlock;
+import org.blazers.block.*;
 
 public final class BLBlocks {
 
@@ -60,7 +59,14 @@ public final class BLBlocks {
     public static final Block HOLLOW_WARPED_STEM = registerBlock("hollow_warped_stem", new HollowBlock(MapColor.DARK_AQUA, BlockSoundGroup.NETHER_STEM), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.HOLLOW_LOGS);
     public static final Block HOLLOW_STRIPPED_WARPED_STEM = registerBlock("hollow_stripped_warped_stem", new HollowBlock(MapColor.DARK_AQUA, BlockSoundGroup.NETHER_STEM), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.HOLLOW_STRIPPED_LOGS);
 
-    //copper buttons
+    public static final Block COPPER_BUTTON = registerBlock("copper_button", new OxidizableCopperButtonBlock(Oxidizable.OxidationLevel.UNAFFECTED), BLTabs.TAB_REDSTONE, BLTabs.BLTabSortGroups.BUTTONS);
+    public static final Block EXPOSED_COPPER_BUTTON = registerBlock("exposed_copper_button", new OxidizableCopperButtonBlock(Oxidizable.OxidationLevel.EXPOSED), BLTabs.TAB_REDSTONE, BLTabs.BLTabSortGroups.BUTTONS);
+    public static final Block WEATHERED_COPPER_BUTTON = registerBlock("weathered_copper_button", new OxidizableCopperButtonBlock(Oxidizable.OxidationLevel.WEATHERED), BLTabs.TAB_REDSTONE, BLTabs.BLTabSortGroups.BUTTONS);
+    public static final Block OXIDIZED_COPPER_BUTTON = registerBlock("oxidized_copper_button", new OxidizableCopperButtonBlock(Oxidizable.OxidationLevel.OXIDIZED), BLTabs.TAB_REDSTONE, BLTabs.BLTabSortGroups.BUTTONS);
+    public static final Block WAXED_COPPER_BUTTON = registerBlock("waxed_copper_button", new CopperButtonBlock(), BLTabs.TAB_REDSTONE, BLTabs.BLTabSortGroups.BUTTONS);
+    public static final Block WAXED_EXPOSED_COPPER_BUTTON = registerBlock("waxed_exposed_copper_button", new CopperButtonBlock(), BLTabs.TAB_REDSTONE, BLTabs.BLTabSortGroups.BUTTONS);
+    public static final Block WAXED_WEATHERED_COPPER_BUTTON = registerBlock("waxed_weathered_copper_button", new CopperButtonBlock(), BLTabs.TAB_REDSTONE, BLTabs.BLTabSortGroups.BUTTONS);
+    public static final Block WAXED_OXIDIZED_COPPER_BUTTON = registerBlock("waxed_oxidized_copper_button", new CopperButtonBlock(), BLTabs.TAB_REDSTONE, BLTabs.BLTabSortGroups.BUTTONS);
 
     //tnt
 
@@ -89,7 +95,14 @@ public final class BLBlocks {
     public static final Block RED_SANDSTONE_BRICKS = registerSimpleBlock("red_sandstone_bricks", FabricBlockSettings.copyOf(Blocks.RED_SANDSTONE), BLTabs.BLTabSortGroups.CUT_BRICKS);
     public static final Block POLISHED_BLACKSTONE_TILES = registerSimpleBlock("polished_blackstone_tiles", FabricBlockSettings.copyOf(Blocks.POLISHED_BLACKSTONE_BRICKS), BLTabs.BLTabSortGroups.CUT_BRICKS);
 
-    //cut copper bricks
+    public static final Block CUT_COPPER_BRICKS = registerBlock("cut_copper_bricks", new OxidizableCutCopperBricksBlock(Oxidizable.OxidationLevel.UNAFFECTED, Blocks.CUT_COPPER), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
+    public static final Block EXPOSED_CUT_COPPER_BRICKS = registerBlock("exposed_cut_copper_bricks", new OxidizableCutCopperBricksBlock(Oxidizable.OxidationLevel.EXPOSED, Blocks.EXPOSED_CUT_COPPER), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
+    public static final Block WEATHERED_CUT_COPPER_BRICKS = registerBlock("weathered_cut_copper_bricks", new OxidizableCutCopperBricksBlock(Oxidizable.OxidationLevel.WEATHERED, Blocks.WEATHERED_CUT_COPPER), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
+    public static final Block OXIDIZED_CUT_COPPER_BRICKS = registerBlock("oxidized_cut_copper_bricks", new OxidizableCutCopperBricksBlock(Oxidizable.OxidationLevel.OXIDIZED, Blocks.OXIDIZED_CUT_COPPER), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
+    public static final Block WAXED_CUT_COPPER_BRICKS = registerBlock("waxed_cut_copper_bricks", new Block(FabricBlockSettings.copyOf(Blocks.WAXED_CUT_COPPER)), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
+    public static final Block WAXED_EXPOSED_CUT_COPPER_BRICKS = registerBlock("waxed_exposed_cut_copper_bricks", new Block(FabricBlockSettings.copyOf(Blocks.WAXED_EXPOSED_CUT_COPPER)), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
+    public static final Block WAXED_WEATHERED_CUT_COPPER_BRICKS = registerBlock("waxed_weathered_cut_copper_bricks", new Block(FabricBlockSettings.copyOf(Blocks.WAXED_WEATHERED_CUT_COPPER)), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
+    public static final Block WAXED_OXIDIZED_CUT_COPPER_BRICKS = registerBlock("waxed_oxidized_cut_copper_bricks", new Block(FabricBlockSettings.copyOf(Blocks.WAXED_OXIDIZED_CUT_COPPER)), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
 
     //dripstones
 

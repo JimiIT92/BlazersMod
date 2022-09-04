@@ -21,7 +21,7 @@ public final class BLTabs {
 
     public static final ItemGroup TAB_DECORATIONS = createTab("decorations", () -> new ItemStack(BLBlocks.CATTAIL), BLTabSortGroups.PLANTS, BLTabSortGroups.DRIPSTONES);
 
-    //public static final ItemGroup TAB_REDSTONE = createTab("redstone", () -> new ItemStack(BLBlocks.COPPER_BUTTON), BLTabSortGroups.TNT, BLTabSortGroups.BUTTONS);
+    public static final ItemGroup TAB_REDSTONE = createTab("redstone", () -> new ItemStack(BLBlocks.COPPER_BUTTON), BLTabSortGroups.TNT, BLTabSortGroups.BUTTONS);
 
     public static final ItemGroup TAB_TOOLS = createTab("tools", () -> new ItemStack(BLItems.EMERALD_PICKAXE), BLTabSortGroups.TOOLS);
 
