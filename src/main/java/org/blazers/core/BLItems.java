@@ -134,7 +134,7 @@ public final class BLItems {
 
     //sapwn eggs
 
-    //copper horn
+    public static final Item COPPER_HORN = registerItem("copper_horn", new CopperHornItem(), BLTabs.BLTabSortGroups.COPPER_HORNS);
 
     public static final Item MUSIC_DISC_SURVIVAL = registerMusicDisc("music_disc_survival", BLSounds.MUSIC_DISC_SURVIVAL, 28);
     public static final Item MUSIC_DISC_ENDERMAN_VS_BLAZE = registerMusicDisc("music_disc_enderman_vs_blaze", BLSounds.MUSIC_DISC_ENDERMAN_VS_BLAZE, 173);

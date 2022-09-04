@@ -19,8 +19,10 @@ public final class BLTabs {
             BLTabSortGroups.COBBLESTONES, BLTabSortGroups.OVERWORLD_ORES, BLTabSortGroups.NETHER_ORES, BLTabSortGroups.RAW_STORAGE_BLOCKS, BLTabSortGroups.STORAGE_BLOCKS,
             BLTabSortGroups.COPPER_BLOCKS, BLTabSortGroups.HOLLOW_LOGS, BLTabSortGroups.HOLLOW_STRIPPED_LOGS, BLTabSortGroups.CUT_BRICKS);
 
-    //dec
-    //red
+    public static final ItemGroup TAB_DECORATIONS = createTab("decorations", () -> new ItemStack(BLBlocks.CATTAIL), BLTabSortGroups.PLANTS, BLTabSortGroups.DRIPSTONES);
+
+    //public static final ItemGroup TAB_REDSTONE = createTab("redstone", () -> new ItemStack(BLBlocks.COPPER_BUTTON), BLTabSortGroups.TNT, BLTabSortGroups.BUTTONS);
+
     public static final ItemGroup TAB_TOOLS = createTab("tools", () -> new ItemStack(BLItems.EMERALD_PICKAXE), BLTabSortGroups.TOOLS);
 
     public static final ItemGroup TAB_COMBAT = createTab("combat", () -> new ItemStack(BLItems.KATANA),
