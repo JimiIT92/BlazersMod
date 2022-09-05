@@ -2,8 +2,11 @@ package org.blazers.core;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.HoneycombItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
@@ -68,7 +71,7 @@ public final class BLBlocks {
     public static final Block WAXED_WEATHERED_COPPER_BUTTON = registerBlock("waxed_weathered_copper_button", new CopperButtonBlock(), BLTabs.TAB_REDSTONE, BLTabs.BLTabSortGroups.BUTTONS);
     public static final Block WAXED_OXIDIZED_COPPER_BUTTON = registerBlock("waxed_oxidized_copper_button", new CopperButtonBlock(), BLTabs.TAB_REDSTONE, BLTabs.BLTabSortGroups.BUTTONS);
 
-    //tnt
+    public static final Block ATOMIC_TNT = registerBlock("atomic_tnt", new AtomicTntBlock(), BLTabs.TAB_REDSTONE, BLTabs.BLTabSortGroups.TNT);
 
     public static final Block BROWN_MUSHROOM_WALL_FAN = registerBlockWithoutBlockItem("brown_mushroom_wall_fan",
             new DeadCoralWallFanBlock(FabricBlockSettings.of(Material.PLANT, MapColor.BROWN).sounds(BlockSoundGroup.GRASS).requiresTool().noCollision().breakInstantly().dropsLike(Blocks.BROWN_MUSHROOM)));
@@ -141,6 +144,55 @@ public final class BLBlocks {
     private static Block registerBlock(final String name, final Block block, final ItemGroup tab, final BLTabs.BLTabSortGroups sortGroup) {
         BLItems.registerItem(name, new BlockItem(block, new FabricItemSettings().group(tab)), sortGroup);
         return registerBlockWithoutBlockItem(name, block);
+    }
+
+    public static void registerWaxedBlocks() {
+        HoneycombItem.UNWAXED_TO_WAXED_BLOCKS.get().put(COPPER_BUTTON, WAXED_COPPER_BUTTON);
+        HoneycombItem.UNWAXED_TO_WAXED_BLOCKS.get().put(EXPOSED_COPPER_BUTTON, WAXED_EXPOSED_COPPER_BUTTON);
+        HoneycombItem.UNWAXED_TO_WAXED_BLOCKS.get().put(WEATHERED_COPPER_BUTTON, WAXED_WEATHERED_COPPER_BUTTON);
+        HoneycombItem.UNWAXED_TO_WAXED_BLOCKS.get().put(OXIDIZED_COPPER_BUTTON, WAXED_OXIDIZED_COPPER_BUTTON);
+        HoneycombItem.UNWAXED_TO_WAXED_BLOCKS.get().put(CUT_COPPER_BRICKS, WAXED_CUT_COPPER_BRICKS);
+        HoneycombItem.UNWAXED_TO_WAXED_BLOCKS.get().put(EXPOSED_CUT_COPPER_BRICKS, WAXED_EXPOSED_CUT_COPPER_BRICKS);
+        HoneycombItem.UNWAXED_TO_WAXED_BLOCKS.get().put(WEATHERED_CUT_COPPER_BRICKS, WAXED_WEATHERED_CUT_COPPER_BRICKS);
+        HoneycombItem.UNWAXED_TO_WAXED_BLOCKS.get().put(OXIDIZED_CUT_COPPER_BRICKS, WAXED_OXIDIZED_CUT_COPPER_BRICKS);
+    }
+
+    public static void registerOxidizableBlocks() {
+        Oxidizable.OXIDATION_LEVEL_INCREASES.get().put(COPPER_BUTTON, EXPOSED_COPPER_BUTTON);
+        Oxidizable.OXIDATION_LEVEL_INCREASES.get().put(EXPOSED_COPPER_BUTTON, WEATHERED_COPPER_BUTTON);
+        Oxidizable.OXIDATION_LEVEL_INCREASES.get().put(WEATHERED_COPPER_BUTTON, OXIDIZED_COPPER_BUTTON);
+        Oxidizable.OXIDATION_LEVEL_INCREASES.get().put(CUT_COPPER_BRICKS, EXPOSED_CUT_COPPER_BRICKS);
+        Oxidizable.OXIDATION_LEVEL_INCREASES.get().put(EXPOSED_CUT_COPPER_BRICKS, WEATHERED_CUT_COPPER_BRICKS);
+        Oxidizable.OXIDATION_LEVEL_INCREASES.get().put(WEATHERED_CUT_COPPER_BRICKS, OXIDIZED_CUT_COPPER_BRICKS);
+    }
+
+    public static void registerStrippables() {
+        StrippableBlockRegistry.register(HOLLOW_OAK_LOG, HOLLOW_STRIPPED_OAK_LOG);
+        StrippableBlockRegistry.register(HOLLOW_SPRUCE_LOG, HOLLOW_STRIPPED_SPRUCE_LOG);
+        StrippableBlockRegistry.register(HOLLOW_BIRCH_LOG, HOLLOW_STRIPPED_BIRCH_LOG);
+        StrippableBlockRegistry.register(HOLLOW_JUNGLE_LOG, HOLLOW_STRIPPED_JUNGLE_LOG);
+        StrippableBlockRegistry.register(HOLLOW_ACACIA_LOG, HOLLOW_STRIPPED_ACACIA_LOG);
+        StrippableBlockRegistry.register(HOLLOW_DARK_OAK_LOG, HOLLOW_STRIPPED_DARK_OAK_LOG);
+        StrippableBlockRegistry.register(HOLLOW_MANGROVE_LOG, HOLLOW_STRIPPED_MANGROVE_LOG);
+    }
+
+    public static void registerFlammableBlocks() {
+        FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
+
+        registry.add(HOLLOW_OAK_LOG, 5, 5);
+        registry.add(HOLLOW_STRIPPED_OAK_LOG, 5, 5);
+        registry.add(HOLLOW_SPRUCE_LOG, 5, 5);
+        registry.add(HOLLOW_STRIPPED_SPRUCE_LOG, 5, 5);
+        registry.add(HOLLOW_BIRCH_LOG, 5, 5);
+        registry.add(HOLLOW_STRIPPED_BIRCH_LOG, 5, 5);
+        registry.add(HOLLOW_JUNGLE_LOG, 5, 5);
+        registry.add(HOLLOW_STRIPPED_JUNGLE_LOG, 5, 5);
+        registry.add(HOLLOW_ACACIA_LOG, 5, 5);
+        registry.add(HOLLOW_STRIPPED_ACACIA_LOG, 5, 5);
+        registry.add(HOLLOW_DARK_OAK_LOG, 5, 5);
+        registry.add(HOLLOW_STRIPPED_DARK_OAK_LOG, 5, 5);
+        registry.add(HOLLOW_MANGROVE_LOG, 5, 5);
+        registry.add(HOLLOW_STRIPPED_MANGROVE_LOG, 5, 5);
     }
 
     public static void register() {

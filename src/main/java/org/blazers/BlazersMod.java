@@ -26,5 +26,9 @@ public final class BlazersMod implements ModInitializer {
         //serializers
         //loot modifiers
         BLInstruments.register();
+        BLBlocks.registerWaxedBlocks();
+        BLBlocks.registerOxidizableBlocks();
+        BLBlocks.registerStrippables();
+        BLBlocks.registerFlammableBlocks();
     }
 }

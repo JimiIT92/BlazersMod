@@ -8,7 +8,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 
-public class OxidizableCutCopperBricksBlock extends Block implements IOxidizableCutCopperBricks {
+public class OxidizableCutCopperBricksBlock extends Block implements Oxidizable {
 
     private final Oxidizable.OxidationLevel weatherState;
 
@@ -24,7 +24,7 @@ public class OxidizableCutCopperBricksBlock extends Block implements IOxidizable
 
     @Override
     public boolean hasRandomTicks(BlockState state) {
-        return IOxidizableCutCopperBricks.getIncreasedOxidationBlock(state.getBlock()).isPresent();
+        return Oxidizable.getIncreasedOxidationBlock(state.getBlock()).isPresent();
     }
 
     @Override

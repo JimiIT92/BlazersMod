@@ -1,44 +1,29 @@
 {
-  "loader": "forge:separate_transforms",
+  "parent": "builtin/entity",
   "gui_light": "front",
-  "base": {
-    "parent": "builtin/entity",
-    "gui_light": "front",
-    "textures": {
-      "particle": "blazersmod:item/spear"
-    },
-    "display": {
-      "thirdperson_righthand": {
-        "rotation": [ 0, 90, 180 ],
-        "translation": [ 8, -17, 9 ],
-        "scale": [ 1, 1, 1 ]
-      },
-      "thirdperson_lefthand": {
-        "rotation": [ 0, 90, 180 ],
-        "translation": [ 8, -17, -7 ],
-        "scale": [ 1, 1, 1 ]
-      },
-      "firstperson_righthand": {
-        "rotation": [ 0, -90, 25 ],
-        "translation": [ -3, 17, 1],
-        "scale": [ 1, 1, 1 ]
-      },
-      "firstperson_lefthand": {
-        "rotation": [ 0, 90, -25 ],
-        "translation": [  13, 17, 1],
-        "scale": [ 1, 1, 1 ]
-      }
-    }
+  "textures": {
+    "particle": "blazersmod:item/spear"
   },
-  "perspectives": {
-    "gui": {
-      "parent": "blazersmod:item/spear_inventory"
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 0, 90, 180 ],
+      "translation": [ 8, -17, 9 ],
+      "scale": [ 1, 1, 1 ]
     },
-    "fixed": {
-      "parent": "blazersmod:item/spear_inventory"
+    "thirdperson_lefthand": {
+      "rotation": [ 0, 90, 180 ],
+      "translation": [ 8, -17, -7 ],
+      "scale": [ 1, 1, 1 ]
     },
-    "ground": {
-      "parent": "blazersmod:item/spear_inventory"
+    "firstperson_righthand": {
+      "rotation": [ 0, -90, 25 ],
+      "translation": [ -3, 17, 1],
+      "scale": [ 1, 1, 1 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 90, -25 ],
+      "translation": [  13, 17, 1],
+      "scale": [ 1, 1, 1 ]
     }
   }
 }

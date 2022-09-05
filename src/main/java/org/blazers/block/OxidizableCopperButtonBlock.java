@@ -6,7 +6,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 
-public class OxidizableCopperButtonBlock extends CopperButtonBlock implements IOxidizableCopperButton {
+public class OxidizableCopperButtonBlock extends CopperButtonBlock implements Oxidizable {
 
     private final Oxidizable.OxidationLevel weatherState;
 
@@ -22,7 +22,7 @@ public class OxidizableCopperButtonBlock extends CopperButtonBlock implements IO
 
     @Override
     public boolean hasRandomTicks(BlockState state) {
-        return IOxidizableCopperButton.getIncreasedOxidationBlock(state.getBlock()).isPresent();
+        return Oxidizable.getIncreasedOxidationBlock(state.getBlock()).isPresent();
     }
 
     @Override
