@@ -16,11 +16,11 @@ import org.blazers.core.BLBlocks;
 import org.blazers.entity.AtomicTntEntity;
 
 @Environment(value= EnvType.CLIENT)
-public class AtomicTntRenderer extends EntityRenderer<AtomicTntEntity> {
+public class AtomicTntEntityRenderer extends EntityRenderer<AtomicTntEntity> {
 
     private final BlockRenderManager blockRenderManager;
 
-    public AtomicTntRenderer(EntityRendererFactory.Context context) {
+    public AtomicTntEntityRenderer(EntityRendererFactory.Context context) {
         super(context);
         this.shadowRadius = 0.5f;
         this.blockRenderManager = context.getBlockRenderManager();

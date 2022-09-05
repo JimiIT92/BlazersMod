@@ -9,9 +9,9 @@ import org.blazers.core.BLModelLayers;
 import org.blazers.entity.FireflyEntity;
 import org.blazers.entity.client.model.FireflyModel;
 
-public class FireflyRenderer extends MobEntityRenderer<FireflyEntity, FireflyModel> {
+public class FireflyEntityRenderer extends MobEntityRenderer<FireflyEntity, FireflyModel> {
 
-    public FireflyRenderer(EntityRendererFactory.Context context) {
+    public FireflyEntityRenderer(EntityRendererFactory.Context context) {
         super(context, new FireflyModel(context.getPart(BLModelLayers.FIREFLY)), 0);
     }
 

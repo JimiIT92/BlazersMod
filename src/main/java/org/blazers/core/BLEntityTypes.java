@@ -9,10 +9,7 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.blazers.BlazersMod;
-import org.blazers.entity.AtomicTntEntity;
-import org.blazers.entity.FireflyEntity;
-import org.blazers.entity.SpearEntity;
-import org.blazers.entity.WitherSkeletonHorseEntity;
+import org.blazers.entity.*;
 import org.blazers.entity.client.*;
 
 public final class BLEntityTypes {
@@ -52,18 +49,25 @@ public final class BLEntityTypes {
                     .dimensions(EntityDimensions.fixed(0.5F, 0.5F))
                     .fireImmune().trackedUpdateRate(20).trackRangeBlocks(4).build());
 
-    //cop gol
+    public static final EntityType<CopperGolemEntity> COPPER_GOLEM = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier(BlazersMod.MOD_ID, "copper_golem"),
+            FabricEntityTypeBuilder.create(SpawnGroup.AMBIENT, CopperGolemEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.8F, 1.3F))
+                    .trackRangeBlocks(10).build());
 
     public static void registerRenderers() {
         EntityRendererRegistry.register(WITHER_SKELETON_HORSE, WitherSkeletonHorseRenderer::new);
-        EntityRendererRegistry.register(FIREFLY, FireflyRenderer::new);
-        EntityRendererRegistry.register(PRIMED_ATOMIC_TNT, AtomicTntRenderer::new);
+        EntityRendererRegistry.register(FIREFLY, FireflyEntityRenderer::new);
+        EntityRendererRegistry.register(PRIMED_ATOMIC_TNT, AtomicTntEntityRenderer::new);
         EntityRendererRegistry.register(SPEAR, SpearEntityRenderer::new);
         EntityRendererRegistry.register(MALACHITE_SPEAR, MalachiteSpearEntityRenderer::new);
+        EntityRendererRegistry.register(COPPER_GOLEM, CopperGolemEntityRenderer::new);
     }
 
     public static void registerAttributes() {
         FabricDefaultAttributeRegistry.register(WITHER_SKELETON_HORSE, WitherSkeletonHorseEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(FIREFLY, FireflyEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(COPPER_GOLEM, CopperGolemEntity.createAttributes());
     }
 }
