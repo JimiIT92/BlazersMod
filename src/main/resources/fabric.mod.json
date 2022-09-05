@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "org.blazers.BlazersMod"
+    ],
+    "client": [
+      "org.blazers.client.ClientInitializer"
     ]
   },
   "mixins": [],

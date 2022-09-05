@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"render_type": "cutout",
 	"ambientocclusion": false,
 	"textures": {
 		"particle": "minecraft:block/flower_pot",
