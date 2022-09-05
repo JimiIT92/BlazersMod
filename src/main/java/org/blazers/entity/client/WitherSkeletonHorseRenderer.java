@@ -6,10 +6,10 @@ import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.render.entity.model.HorseEntityModel;
 import net.minecraft.util.Identifier;
 import org.blazers.BlazersMod;
-import org.blazers.entity.WitherSkeletonHorse;
+import org.blazers.entity.WitherSkeletonHorseEntity;
 import org.blazers.entity.client.layer.WitherSkeletonHorseArmorFeatureRenderer;
 
-public class WitherSkeletonHorseRenderer extends AbstractHorseEntityRenderer<WitherSkeletonHorse, HorseEntityModel<WitherSkeletonHorse>> {
+public class WitherSkeletonHorseRenderer extends AbstractHorseEntityRenderer<WitherSkeletonHorseEntity, HorseEntityModel<WitherSkeletonHorseEntity>> {
 
     public WitherSkeletonHorseRenderer(EntityRendererFactory.Context context) {
         super(context, new HorseEntityModel<>(context.getPart(EntityModelLayers.HORSE)), 1.1F);
@@ -17,7 +17,7 @@ public class WitherSkeletonHorseRenderer extends AbstractHorseEntityRenderer<Wit
     }
 
     @Override
-    public Identifier getTexture(WitherSkeletonHorse entity) {
+    public Identifier getTexture(WitherSkeletonHorseEntity entity) {
         return new Identifier(BlazersMod.MOD_ID, "textures/entity/horse/horse_wither_skeleton.png");
     }
 }

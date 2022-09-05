@@ -18,19 +18,19 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.DyeableHorseArmorItem;
 import net.minecraft.item.HorseArmorItem;
 import net.minecraft.item.ItemStack;
-import org.blazers.entity.WitherSkeletonHorse;
+import org.blazers.entity.WitherSkeletonHorseEntity;
 
 @Environment(value=EnvType.CLIENT)
-public class WitherSkeletonHorseArmorFeatureRenderer extends FeatureRenderer<WitherSkeletonHorse, HorseEntityModel<WitherSkeletonHorse>> {
-    private final HorseEntityModel<WitherSkeletonHorse> model;
+public class WitherSkeletonHorseArmorFeatureRenderer extends FeatureRenderer<WitherSkeletonHorseEntity, HorseEntityModel<WitherSkeletonHorseEntity>> {
+    private final HorseEntityModel<WitherSkeletonHorseEntity> model;
 
-    public WitherSkeletonHorseArmorFeatureRenderer(FeatureRendererContext<WitherSkeletonHorse, HorseEntityModel<WitherSkeletonHorse>> context, EntityModelLoader loader) {
+    public WitherSkeletonHorseArmorFeatureRenderer(FeatureRendererContext<WitherSkeletonHorseEntity, HorseEntityModel<WitherSkeletonHorseEntity>> context, EntityModelLoader loader) {
         super(context);
         this.model = new HorseEntityModel(loader.getModelPart(EntityModelLayers.HORSE_ARMOR));
     }
 
     @Override
-    public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, WitherSkeletonHorse horseEntity, float f, float g, float h, float j, float k, float l) {
+    public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, WitherSkeletonHorseEntity horseEntity, float f, float g, float h, float j, float k, float l) {
         float p;
         float o;
         float n;

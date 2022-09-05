@@ -10,23 +10,27 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.blazers.BlazersMod;
 import org.blazers.entity.AtomicTntEntity;
+import org.blazers.entity.FireflyEntity;
 import org.blazers.entity.SpearEntity;
-import org.blazers.entity.WitherSkeletonHorse;
-import org.blazers.entity.client.AtomicTntRenderer;
-import org.blazers.entity.client.MalachiteSpearEntityRenderer;
-import org.blazers.entity.client.SpearEntityRenderer;
-import org.blazers.entity.client.WitherSkeletonHorseRenderer;
+import org.blazers.entity.WitherSkeletonHorseEntity;
+import org.blazers.entity.client.*;
 
 public final class BLEntityTypes {
 
-    public static final EntityType<WitherSkeletonHorse> WITHER_SKELETON_HORSE = Registry.register(
+    public static final EntityType<WitherSkeletonHorseEntity> WITHER_SKELETON_HORSE = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(BlazersMod.MOD_ID, "wither_skeleton_horse"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, WitherSkeletonHorse::new)
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, WitherSkeletonHorseEntity::new)
                     .dimensions(EntityDimensions.fixed(1.3964844F, 1.6F))
                     .fireImmune().trackRangeBlocks(10).build());
 
-    //firefly
+    public static final EntityType<FireflyEntity> FIREFLY = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier(BlazersMod.MOD_ID, "firefly"),
+            FabricEntityTypeBuilder.create(SpawnGroup.AMBIENT, FireflyEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.2F, 0.2F))
+                    .trackRangeBlocks(10).build());
+
     public static final EntityType<AtomicTntEntity> PRIMED_ATOMIC_TNT = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(BlazersMod.MOD_ID, "primed_atomic_tnt"),
@@ -52,12 +56,14 @@ public final class BLEntityTypes {
 
     public static void registerRenderers() {
         EntityRendererRegistry.register(WITHER_SKELETON_HORSE, WitherSkeletonHorseRenderer::new);
+        EntityRendererRegistry.register(FIREFLY, FireflyRenderer::new);
         EntityRendererRegistry.register(PRIMED_ATOMIC_TNT, AtomicTntRenderer::new);
         EntityRendererRegistry.register(SPEAR, SpearEntityRenderer::new);
         EntityRendererRegistry.register(MALACHITE_SPEAR, MalachiteSpearEntityRenderer::new);
     }
 
     public static void registerAttributes() {
-        FabricDefaultAttributeRegistry.register(WITHER_SKELETON_HORSE, WitherSkeletonHorse.createAttributes());
+        FabricDefaultAttributeRegistry.register(WITHER_SKELETON_HORSE, WitherSkeletonHorseEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(FIREFLY, FireflyEntity.createAttributes());
     }
 }

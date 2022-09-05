@@ -134,7 +134,7 @@ public final class BLItems {
     public static final Item CARBON_BOW = registerItem("carbon_bow", new CarbonBowItem(), BLTabs.BLTabSortGroups.BOWS);
 
     public static final Item WITHER_SKELETON_HORSE_SPAWN_EGG = registerSpawnEgg("wither_skeleton_horse_spawn_egg", BLEntityTypes.WITHER_SKELETON_HORSE, 4672845, 1315860);
-    //public static final Item FIREFLY_SPAWN_EGG = registerSpawnEgg("firefly_spawn_egg", BLEntityTypes.FIREFLY, 0x0A0A0A, 0xF0C43E);
+    public static final Item FIREFLY_SPAWN_EGG = registerSpawnEgg("firefly_spawn_egg", BLEntityTypes.FIREFLY, 0x0A0A0A, 0xF0C43E);
     //public static final Item COPPER_GOLEM_SPAWN_EGG = registerSpawnEgg("copper_golem_spawn_egg", BLEntityTypes.COPPER_GOLEM, 0xCC6600, 0x00CC99);
 
     public static final Item COPPER_HORN = registerItem("copper_horn", new CopperHornItem(), BLTabs.BLTabSortGroups.COPPER_HORNS);

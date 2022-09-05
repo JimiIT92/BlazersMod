@@ -31,7 +31,7 @@ public class MalachiteSpearModel extends EntityModel<SpearEntity> {
                 .uv(4, 21).cuboid(-1.0F, 2.0F, -3.5F, 2.0F, 2.0F, 2.0F)
                 .uv(12, 21).cuboid(-1.0F, 2.0F, 1.5F, 2.0F, 2.0F, 2.0F)
                 .uv(1, 26).cuboid(-1.5F, -8.0F, -1.5F, 3.0F, 3.0F, 3.0F)
-                .uv(14, 28).cuboid(-0.5F, -11.0F, -0.5F, 1.0F, 3.0F, 1.0F), ModelTransform.NONE);
+                .uv(14, 28).cuboid(-0.5F, -11.0F, -0.5F, 1.0F, 3.0F, 1.0F),  ModelTransform.pivot(0f, -3.0f, 0f));
         return TexturedModelData.of(modelData, 32, 32);
     }
 

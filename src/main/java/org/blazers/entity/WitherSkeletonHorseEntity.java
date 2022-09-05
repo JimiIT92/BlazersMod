@@ -19,9 +19,9 @@ import org.blazers.core.BLEntityTypes;
 
 import java.util.Objects;
 
-public class WitherSkeletonHorse extends HorseEntity {
+public class WitherSkeletonHorseEntity extends HorseEntity {
 
-    public WitherSkeletonHorse(EntityType<? extends HorseEntity> entityType, World world) {
+    public WitherSkeletonHorseEntity(EntityType<? extends HorseEntity> entityType, World world) {
         super(entityType, world);
         this.setTame(true);
     }

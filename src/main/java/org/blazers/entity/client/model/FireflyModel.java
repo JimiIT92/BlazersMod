@@ -7,29 +7,28 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.util.math.MatrixStack;
-import org.blazers.entity.SpearEntity;
+import org.blazers.entity.FireflyEntity;
 
 @Environment(EnvType.CLIENT)
-public class SpearModel extends EntityModel<SpearEntity> {
+public class FireflyModel extends EntityModel<FireflyEntity> {
 
     private final ModelPart root;
 
-    public SpearModel(ModelPart root) {
+    public FireflyModel(ModelPart root) {
         this.root = root;
     }
 
     public static TexturedModelData getTextureModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
+
         modelPartData.addChild(EntityModelPartNames.CUBE, ModelPartBuilder.create()
-                .uv(0, 0).cuboid(-0.5F, 2.0F, -0.5F, 1.0F, 25.0F, 1.0F)
-                .uv(9, 0).cuboid(-1.5F, -3.0F, -1.5F, 3.0F, 5.0F, 3.0F)
-                .uv(28, 0).cuboid(-0.5F, -6.0F, -0.5F, 1.0F, 3.0F, 1.0F), ModelTransform.pivot(0f, -3.0f, 0f));
-        return TexturedModelData.of(modelData, 32, 32);
+                .uv(0, 0).cuboid(-2.0F, -2.0F, 0.0F, 4.0F, 2.0F, 0.0F), ModelTransform.pivot(0f, 24f, 0f));
+        return TexturedModelData.of(modelData, 16, 16);
     }
 
     @Override
-    public void setAngles(SpearEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+    public void setAngles(FireflyEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 
     }
 
