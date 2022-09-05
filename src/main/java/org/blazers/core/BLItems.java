@@ -2,6 +2,7 @@ package org.blazers.core;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.sound.SoundEvent;
@@ -132,7 +133,9 @@ public final class BLItems {
 
     public static final Item CARBON_BOW = registerItem("carbon_bow", new CarbonBowItem(), BLTabs.BLTabSortGroups.BOWS);
 
-    //sapwn eggs
+    public static final Item WITHER_SKELETON_HORSE_SPAWN_EGG = registerSpawnEgg("wither_skeleton_horse_spawn_egg", BLEntityTypes.WITHER_SKELETON_HORSE, 4672845, 1315860);
+    //public static final Item FIREFLY_SPAWN_EGG = registerSpawnEgg("firefly_spawn_egg", BLEntityTypes.FIREFLY, 0x0A0A0A, 0xF0C43E);
+    //public static final Item COPPER_GOLEM_SPAWN_EGG = registerSpawnEgg("copper_golem_spawn_egg", BLEntityTypes.COPPER_GOLEM, 0xCC6600, 0x00CC99);
 
     public static final Item COPPER_HORN = registerItem("copper_horn", new CopperHornItem(), BLTabs.BLTabSortGroups.COPPER_HORNS);
 
@@ -205,6 +208,10 @@ public final class BLItems {
 
     private static Item registerMusicDisc(String name, SoundEvent sound, int length) {
         return registerItem(name, new BLMusicDiscItem(sound, length), BLTabs.BLTabSortGroups.MUSIC_DISCS);
+    }
+
+    private static Item registerSpawnEgg(String name, EntityType entity, int primaryColor, int secondaryColor) {
+        return registerItem(name, new SpawnEggItem(entity, primaryColor, secondaryColor, new FabricItemSettings().group(BLTabs.TAB_MISC).maxCount(1)), BLTabs.BLTabSortGroups.SPAWN_EGGS);
     }
 
     private static Item registerRareItem(final String name, final BLTabs.BLTabSortGroups sortGroup) {
