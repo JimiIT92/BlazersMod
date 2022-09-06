@@ -5,6 +5,7 @@ import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import org.blazers.BlazersMod;
 
 import java.util.List;
@@ -21,6 +22,8 @@ public final class BLConfiguredFeatures {
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_ONICE = registerNetherOre("ore_onice", BLBlocks.ONICE_ORE, 7);
 
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_URANIUM = registerNetherOre("ore_uranium", BLBlocks.URANIUM_ORE, 4);
+
+    public static final RegistryEntry<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> CATTAIL = ConfiguredFeatures.register("cattail", Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(BLBlocks.CATTAIL)));
 
     private static List<OreFeatureConfig.Target> createOverworldTargetState(Block stoneOre, Block deepslateOre) {
         return List.of(

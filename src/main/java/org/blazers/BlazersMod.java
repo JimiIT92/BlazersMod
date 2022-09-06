@@ -3,6 +3,7 @@ package org.blazers;
 import net.fabricmc.api.ModInitializer;
 import org.blazers.core.*;
 import org.blazers.world.gen.BLEntitiesGeneration;
+import org.blazers.world.gen.BLFlowersGeneration;
 import org.blazers.world.gen.BLOreGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,7 @@ public final class BlazersMod implements ModInitializer {
         BLBlocks.registerStrippables();
         BLBlocks.registerFlammableBlocks();
         BLEntityTypes.registerAttributes();
+        BLFlowersGeneration.generateFlowers();
         BLOreGeneration.generateOres();
         BLEntitiesGeneration.generateEntities();
     }
