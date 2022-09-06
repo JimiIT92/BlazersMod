@@ -6,7 +6,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 
-public class OxidizableCopperButtonBlock extends CopperButtonBlock implements Oxidizable {
+public class OxidizableCopperButtonBlock extends CopperButtonBlock implements ICopperButtonOxidizable {
 
     private final Oxidizable.OxidationLevel weatherState;
 

@@ -421,11 +421,10 @@ public class CopperGolemEntity extends PathAwareEntity implements IAnimatable {
                 copperGolem.setPersistent();
                 player.playSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CURE, 1.0F, 1.0F);
                 player.playSound(SoundEvents.ENTITY_GENERIC_EXTINGUISH_FIRE, 1.0F, 1.0F);
-
+                if (player instanceof ServerPlayerEntity) {
+                    Criteria.SUMMONED_ENTITY.trigger((ServerPlayerEntity) player, copperGolem);
+                }
                 if(!itemStack.isEmpty()) {
-                    if (player instanceof ServerPlayerEntity) {
-                        Criteria.SUMMONED_ENTITY.trigger((ServerPlayerEntity) player, copperGolem);
-                    }
                     if(!player.isCreative()) {
                         itemStack.decrement(1);
                     }

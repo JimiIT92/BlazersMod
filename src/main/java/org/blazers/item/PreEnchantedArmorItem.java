@@ -24,9 +24,7 @@ public class PreEnchantedArmorItem extends ArmorItem implements IPreEnchantedIte
 
     public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
         if(isIn(group)) {
-            ItemStack itemStack = new ItemStack(this);
-            itemStack.addEnchantment(enchantment, level);
-            stacks.add(itemStack);
+            stacks.add(getDefaultStack());
         }
     }
 
@@ -43,5 +41,12 @@ public class PreEnchantedArmorItem extends ArmorItem implements IPreEnchantedIte
     @Override
     public boolean isEnchantable(ItemStack stack) {
         return false;
+    }
+
+    @Override
+    public ItemStack getDefaultStack() {
+        ItemStack itemStack = new ItemStack(this);
+        itemStack.addEnchantment(enchantment, level);
+        return itemStack;
     }
 }

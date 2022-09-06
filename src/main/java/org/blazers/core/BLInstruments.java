@@ -48,7 +48,6 @@ public final class BLInstruments {
         return RegistryKey.of(Registry.INSTRUMENT_KEY, new Identifier(BlazersMod.MOD_ID, name));
     }
 
-
     public static void register() {
         Registry.register(Registry.INSTRUMENT, BRO_GOAT_HORN, createInstrument(BLSounds.GOAT_HORN_BRO));
         Registry.register(Registry.INSTRUMENT, FLY_GOAT_HORN, createInstrument(BLSounds.GOAT_HORN_FLY));

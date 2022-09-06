@@ -22,7 +22,9 @@
       "org.blazers.client.ClientInitializer"
     ]
   },
-  "mixins": [],
+  "mixins": [
+    "blazersmod.mixins.json"
+  ],
   "accessWidener" : "blazersmod.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.6",

@@ -1,0 +1,28 @@
+{
+  "required": true,
+  "package": "org.blazers.mixin",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AbstractBlockMixin",
+    "AxeItemMixin",
+    "EntityMixin",
+    "HoneycombItemMixin",
+    "ItemFrameEntityMixin",
+    "LigthningRodBlockMixin",
+    "PaintingEntityMixin",
+    "PointedDripstoneBlockMixin",
+    "ShapedRecipeMixin",
+    "SmithingRecipeMixin"
+  ],
+  "server": [
+    "AbstractBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "blazersmod.mixins.refmap.json",
+  "client": [
+    "AbstractClientPlayerEntityMixin"
+  ]
+}
