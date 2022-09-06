@@ -7,6 +7,7 @@
     "AbstractBlockMixin",
     "AxeItemMixin",
     "EntityMixin",
+    "FletchingTableBlockMixin",
     "HoneycombItemMixin",
     "ItemFrameEntityMixin",
     "LigthningRodBlockMixin",

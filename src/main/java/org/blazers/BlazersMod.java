@@ -20,8 +20,8 @@ public final class BlazersMod implements ModInitializer {
         BLItems.register();
         BLBlocks.register();
         BLPaintings.register();
-        //menu types
-        //serializers
+        BLScreenHandlers.register();
+        BLRecipes.register();
         BLLootModifiers.register();
         BLInstruments.register();
         BLBlocks.registerWaxedBlocks();
