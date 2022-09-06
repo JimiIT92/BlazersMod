@@ -15,6 +15,7 @@ public final class BlazersMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        BLFeatures.register();
         BLConfiguredFeatures.register();
         BLItems.register();
         BLBlocks.register();

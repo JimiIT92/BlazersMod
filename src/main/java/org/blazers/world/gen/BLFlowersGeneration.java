@@ -21,5 +21,17 @@ public class BLFlowersGeneration {
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 VegetationPlacedFeatures.FLOWER_MEADOW.getKey().get()
         );
+
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(BiomeKeys.BIRCH_FOREST),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                BLPlacedFeatures.FALLEN_BIRCH_TREE.getKey().get()
+        );
+
+        BiomeModifications.addFeature(
+                BiomeSelectors.includeByKey(BiomeKeys.BIRCH_FOREST),
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                BLPlacedFeatures.FALLEN_HOLLOW_BIRCH_TREE.getKey().get()
+        );
     }
 }

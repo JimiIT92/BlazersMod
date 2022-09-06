@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.world.gen.ProbabilityConfig;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import org.blazers.BlazersMod;
@@ -24,6 +25,9 @@ public final class BLConfiguredFeatures {
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_URANIUM = registerNetherOre("ore_uranium", BLBlocks.URANIUM_ORE, 4);
 
     public static final RegistryEntry<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> CATTAIL = ConfiguredFeatures.register("cattail", Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(BLBlocks.CATTAIL)));
+
+    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> FALLEN_BIRCH_TREE = ConfiguredFeatures.register("fallen_birch_tree", BLFeatures.FALLEN_BIRCH_TREE, new ProbabilityConfig(0.1F));
+    public static final RegistryEntry<ConfiguredFeature<ProbabilityConfig, ?>> FALLEN_HOLLOW_BIRCH_TREE = ConfiguredFeatures.register("fallen_hollow_birch_tree", BLFeatures.FALLEN_HOLLOW_BIRCH_TREE, new ProbabilityConfig(0.1F));
 
     private static List<OreFeatureConfig.Target> createOverworldTargetState(Block stoneOre, Block deepslateOre) {
         return List.of(

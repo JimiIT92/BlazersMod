@@ -3,10 +3,7 @@ package org.blazers.core;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.PlacementModifier;
-import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+import net.minecraft.world.gen.placementmodifier.*;
 import org.blazers.world.feature.BLOrePlacement;
 
 import java.util.List;
@@ -26,6 +23,11 @@ public final class BLPlacedFeatures {
             List.of(SquarePlacementModifier.of(), HeightRangePlacementModifier.trapezoid(YOffset.fixed(8), YOffset.fixed(24)), BiomePlacementModifier.of()));
 
     public static final RegistryEntry<PlacedFeature> CATTAIL = PlacedFeatures.register("cattail_placed", BLConfiguredFeatures.CATTAIL, OceanPlacedFeatures.seagrassModifiers(80));
+
+    public static final RegistryEntry<PlacedFeature> FALLEN_BIRCH_TREE = PlacedFeatures.register("fallen_birch_tree_placed",
+            BLConfiguredFeatures.FALLEN_BIRCH_TREE, VegetationPlacedFeatures.modifiers(PlacedFeatures.createCountExtraModifier(3, 0.1F, 2)));
+    public static final RegistryEntry<PlacedFeature> FALLEN_HOLLOW_BIRCH_TREE = PlacedFeatures.register("fallen_hollow_birch_tree_placed",
+            BLConfiguredFeatures.FALLEN_HOLLOW_BIRCH_TREE, VegetationPlacedFeatures.modifiers(PlacedFeatures.createCountExtraModifier(3, 0.1F, 2)));
 
     private static RegistryEntry<PlacedFeature> registerCommonOre(String name, RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> oreConfiguration, int count, int minHeight, int maxHeight) {
         return registerCommonOre(name, oreConfiguration, count, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(minHeight), YOffset.aboveBottom(maxHeight)));
