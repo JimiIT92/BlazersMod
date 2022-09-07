@@ -4,7 +4,11 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -127,5 +131,35 @@ public class WitherSkeletonHorse extends Horse {
     @Override
     public float getWalkTargetValue(@NotNull BlockPos pos, LevelReader level) {
         return 0.5F - level.getBrightness(LightLayer.SKY, pos);
+    }
+
+    /**
+     * Get the {@link WitherSkeletonHorse Wither Skeleton Horse} {@link SoundEvent Ambient Sound}
+     *
+     * @return {@link WitherSkeletonHorse Wither Skeleton Horse} {@link SoundEvent Ambient Sound}
+     */
+    protected SoundEvent getAmbientSound() {
+        super.getAmbientSound();
+        return this.isEyeInFluid(FluidTags.WATER) ? SoundEvents.SKELETON_HORSE_AMBIENT_WATER : SoundEvents.SKELETON_HORSE_AMBIENT;
+    }
+
+    /**
+     * Get the {@link WitherSkeletonHorse Wither Skeleton Horse} {@link SoundEvent Death Sound}
+     *
+     * @return {@link WitherSkeletonHorse Wither Skeleton Horse} {@link SoundEvent Death Sound}
+     */
+    protected SoundEvent getDeathSound() {
+        super.getDeathSound();
+        return SoundEvents.SKELETON_HORSE_DEATH;
+    }
+
+    /**
+     * Get the {@link WitherSkeletonHorse Wither Skeleton Horse} {@link SoundEvent Hurt Sound}
+     *
+     * @return {@link WitherSkeletonHorse Wither Skeleton Horse} {@link SoundEvent Hurt Sound}
+     */
+    protected SoundEvent getHurtSound(@NotNull DamageSource damageSource) {
+        super.getHurtSound(damageSource);
+        return SoundEvents.SKELETON_HORSE_HURT;
     }
 }

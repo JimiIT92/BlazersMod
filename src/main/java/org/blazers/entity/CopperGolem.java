@@ -439,7 +439,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     @Nullable
     @Override
     protected SoundEvent getHurtSound(@NotNull DamageSource source) {
-        return SoundEvents.AXE_WAX_OFF;
+        return isOxidized() ? null : SoundEvents.AXE_WAX_OFF;
     }
 
     /**
@@ -450,7 +450,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.AXE_SCRAPE;
+        return isOxidized() ? null : SoundEvents.AXE_SCRAPE;
     }
 
     /**
@@ -745,11 +745,10 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
                 copperGolem.setPersistenceRequired();
                 player.playSound(SoundEvents.ZOMBIE_VILLAGER_CURE);
                 player.playSound(SoundEvents.GENERIC_EXTINGUISH_FIRE);
-
+                if (player instanceof ServerPlayer) {
+                    CriteriaTriggers.SUMMONED_ENTITY.trigger((ServerPlayer)player, copperGolem);
+                }
                 if(!itemStack.isEmpty()) {
-                    if (player instanceof ServerPlayer) {
-                        CriteriaTriggers.SUMMONED_ENTITY.trigger((ServerPlayer)player, copperGolem);
-                    }
                     if(!player.isCreative()) {
                         itemStack.shrink(1);
                     }
