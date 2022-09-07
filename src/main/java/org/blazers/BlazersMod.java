@@ -28,6 +28,7 @@ public final class BlazersMod implements ModInitializer {
         BLBlocks.registerOxidizableBlocks();
         BLBlocks.registerStrippables();
         BLBlocks.registerFlammableBlocks();
+        BLBlocks.registerDispenserBehaviors();
         BLEntityTypes.registerAttributes();
         BLFlowersGeneration.generateFlowers();
         BLOreGeneration.generateOres();

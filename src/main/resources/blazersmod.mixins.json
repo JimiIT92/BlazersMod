@@ -19,11 +19,11 @@
   "server": [
     "AbstractBlockMixin"
   ],
+  "client": [
+    "AbstractClientPlayerEntityMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   },
-  "refmap": "blazersmod.mixins.refmap.json",
-  "client": [
-    "AbstractClientPlayerEntityMixin"
-  ]
+  "refmap": "blazersmod.mixins.refmap.json"
 }

@@ -3,9 +3,10 @@ package org.blazers.item;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.DispenserBehavior;
-import net.minecraft.block.dispenser.ItemDispenserBehavior;
+import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.passive.AbstractHorseEntity;
 import net.minecraft.entity.passive.HorseEntity;
 import net.minecraft.item.HorseArmorItem;
 import net.minecraft.item.ItemStack;
@@ -22,11 +23,19 @@ import java.util.List;
 public class BLHorseArmorItem extends HorseArmorItem {
 
     private final String name;
-    public static final DispenserBehavior DISPENSER_BEHAVIOR = new ItemDispenserBehavior(){
+    public static final DispenserBehavior DISPENSER_BEHAVIOR = new FallibleItemDispenserBehavior(){
 
         @Override
         protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-            return BLHorseArmorItem.dispenseArmor(pointer, stack) ? stack : super.dispenseSilently(pointer, stack);
+            BlockPos blockPos = pointer.getPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
+            List<AbstractHorseEntity> list = pointer.getWorld().getEntitiesByClass(AbstractHorseEntity.class, new Box(blockPos), entity -> entity.isAlive() && entity.hasArmorSlot());
+            for (AbstractHorseEntity abstractHorseEntity : list) {
+                if (!abstractHorseEntity.isHorseArmor(stack) || abstractHorseEntity.hasArmorInSlot() || !abstractHorseEntity.isTame()) continue;
+                abstractHorseEntity.getStackReference(401).set(stack.split(1));
+                this.setSuccess(true);
+                return stack;
+            }
+            return super.dispenseSilently(pointer, stack);
         }
     };
 
