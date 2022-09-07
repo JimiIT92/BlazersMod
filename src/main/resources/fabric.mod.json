@@ -9,7 +9,8 @@
   ],
   "contact": {
     "homepage": "https://github.com/JimiIT92/BlazersMod",
-    "sources": "https://github.com/JimiIT92/BlazersMod"
+    "sources": "https://github.com/JimiIT92/BlazersMod",
+    "issues": "https://github.com/JimiIT92/BlazersMod/Issues"
   },
   "license": "MIT",
   "icon": "assets/blazersmod/icon.png",

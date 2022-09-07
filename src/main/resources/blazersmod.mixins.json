@@ -26,5 +26,5 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "refmap": "blazersmod.mixins.refmap.json"
+  "refmap": "BlazersMod-refmap.json"
 }
