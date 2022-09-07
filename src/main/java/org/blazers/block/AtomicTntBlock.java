@@ -3,11 +3,12 @@ package org.blazers.block;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.dispenser.DispenserBehavior;
-import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -15,13 +16,11 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.explosion.Explosion;
@@ -41,37 +40,6 @@ public class AtomicTntBlock extends TntBlock {
             world.playSound(null, tntEntity.getX(), tntEntity.getY(), tntEntity.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.emitGameEvent(null, GameEvent.ENTITY_PLACE, blockPos);
             stack.decrement(1);
-            return stack;
-        }
-    };
-
-    public static final DispenserBehavior FLINT_AND_STEEL_BEHAVIOR = new FallibleItemDispenserBehavior(){
-
-        @Override
-        protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-            ServerWorld world = pointer.getWorld();
-            this.setSuccess(true);
-            Direction direction = pointer.getBlockState().get(DispenserBlock.FACING);
-            BlockPos blockPos = pointer.getPos().offset(direction);
-            BlockState blockState = world.getBlockState(blockPos);
-            if (AbstractFireBlock.canPlaceAt(world, blockPos, direction)) {
-                world.setBlockState(blockPos, AbstractFireBlock.getState(world, blockPos));
-                world.emitGameEvent(null, GameEvent.BLOCK_PLACE, blockPos);
-            } else if (CampfireBlock.canBeLit(blockState) || CandleBlock.canBeLit(blockState) || CandleCakeBlock.canBeLit(blockState)) {
-                world.setBlockState(blockPos, blockState.with(Properties.LIT, true));
-                world.emitGameEvent(null, GameEvent.BLOCK_CHANGE, blockPos);
-            } else if (blockState.getBlock() instanceof AtomicTntBlock) {
-                AtomicTntBlock.primeTnt(world, blockPos);
-                world.removeBlock(blockPos, false);
-            } else if (blockState.getBlock() instanceof TntBlock) {
-                TntBlock.primeTnt(world, blockPos);
-                world.removeBlock(blockPos, false);
-            } else {
-                this.setSuccess(false);
-            }
-            if (this.isSuccess() && stack.damage(1, world.random, null)) {
-                stack.setCount(0);
-            }
             return stack;
         }
     };
@@ -121,6 +89,45 @@ public class AtomicTntBlock extends TntBlock {
             return ActionResult.success(world.isClient);
         }
         return super.onUse(state, world, pos, player2, hand, hit);
+    }
+
+    @Override
+    public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
+        if (oldState.isOf(state.getBlock())) {
+            return;
+        }
+        if (world.isReceivingRedstonePower(pos)) {
+            primeTnt(world, pos);
+            world.removeBlock(pos, false);
+        }
+    }
+
+    @Override
+    public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
+        if (world.isReceivingRedstonePower(pos)) {
+            primeTnt(world, pos);
+            world.removeBlock(pos, false);
+        }
+    }
+
+    @Override
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!world.isClient() && !player.isCreative() && state.get(UNSTABLE)) {
+            primeTnt(world, pos);
+        }
+        super.onBreak(world, pos, state, player);
+    }
+
+    @Override
+    public void onProjectileHit(World world, BlockState state, BlockHitResult hit, ProjectileEntity projectile) {
+        if (!world.isClient) {
+            BlockPos blockPos = hit.getBlockPos();
+            Entity entity = projectile.getOwner();
+            if (projectile.isOnFire() && projectile.canModifyAt(world, blockPos)) {
+                primeTnt(world, blockPos, entity instanceof LivingEntity ? (LivingEntity)entity : null);
+                world.removeBlock(blockPos, false);
+            }
+        }
     }
 
     private static TntEntity getPrimedAtomicTnt(World world, BlockPos pos, LivingEntity igniter) {

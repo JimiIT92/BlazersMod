@@ -8,7 +8,6 @@ import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.HoneycombItem;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
@@ -198,7 +197,6 @@ public final class BLBlocks {
 
     public static void registerDispenserBehaviors() {
         DispenserBlock.registerBehavior(ATOMIC_TNT, AtomicTntBlock.DISPENSER_BEHAVIOR);
-        DispenserBlock.registerBehavior(Items.FLINT_AND_STEEL, AtomicTntBlock.FLINT_AND_STEEL_BEHAVIOR);
     }
 
     public static void register() {
