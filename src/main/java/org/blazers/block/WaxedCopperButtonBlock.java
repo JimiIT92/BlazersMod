@@ -12,6 +12,7 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import org.blazers.BlazersMod;
 import org.blazers.core.BLBlocks;
+import org.blazers.event.EventUtils;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -52,6 +53,7 @@ public class WaxedCopperButtonBlock extends CopperButtonBlock {
                 block = BLBlocks.OXIDIZED_COPPER_BUTTON.get();
             }
             if(!Blocks.AIR.equals(block)) {
+                EventUtils.fireWorldEvent(context.getLevel(), context.getPlayer(), EventUtils.WorldEvents.AXE_WAX_OFF, context.getClickedPos());
                 return block.defaultBlockState().setValue(POWERED, Boolean.FALSE).setValue(FACING, state.getValue(FACING)).setValue(FACE, state.getValue(FACE));
             }
         }

@@ -2,6 +2,7 @@ package org.blazers.core;
 
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
@@ -22,7 +23,7 @@ import java.util.AbstractMap;
 import java.util.function.Supplier;
 
 /**
- * {@link org.blazers.BlazersMod Blazers Mod} {@link Item Items}
+ * {@link BlazersMod Blazers Mod} {@link Item Items}
  */
 public final class BLItems {
 
@@ -33,37 +34,37 @@ public final class BLItems {
 
     //#region Items
 
-    public static final RegistryObject<Item> SAPPHIRE = registerSimpleItem("sapphire", BLTabSortGroups.GEMS);
-    public static final RegistryObject<Item> TOPAZ = registerSimpleItem("topaz", BLTabSortGroups.GEMS);
-    public static final RegistryObject<Item> PEARL = registerSimpleItem("pearl", BLTabSortGroups.GEMS);
-    public static final RegistryObject<Item> RUBY = registerSimpleItem("ruby", BLTabSortGroups.GEMS);
-    public static final RegistryObject<Item> MALACHITE = registerSimpleItem("malachite", BLTabSortGroups.GEMS);
-    public static final RegistryObject<Item> ONICE = registerSimpleItem("onice", BLTabSortGroups.GEMS);
-    public static final RegistryObject<Item> RAW_URANIUM = registerSimpleItem("raw_uranium", BLTabSortGroups.RAW_GEMS_AND_INGOTS);
-    public static final RegistryObject<Item> URANIUM_INGOT = registerSimpleItem("uranium_ingot", BLTabSortGroups.RAW_GEMS_AND_INGOTS);
-    public static final RegistryObject<Item> CARBON = registerSimpleItem("carbon", BLTabSortGroups.MATERIALS);
-    public static final RegistryObject<Item> URANIUM_NUGGET = registerSimpleItem("uranium_nugget", BLTabSortGroups.NUGGETS);
-    public static final RegistryObject<Item> BLAZERITE = registerRareItem("blazerite", Rarity.RARE, BLTabSortGroups.GEMS);
-    public static final RegistryObject<Item> GYULIANITE = registerRareItem("gyulianite", Rarity.RARE, BLTabSortGroups.GEMS);
+    public static final RegistryObject<Item> SAPPHIRE = registerSimpleItem("sapphire", BLTabs.BLTabSortGroups.GEMS);
+    public static final RegistryObject<Item> TOPAZ = registerSimpleItem("topaz", BLTabs.BLTabSortGroups.GEMS);
+    public static final RegistryObject<Item> PEARL = registerSimpleItem("pearl", BLTabs.BLTabSortGroups.GEMS);
+    public static final RegistryObject<Item> RUBY = registerSimpleItem("ruby", BLTabs.BLTabSortGroups.GEMS);
+    public static final RegistryObject<Item> MALACHITE = registerSimpleItem("malachite", BLTabs.BLTabSortGroups.GEMS);
+    public static final RegistryObject<Item> ONICE = registerSimpleItem("onice", BLTabs.BLTabSortGroups.GEMS);
+    public static final RegistryObject<Item> RAW_URANIUM = registerSimpleItem("raw_uranium", BLTabs.BLTabSortGroups.RAW_GEMS_AND_INGOTS);
+    public static final RegistryObject<Item> URANIUM_INGOT = registerSimpleItem("uranium_ingot", BLTabs.BLTabSortGroups.RAW_GEMS_AND_INGOTS);
+    public static final RegistryObject<Item> CARBON = registerSimpleItem("carbon", BLTabs.BLTabSortGroups.MATERIALS);
+    public static final RegistryObject<Item> URANIUM_NUGGET = registerSimpleItem("uranium_nugget", BLTabs.BLTabSortGroups.NUGGETS);
+    public static final RegistryObject<Item> BLAZERITE = registerRareItem("blazerite", Rarity.RARE, BLTabs.BLTabSortGroups.GEMS);
+    public static final RegistryObject<Item> GYULIANITE = registerRareItem("gyulianite", Rarity.RARE, BLTabs.BLTabSortGroups.GEMS);
 
     public static final RegistryObject<Item> HOSOMAKI = registerFood("hosomaki", BLFoods.HOSOMAKI);
     public static final RegistryObject<Item> NIGIRI = registerFood("nigiri", BLFoods.NIGIRI);
     public static final RegistryObject<Item> SASHIMI = registerFood("sashimi", BLFoods.SASHIMI);
 
-    public static final RegistryObject<Item> EMERALD_SWORD = registerSword("emerald_sword", BLTiers.EMERALD, BLTabSortGroups.SWORDS);
+    public static final RegistryObject<Item> EMERALD_SWORD = registerSword("emerald_sword", BLTiers.EMERALD, BLTabs.BLTabSortGroups.SWORDS);
     public static final RegistryObject<Item> EMERALD_SHOVEL = registerShovel("emerald_shovel", BLTiers.EMERALD);
     public static final RegistryObject<Item> EMERALD_PICKAXE = registerPickaxe("emerald_pickaxe", BLTiers.EMERALD);
     public static final RegistryObject<Item> EMERALD_AXE = registerAxe("emerald_axe", BLTiers.EMERALD);
     public static final RegistryObject<Item> EMERALD_HOE = registerHoe("emerald_hoe", BLTiers.EMERALD);
-    public static final RegistryObject<Item> AMETHYST_SWORD = registerSword("amethyst_sword", BLTiers.AMETHYST, BLTabSortGroups.SWORDS);
-    public static final RegistryObject<Item> SAPPHIRE_SWORD = registerSword("sapphire_sword", BLTiers.SAPPHIRE, BLTabSortGroups.SWORDS);
+    public static final RegistryObject<Item> AMETHYST_SWORD = registerSword("amethyst_sword", BLTiers.AMETHYST, BLTabs.BLTabSortGroups.SWORDS);
+    public static final RegistryObject<Item> SAPPHIRE_SWORD = registerSword("sapphire_sword", BLTiers.SAPPHIRE, BLTabs.BLTabSortGroups.SWORDS);
     public static final RegistryObject<Item> SAPPHIRE_SHOVEL = registerShovel("sapphire_shovel", BLTiers.SAPPHIRE);
     public static final RegistryObject<Item> SAPPHIRE_PICKAXE = registerPickaxe("sapphire_pickaxe", BLTiers.SAPPHIRE);
     public static final RegistryObject<Item> SAPPHIRE_AXE = registerAxe("sapphire_axe", BLTiers.SAPPHIRE);
     public static final RegistryObject<Item> SAPPHIRE_HOE = registerHoe("sapphire_hoe", BLTiers.SAPPHIRE);
-    public static final RegistryObject<Item> TOPAZ_HAMMER = registerSword("topaz_hammer", BLTiers.TOPAZ, 5, -3.0F, BLTabSortGroups.WEAPONS);
-    public static final RegistryObject<Item> PEARL_SWORD = registerSword("pearl_sword", BLTiers.PEARL, BLTabSortGroups.SWORDS);
-    public static final RegistryObject<Item> RUBY_SWORD = registerSword("ruby_sword", BLTiers.RUBY, BLTabSortGroups.SWORDS);
+    public static final RegistryObject<Item> TOPAZ_HAMMER = registerSword("topaz_hammer", BLTiers.TOPAZ, 5, -3.0F, BLTabs.BLTabSortGroups.WEAPONS);
+    public static final RegistryObject<Item> PEARL_SWORD = registerSword("pearl_sword", BLTiers.PEARL, BLTabs.BLTabSortGroups.SWORDS);
+    public static final RegistryObject<Item> RUBY_SWORD = registerSword("ruby_sword", BLTiers.RUBY, BLTabs.BLTabSortGroups.SWORDS);
     public static final RegistryObject<Item> RUBY_SHOVEL = registerShovel("ruby_shovel", BLTiers.RUBY);
     public static final RegistryObject<Item> RUBY_PICKAXE = registerPickaxe("ruby_pickaxe", BLTiers.RUBY);
     public static final RegistryObject<Item> RUBY_AXE = registerAxe("ruby_axe", BLTiers.RUBY);
@@ -72,17 +73,17 @@ public final class BLItems {
     public static final RegistryObject<Item> ONICE_PICKAXE = registerPickaxe("onice_pickaxe", BLTiers.ONICE);
     public static final RegistryObject<Item> ONICE_AXE = registerAxe("onice_axe", BLTiers.ONICE, 5.5F, -3.0F);
     public static final RegistryObject<Item> ONICE_HOE = registerHoe("onice_hoe", BLTiers.ONICE, -2, -0.5F);
-    public static final RegistryObject<Item> ONICE_SICKLE = registerSword("onice_sickle", BLTiers.ONICE, BLTabSortGroups.WEAPONS);
+    public static final RegistryObject<Item> ONICE_SICKLE = registerSword("onice_sickle", BLTiers.ONICE, BLTabs.BLTabSortGroups.WEAPONS);
 
     public static final RegistryObject<Item> SPEAR = registerItem("spear", () ->
-            new SpearItem(BLTiers.FLINT, 1, -2.4F), BLTabSortGroups.SPEARS);
+            new SpearItem(BLTiers.FLINT, 1, -2.4F), BLTabs.BLTabSortGroups.SPEARS);
     public static final RegistryObject<Item> MALACHITE_SPEAR = registerItem("malachite_spear", () ->
-            new SpearItem(BLTiers.MALACHITE, 3, -2.4F), BLTabSortGroups.SPEARS);
+            new SpearItem(BLTiers.MALACHITE, 3, -2.4F), BLTabs.BLTabSortGroups.SPEARS);
 
     public static final RegistryObject<Item> BLAZERITE_SWORD = registerItem("blazerite_sword", () ->
-            new PreEnchantedSwordItem(BLTiers.BLAZERITE, Enchantments.FIRE_ASPECT, 10), BLTabSortGroups.SWORDS);
+            new PreEnchantedSwordItem(BLTiers.BLAZERITE, Enchantments.FIRE_ASPECT, 10), BLTabs.BLTabSortGroups.SWORDS);
     public static final RegistryObject<Item> GYULIANITE_SWORD = registerItem("gyulianite_sword", () ->
-            new PreEnchantedSwordItem(BLTiers.GYULIANITE, Enchantments.KNOCKBACK, 10), BLTabSortGroups.SWORDS);
+            new PreEnchantedSwordItem(BLTiers.GYULIANITE, Enchantments.KNOCKBACK, 10), BLTabs.BLTabSortGroups.SWORDS);
 
     public static final RegistryObject<Item> KATANA = registerKatana("katana");
     public static final RegistryObject<Item> WHITE_KATANA = registerKatana("white_katana");
@@ -135,25 +136,31 @@ public final class BLItems {
     public static final RegistryObject<Item> ONICE_CHESTPLATE = registerArmorItem("onice_chestplate", BLArmorMaterials.ONICE, EquipmentSlot.CHEST);
     public static final RegistryObject<Item> ONICE_LEGGINGS = registerArmorItem("onice_leggings", BLArmorMaterials.ONICE, EquipmentSlot.LEGS);
     public static final RegistryObject<Item> ONICE_BOOTS = registerArmorItem("onice_boots", BLArmorMaterials.ONICE, EquipmentSlot.FEET);
-    public static final RegistryObject<Item> BLAZERITE_HELMET = registerItem("blazerite_helmet", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.HEAD, Enchantments.FIRE_PROTECTION, 4), BLTabSortGroups.ARMORS);
-    public static final RegistryObject<Item> BLAZERITE_CHESTPLATE = registerItem("blazerite_chestplate", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.CHEST, Enchantments.FIRE_PROTECTION, 4), BLTabSortGroups.ARMORS);
-    public static final RegistryObject<Item> BLAZERITE_LEGGINGS = registerItem("blazerite_leggings", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.LEGS, Enchantments.FIRE_PROTECTION, 4), BLTabSortGroups.ARMORS);
-    public static final RegistryObject<Item> BLAZERITE_BOOTS = registerItem("blazerite_boots", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.FEET, Enchantments.FIRE_PROTECTION, 4), BLTabSortGroups.ARMORS);
-    public static final RegistryObject<Item> GYULIANITE_HELMET = registerItem("gyulianite_helmet", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.HEAD, Enchantments.PROJECTILE_PROTECTION, 4), BLTabSortGroups.ARMORS);
-    public static final RegistryObject<Item> GYULIANITE_CHESTPLATE = registerItem("gyulianite_chestplate", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.CHEST, Enchantments.PROJECTILE_PROTECTION, 4), BLTabSortGroups.ARMORS);
-    public static final RegistryObject<Item> GYULIANITE_LEGGINGS = registerItem("gyulianite_leggings", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.LEGS, Enchantments.PROJECTILE_PROTECTION, 4), BLTabSortGroups.ARMORS);
-    public static final RegistryObject<Item> GYULIANITE_BOOTS = registerItem("gyulianite_boots", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.FEET, Enchantments.PROJECTILE_PROTECTION, 4), BLTabSortGroups.ARMORS);
+    public static final RegistryObject<Item> BLAZERITE_HELMET = registerItem("blazerite_helmet", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.HEAD, Enchantments.FIRE_PROTECTION, 4), BLTabs.BLTabSortGroups.ARMORS);
+    public static final RegistryObject<Item> BLAZERITE_CHESTPLATE = registerItem("blazerite_chestplate", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.CHEST, Enchantments.FIRE_PROTECTION, 4), BLTabs.BLTabSortGroups.ARMORS);
+    public static final RegistryObject<Item> BLAZERITE_LEGGINGS = registerItem("blazerite_leggings", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.LEGS, Enchantments.FIRE_PROTECTION, 4), BLTabs.BLTabSortGroups.ARMORS);
+    public static final RegistryObject<Item> BLAZERITE_BOOTS = registerItem("blazerite_boots", () -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.FEET, Enchantments.FIRE_PROTECTION, 4), BLTabs.BLTabSortGroups.ARMORS);
+    public static final RegistryObject<Item> GYULIANITE_HELMET = registerItem("gyulianite_helmet", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.HEAD, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.BLTabSortGroups.ARMORS);
+    public static final RegistryObject<Item> GYULIANITE_CHESTPLATE = registerItem("gyulianite_chestplate", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.CHEST, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.BLTabSortGroups.ARMORS);
+    public static final RegistryObject<Item> GYULIANITE_LEGGINGS = registerItem("gyulianite_leggings", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.LEGS, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.BLTabSortGroups.ARMORS);
+    public static final RegistryObject<Item> GYULIANITE_BOOTS = registerItem("gyulianite_boots", () -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.FEET, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.BLTabSortGroups.ARMORS);
 
-    public static final RegistryObject<Item> EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", () -> new BLHorseArmorItem(13, "emerald"), BLTabSortGroups.HORSE_ARMORS);
-    public static final RegistryObject<Item> SAPPHIRE_HORSE_ARMOR = registerItem("sapphire_horse_armor", () -> new BLHorseArmorItem(13, "sapphire"), BLTabSortGroups.HORSE_ARMORS);
-    public static final RegistryObject<Item> TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", () -> new BLHorseArmorItem(8, "topaz"), BLTabSortGroups.HORSE_ARMORS);
-    public static final RegistryObject<Item> RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", () -> new BLHorseArmorItem(13, "ruby"), BLTabSortGroups.HORSE_ARMORS);
-    public static final RegistryObject<Item> MALACHITE_HORSE_ARMOR = registerItem("malachite_horse_armor", () -> new BLHorseArmorItem(8, "malachite"), BLTabSortGroups.HORSE_ARMORS);
+    public static final RegistryObject<Item> EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", () -> new BLHorseArmorItem(13, "emerald"), BLTabs.BLTabSortGroups.HORSE_ARMORS);
+    public static final RegistryObject<Item> SAPPHIRE_HORSE_ARMOR = registerItem("sapphire_horse_armor", () -> new BLHorseArmorItem(13, "sapphire"), BLTabs.BLTabSortGroups.HORSE_ARMORS);
+    public static final RegistryObject<Item> TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", () -> new BLHorseArmorItem(8, "topaz"), BLTabs.BLTabSortGroups.HORSE_ARMORS);
+    public static final RegistryObject<Item> RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", () -> new BLHorseArmorItem(13, "ruby"), BLTabs.BLTabSortGroups.HORSE_ARMORS);
+    public static final RegistryObject<Item> MALACHITE_HORSE_ARMOR = registerItem("malachite_horse_armor", () -> new BLHorseArmorItem(8, "malachite"), BLTabs.BLTabSortGroups.HORSE_ARMORS);
 
-    public static final RegistryObject<Item> CARBON_BOW = registerItem("carbon_bow", CarbonBowItem::new, BLTabSortGroups.BOWS);
+    public static final RegistryObject<Item> CARBON_BOW = registerItem("carbon_bow", CarbonBowItem::new, BLTabs.BLTabSortGroups.BOWS);
 
     public static final RegistryObject<Item> WITHER_SKELETON_HORSE_SPAWN_EGG = registerSpawnEgg("wither_skeleton_horse_spawn_egg", BLEntityTypes.WITHER_SKELETON_HORSE, 4672845, 1315860);
     public static final RegistryObject<Item> FIREFLY_SPAWN_EGG = registerSpawnEgg("firefly_spawn_egg", BLEntityTypes.FIREFLY, 0x0A0A0A, 0xF0C43E);
+    public static final RegistryObject<Item> COPPER_GOLEM_SPAWN_EGG = registerSpawnEgg("copper_golem_spawn_egg", BLEntityTypes.COPPER_GOLEM, 0xCC6600, 0x00CC99);
+
+    public static final RegistryObject<Item> COPPER_HORN = registerItem("copper_horn", CopperHornItem::new, BLTabs.BLTabSortGroups.COPPER_HORNS);
+
+    public static final RegistryObject<Item> MUSIC_DISC_SURVIVAL = registerMusicDisc("music_disc_survival", BLSounds.MUSIC_DISC_SURVIVAL, 28);
+    public static final RegistryObject<Item> MUSIC_DISC_ENDERMAN_VS_BLAZE = registerMusicDisc("music_disc_enderman_vs_blaze", BLSounds.MUSIC_DISC_ENDERMAN_VS_BLAZE, 173);
 
     //#endregion
 
@@ -188,10 +195,10 @@ public final class BLItems {
      * Register a simple {@link Item Item}
      *
      * @param name {@link String Item Name}
-     * @param sortGroup {@link BLTabSortGroups Creative Tab Sort Group}
+     * @param sortGroup {@link BLTabs.BLTabSortGroups Creative Tab Sort Group}
      * @return {@link RegistryObject<Item> Registered Item}
      */
-    private static RegistryObject<Item> registerSimpleItem(String name, BLTabSortGroups sortGroup) {
+    private static RegistryObject<Item> registerSimpleItem(String name, BLTabs.BLTabSortGroups sortGroup) {
         return registerItem(name, () -> new Item(createSimpleItemProperties()), sortGroup);
     }
 
@@ -200,10 +207,10 @@ public final class BLItems {
      *
      * @param name {@link String Item Name}
      * @param rarity {@link Rarity Item Rarity}
-     * @param sortGroup {@link BLTabSortGroups Creative Tab Sort Group}
+     * @param sortGroup {@link BLTabs.BLTabSortGroups Creative Tab Sort Group}
      * @return {@link RegistryObject<Item> Registered Item}
      */
-    private static RegistryObject<Item> registerRareItem(String name, Rarity rarity, BLTabSortGroups sortGroup) {
+    private static RegistryObject<Item> registerRareItem(String name, Rarity rarity, BLTabs.BLTabSortGroups sortGroup) {
         return registerItem(name, () -> new Item(createSimpleItemProperties().rarity(rarity)), sortGroup);
     }
 
@@ -215,7 +222,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> Registered Item}
      */
     private static RegistryObject<Item> registerFood(String name, FoodProperties foodProperties) {
-        return registerItem(name, () -> new Item(createSimpleItemProperties().food(foodProperties).tab(BLTabs.TAB_FOOD)), BLTabSortGroups.FOOD);
+        return registerItem(name, () -> new Item(createSimpleItemProperties().food(foodProperties).tab(BLTabs.TAB_FOOD)), BLTabs.BLTabSortGroups.FOOD);
     }
 
     /**
@@ -226,7 +233,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> Registered Item}
      */
     private static RegistryObject<Item> registerShovel(String name, Tier tier) {
-        return registerItem(name, () -> new ShovelItem(tier, 1.5F, -3.0F, createToolItemProperties()), BLTabSortGroups.TOOLS);
+        return registerItem(name, () -> new ShovelItem(tier, 1.5F, -3.0F, createToolItemProperties()), BLTabs.BLTabSortGroups.TOOLS);
     }
 
     /**
@@ -237,7 +244,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> Registered Item}
      */
     private static RegistryObject<Item> registerPickaxe(String name, Tier tier) {
-        return registerItem(name, () -> new PickaxeItem(tier, 1, -2.8F, createToolItemProperties()), BLTabSortGroups.TOOLS);
+        return registerItem(name, () -> new PickaxeItem(tier, 1, -2.8F, createToolItemProperties()), BLTabs.BLTabSortGroups.TOOLS);
     }
 
     /**
@@ -263,7 +270,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> Registered Item}
      */
     private static RegistryObject<Item> registerAxe(String name, Tier tier, float attackDamageModifier, float attackSpeedModifier) {
-        return registerItem(name, () -> new AxeItem(tier, attackDamageModifier, attackSpeedModifier, createToolItemProperties()), BLTabSortGroups.TOOLS);
+        return registerItem(name, () -> new AxeItem(tier, attackDamageModifier, attackSpeedModifier, createToolItemProperties()), BLTabs.BLTabSortGroups.TOOLS);
     }
 
     /**
@@ -289,7 +296,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> Registered Item}
      */
     private static RegistryObject<Item> registerHoe(String name, Tier tier, int attackDamageModifier, float attackSpeedModifier) {
-        return registerItem(name, () -> new HoeItem(tier, attackDamageModifier, attackSpeedModifier, createToolItemProperties()), BLTabSortGroups.TOOLS);
+        return registerItem(name, () -> new HoeItem(tier, attackDamageModifier, attackSpeedModifier, createToolItemProperties()), BLTabs.BLTabSortGroups.TOOLS);
     }
 
     /**
@@ -299,7 +306,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> Registered Item}
      */
     private static RegistryObject<Item> registerKatana(String name) {
-        return registerSword(name, BLTiers.CARBON, 3, 0, BLTabSortGroups.KATANAS);
+        return registerSword(name, BLTiers.CARBON, 3, 0, BLTabs.BLTabSortGroups.KATANAS);
     }
 
     /**
@@ -307,10 +314,10 @@ public final class BLItems {
      *
      * @param name {@link String Item Name}
      * @param tier {@link Tier Item Tier}
-     * @param sortGroup {@link BLTabSortGroups Creative Tab Sort Group}
+     * @param sortGroup {@link BLTabs.BLTabSortGroups Creative Tab Sort Group}
      * @return {@link RegistryObject<Item> Registered Item}
      */
-    private static RegistryObject<Item> registerSword(String name, Tier tier, BLTabSortGroups sortGroup) {
+    private static RegistryObject<Item> registerSword(String name, Tier tier, BLTabs.BLTabSortGroups sortGroup) {
         return registerSword(name, tier, 3, -2.4F, sortGroup);
     }
 
@@ -323,10 +330,10 @@ public final class BLItems {
      * @param tier {@link Tier Item Tier}
      * @param attackDamageModifier {@link Integer Attack damage modifier}
      * @param attackSpeedModifier {@link Float Attack speed modifier}
-     * @param sortGroup {@link BLTabSortGroups Creative Tab Sort Group}
+     * @param sortGroup {@link BLTabs.BLTabSortGroups Creative Tab Sort Group}
      * @return {@link RegistryObject<Item> Registered Item}
      */
-    private static RegistryObject<Item> registerSword(String name, Tier tier, int attackDamageModifier, float attackSpeedModifier, BLTabSortGroups sortGroup) {
+    private static RegistryObject<Item> registerSword(String name, Tier tier, int attackDamageModifier, float attackSpeedModifier, BLTabs.BLTabSortGroups sortGroup) {
         return registerItem(name, () -> new SwordItem(tier, attackDamageModifier, attackSpeedModifier, createCombatItemProperties()), sortGroup);
     }
 
@@ -339,7 +346,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> Registered Item}
      */
     private static RegistryObject<Item> registerArmorItem(String name, ArmorMaterial armorMaterial, EquipmentSlot slot) {
-        return registerItem(name, () -> new ArmorItem(armorMaterial, slot, createCombatItemProperties()), BLTabSortGroups.ARMORS);
+        return registerItem(name, () -> new ArmorItem(armorMaterial, slot, createCombatItemProperties()), BLTabs.BLTabSortGroups.ARMORS);
     }
 
     /**
@@ -352,7 +359,19 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> Registered Item}
      */
     private static RegistryObject<Item> registerSpawnEgg(String name, Supplier<? extends EntityType<? extends Mob>> entityType, int primaryColor, int secondaryColor) {
-        return registerItem(name, () -> new ForgeSpawnEggItem(entityType, primaryColor, secondaryColor, new Item.Properties().tab(BLTabs.TAB_MISC)), BLTabSortGroups.SPAWN_EGGS);
+        return registerItem(name, () -> new ForgeSpawnEggItem(entityType, primaryColor, secondaryColor, new Item.Properties().tab(BLTabs.TAB_MISC)), BLTabs.BLTabSortGroups.SPAWN_EGGS);
+    }
+
+    /**
+     * Register a {@link RecordItem Music Disc}
+     *
+     * @param name {@link String Music Disc Name}
+     * @param sound {@link RegistryObject<SoundEvent> Music Disc Sound}
+     * @param length {@link Integer Music Disc Length}
+     * @return {@link RegistryObject<Item> Registered Item}
+     */
+    private static RegistryObject<Item> registerMusicDisc(String name, RegistryObject<SoundEvent> sound, int length) {
+        return registerItem(name, () -> new RecordItem(15, sound, new Item.Properties().tab(BLTabs.TAB_MISC).rarity(Rarity.RARE).stacksTo(1), length * 20), BLTabs.BLTabSortGroups.MUSIC_DISCS);
     }
 
     /**
@@ -360,10 +379,10 @@ public final class BLItems {
      *
      * @param name {@link String Item Name}
      * @param itemSupplier {@link Supplier<Item> Item Supplier}
-     * @param sortGroup {@link BLTabSortGroups Creative Tab Sort Group}
+     * @param sortGroup {@link BLTabs.BLTabSortGroups Creative Tab Sort Group}
      * @return {@link RegistryObject<Item> Registered Item}
      */
-    private static RegistryObject<Item> registerItem(String name, Supplier<Item> itemSupplier, BLTabSortGroups sortGroup) {
+    private static RegistryObject<Item> registerItem(String name, Supplier<Item> itemSupplier, BLTabs.BLTabSortGroups sortGroup) {
         RegistryObject<Item> item = ITEMS.register(name, itemSupplier);
         BLTabs.TAB_GROUP_ORDERINGS.add(new AbstractMap.SimpleEntry<>(item, sortGroup));
         return item;
@@ -373,18 +392,22 @@ public final class BLItems {
      * Register some custom {@link Item Item} properties
      */
     public static void registerItemProperties() {
-        registerSpearProperties(SPEAR);
-        registerSpearProperties(MALACHITE_SPEAR);
         registerCarbonBowProperties();
+        registerUseItemProperty(SPEAR, "throwing");
+        registerUseItemProperty(MALACHITE_SPEAR, "throwing");
+        registerUseItemProperty(COPPER_HORN, "tooting");
     }
 
     /**
-     * Register some {@link Item Spear} properties
+     * Register a property for when
+     * an {@link net.minecraft.world.entity.Entity Entity} is
+     * using an {@link RegistryObject<Item> Item}
      *
-     * @param item {@link RegistryObject<Item> Spear Item}
+     * @param item {@link RegistryObject<Item> Item}
+     * @param name {@link String Property name}
      */
-    private static void registerSpearProperties(RegistryObject<Item> item) {
-        ItemProperties.register(item.get(), new ResourceLocation("throwing"), (stack, level, entity, seed) ->
+    private static void registerUseItemProperty(RegistryObject<Item> item, String name) {
+        ItemProperties.register(item.get(), new ResourceLocation(name), (stack, level, entity, seed) ->
                 entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
         );
     }
@@ -395,8 +418,7 @@ public final class BLItems {
     private static void registerCarbonBowProperties() {
         ItemProperties.register(CARBON_BOW.get(), new ResourceLocation("pull"), (stack, level, entity, seed) ->
                 entity == null ? 0.0F : entity.getUseItem() != stack ? 0.0F : (float)(stack.getUseDuration() - entity.getUseItemRemainingTicks()) / 2.0F);
-        ItemProperties.register(CARBON_BOW.get(), new ResourceLocation("pulling"), (stack, level, entity, seed) ->
-                entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F);
+        registerUseItemProperty(CARBON_BOW, "pulling");
     }
 
     /**

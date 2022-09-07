@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import org.blazers.BlazersMod;
+import org.blazers.event.EventUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -88,6 +89,7 @@ public class WeatheringCopperButtonBlock extends CopperButtonBlock implements IW
         if(stack.getItem() instanceof AxeItem && toolAction == ToolActions.AXE_WAX_OFF) {
             Optional<BlockState> previousBlockState = IWeatheringCopperButton.getPrevious(state);
             if(previousBlockState.isPresent()) {
+                EventUtils.fireWorldEvent(context.getLevel(), context.getPlayer(), EventUtils.WorldEvents.AXE_SCRAPE, context.getClickedPos());
                 return previousBlockState.get();
             }
         }

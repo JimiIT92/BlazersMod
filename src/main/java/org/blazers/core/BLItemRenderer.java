@@ -26,7 +26,7 @@ import org.jetbrains.annotations.NotNull;
  * {@link org.blazers.BlazersMod Blazers Mod} {@link BlockEntityWithoutLevelRenderer Custom Item Renderer}
  */
 @OnlyIn(Dist.CLIENT)
-public class BLItemRenderer extends BlockEntityWithoutLevelRenderer {
+public final class BLItemRenderer extends BlockEntityWithoutLevelRenderer {
 
     /**
      * {@link ThrownSpear Thrown Spear} {@link ThrownSpearModel Model}

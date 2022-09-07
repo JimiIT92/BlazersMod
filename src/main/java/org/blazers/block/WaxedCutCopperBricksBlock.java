@@ -11,6 +11,7 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
 import org.blazers.BlazersMod;
 import org.blazers.core.BLBlocks;
+import org.blazers.event.EventUtils;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -53,6 +54,7 @@ public class WaxedCutCopperBricksBlock extends Block {
                 block = BLBlocks.OXIDIZED_CUT_COPPER_BRICKS.get();
             }
             if(!Blocks.AIR.equals(block)) {
+                EventUtils.fireWorldEvent(context.getLevel(), context.getPlayer(), EventUtils.WorldEvents.AXE_WAX_OFF, context.getClickedPos());
                 return block.defaultBlockState();
             }
         }

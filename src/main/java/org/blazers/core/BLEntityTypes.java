@@ -4,16 +4,15 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
-import org.blazers.entity.Firefly;
-import org.blazers.entity.PrimedAtomicTnt;
-import org.blazers.entity.ThrownSpear;
-import org.blazers.entity.WitherSkeletonHorse;
+import org.blazers.entity.*;
 import org.blazers.entity.client.*;
 import org.blazers.entity.client.model.FireflyModel;
 import org.blazers.entity.client.model.ThrownMalachiteSpearModel;
@@ -56,6 +55,11 @@ public final class BLEntityTypes {
                     .sized(0.5F, 0.5F).clientTrackingRange(4).updateInterval(20)
                     .build(new ResourceLocation(BlazersMod.MOD_ID, "malachite_spear").toString()));
 
+    public static final RegistryObject<EntityType<CopperGolem>> COPPER_GOLEM = ENTITY_TYPES.register("copper_golem",
+            () -> EntityType.Builder.of(CopperGolem::new, MobCategory.MISC)
+                    .sized(0.8F, 1.3F).clientTrackingRange(10)
+                    .build(new ResourceLocation(BlazersMod.MOD_ID, "copper_golem").toString()));
+
     //#endregion
 
     /**
@@ -64,6 +68,7 @@ public final class BLEntityTypes {
     public static void registerRenderers() {
         EntityRenderers.register(WITHER_SKELETON_HORSE.get(), WitherSkeletonHorseRenderer::new);
         EntityRenderers.register(FIREFLY.get(), FireflyRenderer::new);
+        EntityRenderers.register(COPPER_GOLEM.get(), CopperGolemRenderer::new);
         EntityRenderers.register(PRIMED_ATOMIC_TNT.get(), AtomicTntRenderer::new);
         EntityRenderers.register(SPEAR.get(), ThrownSpearRenderer::new);
         EntityRenderers.register(MALACHITE_SPEAR.get(), ThrownMalachiteSpearRenderer::new);
@@ -78,6 +83,17 @@ public final class BLEntityTypes {
         event.registerLayerDefinition(FireflyModel.LAYER_LOCATION, FireflyModel::createBodyLayer);
         event.registerLayerDefinition(ThrownSpearModel.LAYER_LOCATION, ThrownSpearModel::createBodyLayer);
         event.registerLayerDefinition(ThrownMalachiteSpearModel.LAYER_LOCATION, ThrownMalachiteSpearModel::createBodyLayer);
+    }
+
+    /**
+     * Setup the {@link AttributeSupplier Entity Attributes}
+     *
+     * @param event {@link EntityAttributeCreationEvent Entity Attribute Creation Event}
+     */
+    public static void registerEntityAttributes(final EntityAttributeCreationEvent event) {
+        event.put(BLEntityTypes.WITHER_SKELETON_HORSE.get(), WitherSkeletonHorse.createAttributes().build());
+        event.put(BLEntityTypes.FIREFLY.get(), Firefly.createAttributes().build());
+        event.put(BLEntityTypes.COPPER_GOLEM.get(), CopperGolem.createAttributes().build());
     }
 
     /**

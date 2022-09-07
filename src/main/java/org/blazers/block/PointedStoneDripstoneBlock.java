@@ -34,6 +34,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.blazers.BlazersMod;
 import org.blazers.core.BLBlocks;
+import org.blazers.event.EventUtils;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -402,7 +403,7 @@ public class PointedStoneDripstoneBlock extends Block implements Fallable, Simpl
      */
     public void onBrokenAfterFall(@NotNull Level level, @NotNull BlockPos pos, FallingBlockEntity fallingBlockEntity) {
         if (!fallingBlockEntity.isSilent()) {
-            level.levelEvent(1045, pos, 0);
+            EventUtils.fireWorldEvent(level, null, EventUtils.WorldEvents.POINTED_DRIPSTONE_FALLING, pos);
         }
     }
 
