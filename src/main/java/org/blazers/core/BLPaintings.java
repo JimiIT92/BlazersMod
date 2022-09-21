@@ -22,7 +22,6 @@ public final class BLPaintings {
     public static RegistryObject<PaintingVariant> ERENBLAZE = registerPainting("erenblaze", 32);
     public static RegistryObject<PaintingVariant> SURVIVAL = registerPainting("survival", 16, 32);
     public static RegistryObject<PaintingVariant> BRUH = registerSmallPainting("bruh");
-
     public static RegistryObject<PaintingVariant> EBL_CHEER = registerSmallPainting("ebl_cheer");
     public static RegistryObject<PaintingVariant> EBL_FLEX = registerSmallPainting("ebl_flex");
     public static RegistryObject<PaintingVariant> EBL_SHH = registerSmallPainting("ebl_shh");
