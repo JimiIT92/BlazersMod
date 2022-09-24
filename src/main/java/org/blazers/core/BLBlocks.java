@@ -121,7 +121,10 @@ public final class BLBlocks {
     public static final RegistryObject<Block> WAXED_WEATHERED_CUT_COPPER_BRICKS = registerBlock("waxed_weathered_cut_copper_bricks", () -> new WaxedCutCopperBricksBlock(Blocks.WEATHERED_CUT_COPPER), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
     public static final RegistryObject<Block> WAXED_OXIDIZED_CUT_COPPER_BRICKS = registerBlock("waxed_oxidized_cut_copper_bricks", () -> new WaxedCutCopperBricksBlock(Blocks.OXIDIZED_CUT_COPPER), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
 
-    public static final RegistryObject<Block> POINTED_STONE_DRIPSTONE = registerBlock("pointed_stone_dripstone", () -> new BLPointedDripstoneBlock(Blocks.STONE), BLTabs.TAB_DECORATIONS, BLTabs.BLTabSortGroups.DRIPSTONES);
+    public static final RegistryObject<Block> POINTED_STONE_DRIPSTONE = registerDripstone("pointed_stone_dripstone", Blocks.STONE);
+    public static final RegistryObject<Block> POINTED_GRANITE_DRIPSTONE = registerDripstone("pointed_granite_dripstone", Blocks.GRANITE);
+    public static final RegistryObject<Block> POINTED_DIORITE_DRIPSTONE = registerDripstone("pointed_diorite_dripstone", Blocks.DIORITE);
+    public static final RegistryObject<Block> POINTED_ANDESITE_DRIPSTONE = registerDripstone("pointed_andesite_dripstone", Blocks.ANDESITE);
     public static final RegistryObject<Block> POINTED_ICE_DRIPSTONE = registerBlock("pointed_ice_dripstone", PointedIceDripstoneBlock::new, BLTabs.TAB_DECORATIONS, BLTabs.BLTabSortGroups.DRIPSTONES);
 
     //#endregion
@@ -188,6 +191,17 @@ public final class BLBlocks {
                         new DropExperienceBlock(createOreBlockProperties().color(MaterialColor.NETHER).sound(SoundType.NETHER_ORE),
                                 UniformInt.of(2, 5))
                 , BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.NETHER_ORES);
+    }
+
+    /**
+     * Register a {@link BLPointedDripstoneBlock Dripstone Block}
+     *
+     * @param name {@link String Block Name}
+     * @param materialBlock {@link Block Material Block}
+     * @return {@link RegistryObject<Block> Registered Dripstone Block}
+     */
+    private static RegistryObject<Block> registerDripstone(final String name, final Block materialBlock) {
+        return registerBlock(name, () -> new BLPointedDripstoneBlock(materialBlock), BLTabs.TAB_DECORATIONS, BLTabs.BLTabSortGroups.DRIPSTONES);
     }
 
     /**

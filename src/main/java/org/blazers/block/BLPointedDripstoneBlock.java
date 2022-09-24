@@ -54,8 +54,11 @@ public class BLPointedDripstoneBlock extends Block implements Fallable, SimpleWa
     /**
      * Dripstone Blocks from {@link Block Material Blocks}
      */
-    Supplier<BiMap<Block, Block>> DRIPSTONES = Suppliers.memoize(() -> ImmutableBiMap.<Block, Block>builder()
+    static Supplier<BiMap<Block, Block>> DRIPSTONES = Suppliers.memoize(() -> ImmutableBiMap.<Block, Block>builder()
             .put(Blocks.STONE, BLBlocks.POINTED_STONE_DRIPSTONE.get())
+            .put(Blocks.GRANITE, BLBlocks.POINTED_GRANITE_DRIPSTONE.get())
+            .put(Blocks.DIORITE, BLBlocks.POINTED_DIORITE_DRIPSTONE.get())
+            .put(Blocks.ANDESITE, BLBlocks.POINTED_ANDESITE_DRIPSTONE.get())
             .put(Blocks.ICE, BLBlocks.POINTED_ICE_DRIPSTONE.get())
             .build()
     );
@@ -942,8 +945,17 @@ public class BLPointedDripstoneBlock extends Block implements Fallable, SimpleWa
      * @return {@link Block Pointed Dripstone Block}
      */
     public Block getDripstone() {
-        Optional<Block> dripstone = Optional.ofNullable(DRIPSTONES.get().get(this.MATERIAL_BLOCK));
-        return dripstone.orElse(BLBlocks.POINTED_STONE_DRIPSTONE.get());
+        return getDripstoneFor(this.MATERIAL_BLOCK);
+    }
+
+    /**
+     * Get a {@link Block Pointed Dripstone Block} from the given {@link Block Block}
+     *
+     * @return {@link Block Pointed Dripstone Block}
+     */
+    public static Block getDripstoneFor(final Block block) {
+        Optional<Block> dripstone = Optional.ofNullable(DRIPSTONES.get().get(block));
+        return dripstone.orElse(Blocks.POINTED_DRIPSTONE);
     }
 
     /**

@@ -7,7 +7,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.blazers.BlazersMod;
-import org.blazers.core.BLBlocks;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -20,16 +19,6 @@ public class PointedIceDripstoneBlock extends BLPointedDripstoneBlock {
      */
     public PointedIceDripstoneBlock() {
         super(Blocks.ICE);
-    }
-
-    /**
-     * Get the {@link Block Pointed Dripstone Block}
-     *
-     * @return {@link Block Pointed Dripstone Block}
-     */
-    @Override
-    public Block getDripstone() {
-        return BLBlocks.POINTED_ICE_DRIPSTONE.get();
     }
 
     /**
