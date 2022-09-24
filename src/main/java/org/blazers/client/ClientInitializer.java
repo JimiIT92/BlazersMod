@@ -26,6 +26,9 @@ public class ClientInitializer implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BLBlocks.BROWN_MUSHROOM_WALL_FAN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BLBlocks.RED_MUSHROOM_WALL_FAN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BLBlocks.POINTED_STONE_DRIPSTONE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BLBlocks.POINTED_GRANITE_DRIPSTONE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BLBlocks.POINTED_DIORITE_DRIPSTONE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BLBlocks.POINTED_ANDESITE_DRIPSTONE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BLBlocks.POINTED_ICE_DRIPSTONE, RenderLayer.getCutout());
 
         BLModelPredicateProvider.registerModels();

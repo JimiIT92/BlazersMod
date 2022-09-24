@@ -107,7 +107,10 @@ public final class BLBlocks {
     public static final Block WAXED_WEATHERED_CUT_COPPER_BRICKS = registerBlock("waxed_weathered_cut_copper_bricks", new Block(FabricBlockSettings.copyOf(Blocks.WAXED_WEATHERED_CUT_COPPER)), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
     public static final Block WAXED_OXIDIZED_CUT_COPPER_BRICKS = registerBlock("waxed_oxidized_cut_copper_bricks", new Block(FabricBlockSettings.copyOf(Blocks.WAXED_OXIDIZED_CUT_COPPER)), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
 
-    public static final Block POINTED_STONE_DRIPSTONE = registerBlock("pointed_stone_dripstone", new BLPointedDripstoneBlock(Blocks.STONE), BLTabs.TAB_DECORATIONS, BLTabs.BLTabSortGroups.DRIPSTONES);
+    public static final Block POINTED_STONE_DRIPSTONE = registerDripstone("pointed_stone_dripstone", Blocks.STONE);
+    public static final Block POINTED_GRANITE_DRIPSTONE = registerDripstone("pointed_granite_dripstone", Blocks.GRANITE);
+    public static final Block POINTED_DIORITE_DRIPSTONE = registerDripstone("pointed_diorite_dripstone", Blocks.DIORITE);
+    public static final Block POINTED_ANDESITE_DRIPSTONE = registerDripstone("pointed_andesite_dripstone", Blocks.ANDESITE);
     public static final Block POINTED_ICE_DRIPSTONE = registerBlock("pointed_ice_dripstone", new PointedIceDripstoneBlock(), BLTabs.TAB_DECORATIONS, BLTabs.BLTabSortGroups.DRIPSTONES);
 
     private static FabricBlockSettings createGemBlockProperties(MapColor mapColor) {
@@ -133,6 +136,10 @@ public final class BLBlocks {
         return registerBlock(name, new OreBlock(createOreBlockSettings().mapColor(MapColor.DARK_RED).sounds(BlockSoundGroup.NETHER_ORE), UniformIntProvider.create(2, 5)), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.NETHER_ORES);
     }
 
+    private static Block registerDripstone(final String name, final Block materialBlock) {
+        return registerBlock(name, new BLPointedDripstoneBlock(materialBlock), BLTabs.TAB_DECORATIONS, BLTabs.BLTabSortGroups.DRIPSTONES);
+    }
+    
     private static Block registerSimpleBlock(String name, FabricBlockSettings properties, BLTabs.BLTabSortGroups sortGroup) {
         return registerBlock(name, new Block(properties), BLTabs.TAB_BUILDING_BLOCKS, sortGroup);
     }

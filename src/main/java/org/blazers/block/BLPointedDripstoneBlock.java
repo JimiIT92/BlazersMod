@@ -47,8 +47,11 @@ import java.util.function.Supplier;
 
 public class BLPointedDripstoneBlock extends Block implements LandingBlock, Waterloggable {
 
-    Supplier<BiMap<Block, Block>> DRIPSTONES = Suppliers.memoize(() -> ImmutableBiMap.<Block, Block>builder()
+    static Supplier<BiMap<Block, Block>> DRIPSTONES = Suppliers.memoize(() -> ImmutableBiMap.<Block, Block>builder()
             .put(Blocks.STONE, BLBlocks.POINTED_STONE_DRIPSTONE)
+            .put(Blocks.GRANITE, BLBlocks.POINTED_GRANITE_DRIPSTONE)
+            .put(Blocks.ANDESITE, BLBlocks.POINTED_ANDESITE_DRIPSTONE)
+            .put(Blocks.DIORITE, BLBlocks.POINTED_DIORITE_DRIPSTONE)
             .put(Blocks.ICE, BLBlocks.POINTED_ICE_DRIPSTONE)
             .build()
     );
@@ -595,7 +598,11 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
     }
 
     public Block getDripstone() {
-        Optional<Block> dripstone = Optional.ofNullable(DRIPSTONES.get().get(this.MATERIAL_BLOCK));
+        return getDripstoneFor(this.MATERIAL_BLOCK);
+    }
+
+    public static Block getDripstoneFor(Block block) {
+        Optional<Block> dripstone = Optional.ofNullable(DRIPSTONES.get().get(block));
         return dripstone.orElse(BLBlocks.POINTED_STONE_DRIPSTONE);
     }
 }
