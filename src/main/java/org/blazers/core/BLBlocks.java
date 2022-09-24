@@ -121,7 +121,7 @@ public final class BLBlocks {
     public static final RegistryObject<Block> WAXED_WEATHERED_CUT_COPPER_BRICKS = registerBlock("waxed_weathered_cut_copper_bricks", () -> new WaxedCutCopperBricksBlock(Blocks.WEATHERED_CUT_COPPER), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
     public static final RegistryObject<Block> WAXED_OXIDIZED_CUT_COPPER_BRICKS = registerBlock("waxed_oxidized_cut_copper_bricks", () -> new WaxedCutCopperBricksBlock(Blocks.OXIDIZED_CUT_COPPER), BLTabs.TAB_BUILDING_BLOCKS, BLTabs.BLTabSortGroups.COPPER_BLOCKS);
 
-    public static final RegistryObject<Block> POINTED_STONE_DRIPSTONE = registerBlock("pointed_stone_dripstone", PointedStoneDripstoneBlock::new, BLTabs.TAB_DECORATIONS, BLTabs.BLTabSortGroups.DRIPSTONES);
+    public static final RegistryObject<Block> POINTED_STONE_DRIPSTONE = registerBlock("pointed_stone_dripstone", () -> new BLPointedDripstoneBlock(Blocks.STONE), BLTabs.TAB_DECORATIONS, BLTabs.BLTabSortGroups.DRIPSTONES);
     public static final RegistryObject<Block> POINTED_ICE_DRIPSTONE = registerBlock("pointed_ice_dripstone", PointedIceDripstoneBlock::new, BLTabs.TAB_DECORATIONS, BLTabs.BLTabSortGroups.DRIPSTONES);
 
     //#endregion
