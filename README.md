@@ -1,6 +1,6 @@
 # LA MOD DEI BLAZERS! <img align="left" width=4% height=4% src="src/main/resources/icon.png"/> 
-[![](https://img.shields.io/badge/Minecraft-1.18.2%20|%201.19.2-success)](https://minecraft.net/) 
-[![](https://img.shields.io/badge/Forge-1.18.2--40.1.53%20|%201.19.2--43.1.2-important?logo=curseforge)](https://forums.minecraftforge.net/)
+[![](https://img.shields.io/badge/Minecraft-1.19.2-success)](https://minecraft.net/) 
+[![](https://img.shields.io/badge/Forge-1.19.2--43.1.2-important?logo=curseforge)](https://forums.minecraftforge.net/)
 [![](https://img.shields.io/badge/Fabric-1.19.2--0.60.0-informational?logo=curseforge)](https://fabricmc.net/")
 [![](http://cf.way2muchnoise.eu/full_637993_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/blazers-mod)
 
