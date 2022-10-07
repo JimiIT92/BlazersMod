@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "blazersmod:white_concrete_slab",
+    "blazersmod:orange_concrete_slab",
+    "blazersmod:magenta_concrete_slab",
+    "blazersmod:light_blue_concrete_slab",
+    "blazersmod:yellow_concrete_slab",
+    "blazersmod:lime_concrete_slab",
+    "blazersmod:pink_concrete_slab",
+    "blazersmod:gray_concrete_slab",
+    "blazersmod:light_gray_concrete_slab",
+    "blazersmod:cyan_concrete_slab",
+    "blazersmod:purple_concrete_slab",
+    "blazersmod:blue_concrete_slab",
+    "blazersmod:brown_concrete_slab",
+    "blazersmod:green_concrete_slab",
+    "blazersmod:red_concrete_slab",
+    "blazersmod:black_concrete_slab"
+  ]
+}
