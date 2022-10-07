@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "blazersmod:white_concrete_stairs",
+    "blazersmod:orange_concrete_stairs",
+    "blazersmod:magenta_concrete_stairs",
+    "blazersmod:light_blue_concrete_stairs",
+    "blazersmod:yellow_concrete_stairs",
+    "blazersmod:lime_concrete_stairs",
+    "blazersmod:pink_concrete_stairs",
+    "blazersmod:gray_concrete_stairs",
+    "blazersmod:light_gray_concrete_stairs",
+    "blazersmod:cyan_concrete_stairs",
+    "blazersmod:purple_concrete_stairs",
+    "blazersmod:blue_concrete_stairs",
+    "blazersmod:brown_concrete_stairs",
+    "blazersmod:green_concrete_stairs",
+    "blazersmod:red_concrete_stairs",
+    "blazersmod:black_concrete_stairs"
+  ]
+}
