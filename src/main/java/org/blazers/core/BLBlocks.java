@@ -288,7 +288,7 @@ public final class BLBlocks {
      * @param <T>   Block Type
      */
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
-        BLItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+        BLItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     /**

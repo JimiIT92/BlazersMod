@@ -1,7 +1,7 @@
 package org.blazers.entity.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -62,9 +62,9 @@ public class AtomicTntRenderer extends EntityRenderer<PrimedAtomicTnt> {
             pose.scale(f1, f1, f1);
         }
 
-        pose.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
+        pose.mulPose(Axis.YP.rotationDegrees(-90.0F));
         pose.translate(-0.5D, -0.5D, 0.5D);
-        pose.mulPose(Vector3f.YP.rotationDegrees(90.0F));
+        pose.mulPose(Axis.YP.rotationDegrees(90.0F));
         TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, BLBlocks.ATOMIC_TNT.get().defaultBlockState(), pose, buffer, packedLight, i / 5 % 2 == 0);
         pose.popPose();
         super.render(entity, yaw, partialTicks, pose, buffer, packedLight);

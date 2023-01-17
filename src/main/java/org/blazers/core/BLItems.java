@@ -170,7 +170,7 @@ public final class BLItems {
      * @return {@link Item.Properties Simple Item Properties}
      */
     private static Item.Properties createSimpleItemProperties() {
-        return new Item.Properties().tab(BLTabs.TAB_MISC);
+        return new Item.Properties();
     }
 
     /**
@@ -179,7 +179,7 @@ public final class BLItems {
      * @return {@link Item.Properties Tool Item Properties}
      */
     private static Item.Properties createToolItemProperties() {
-        return new Item.Properties().tab(BLTabs.TAB_TOOLS);
+        return new Item.Properties();
     }
 
     /**
@@ -188,7 +188,7 @@ public final class BLItems {
      * @return {@link Item.Properties Combat Item Properties}
      */
     private static Item.Properties createCombatItemProperties() {
-        return new Item.Properties().tab(BLTabs.TAB_COMBAT);
+        return new Item.Properties();
     }
 
     /**
@@ -222,7 +222,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> Registered Item}
      */
     private static RegistryObject<Item> registerFood(String name, FoodProperties foodProperties) {
-        return registerItem(name, () -> new Item(createSimpleItemProperties().food(foodProperties).tab(BLTabs.TAB_FOOD)), BLTabs.BLTabSortGroups.FOOD);
+        return registerItem(name, () -> new Item(createSimpleItemProperties().food(foodProperties)), BLTabs.BLTabSortGroups.FOOD);
     }
 
     /**
@@ -359,7 +359,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> Registered Item}
      */
     private static RegistryObject<Item> registerSpawnEgg(String name, Supplier<? extends EntityType<? extends Mob>> entityType, int primaryColor, int secondaryColor) {
-        return registerItem(name, () -> new ForgeSpawnEggItem(entityType, primaryColor, secondaryColor, new Item.Properties().tab(BLTabs.TAB_MISC)), BLTabs.BLTabSortGroups.SPAWN_EGGS);
+        return registerItem(name, () -> new ForgeSpawnEggItem(entityType, primaryColor, secondaryColor, new Item.Properties()), BLTabs.BLTabSortGroups.SPAWN_EGGS);
     }
 
     /**
@@ -371,7 +371,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> Registered Item}
      */
     private static RegistryObject<Item> registerMusicDisc(String name, RegistryObject<SoundEvent> sound, int length) {
-        return registerItem(name, () -> new RecordItem(15, sound, new Item.Properties().tab(BLTabs.TAB_MISC).rarity(Rarity.RARE).stacksTo(1), length * 20), BLTabs.BLTabSortGroups.MUSIC_DISCS);
+        return registerItem(name, () -> new RecordItem(15, sound, new Item.Properties().rarity(Rarity.RARE).stacksTo(1), length * 20), BLTabs.BLTabSortGroups.MUSIC_DISCS);
     }
 
     /**

@@ -1,13 +1,14 @@
 package org.blazers.core;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.NonNullList;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
@@ -23,153 +24,107 @@ public final class BLTabs {
 
     //#region Creative Mode Tabs
 
-    public static final CreativeModeTab TAB_BUILDING_BLOCKS = new CreativeModeTab(BlazersMod.MOD_ID + ".building_blocks") {
-        @Override
-        public @NotNull ItemStack makeIcon() {
-            return new ItemStack(BLBlocks.SAPPHIRE_ORE.get());
-        }
+    public static final CreativeModeTab TAB_BUILDING_BLOCKS = CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
+            .title(Component.translatable(BlazersMod.MOD_ID + ".building_blocks"))
+            .icon(() -> new ItemStack(BLBlocks.SAPPHIRE_ORE.get()))
+            .displayItems((featureFlagSet, output, op) -> {
+                sortByTabGroups(output,
+                        BLTabSortGroups.COBBLESTONES,
+                        BLTabSortGroups.OVERWORLD_ORES,
+                        BLTabSortGroups.NETHER_ORES,
+                        BLTabSortGroups.RAW_STORAGE_BLOCKS,
+                        BLTabSortGroups.STORAGE_BLOCKS,
+                        BLTabSortGroups.COPPER_BLOCKS,
+                        BLTabSortGroups.HOLLOW_LOGS,
+                        BLTabSortGroups.HOLLOW_STRIPPED_LOGS,
+                        BLTabSortGroups.CUT_BRICKS);
+            })
+            .build();
 
-        @Override
-        public void fillItemList(@NotNull NonNullList<ItemStack> items) {
-            super.fillItemList(items);
-            sortByTabGroups(items,
-                    BLTabSortGroups.COBBLESTONES,
-                    BLTabSortGroups.OVERWORLD_ORES,
-                    BLTabSortGroups.NETHER_ORES,
-                    BLTabSortGroups.RAW_STORAGE_BLOCKS,
-                    BLTabSortGroups.STORAGE_BLOCKS,
-                    BLTabSortGroups.COPPER_BLOCKS,
-                    BLTabSortGroups.HOLLOW_LOGS,
-                    BLTabSortGroups.HOLLOW_STRIPPED_LOGS,
-                    BLTabSortGroups.CUT_BRICKS);
-        }
-    };
+    public static final CreativeModeTab TAB_DECORATIONS = CreativeModeTab.builder(CreativeModeTab.Row.TOP, 1)
+            .title(Component.translatable(BlazersMod.MOD_ID + ".decorations"))
+            .icon(() -> new ItemStack(BLBlocks.CATTAIL.get()))
+            .displayItems((featureFlagSet, output, op) -> {
+                sortByTabGroups(output,
+                        BLTabSortGroups.PLANTS, BLTabSortGroups.DRIPSTONES);
+            })
+            .build();
 
-    public static final CreativeModeTab TAB_DECORATIONS = new CreativeModeTab(BlazersMod.MOD_ID + ".decorations") {
-        @Override
-        public @NotNull ItemStack makeIcon() {
-            return new ItemStack(BLBlocks.CATTAIL.get());
-        }
+    public static final CreativeModeTab TAB_REDSTONE = CreativeModeTab.builder(CreativeModeTab.Row.TOP, 2)
+            .title(Component.translatable(BlazersMod.MOD_ID + ".redstone"))
+            .icon(() -> new ItemStack(BLBlocks.COPPER_BUTTON.get()))
+            .displayItems((featureFlagSet, output, op) -> {
+                sortByTabGroups(output,
+                        BLTabSortGroups.TNT, BLTabSortGroups.BUTTONS);
+            })
+            .build();
 
-        @Override
-        public void fillItemList(@NotNull NonNullList<ItemStack> items) {
-            super.fillItemList(items);
-            sortByTabGroups(items, BLTabSortGroups.PLANTS, BLTabSortGroups.DRIPSTONES);
-        }
-    };
+    public static final CreativeModeTab TAB_TOOLS = CreativeModeTab.builder(CreativeModeTab.Row.BOTTOM, 0)
+                    .title(Component.translatable(BlazersMod.MOD_ID + ".tools"))
+                    .icon(() -> new ItemStack(BLItems.EMERALD_PICKAXE.get()))
+                    .displayItems((featureFlagSet, output, op) -> {
+                        sortByTabGroups(output,
+                                BLTabSortGroups.TOOLS);
+                    })
+                    .build();
 
-    public static final CreativeModeTab TAB_REDSTONE = new CreativeModeTab(BlazersMod.MOD_ID + ".redstone") {
-        @Override
-        public @NotNull ItemStack makeIcon() {
-            return new ItemStack(BLBlocks.COPPER_BUTTON.get());
-        }
+    public static final CreativeModeTab TAB_COMBAT = CreativeModeTab.builder(CreativeModeTab.Row.BOTTOM, 0)
+            .title(Component.translatable(BlazersMod.MOD_ID + ".combat"))
+            .icon(() -> new ItemStack(BLItems.KATANA.get()))
+            .displayItems((featureFlagSet, output, op) -> {
+                sortByTabGroups(output,
+                        BLTabSortGroups.BOWS, BLTabSortGroups.SWORDS, BLTabSortGroups.WEAPONS, BLTabSortGroups.KATANAS, BLTabSortGroups.ARMORS, BLTabSortGroups.SPEARS);
+            })
+            .build();
 
-        @Override
-        public void fillItemList(@NotNull NonNullList<ItemStack> items) {
-            super.fillItemList(items);
-            sortByTabGroups(items, BLTabSortGroups.TNT, BLTabSortGroups.BUTTONS);
-        }
-    };
+    public static final CreativeModeTab TAB_FOOD = CreativeModeTab.builder(CreativeModeTab.Row.BOTTOM, 1)
+            .title(Component.translatable(BlazersMod.MOD_ID + ".food"))
+            .icon(() -> new ItemStack(BLItems.SASHIMI.get()))
+            .displayItems((featureFlagSet, output, op) -> {
+                sortByTabGroups(output,
+                        BLTabSortGroups.FOOD);
+            })
+            .build();
 
-    public static final CreativeModeTab TAB_TOOLS = new CreativeModeTab(BlazersMod.MOD_ID + ".tools") {
-        @Override
-        public @NotNull ItemStack makeIcon() {
-            return new ItemStack(BLItems.EMERALD_PICKAXE.get());
-        }
-
-        @Override
-        public void fillItemList(@NotNull NonNullList<ItemStack> items) {
-            super.fillItemList(items);
-            sortByTabGroups(items, BLTabSortGroups.TOOLS);
-        }
-    };
-
-    public static final CreativeModeTab TAB_COMBAT = new CreativeModeTab(BlazersMod.MOD_ID + ".combat") {
-        @Override
-        public @NotNull ItemStack makeIcon() {
-            return new ItemStack(BLItems.KATANA.get());
-        }
-
-        @Override
-        public void fillItemList(@NotNull NonNullList<ItemStack> items) {
-            super.fillItemList(items);
-            sortByTabGroups(items, BLTabSortGroups.BOWS, BLTabSortGroups.SWORDS, BLTabSortGroups.WEAPONS, BLTabSortGroups.KATANAS, BLTabSortGroups.ARMORS, BLTabSortGroups.SPEARS);
-        }
-    };
-
-    public static final CreativeModeTab TAB_FOOD = new CreativeModeTab(BlazersMod.MOD_ID + ".food") {
-        @Override
-        public @NotNull ItemStack makeIcon() {
-            return new ItemStack(BLItems.SASHIMI.get());
-        }
-
-        @Override
-        public void fillItemList(@NotNull NonNullList<ItemStack> items) {
-            super.fillItemList(items);
-            sortByTabGroups(items, BLTabSortGroups.FOOD);
-        }
-    };
-
-    public static final CreativeModeTab TAB_MISC = new CreativeModeTab(BlazersMod.MOD_ID + ".misc") {
-        @Override
-        public @NotNull ItemStack makeIcon() {
-            return new ItemStack(BLItems.RUBY.get());
-        }
-
-        @Override
-        public void fillItemList(@NotNull NonNullList<ItemStack> items) {
-            super.fillItemList(items);
-            sortByTabGroups(items, BLTabSortGroups.GEMS, BLTabSortGroups.RAW_GEMS_AND_INGOTS, BLTabSortGroups.MATERIALS, BLTabSortGroups.NUGGETS, BLTabSortGroups.SPAWN_EGGS, BLTabSortGroups.HORSE_ARMORS);
-        }
-    };
-
-    /**
-     * Sort a {@link RegistryObject<Block> Block} inside the {@link NonNullList<ItemStack> Creative Tab Items List}
-     *
-     * @param items {@link NonNullList<ItemStack> Creative Tab Items List}
-     * @param block {@link RegistryObject<Block> Block}
-     */
-    private static void sortBlock(NonNullList<ItemStack> items, RegistryObject<Block> block) {
-        ItemStack itemStack = getItemStack(block);
-        items.remove(items.stream().filter(item -> item.getItem().equals(itemStack.getItem())).findFirst().get());
-        items.add(0, itemStack);
-    }
-
-    /**
-     * Sort a {@link RegistryObject<Item> Item} inside the {@link NonNullList<ItemStack> Creative Tab Items List}
-     *
-     * @param items {@link NonNullList<ItemStack> Creative Tab Items List}
-     * @param item {@link RegistryObject<Item> Item}
-     */
-    private static void sortItem(NonNullList<ItemStack> items, RegistryObject<Item> item) {
-        ItemStack itemStack = item.get().getDefaultInstance();
-        items.remove(items.stream().filter(itemStack1 -> itemStack1.getItem().equals(itemStack.getItem())).findFirst().get());
-        items.add(0, itemStack);
-    }
+    public static final CreativeModeTab TAB_MISC = CreativeModeTab.builder(CreativeModeTab.Row.BOTTOM, 2)
+            .title(Component.translatable(BlazersMod.MOD_ID + ".misc"))
+            .icon(() -> new ItemStack(BLItems.RUBY.get()))
+            .displayItems((featureFlagSet, output, op) -> {
+                sortByTabGroups(output,
+                        BLTabSortGroups.GEMS, BLTabSortGroups.RAW_GEMS_AND_INGOTS, BLTabSortGroups.MATERIALS, BLTabSortGroups.NUGGETS, BLTabSortGroups.SPAWN_EGGS, BLTabSortGroups.HORSE_ARMORS);
+            })
+            .build();
 
     /**
      * Sort the {@link NonNullList<ItemStack> Creative Tab Items List} by some {@link BLTabSortGroups Tab Sort Groups}
      *
-     * @param items {@link NonNullList<ItemStack> Creative Tab Items List}
+     * @param output {@link NonNullList<ItemStack> Creative Tab Items List}
      * @param sortGroups {@link BLTabSortGroups Tab Sort Groups}
      */
-    private static void sortByTabGroups(NonNullList<ItemStack> items, BLTabSortGroups... sortGroups) {
+    private static void sortByTabGroups(CreativeModeTab.Output output, BLTabSortGroups... sortGroups) {
         if (sortGroups == null || sortGroups.length == 0) {
             return;
         }
+        //output.acceptAll(TAB_GROUP_ORDERINGS.stream().filter(a -> a.getValue().equals(BLTabSortGroups.COBBLESTONES)).map(Map.Entry::getKey).collect(Collectors.toList()));
         List<BLTabSortGroups> sortGroupList = new ArrayList<>(Arrays.stream(sortGroups).sorted().toList());
         Collections.reverse(sortGroupList);
         sortGroupList.forEach(sortGroup -> {
-            List<Map.Entry<RegistryObject<?>, BLTabSortGroups>> tabGroupItems = new ArrayList<>(TAB_GROUP_ORDERINGS.stream()
-                    .filter(x -> x.getValue().equals(sortGroup)).toList());
-            Collections.reverse(tabGroupItems);
-            tabGroupItems.forEach(item -> {
-                if(item.getKey().get() instanceof Block) {
-                    sortBlock(items, (RegistryObject<Block>) item.getKey());
-                } else {
-                    sortItem(items, (RegistryObject<Item>) item.getKey());
+            if(sortGroup.equals(BLTabSortGroups.COPPER_HORNS)) {
+                for(Holder<Instrument> holder : BuiltInRegistries.INSTRUMENT.getTagOrEmpty(BLTags.Instruments.MELODY_COPPER_HORNS)) {
+                    output.accept(InstrumentItem.create(BLItems.COPPER_HORN.get(), holder), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 }
-            });
+            } else {
+                List<Map.Entry<RegistryObject<?>, BLTabSortGroups>> tabGroupItems = new ArrayList<>(TAB_GROUP_ORDERINGS.stream()
+                        .filter(x -> x.getValue().equals(sortGroup)).toList());
+                Collections.reverse(tabGroupItems);
+                tabGroupItems.forEach(item -> {
+                    if(item.getKey().get() instanceof Block) {
+                        output.accept(new BlockItem(((RegistryObject<Block>) item.getKey()).get(), new Item.Properties()));
+                    } else {
+                        output.accept(((RegistryObject<Item>) item.getKey()).get());
+                    }
+                });
+            }
         });
     }
 
@@ -184,6 +139,15 @@ public final class BLTabs {
     }
 
     //#endregion
+
+    /**
+     * Register the {@link BlazersMod Blazers Mod} {@link CreativeModeTab Creative Tabs}
+     *
+     * @param eventBus {@link IEventBus Event Bus}
+     */
+    public static void register(IEventBus eventBus) {
+
+    }
 
     /**
      * {@link CreativeModeTab Creative Tab} Sort Groups

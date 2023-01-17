@@ -5,13 +5,13 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.blazers.BlazersMod;
 import org.blazers.entity.CopperGolem;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
 /**
  * Model class for a {@link CopperGolem Copper Golem}
  */
 @OnlyIn(Dist.CLIENT)
-public class CopperGolemModel extends AnimatedGeoModel<CopperGolem> {
+public class CopperGolemModel extends GeoModel<CopperGolem> {
 
     /**
      * Get the {@link CopperGolem Copper Golem} {@link ResourceLocation Model Resource Location}

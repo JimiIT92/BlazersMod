@@ -1,10 +1,8 @@
 package org.blazers.item;
 
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
-import org.blazers.core.BLTabs;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -30,7 +28,7 @@ public class PreEnchantedSwordItem extends SwordItem implements IPreEnchantedIte
      * @param level {@link Integer Enchantment level to apply}
      */
     public PreEnchantedSwordItem(Tier tier, Enchantment enchantment, int level) {
-        super(tier, 3, -2.4F, new Properties().tab(BLTabs.TAB_COMBAT).rarity(Rarity.EPIC));
+        super(tier, 3, -2.4F, new Properties().rarity(Rarity.EPIC));
         this.enchantment = enchantment;
         this.level = level;
     }
@@ -43,19 +41,6 @@ public class PreEnchantedSwordItem extends SwordItem implements IPreEnchantedIte
     @Override
     public Pair<Enchantment, Integer> getEnchantment() {
         return new Pair<>(enchantment, level);
-    }
-
-    /**
-     * Shows the {@link Enchantment Sword Enchantment} in the Creative Inventory
-     *
-     * @param tab {@link CreativeModeTab Creative Tab}
-     * @param items {@link ItemStack Items}
-     */
-    @Override
-    public void fillItemCategory(@NotNull CreativeModeTab tab, @NotNull NonNullList<ItemStack> items) {
-        if(allowedIn(tab)) {
-            items.add(getDefaultInstance());
-        }
     }
 
     /**

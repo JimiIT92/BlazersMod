@@ -33,7 +33,7 @@ import org.blazers.core.*;
 import org.blazers.recipe.FletchingRecipe;
 import org.blazers.screen.FletchingScreen;
 import org.jetbrains.annotations.NotNull;
-import software.bernie.geckolib3.GeckoLib;
+import software.bernie.geckolib.GeckoLib;
 
 /**
  * {@link BlazersMod Blazers Mod} main class
@@ -72,6 +72,7 @@ public final class BlazersMod {
         BLMenuTypes.register(eventBus);
         BLRecipeSerializers.register(eventBus);
         BLLootModifiers.register(eventBus);
+        BLTabs.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::commonSetup);

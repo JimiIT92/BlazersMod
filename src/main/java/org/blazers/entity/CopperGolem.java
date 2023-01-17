@@ -37,25 +37,26 @@ import org.blazers.entity.goal.CopperGolemRandomStrollGoal;
 import org.blazers.event.EventUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.constant.DefaultAnimations;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.Locale;
 
 /**
  * Implementation class for a {@link PathfinderMob Copper Golem}
  */
-public class CopperGolem extends PathfinderMob implements IAnimatable {
+public class CopperGolem extends PathfinderMob implements GeoAnimatable {
 
     /**
-     * {@link CopperGolem Copper Golem} {@link AnimationFactory Animation Factory}
+     * {@link CopperGolem Copper Golem} {@link AnimatableInstanceCache Animation Factory}
      */
-    private final AnimationFactory factory = new AnimationFactory(this);
+    private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
     /**
      * {@link String Weather State} Data
      */
@@ -251,7 +252,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     public void setWeatherState(final WeatheringCopper.WeatherState weatherState, boolean playSound) {
         if(weatherState.equals(WeatheringCopper.WeatherState.OXIDIZED)) {
             this.goalSelector.getRunningGoals().forEach(WrappedGoal::stop);
-            this.goalSelector.removeAllGoals();
+            this.goalSelector.removeAllGoals((p_262562_) -> true);
         } else if(this.goalSelector.getAvailableGoals().isEmpty()) {
             this.registerGoals();
         }
@@ -617,18 +618,18 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     /**
      * Get the {@link CopperGolem Copper Golem} animation
      *
-     * @param event {@link AnimationEvent<T> Animation Event}
+     * @param event {@link AnimationState<T> Animation Event}
      * @return {@link CopperGolem Copper Golem} animation
      * @param <T> Animation Event Type
      */
-    private <T extends IAnimatable> PlayState predicate(AnimationEvent<T> event) {
+    private <T extends GeoAnimatable> PlayState predicate(AnimationState event) {
         if(!isOxidized()) {
-            AnimationController<CopperGolem> controller = event.getController();
+            AnimationController<CopperGolem> controller = DefaultAnimations.genericWalkIdleController(this);
             if(isPressingCopperButton()) {
                 setAnimation(controller, "animation.copper_golem.interact", false);
             }
             else {
-                setAnimation(controller, event.isMoving() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
+                setAnimation(controller, event.isStarted() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
             }
         }
         return PlayState.CONTINUE;
@@ -642,17 +643,11 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
      * @param loop {@link Boolean If the animation should loop}
      */
     public void setAnimation(final AnimationController<CopperGolem> controller, final String animation, final boolean loop) {
-        controller.setAnimation(new AnimationBuilder().addAnimation(animation, loop));
-    }
-
-    /**
-     * Register the {@link CopperGolem Copper Golem} {@link AnimationController Animaiton Controller}
-     *
-     * @param data {@link AnimationData Animation Data}
-     */
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(getAnimationController());
+        if(loop) {
+            controller.setAnimation(RawAnimation.begin().thenLoop(animation));
+        } else {
+            controller.setAnimation(RawAnimation.begin().thenPlay(animation));
+        }
     }
 
     /**
@@ -661,17 +656,18 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
      * @return {@link AnimationController Animation Controller}
      */
     public AnimationController<CopperGolem> getAnimationController() {
-        return new AnimationController<>(this, "controller", 0, this::predicate);
-    }
-
-    /**
-     * Get the {@link CopperGolem Copper Golem} {@link AnimationFactory Animation Factory}
-     *
-     * @return {@link CopperGolem Copper Golem} {@link AnimationFactory Animation Factory}
-     */
-    @Override
-    public AnimationFactory getFactory() {
-        return this.factory;
+        return new AnimationController<>(this, "controller", 0, handler -> {
+            if(!isOxidized()) {
+                AnimationController<CopperGolem> controller = handler.getController();
+                if(isPressingCopperButton()) {
+                    setAnimation(controller, "animation.copper_golem.interact", false);
+                }
+                else {
+                    setAnimation(controller, handler.isMoving() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
+                }
+            }
+            return PlayState.CONTINUE;
+        });
     }
 
     /**
@@ -759,5 +755,20 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
             }
             world.addFreshEntity(copperGolem);
         }
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(DefaultAnimations.genericWalkIdleController(this));
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.factory;
+    }
+
+    @Override
+    public double getTick(Object object) {
+        return 0;
     }
 }

@@ -1,7 +1,6 @@
 package org.blazers.core;
 
-import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.placement.AquaticPlacements;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -23,7 +22,7 @@ public final class BLPlacedFeatures {
     /**
      * {@link PlacedFeature Placed Features} {@link DeferredRegister<PlacedFeature> Registry}
      */
-    public static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, BlazersMod.MOD_ID);
+    public static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registries.PLACED_FEATURE, BlazersMod.MOD_ID);
 
     //#region Placed Features
 
@@ -39,7 +38,7 @@ public final class BLPlacedFeatures {
     public static final RegistryObject<PlacedFeature> ORE_URANIUM = PLACED_FEATURES.register("ore_uranium_placed",
             () -> new PlacedFeature(BLConfiguredFeatures.ORE_URANIUM.getHolder().get(), List.of(InSquarePlacement.spread(), HeightRangePlacement.triangle(VerticalAnchor.absolute(8), VerticalAnchor.absolute(24)), BiomeFilter.biome())));
 
-    public static final RegistryObject<PlacedFeature> CATTAIL = PLACED_FEATURES.register("cattail_placed", () -> new PlacedFeature(BLConfiguredFeatures.CATTAIL.getHolder().get(), AquaticPlacements.seagrassPlacement(80)));
+    public static final RegistryObject<PlacedFeature> CATTAIL = PLACED_FEATURES.register("cattail_placed", () -> new PlacedFeature(BLConfiguredFeatures.CATTAIL.getHolder().get(), List.of(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, CountPlacement.of(80), BiomeFilter.biome())));
 
     public static final RegistryObject<PlacedFeature> FALLEN_BIRCH_TREE = PLACED_FEATURES.register("fallen_birch_tree_placed", () -> new PlacedFeature(
             BLConfiguredFeatures.FALLEN_BIRCH_TREE.getHolder().get(), VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1F, 2))));

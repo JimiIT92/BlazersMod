@@ -2,6 +2,7 @@ package org.blazers.mixin;
 
 import net.minecraft.tags.InstrumentTags;
 import net.minecraft.world.Container;
+import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -25,8 +26,8 @@ public final class ShapedRecipeMixin {
      * @param inv {@link Container Inventory}
      * @param infoReturnable {@link CallbackInfoReturnable<ItemStack> Callback Info Returnable}
      */
-    @Inject(method = "assemble(Lnet/minecraft/world/Container;)Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"), cancellable = true)
-    public void assemble(Container inv, CallbackInfoReturnable<ItemStack> infoReturnable) {
+    @Inject(method = "assemble(Lnet/minecraft/world/inventory/CraftingContainer;)Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"), cancellable = true)
+    public void assemble(CraftingContainer inv, CallbackInfoReturnable<ItemStack> infoReturnable) {
         ItemStack recipeResult = infoReturnable.getReturnValue();
         Item item = recipeResult.getItem();
         if(item instanceof CopperHornItem) {

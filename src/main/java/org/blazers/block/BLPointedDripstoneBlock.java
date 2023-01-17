@@ -426,7 +426,7 @@ public class BLPointedDripstoneBlock extends Block implements Fallable, SimpleWa
      * @return {@link DamageSource Fall Damage Source}
      */
     public @NotNull DamageSource getFallDamageSource() {
-        return DamageSource.FALLING_STALACTITE;
+        return DamageSource.STALAGMITE;
     }
 
     /**

@@ -69,7 +69,7 @@ public final class BLSounds {
      * @return {@link RegistryObject<SoundEvent> Registered sound}
      */
     private static RegistryObject<SoundEvent> register(String name) {
-        return SOUNDS.register(name, () -> new SoundEvent(new ResourceLocation(BlazersMod.MOD_ID, name)));
+        return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(BlazersMod.MOD_ID, name)));
     }
 
     /**

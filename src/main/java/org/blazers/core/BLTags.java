@@ -1,6 +1,6 @@
 package org.blazers.core;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -54,7 +54,7 @@ public final class BLTags {
          * @return {@link TagKey<Instrument> Instrument Tag}
          */
         private static TagKey<Instrument> tag(String name) {
-            return TagKey.create(Registry.INSTRUMENT_REGISTRY, new ResourceLocation(BlazersMod.MOD_ID, name));
+            return TagKey.create(Registries.INSTRUMENT, new ResourceLocation(BlazersMod.MOD_ID, name));
         }
     }
 }

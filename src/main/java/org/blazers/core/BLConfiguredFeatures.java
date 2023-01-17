@@ -2,12 +2,12 @@ package org.blazers.core;
 
 import com.google.common.base.Suppliers;
 import net.minecraft.core.HolderSet;
-import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.ProbabilityFeat
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.SimpleRandomFeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -33,7 +34,7 @@ public final class BLConfiguredFeatures {
     /**
      * {@link ConfiguredFeature Configured Features} {@link DeferredRegister <ConfiguredFeature> Registry}
      */
-    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, BlazersMod.MOD_ID);
+    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registries.CONFIGURED_FEATURE, BlazersMod.MOD_ID);
 
     //#region Configured Features
 
@@ -69,8 +70,8 @@ public final class BLConfiguredFeatures {
      */
     private static Supplier<List<OreConfiguration.TargetBlockState>> createOverworldTargetState(Supplier<Block> stoneOre, Supplier<Block> deepslateOre) {
         return Suppliers.memoize(() -> List.of(
-                OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, stoneOre.get().defaultBlockState()),
-                OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, deepslateOre.get().defaultBlockState())));
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), stoneOre.get().defaultBlockState()),
+                OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), deepslateOre.get().defaultBlockState())));
     }
 
     /**
@@ -90,7 +91,7 @@ public final class BLConfiguredFeatures {
      * @return Nether {@link OreConfiguration.TargetBlockState Target Block State}
      */
     private static Supplier<List<OreConfiguration.TargetBlockState>> createNetherTargetState(Supplier<Block> ore) {
-        return Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, ore.get().defaultBlockState())));
+        return Suppliers.memoize(() -> List.of(OreConfiguration.target(new BlockMatchTest(Blocks.NETHERRACK), ore.get().defaultBlockState())));
     }
 
     /**

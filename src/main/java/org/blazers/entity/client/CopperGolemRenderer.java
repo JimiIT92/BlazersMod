@@ -8,13 +8,13 @@ import org.blazers.BlazersMod;
 import org.blazers.entity.CopperGolem;
 import org.blazers.entity.client.model.CopperGolemModel;
 import org.jetbrains.annotations.NotNull;
-import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.DynamicGeoEntityRenderer;
 
 /**
  * Renderer class for a {@link CopperGolem Copper Golem}
  */
 @OnlyIn(Dist.CLIENT)
-public class CopperGolemRenderer extends GeoEntityRenderer<CopperGolem> {
+public class CopperGolemRenderer extends DynamicGeoEntityRenderer<CopperGolem> {
 
     /**
      * Constructor. Set up the {@link CopperGolem Copper Golem} Renderer and {@link Float Shadow Radius}
