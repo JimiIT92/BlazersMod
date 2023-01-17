@@ -5,23 +5,23 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.GoatHornItem;
+import net.minecraft.item.Instrument;
+import net.minecraft.item.Instruments;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.InstrumentTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.tag.InstrumentTags;
-import net.minecraft.tag.TagKey;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.blazers.core.BLInstruments;
-import org.blazers.core.BLItems;
-import org.blazers.core.BLTabs;
 import org.blazers.core.BLTags;
 
 import java.util.Iterator;
@@ -44,22 +44,13 @@ public class CopperHornItem extends GoatHornItem {
             .build());
 
     public CopperHornItem() {
-        super(new FabricItemSettings().group(BLTabs.TAB_MISC).maxCount(1), BLTags.Instruments.COPPER_HORNS);
-    }
-
-    @Override
-    public void appendStacks(ItemGroup group, DefaultedList<ItemStack> stacks) {
-        if(isIn(group)) {
-            for (RegistryEntry<Instrument> registryEntry : Registry.INSTRUMENT.iterateEntries(BLTags.Instruments.MELODY_COPPER_HORNS)) {
-                stacks.add(GoatHornItem.getStackForInstrument(BLItems.COPPER_HORN, registryEntry));
-            }
-        }
+        super(new FabricItemSettings().maxCount(1), BLTags.Instruments.COPPER_HORNS);
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        Optional<RegistryEntry<Instrument>> optional = getInstrument(itemStack, getInstrumentTagKey(user));
+        Optional<? extends RegistryEntry<Instrument>> optional = getInstrument(itemStack, getInstrumentTagKey(user));
         if (optional.isPresent()) {
             Instrument instrument = optional.get().value();
             user.setCurrentHand(hand);
@@ -75,17 +66,17 @@ public class CopperHornItem extends GoatHornItem {
                 player.getRotationClient().x == -90F ? BLTags.Instruments.HARMONY_COPPER_HORNS : BLTags.Instruments.MELODY_COPPER_HORNS;
     }
 
-    public static Optional<RegistryEntry<Instrument>> getInstrument(ItemStack stack, TagKey<Instrument> instrumentTagKey) {
+    public static Optional<? extends RegistryEntry<Instrument>> getInstrument(ItemStack stack, TagKey<Instrument> instrumentTagKey) {
         NbtCompound compoundtag = stack.getNbt();
         if (compoundtag != null) {
             Identifier identifier = Identifier.tryParse(compoundtag.getString("instrument"));
             if (identifier != null) {
                 identifier = getInstrumentIdentifier(identifier, instrumentTagKey);
-                return Registry.INSTRUMENT.getEntry(RegistryKey.of(Registry.INSTRUMENT_KEY, identifier));
+                return Registries.INSTRUMENT.getEntry(RegistryKey.of(Registries.INSTRUMENT.getKey(), identifier));
             }
         }
 
-        Iterator<RegistryEntry<Instrument>> iterator = Registry.INSTRUMENT.iterateEntries(instrumentTagKey).iterator();
+        Iterator<RegistryEntry<Instrument>> iterator = Registries.INSTRUMENT.iterateEntries(instrumentTagKey).iterator();
         return iterator.hasNext() ? Optional.of(iterator.next()) : Optional.empty();
     }
 
@@ -98,7 +89,7 @@ public class CopperHornItem extends GoatHornItem {
     }
 
     private static void play(World world, PlayerEntity player, Instrument instrument) {
-        world.playSoundFromEntity(player, player, instrument.soundEvent(), SoundCategory.RECORDS, instrument.range() / 16.0f, 1.0f);
+        world.playSoundFromEntity(player, player, instrument.soundEvent().value(), SoundCategory.RECORDS, instrument.range() / 16.0f, 1.0f);
         world.emitGameEvent(GameEvent.INSTRUMENT_PLAY, player.getPos(), GameEvent.Emitter.of(player));
     }
 

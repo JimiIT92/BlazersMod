@@ -7,6 +7,7 @@ import org.blazers.world.gen.BLFlowersGeneration;
 import org.blazers.world.gen.BLOreGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import software.bernie.geckolib.GeckoLib;
 
 public final class BlazersMod implements ModInitializer {
 
@@ -15,15 +16,15 @@ public final class BlazersMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        BLTabs.registerItemGroup();
+        BLInstruments.register();
         BLFeatures.register();
-        BLConfiguredFeatures.register();
         BLItems.register();
         BLBlocks.register();
         BLPaintings.register();
         BLScreenHandlers.register();
         BLRecipes.register();
         BLLootModifiers.register();
-        BLInstruments.register();
         BLBlocks.registerWaxedBlocks();
         BLBlocks.registerOxidizableBlocks();
         BLBlocks.registerStrippables();
@@ -33,5 +34,7 @@ public final class BlazersMod implements ModInitializer {
         BLFlowersGeneration.generateFlowers();
         BLOreGeneration.generateOres();
         BLEntitiesGeneration.generateEntities();
+
+        GeckoLib.initialize();
     }
 }

@@ -6,7 +6,6 @@ import net.minecraft.entity.MovementType;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
 import org.blazers.core.BLEntityTypes;
 
 import javax.annotation.Nullable;
@@ -58,7 +57,7 @@ public class AtomicTntEntity extends TntEntity {
     }
 
     private void explode() {
-        this.world.createExplosion(this, this.getX(), this.getBodyY(0.0625), this.getZ(), 32.0f, Explosion.DestructionType.BREAK);
+        this.world.createExplosion(this, this.getX(), this.getBodyY(0.0625), this.getZ(), 32.0f, World.ExplosionSourceType.TNT);
     }
 
     @org.jetbrains.annotations.Nullable

@@ -3,10 +3,10 @@ package org.blazers.mixin;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.painting.PaintingEntity;
 import net.minecraft.entity.decoration.painting.PaintingVariant;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
 import org.blazers.core.BLPaintings;
 import org.blazers.core.BLSounds;
 import org.spongepowered.asm.mixin.Mixin;
@@ -35,7 +35,7 @@ public final class PaintingEntityMixin {
 
     private boolean isVariant(PaintingVariant paintingVariant) {
         RegistryEntry<PaintingVariant> variant = entity.getVariant();
-        return variant.getKey().isPresent() && variant.getKey().get().getValue().equals(Registry.PAINTING_VARIANT.getId(paintingVariant));
+        return variant.getKey().isPresent() && variant.getKey().get().getValue().equals(Registries.PAINTING_VARIANT.getId(paintingVariant));
     }
 
     private void playSound(SoundEvent sound) {

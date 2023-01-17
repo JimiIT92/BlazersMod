@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.SpawnRestriction;
-import net.minecraft.tag.BlockTags;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.BiomeKeys;
 import org.blazers.core.BLEntityTypes;
@@ -12,7 +12,7 @@ import org.blazers.core.BLEntityTypes;
 public class BLEntitiesGeneration {
 
     public static void generateEntities() {
-        BiomeModifications.addSpawn(BiomeSelectors.foundInTheNether(), SpawnGroup.CREATURE, BLEntityTypes.WITHER_SKELETON_HORSE, 20, 2, 4);
+        BiomeModifications.addSpawn(BiomeSelectors.foundInTheNether(), SpawnGroup.CREATURE, BLEntityTypes.WITHER_SKELETON_HORSE, 40, 2, 4);
 
         BiomeModifications.addSpawn(
                 BiomeSelectors.includeByKey(
@@ -20,7 +20,6 @@ public class BLEntitiesGeneration {
                         BiomeKeys.MANGROVE_SWAMP
                 ), SpawnGroup.AMBIENT, BLEntityTypes.FIREFLY, 40, 5, 6
         );
-
 
         SpawnRestriction.register(BLEntityTypes.WITHER_SKELETON_HORSE, SpawnRestriction.Location.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, spawnReason, pos, random) -> true);

@@ -1,39 +1,73 @@
 package org.blazers.core;
 
-import net.minecraft.util.registry.RegistryEntry;
+
+import net.minecraft.registry.Registerable;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
-import org.blazers.world.feature.BLOrePlacement;
+import org.blazers.BlazersMod;
 
 import java.util.List;
 
 public final class BLPlacedFeatures {
 
-    public static final RegistryEntry<PlacedFeature> ORE_SAPPHIRE = registerCommonOre("ore_sapphire_placed", BLConfiguredFeatures.ORE_SAPPHIRE, 7, -80, 80);
-    public static final RegistryEntry<PlacedFeature> ORE_TOPAZ = registerCommonOre("ore_topaz_placed", BLConfiguredFeatures.ORE_TOPAZ, 10, -80, 80);
+    public static final RegistryKey<PlacedFeature> ORE_SAPPHIRE = registerKey("ore_sapphire_placed");
+    public static final RegistryKey<PlacedFeature> ORE_TOPAZ = registerKey("ore_topaz_placed");
+    public static final RegistryKey<PlacedFeature> ORE_PEARL = registerKey("ore_pearl_placed");
+    public static final RegistryKey<PlacedFeature> ORE_RUBY = registerKey("ore_ruby_placed");
+    public static final RegistryKey<PlacedFeature> ORE_MALACHITE = registerKey("ore_malachite_placed");
+    public static final RegistryKey<PlacedFeature> ORE_ONICE = registerKey("ore_onice_placed");
+    public static final RegistryKey<PlacedFeature> ORE_URANIUM = registerKey("ore_uranium_placed");
+    public static final RegistryKey<PlacedFeature> CATTAIL = registerKey("cattail_placed");
+    public static final RegistryKey<PlacedFeature> FALLEN_BIRCH_TREE = registerKey("fallen_birch_tree_placed");
+    public static final RegistryKey<PlacedFeature> FALLEN_HOLLOW_BIRCH_TREE = registerKey("fallen_hollow_birch_tree_placed");
 
-    public static final RegistryEntry<PlacedFeature> ORE_PEARL = registerCommonOre("ore_pearl_placed", BLConfiguredFeatures.ORE_PEARL, 40, -16, 480);
+    public static void bootstrap(Registerable<PlacedFeature> context) {
+        var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
+        register(context, ORE_SAPPHIRE, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.ORE_SAPPHIRE), getCommonOrePlacements(7, -80, 80));
+        register(context, ORE_TOPAZ, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.ORE_TOPAZ), getCommonOrePlacements(10, -80, 80));
+        register(context, ORE_PEARL, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.ORE_PEARL), getCommonOrePlacements(40, -16, 480));
 
-    public static final RegistryEntry<PlacedFeature> ORE_RUBY = registerCommonOre("ore_ruby_placed", BLConfiguredFeatures.ORE_RUBY, 7, -80, 80);
-    public static final RegistryEntry<PlacedFeature> ORE_MALACHITE = registerCommonOre("ore_malachite_placed", BLConfiguredFeatures.ORE_MALACHITE, 7, PlacedFeatures.TEN_ABOVE_AND_BELOW_RANGE);
-    public static final RegistryEntry<PlacedFeature> ORE_ONICE = registerCommonOre("ore_onice_placed", BLConfiguredFeatures.ORE_ONICE, 7, PlacedFeatures.TEN_ABOVE_AND_BELOW_RANGE);
+        register(context, ORE_RUBY, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.ORE_RUBY), getCommonOrePlacements(7, -80, 80));
+        register(context, ORE_MALACHITE, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.ORE_MALACHITE), modifiersWithCount(7, PlacedFeatures.TEN_ABOVE_AND_BELOW_RANGE));
+        register(context, ORE_ONICE, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.ORE_ONICE), modifiersWithCount(7, PlacedFeatures.TEN_ABOVE_AND_BELOW_RANGE));
 
-    public static final RegistryEntry<PlacedFeature> ORE_URANIUM = PlacedFeatures.register("ore_uranium_placed", BLConfiguredFeatures.ORE_URANIUM,
-            List.of(SquarePlacementModifier.of(), HeightRangePlacementModifier.trapezoid(YOffset.fixed(8), YOffset.fixed(24)), BiomePlacementModifier.of()));
+        register(context, ORE_URANIUM, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.ORE_URANIUM), List.of(SquarePlacementModifier.of(), HeightRangePlacementModifier.trapezoid(YOffset.fixed(8), YOffset.fixed(24)), BiomePlacementModifier.of()));
 
-    public static final RegistryEntry<PlacedFeature> CATTAIL = PlacedFeatures.register("cattail_placed", BLConfiguredFeatures.CATTAIL, OceanPlacedFeatures.seagrassModifiers(80));
+        register(context, CATTAIL, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.CATTAIL), List.of(SquarePlacementModifier.of(), PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP, CountPlacementModifier.of(80), BiomePlacementModifier.of()));
 
-    public static final RegistryEntry<PlacedFeature> FALLEN_BIRCH_TREE = PlacedFeatures.register("fallen_birch_tree_placed",
-            BLConfiguredFeatures.FALLEN_BIRCH_TREE, VegetationPlacedFeatures.modifiers(PlacedFeatures.createCountExtraModifier(3, 0.1F, 2)));
-    public static final RegistryEntry<PlacedFeature> FALLEN_HOLLOW_BIRCH_TREE = PlacedFeatures.register("fallen_hollow_birch_tree_placed",
-            BLConfiguredFeatures.FALLEN_HOLLOW_BIRCH_TREE, VegetationPlacedFeatures.modifiers(PlacedFeatures.createCountExtraModifier(3, 0.1F, 2)));
-
-    private static RegistryEntry<PlacedFeature> registerCommonOre(String name, RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> oreConfiguration, int count, int minHeight, int maxHeight) {
-        return registerCommonOre(name, oreConfiguration, count, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(minHeight), YOffset.aboveBottom(maxHeight)));
+        register(context, FALLEN_BIRCH_TREE, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.FALLEN_BIRCH_TREE), VegetationPlacedFeatures.modifiers(PlacedFeatures.createCountExtraModifier(3, 0.1F, 2)));
+        register(context, FALLEN_HOLLOW_BIRCH_TREE, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.FALLEN_HOLLOW_BIRCH_TREE), VegetationPlacedFeatures.modifiers(PlacedFeatures.createCountExtraModifier(3, 0.1F, 2)));
     }
 
-    private static RegistryEntry<PlacedFeature> registerCommonOre(String name, RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> oreConfiguration, int count, PlacementModifier placementModifier) {
-        return PlacedFeatures.register(name, oreConfiguration, BLOrePlacement.commonOrePlacement(count, placementModifier));
+    private static List<PlacementModifier> getCommonOrePlacements(int count, int minHeight, int maxHeight) {
+        return modifiersWithCount(7, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80)));
+    }
+
+    private static void register(Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?, ?>> configuration,
+                                 List<PlacementModifier> modifiers) {
+        context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
+    }
+
+    private static <FC extends FeatureConfig, F extends Feature<FC>> void register(Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key,
+                                                                                   RegistryEntry<ConfiguredFeature<?, ?>> configuration,
+                                                                                   PlacementModifier... modifiers) {
+        register(context, key, configuration, List.of(modifiers));
+    }
+
+    private static List<PlacementModifier> modifiers(PlacementModifier countModifier, PlacementModifier heightModifier) {
+        return List.of(countModifier, SquarePlacementModifier.of(), heightModifier, BiomePlacementModifier.of());
+    }
+
+    private static List<PlacementModifier> modifiersWithCount(int count, PlacementModifier heightModifier) {
+        return modifiers(CountPlacementModifier.of(count), heightModifier);
+    }
+
+    public static RegistryKey<PlacedFeature> registerKey(final String name) {
+        return RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(BlazersMod.MOD_ID, name));
     }
 }

@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
 import org.blazers.BlazersMod;
 import org.blazers.entity.CopperGolemEntity;
 import org.blazers.entity.client.model.CopperGolemModel;
-import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 @Environment(EnvType.CLIENT)
 public class CopperGolemEntityRenderer extends GeoEntityRenderer<CopperGolemEntity> {
@@ -18,7 +18,7 @@ public class CopperGolemEntityRenderer extends GeoEntityRenderer<CopperGolemEnti
     }
 
     @Override
-    public Identifier getTexture(CopperGolemEntity entity) {
+    public Identifier getTextureLocation(CopperGolemEntity entity) {
         return new Identifier(BlazersMod.MOD_ID, "textures/entity/copper_golem/" + entity.getCurrentWeatherStateName() + ".png");
     }
 }

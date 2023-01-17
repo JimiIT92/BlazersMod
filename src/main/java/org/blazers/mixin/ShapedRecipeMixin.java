@@ -7,7 +7,7 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShapedRecipe;
-import net.minecraft.tag.InstrumentTags;
+import net.minecraft.registry.tag.InstrumentTags;
 import net.minecraft.util.collection.DefaultedList;
 import org.blazers.item.CopperHornItem;
 import org.spongepowered.asm.mixin.Mixin;

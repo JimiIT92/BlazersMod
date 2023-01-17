@@ -1,8 +1,9 @@
 package org.blazers.core;
 
 import net.minecraft.entity.decoration.painting.PaintingVariant;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.blazers.BlazersMod;
 
 public final class BLPaintings {
@@ -118,7 +119,7 @@ public final class BLPaintings {
     }
 
     private static PaintingVariant register(String name, PaintingVariant variant) {
-        return Registry.register(Registry.PAINTING_VARIANT, new Identifier(BlazersMod.MOD_ID, name), variant);
+        return Registry.register(Registries.PAINTING_VARIANT, new Identifier(BlazersMod.MOD_ID, name), variant);
     }
 
     public static void register() {

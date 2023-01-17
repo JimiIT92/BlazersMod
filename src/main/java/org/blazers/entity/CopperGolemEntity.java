@@ -35,19 +35,18 @@ import org.blazers.core.BLBlocks;
 import org.blazers.core.BLEntityTypes;
 import org.blazers.entity.goal.CopperGolemRandomStrollGoal;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.object.PlayState;
 
 import java.util.Locale;
 
-public class CopperGolemEntity extends PathAwareEntity implements IAnimatable {
+public class CopperGolemEntity extends PathAwareEntity implements GeoEntity {
 
-    private final AnimationFactory factory = new AnimationFactory(this);
+    private final AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
 
     private static final TrackedData<String> WEATHER_STATE = DataTracker.registerData(CopperGolemEntity.class, TrackedDataHandlerRegistry.STRING);
     private static final TrackedData<Boolean> IS_WAXED = DataTracker.registerData(CopperGolemEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -133,7 +132,7 @@ public class CopperGolemEntity extends PathAwareEntity implements IAnimatable {
     public void setWeatherState(final Oxidizable.OxidationLevel weatherState, boolean playSound) {
         if(weatherState.equals(Oxidizable.OxidationLevel.OXIDIZED)) {
             this.goalSelector.getRunningGoals().forEach(PrioritizedGoal::stop);
-            this.goalSelector.clear();
+            this.goalSelector.clear(goal -> true);
         } else if(this.goalSelector.getGoals().isEmpty()) {
             this.initGoals();
         }
@@ -344,26 +343,26 @@ public class CopperGolemEntity extends PathAwareEntity implements IAnimatable {
         return this.dataTracker.get(IS_PRESSING_COPPER_BUTTON);
     }
 
-    private <T extends IAnimatable> PlayState predicate(AnimationEvent<T> event) {
+    private PlayState predicate(AnimationState state) {
         if(!isOxidized()) {
-            AnimationController<CopperGolemEntity> controller = event.getController();
+            AnimationController<CopperGolemEntity> controller = state.getController();
             if(isPressingCopperButton()) {
                 setAnimation(controller, "animation.copper_golem.interact", false);
             }
             else {
-                setAnimation(controller, event.isMoving() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
+                setAnimation(controller, state.isMoving() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
             }
         }
         return PlayState.CONTINUE;
     }
 
     public void setAnimation(final AnimationController<CopperGolemEntity> controller, final String animation, final boolean loop) {
-        controller.setAnimation(new AnimationBuilder().addAnimation(animation, loop));
+        controller.setAnimation(RawAnimation.begin().then(animation, loop ? Animation.LoopType.LOOP : Animation.LoopType.PLAY_ONCE));
     }
 
     @Override
-    public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(getAnimationController());
+    public void registerControllers(AnimatableManager.ControllerRegistrar controller) {
+        controller.add(getAnimationController());
     }
 
     public AnimationController<CopperGolemEntity> getAnimationController() {
@@ -371,7 +370,7 @@ public class CopperGolemEntity extends PathAwareEntity implements IAnimatable {
     }
 
     @Override
-    public AnimationFactory getFactory() {
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.factory;
     }
 

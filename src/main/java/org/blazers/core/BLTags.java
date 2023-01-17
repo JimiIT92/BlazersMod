@@ -2,9 +2,9 @@ package org.blazers.core;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Instrument;
-import net.minecraft.tag.TagKey;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.blazers.BlazersMod;
 
 public final class BLTags {
@@ -14,7 +14,7 @@ public final class BLTags {
         public static final TagKey<Block> CATTAIL_PLACEABLE = tag("cattail_placeable");
 
         private static TagKey<Block> tag(String name) {
-            return TagKey.of(Registry.BLOCK_KEY, new Identifier(BlazersMod.MOD_ID, name));
+            return TagKey.of(Registries.BLOCK.getKey(), new Identifier(BlazersMod.MOD_ID, name));
         }
 
     }
@@ -28,7 +28,7 @@ public final class BLTags {
 
 
         private static TagKey<Instrument> tag(String name) {
-            return TagKey.of(Registry.INSTRUMENT_KEY, new Identifier(BlazersMod.MOD_ID, name));
+            return TagKey.of(Registries.INSTRUMENT.getKey(), new Identifier(BlazersMod.MOD_ID, name));
         }
     }
 

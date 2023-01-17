@@ -14,12 +14,11 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
-import org.blazers.core.BLTabs;
 
 public class CarbonBowItem extends BowItem {
 
     public CarbonBowItem() {
-        super(new FabricItemSettings().maxDamage(384).group(BLTabs.TAB_COMBAT));
+        super(new FabricItemSettings().maxDamage(384));
     }
 
     @Override

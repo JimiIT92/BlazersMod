@@ -1,7 +1,8 @@
 package org.blazers.core;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.world.gen.ProbabilityConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
@@ -14,7 +15,7 @@ public final class BLFeatures {
     public static final Feature<ProbabilityConfig> FALLEN_HOLLOW_BIRCH_TREE = register("fallen_hollow_birch_tree", new FallenTreeFeature(BLBlocks.HOLLOW_BIRCH_LOG));
 
     private static <C extends FeatureConfig, F extends Feature<C>> F register(String name, F feature) {
-        return Registry.register(Registry.FEATURE, name, feature);
+        return Registry.register(Registries.FEATURE, name, feature);
     }
 
     public static void register() {

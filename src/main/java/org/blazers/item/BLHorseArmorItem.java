@@ -16,7 +16,6 @@ import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import org.blazers.BlazersMod;
-import org.blazers.core.BLTabs;
 
 import java.util.List;
 
@@ -40,7 +39,7 @@ public class BLHorseArmorItem extends HorseArmorItem {
     };
 
     public BLHorseArmorItem(int protection, String name) {
-        super(protection, name, new FabricItemSettings().group(BLTabs.TAB_MISC));
+        super(protection, name, new FabricItemSettings());
         this.name = name;
         DispenserBlock.registerBehavior(this, DISPENSER_BEHAVIOR);
     }

@@ -16,9 +16,9 @@ import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.blazers.core.BLItems;
 import org.blazers.core.BLModelLayers;
 import org.blazers.entity.SpearEntity;
@@ -40,7 +40,7 @@ public class SpearItemRenderer implements BuiltinItemRendererRegistry.DynamicIte
     private BakedModel spearInventoryModel;
 
     public SpearItemRenderer() {
-        this(Registry.ITEM.getId(BLItems.SPEAR), SpearEntityRenderer.TEXTURE, BLModelLayers.SPEAR);
+        this(Registries.ITEM.getId(BLItems.SPEAR), SpearEntityRenderer.TEXTURE, BLModelLayers.SPEAR);
     }
 
     public SpearItemRenderer(Identifier id, Identifier texture, EntityModelLayer modelLayer) {
@@ -55,7 +55,7 @@ public class SpearItemRenderer implements BuiltinItemRendererRegistry.DynamicIte
         MinecraftClient mc = MinecraftClient.getInstance();
         this.itemRenderer = mc.getItemRenderer();
         this.spearModel = getSpearModel(mc);
-        this.spearInventoryModel = mc.getBakedModelManager().getModel(new ModelIdentifier(this.spearId + "_in_inventory", "inventory"));
+        this.spearInventoryModel = mc.getBakedModelManager().getModel(new ModelIdentifier(new Identifier(this.spearId + "_in_inventory"), "inventory"));
     }
 
     public EntityModel<SpearEntity> getSpearModel(MinecraftClient mc) {
@@ -89,6 +89,6 @@ public class SpearItemRenderer implements BuiltinItemRendererRegistry.DynamicIte
     }
 
     public Identifier getSpearId() {
-        return Registry.ITEM.getId(BLItems.SPEAR);
+        return Registries.ITEM.getId(BLItems.SPEAR);
     }
 }

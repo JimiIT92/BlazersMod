@@ -17,13 +17,12 @@ import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import org.blazers.core.BLEntityTypes;
 import org.blazers.core.BLItems;
-import org.blazers.core.BLTabs;
 import org.blazers.entity.SpearEntity;
 
 public class SpearItem extends SwordItem implements Vanishable {
 
     public SpearItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed) {
-        super(toolMaterial, attackDamage, attackSpeed, new FabricItemSettings().maxDamage(toolMaterial.getDurability()).group(BLTabs.TAB_COMBAT));
+        super(toolMaterial, attackDamage, attackSpeed, new FabricItemSettings().maxDamage(toolMaterial.getDurability()));
     }
 
     @Override

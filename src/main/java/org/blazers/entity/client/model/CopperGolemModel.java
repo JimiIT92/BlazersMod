@@ -5,10 +5,10 @@ import net.fabricmc.api.Environment;
 import net.minecraft.util.Identifier;
 import org.blazers.BlazersMod;
 import org.blazers.entity.CopperGolemEntity;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
 @Environment(EnvType.CLIENT)
-public class CopperGolemModel extends AnimatedGeoModel<CopperGolemEntity> {
+public class CopperGolemModel extends GeoModel<CopperGolemEntity> {
 
     @Override
     public Identifier getModelResource(CopperGolemEntity entity) {

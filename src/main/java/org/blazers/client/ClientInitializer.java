@@ -13,6 +13,7 @@ import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.resource.ResourceType;
+import net.minecraft.util.Identifier;
 import org.blazers.client.itemrenderer.MalachiteSpearItemRenderer;
 import org.blazers.client.itemrenderer.SpearItemRenderer;
 import org.blazers.core.*;
@@ -44,6 +45,6 @@ public class ClientInitializer implements ClientModInitializer {
     private void registerSpearEntityItemModel(Item item, EntityType entityType, SpearItemRenderer itemRenderer) {
         ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(itemRenderer);
         BuiltinItemRendererRegistry.INSTANCE.register(item, itemRenderer);
-        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> out.accept(new ModelIdentifier(itemRenderer.getSpearId() + "_in_inventory", "inventory")));
+        ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> out.accept(new ModelIdentifier(new Identifier(itemRenderer.getSpearId() + "_in_inventory"), "inventory")));
     }
 }

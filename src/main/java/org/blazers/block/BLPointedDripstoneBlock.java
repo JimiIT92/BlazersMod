@@ -20,13 +20,13 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.predicate.entity.EntityPredicates;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.tag.FluidTags;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -105,7 +105,7 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
-            world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
         if (direction != Direction.UP && direction != Direction.DOWN) {
             return state;
@@ -116,9 +116,9 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
         }
         if (direction == direction2.getOpposite() && !this.canPlaceAt(state, world, pos)) {
             if (direction2 == Direction.DOWN) {
-                world.createAndScheduleBlockTick(pos, this, 2);
+                world.scheduleBlockTick(pos, this, 2);
             } else {
-                world.createAndScheduleBlockTick(pos, this, 1);
+                world.scheduleBlockTick(pos, this, 1);
             }
             return state;
         }
@@ -217,7 +217,7 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
         int i = blockPos.getY() - blockPos2.getY();
         int j = 50 + i;
         BlockState blockState2 = world.getBlockState(blockPos2);
-        world.createAndScheduleBlockTick(blockPos2, blockState2.getBlock(), j);
+        world.scheduleBlockTick(blockPos2, blockState2.getBlock(), j);
     }
 
     @Override
@@ -275,8 +275,8 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
     }
 
     @Override
-    public DamageSource getDamageSource() {
-        return DamageSource.FALLING_STALACTITE;
+    public DamageSource getDamageSource(Entity attacker) {
+        return DamageSource.STALAGMITE;
     }
 
     @Override
@@ -603,6 +603,6 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
 
     public static Block getDripstoneFor(Block block) {
         Optional<Block> dripstone = Optional.ofNullable(DRIPSTONES.get().get(block));
-        return dripstone.orElse(BLBlocks.POINTED_STONE_DRIPSTONE);
+        return dripstone.orElse(Blocks.POINTED_DRIPSTONE);
     }
 }

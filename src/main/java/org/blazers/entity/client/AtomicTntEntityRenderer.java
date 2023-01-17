@@ -11,7 +11,7 @@ import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 import org.blazers.core.BLBlocks;
 import org.blazers.entity.AtomicTntEntity;
 
@@ -39,9 +39,9 @@ public class AtomicTntEntityRenderer extends EntityRenderer<AtomicTntEntity> {
             float k = 1.0f + h * 0.3f;
             matrixStack.scale(k, k, k);
         }
-        matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-90.0f));
+        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90.0f));
         matrixStack.translate(-0.5, -0.5, 0.5);
-        matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90.0f));
+        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(90.0f));
         TntMinecartEntityRenderer.renderFlashingBlock(this.blockRenderManager, BLBlocks.ATOMIC_TNT.getDefaultState(), matrixStack, vertexConsumers, light, j / 5 % 2 == 0);
         matrixStack.pop();
         super.render(entity, yaw, tickDelta, matrixStack, vertexConsumers, light);

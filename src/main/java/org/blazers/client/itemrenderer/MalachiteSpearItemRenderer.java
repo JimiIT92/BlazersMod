@@ -4,8 +4,8 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.blazers.core.BLItems;
 import org.blazers.core.BLModelLayers;
 import org.blazers.entity.SpearEntity;
@@ -16,7 +16,7 @@ import org.blazers.entity.client.model.MalachiteSpearModel;
 public class MalachiteSpearItemRenderer extends SpearItemRenderer {
 
     public MalachiteSpearItemRenderer() {
-        super(Registry.ITEM.getId(BLItems.MALACHITE_SPEAR), MalachiteSpearEntityRenderer.TEXTURE, BLModelLayers.MALACHITE_SPEAR);
+        super(Registries.ITEM.getId(BLItems.MALACHITE_SPEAR), MalachiteSpearEntityRenderer.TEXTURE, BLModelLayers.MALACHITE_SPEAR);
     }
 
     @Override
@@ -26,6 +26,6 @@ public class MalachiteSpearItemRenderer extends SpearItemRenderer {
 
     @Override
     public Identifier getSpearId() {
-        return Registry.ITEM.getId(BLItems.MALACHITE_SPEAR);
+        return Registries.ITEM.getId(BLItems.MALACHITE_SPEAR);
     }
 }
