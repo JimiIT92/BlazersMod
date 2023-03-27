@@ -14,14 +14,15 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
-version = '1.3-1.19.2-Forge'
+version = '1.3.1-1.19.4-Forge'
 group = 'org.blazers'
 archivesBaseName = 'BlazersMod'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'parchment', version: '2022.08.28-1.19.2'
+    //mappings channel: 'parchment', version: '2023.03.12-1.19.3'
+    mappings channel: 'official', version: '1.19.4'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -87,9 +88,9 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.2-43.1.33'
+    minecraft 'net.minecraftforge:forge:1.19.4-45.0.25'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.18')
+    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19.4:4.1.2')
 }
 apply plugin: 'org.spongepowered.mixin'
 mixin {

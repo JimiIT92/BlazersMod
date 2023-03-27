@@ -1,6 +1,5 @@
 package org.blazers.screen;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.inventory.ItemCombinerScreen;
 import net.minecraft.network.chat.Component;
@@ -10,7 +9,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.blazers.BlazersMod;
 import org.blazers.inventory.FletchingMenu;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * {@link net.minecraft.world.level.block.Blocks#FLETCHING_TABLE Fletching Table} GUI Screen
@@ -37,14 +35,15 @@ public class FletchingScreen  extends ItemCombinerScreen<FletchingMenu> {
     }
 
     /**
-     * Render labels inside the GUI
+     * Render the error arrow inside the GUI
      *
      * @param pose {@link PoseStack Pos}
      * @param x {@link Integer GUI X coordinate}
      * @param y {@link Integer GUI Y coordinate}
      */
-    protected void renderLabels(@NotNull PoseStack pose, int x, int y) {
-        RenderSystem.disableBlend();
-        super.renderLabels(pose, x, y);
+    protected void renderErrorIcon(PoseStack pose, int x, int y) {
+        if ((this.menu.getSlot(0).hasItem() || this.menu.getSlot(1).hasItem()) && !this.menu.getSlot(this.menu.getResultSlot()).hasItem()) {
+            blit(pose, x + 99, y + 45, this.imageWidth, 0, 28, 21);
+        }
     }
 }

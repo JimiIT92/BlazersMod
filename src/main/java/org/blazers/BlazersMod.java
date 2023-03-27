@@ -33,7 +33,6 @@ import org.blazers.core.*;
 import org.blazers.recipe.FletchingRecipe;
 import org.blazers.screen.FletchingScreen;
 import org.jetbrains.annotations.NotNull;
-import software.bernie.geckolib3.GeckoLib;
 
 /**
  * {@link BlazersMod Blazers Mod} main class
@@ -63,12 +62,11 @@ public final class BlazersMod {
 
         BLItems.register(eventBus);
         BLBlocks.register(eventBus);
+        BLBlockSetTypes.register();
         BLPaintings.register(eventBus);
         BLSounds.register(eventBus);
         BLEntityTypes.register(eventBus);
         BLFeatures.register(eventBus);
-        BLConfiguredFeatures.register(eventBus);
-        BLPlacedFeatures.register(eventBus);
         BLMenuTypes.register(eventBus);
         BLRecipeSerializers.register(eventBus);
         BLLootModifiers.register(eventBus);
@@ -77,10 +75,10 @@ public final class BlazersMod {
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::entityAttributeSetup);
 
-        GeckoLib.initialize();
-
         MinecraftForge.EVENT_BUS.register(this);
+        eventBus.addListener(BLTabs::addItemsToCreativeTabs);
     }
+
 
     /**
      * Set up the {@link BlazersMod Blazers Mod} Client stuffs

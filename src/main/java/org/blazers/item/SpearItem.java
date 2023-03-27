@@ -15,7 +15,6 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.blazers.BlazersMod;
 import org.blazers.core.BLEntityTypes;
 import org.blazers.core.BLItems;
-import org.blazers.core.BLTabs;
 import org.blazers.entity.ThrownSpear;
 import org.jetbrains.annotations.NotNull;
 
@@ -35,7 +34,7 @@ public class SpearItem extends SwordItem implements Vanishable {
      * @param attackSpeedModifier {@link Float Speed modifier}
      */
     public SpearItem(Tier tier, int attackDamageModifier, float attackSpeedModifier) {
-        super(tier, attackDamageModifier, attackSpeedModifier, new Properties().durability(tier.getUses()).tab(BLTabs.TAB_COMBAT));
+        super(tier, attackDamageModifier, attackSpeedModifier, new Properties().durability(tier.getUses()));
     }
 
     /**

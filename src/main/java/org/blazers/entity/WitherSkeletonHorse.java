@@ -64,7 +64,7 @@ public class WitherSkeletonHorse extends Horse {
      * Randomize the {@link AttributeSupplier.Builder Wither Skeleton Horse Attributes}
      */
     protected void randomizeAttributes(@NotNull RandomSource random) {
-        Objects.requireNonNull(this.getAttribute(Attributes.JUMP_STRENGTH)).setBaseValue(this.generateRandomJumpStrength(random));
+        Objects.requireNonNull(this.getAttribute(Attributes.JUMP_STRENGTH)).setBaseValue(generateJumpStrength(random::nextDouble));
     }
 
     /**

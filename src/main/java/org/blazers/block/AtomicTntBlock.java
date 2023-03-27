@@ -42,7 +42,7 @@ public class AtomicTntBlock extends TntBlock implements IForgeBlock {
     @Override
     public void wasExploded(Level level, @NotNull BlockPos pos, @NotNull Explosion explosion) {
         if (!level.isClientSide) {
-            PrimedAtomicTnt primedtnt = getPrimedAtomicTnt(level, pos, explosion.getSourceMob());
+            PrimedAtomicTnt primedtnt = getPrimedAtomicTnt(level, pos, explosion.getIndirectSourceEntity());
             int fuse = primedtnt.getFuse();
             primedtnt.setFuse((short)(level.random.nextInt(fuse / 4) + fuse / 8));
             level.addFreshEntity(primedtnt);

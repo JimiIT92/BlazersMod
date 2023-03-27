@@ -4,8 +4,8 @@ import com.google.common.base.Suppliers;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import net.minecraft.core.Holder;
-import net.minecraft.core.NonNullList;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -19,7 +19,9 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.blazers.BlazersMod;
-import org.blazers.core.*;
+import org.blazers.core.BLInstruments;
+import org.blazers.core.BLItems;
+import org.blazers.core.BLTags;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Iterator;
@@ -51,21 +53,7 @@ public class CopperHornItem extends InstrumentItem {
      * Constructor. Sets the {@link org.blazers.core.BLItems#COPPER_HORN Copper Horn} {@link net.minecraft.world.item.Item.Properties Properties}
      */
     public CopperHornItem() {
-        super(new Item.Properties().tab(BLTabs.TAB_MISC).stacksTo(1), BLTags.Instruments.COPPER_HORNS);
-    }
-
-    /**
-     * Shows the different {@link CopperHornItem Copper Horn} base sounds inside the Inventory
-     *
-     * @param tab {@link CreativeModeTab Creative Tab}
-     * @param items {@link ItemStack Items}
-     */
-    public void fillItemCategory(@NotNull CreativeModeTab tab, @NotNull NonNullList<ItemStack> items) {
-        if (this.allowedIn(tab)) {
-            for(Holder<Instrument> holder : Registry.INSTRUMENT.getTagOrEmpty(BLTags.Instruments.MELODY_COPPER_HORNS)) {
-                items.add(create(BLItems.COPPER_HORN.get(), holder));
-            }
-        }
+        super(new Item.Properties().stacksTo(1), BLTags.Instruments.COPPER_HORNS);
     }
 
     /**
@@ -79,7 +67,7 @@ public class CopperHornItem extends InstrumentItem {
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
-        Optional<Holder<Instrument>> optional = getInstrument(itemstack, getInstrumentTagKey(player));
+        Optional<? extends Holder<Instrument>> optional = getInstrument(itemstack, getInstrumentTagKey(player));
         if (optional.isPresent()) {
             Instrument instrument = optional.get().value();
             player.startUsingItem(hand);
@@ -122,19 +110,20 @@ public class CopperHornItem extends InstrumentItem {
      * @param instrumentTagKey {@link TagKey<Instrument> Instrument Tag Key}
      * @return {@link Holder<Instrument> Instrument}
      */
-    public static Optional<Holder<Instrument>> getInstrument(ItemStack stack, TagKey<Instrument> instrumentTagKey) {
+    public static Optional<? extends Holder<Instrument>> getInstrument(ItemStack stack, TagKey<Instrument> instrumentTagKey) {
         CompoundTag compoundtag = stack.getTag();
         if (compoundtag != null) {
             ResourceLocation resourcelocation = ResourceLocation.tryParse(compoundtag.getString("instrument"));
             if (resourcelocation != null) {
                 resourcelocation = getInstrumentResourceLocation(resourcelocation, instrumentTagKey);
-                return Registry.INSTRUMENT.getHolder(ResourceKey.create(Registry.INSTRUMENT_REGISTRY, resourcelocation));
+                return BuiltInRegistries.INSTRUMENT.getHolder(ResourceKey.create(Registries.INSTRUMENT, resourcelocation));
             }
         }
 
-        Iterator<Holder<Instrument>> iterator = Registry.INSTRUMENT.getTagOrEmpty(instrumentTagKey).iterator();
+        Iterator<Holder<Instrument>> iterator = BuiltInRegistries.INSTRUMENT.getTagOrEmpty(instrumentTagKey).iterator();
         return iterator.hasNext() ? Optional.of(iterator.next()) : Optional.empty();
     }
+
 
     /**
      * Get an {@link Instrument Instrument} {@link ResourceKey Resource Location}
@@ -160,7 +149,7 @@ public class CopperHornItem extends InstrumentItem {
      * @param instrument {@link Instrument Instrument}
      */
     private static void play(Level level, Player player, Instrument instrument) {
-        level.playSound(player, player, instrument.soundEvent(), SoundSource.RECORDS, instrument.range() / 16.0F, 1.0F);
+        level.playSound(player, player, instrument.soundEvent().value(), SoundSource.RECORDS, instrument.range() / 16.0F, 1.0F);
         level.gameEvent(GameEvent.INSTRUMENT_PLAY, player.position(), GameEvent.Context.of(player));
     }
 

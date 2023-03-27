@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * {@link Blocks#FLETCHING_TABLE Fletching Table} Recipe Manager
  */
-public class FletchingRecipe extends UpgradeRecipe {
+public class FletchingRecipe extends LegacyUpgradeRecipe {
 
     /**
      * {@link FletchingRecipe Fletching Recipe} {@link String ID}

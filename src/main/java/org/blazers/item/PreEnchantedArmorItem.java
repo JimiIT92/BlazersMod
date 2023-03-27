@@ -1,11 +1,12 @@
 package org.blazers.item;
 
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.core.NonNullList;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.enchantment.Enchantment;
-import org.blazers.core.BLTabs;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -31,8 +32,8 @@ public class PreEnchantedArmorItem extends ArmorItem implements IPreEnchantedIte
      * @param enchantment {@link Enchantment Enchantment to apply}
      * @param level {@link Integer Enchantment level to apply}
      */
-    public PreEnchantedArmorItem(ArmorMaterial armorMaterial, EquipmentSlot slot, Enchantment enchantment, int level) {
-        super(armorMaterial, slot, new Properties().tab(BLTabs.TAB_COMBAT));
+    public PreEnchantedArmorItem(ArmorMaterial armorMaterial, Type slot, Enchantment enchantment, int level) {
+        super(armorMaterial, slot, new Properties());
         this.enchantment = enchantment;
         this.level = level;
     }
@@ -45,19 +46,6 @@ public class PreEnchantedArmorItem extends ArmorItem implements IPreEnchantedIte
     @Override
     public Pair<Enchantment, Integer> getEnchantment() {
         return new Pair<>(enchantment, level);
-    }
-
-    /**
-     * Shows the {@link Enchantment Armor Enchantment} in the Creative Inventory
-     *
-     * @param tab {@link CreativeModeTab Creative Tab}
-     * @param items {@link ItemStack Items}
-     */
-    @Override
-    public void fillItemCategory(@NotNull CreativeModeTab tab, @NotNull NonNullList<ItemStack> items) {
-        if(allowedIn(tab)) {
-            items.add(getDefaultInstance());
-        }
     }
 
     /**

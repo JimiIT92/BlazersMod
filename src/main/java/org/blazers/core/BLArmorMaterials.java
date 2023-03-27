@@ -4,6 +4,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -98,8 +99,8 @@ public enum BLArmorMaterials implements ArmorMaterial {
      * @param slot {@link EquipmentSlot Slot}
      * @return {@link Integer Slot durability value}
      */
-    public int getDurabilityForSlot(EquipmentSlot slot) {
-        return HEALTH_PER_SLOT[slot.getIndex()] * this.durabilityMultiplier;
+    public int getDurabilityForType(ArmorItem.Type slot) {
+        return HEALTH_PER_SLOT[slot.getSlot().getIndex()] * this.durabilityMultiplier;
     }
 
     /**
@@ -108,8 +109,8 @@ public enum BLArmorMaterials implements ArmorMaterial {
      * @param slot {@link EquipmentSlot Slot}
      * @return {@link Integer Slot protection value}
      */
-    public int getDefenseForSlot(EquipmentSlot slot) {
-        return this.slotProtections[slot.getIndex()];
+    public int getDefenseForType(ArmorItem.Type slot) {
+        return this.slotProtections[slot.getSlot().getIndex()];
     }
 
     /**

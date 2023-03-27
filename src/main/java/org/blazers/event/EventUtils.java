@@ -1,6 +1,7 @@
 package org.blazers.event;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -20,7 +21,7 @@ public final class EventUtils {
      * @param event {@link WorldEvents World Event}
      * @param pos {@link Vec3 Block Pos}
      */
-    public static void fireWorldEvent(@Nonnull final Level level, final Player player, final WorldEvents event, final Vec3 pos) {
+    public static void fireWorldEvent(@Nonnull final Level level, final Player player, final WorldEvents event, final Vec3i pos) {
         fireWorldEvent(level, player, event, new BlockPos(pos));
     }
 

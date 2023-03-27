@@ -7,10 +7,10 @@ import net.minecraft.client.model.Model;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -72,14 +72,14 @@ public final class BLItemRenderer extends BlockEntityWithoutLevelRenderer {
      * Render custom models for selected {@link ItemStack Item Stacks}
      *
      * @param stack {@link ItemStack Item Stack}
-     * @param transformType {@link ItemTransforms.TransformType Transform Type}
+     * @param transformType {@link ItemDisplayContext Transform Type}
      * @param pose {@link PoseStack Pose}
      * @param buffer {@link MultiBufferSource Buffer}
      * @param packedLight {@link Integer Packed Light}
      * @param packedOverlay {@link Integer Packed Overlay}
      */
     @Override
-    public void renderByItem(ItemStack stack, ItemTransforms.@NotNull TransformType transformType, @NotNull PoseStack pose, @NotNull MultiBufferSource buffer, int packedLight, int packedOverlay) {
+    public void renderByItem(ItemStack stack, ItemDisplayContext transformType, @NotNull PoseStack pose, @NotNull MultiBufferSource buffer, int packedLight, int packedOverlay) {
         if(stack.getItem() instanceof SpearItem) {
             pose.pushPose();
             pose.scale(1.0F, -1.0F, -1.0F);

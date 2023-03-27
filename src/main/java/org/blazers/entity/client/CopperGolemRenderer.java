@@ -8,7 +8,7 @@ import org.blazers.BlazersMod;
 import org.blazers.entity.CopperGolem;
 import org.blazers.entity.client.model.CopperGolemModel;
 import org.jetbrains.annotations.NotNull;
-import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 /**
  * Renderer class for a {@link CopperGolem Copper Golem}

@@ -11,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.phys.AABB;
 import org.blazers.BlazersMod;
-import org.blazers.core.BLTabs;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -49,7 +48,7 @@ public class BLHorseArmorItem extends HorseArmorItem {
      * @param name {@link String Armor name}
      */
     public BLHorseArmorItem(int protection, String name) {
-        super(protection, new ResourceLocation(BlazersMod.MOD_ID, "textures/entity/horse/armor/horse_armor_" + name + ".png"), new Properties().stacksTo(1).tab(BLTabs.TAB_MISC));
+        super(protection, new ResourceLocation(BlazersMod.MOD_ID, "textures/entity/horse/armor/horse_armor_" + name + ".png"), new Properties().stacksTo(1));
         DispenserBlock.registerBehavior(this, HORSE_ARMOR_DISPENSE_ITEM_BEHAVIOR);
     }
 }

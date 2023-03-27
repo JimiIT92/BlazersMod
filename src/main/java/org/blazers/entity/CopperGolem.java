@@ -16,6 +16,7 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -37,25 +38,24 @@ import org.blazers.entity.goal.CopperGolemRandomStrollGoal;
 import org.blazers.event.EventUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.object.PlayState;
 
 import java.util.Locale;
 
 /**
  * Implementation class for a {@link PathfinderMob Copper Golem}
  */
-public class CopperGolem extends PathfinderMob implements IAnimatable {
+public class CopperGolem extends PathfinderMob implements GeoEntity {
 
     /**
-     * {@link CopperGolem Copper Golem} {@link AnimationFactory Animation Factory}
+     * {@link CopperGolem Copper Golem} {@link AnimatableInstanceCache Animation Factory}
      */
-    private final AnimationFactory factory = new AnimationFactory(this);
+    private final AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
     /**
      * {@link String Weather State} Data
      */
@@ -251,7 +251,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     public void setWeatherState(final WeatheringCopper.WeatherState weatherState, boolean playSound) {
         if(weatherState.equals(WeatheringCopper.WeatherState.OXIDIZED)) {
             this.goalSelector.getRunningGoals().forEach(WrappedGoal::stop);
-            this.goalSelector.removeAllGoals();
+            this.goalSelector.removeAllGoals(goal -> true);
         } else if(this.goalSelector.getAvailableGoals().isEmpty()) {
             this.registerGoals();
         }
@@ -392,7 +392,7 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
      */
     @Override
     public boolean isInvulnerableTo(@NotNull DamageSource source) {
-        return source.equals(DamageSource.LIGHTNING_BOLT);
+        return source.is(DamageTypes.LIGHTNING_BOLT);
     }
 
     /**
@@ -617,18 +617,17 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     /**
      * Get the {@link CopperGolem Copper Golem} animation
      *
-     * @param event {@link AnimationEvent<T> Animation Event}
+     * @param state {@link AnimationState Animation State}
      * @return {@link CopperGolem Copper Golem} animation
-     * @param <T> Animation Event Type
      */
-    private <T extends IAnimatable> PlayState predicate(AnimationEvent<T> event) {
+    private PlayState predicate(AnimationState state) {
         if(!isOxidized()) {
-            AnimationController<CopperGolem> controller = event.getController();
+            AnimationController<CopperGolem> controller = state.getController();
             if(isPressingCopperButton()) {
                 setAnimation(controller, "animation.copper_golem.interact", false);
             }
             else {
-                setAnimation(controller, event.isMoving() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
+                setAnimation(controller, state.isMoving() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
             }
         }
         return PlayState.CONTINUE;
@@ -642,17 +641,17 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
      * @param loop {@link Boolean If the animation should loop}
      */
     public void setAnimation(final AnimationController<CopperGolem> controller, final String animation, final boolean loop) {
-        controller.setAnimation(new AnimationBuilder().addAnimation(animation, loop));
+        controller.setAnimation(RawAnimation.begin().then(animation, loop ? Animation.LoopType.LOOP : Animation.LoopType.PLAY_ONCE));
     }
 
     /**
-     * Register the {@link CopperGolem Copper Golem} {@link AnimationController Animaiton Controller}
+     * Register the {@link CopperGolem Copper Golem} {@link AnimatableManager.ControllerRegistrar Animation Controller}
      *
-     * @param data {@link AnimationData Animation Data}
+     * @param controllers {@link AnimatableManager.ControllerRegistrar Animation Data}
      */
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(getAnimationController());
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(getAnimationController());
     }
 
     /**
@@ -665,12 +664,12 @@ public class CopperGolem extends PathfinderMob implements IAnimatable {
     }
 
     /**
-     * Get the {@link CopperGolem Copper Golem} {@link AnimationFactory Animation Factory}
+     * Get the {@link CopperGolem Copper Golem} {@link AnimatableInstanceCache Animation Factory}
      *
-     * @return {@link CopperGolem Copper Golem} {@link AnimationFactory Animation Factory}
+     * @return {@link CopperGolem Copper Golem} {@link AnimatableInstanceCache Animation Factory}
      */
     @Override
-    public AnimationFactory getFactory() {
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
         return this.factory;
     }
 

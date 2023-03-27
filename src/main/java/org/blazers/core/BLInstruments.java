@@ -1,6 +1,8 @@
 package org.blazers.core;
 
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -59,46 +61,46 @@ public final class BLInstruments {
      * @return {@link ResourceKey<Instrument> Instrument}
      */
     private static ResourceKey<Instrument> create(String name) {
-        return ResourceKey.create(Registry.INSTRUMENT_REGISTRY, new ResourceLocation(BlazersMod.MOD_ID, name));
+        return ResourceKey.create(Registries.INSTRUMENT, new ResourceLocation(BlazersMod.MOD_ID, name));
     }
 
     /**
      * Register all {@link ResourceKey<Instrument> Instruments}
      */
     public static void register() {
-        Registry.register(Registry.INSTRUMENT, BRO_GOAT_HORN, createInstrument(BLSounds.GOAT_HORN_BRO));
-        Registry.register(Registry.INSTRUMENT, FLY_GOAT_HORN, createInstrument(BLSounds.GOAT_HORN_FLY));
-        Registry.register(Registry.INSTRUMENT, RESIST_GOAT_HORN, createInstrument(BLSounds.GOAT_HORN_RESIST));
-        Registry.register(Registry.INSTRUMENT, GREAT_SKY_FALLING_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_GREAT_SKY_FALLING));
-        Registry.register(Registry.INSTRUMENT, GREAT_SKY_FALLING_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_GREAT_SKY_FALLING_BASS));
-        Registry.register(Registry.INSTRUMENT, GREAT_SKY_FALLING_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_GREAT_SKY_FALLING_HARMONY));
-        Registry.register(Registry.INSTRUMENT, OLD_HYMN_RESTING_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_OLD_HYMN_RESTING));
-        Registry.register(Registry.INSTRUMENT, OLD_HYMN_RESTING_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_OLD_HYMN_RESTING_BASS));
-        Registry.register(Registry.INSTRUMENT, OLD_HYMN_RESTING_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_OLD_HYMN_RESTING_HARMONY));
-        Registry.register(Registry.INSTRUMENT, PURE_WATER_DESIRE_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_PURE_WATER_DESIRE));
-        Registry.register(Registry.INSTRUMENT, PURE_WATER_DESIRE_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_PURE_WATER_DESIRE_BASS));
-        Registry.register(Registry.INSTRUMENT, PURE_WATER_DESIRE_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_PURE_WATER_DESIRE_HARMONY));
-        Registry.register(Registry.INSTRUMENT, MUMBLE_FIRE_MEMORY_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_MUMBLE_FIRE_MEMORY));
-        Registry.register(Registry.INSTRUMENT, MUMBLE_FIRE_MEMORY_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_MUMBLE_FIRE_MEMORY_BASS));
-        Registry.register(Registry.INSTRUMENT, MUMBLE_FIRE_MEMORY_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_MUMBLE_FIRE_MEMORY_HARMONY));
-        Registry.register(Registry.INSTRUMENT, DRY_URGE_ANGER_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_DRY_URGE_ANGER));
-        Registry.register(Registry.INSTRUMENT, DRY_URGE_ANGER_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_DRY_URGE_ANGER_BASS));
-        Registry.register(Registry.INSTRUMENT, DRY_URGE_ANGER_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_DRY_URGE_ANGER_HARMONY));
-        Registry.register(Registry.INSTRUMENT, CLEAR_TEMPER_JOURNEY_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_CLEAR_TEMPER_JOURNEY));
-        Registry.register(Registry.INSTRUMENT, CLEAR_TEMPER_JOURNEY_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_CLEAR_TEMPER_JOURNEY_BASS));
-        Registry.register(Registry.INSTRUMENT, CLEAR_TEMPER_JOURNEY_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_CLEAR_TEMPER_JOURNEY_HARMONY));
-        Registry.register(Registry.INSTRUMENT, FRESH_NEST_THOUGHT_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_FRESH_NEST_THOUGHT));
-        Registry.register(Registry.INSTRUMENT, FRESH_NEST_THOUGHT_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_FRESH_NEST_THOUGHT_BASS));
-        Registry.register(Registry.INSTRUMENT, FRESH_NEST_THOUGHT_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_FRESH_NEST_THOUGHT_HARMONY));
-        Registry.register(Registry.INSTRUMENT, SECRET_LAKE_TEAR_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_SECRET_LAKE_TEAR));
-        Registry.register(Registry.INSTRUMENT, SECRET_LAKE_TEAR_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_SECRET_LAKE_TEAR_BASS));
-        Registry.register(Registry.INSTRUMENT, SECRET_LAKE_TEAR_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_SECRET_LAKE_TEAR_HARMONY));
-        Registry.register(Registry.INSTRUMENT, FEARLESS_RIVER_GIFT_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_FEARLESS_RIVER_GIFT));
-        Registry.register(Registry.INSTRUMENT, FEARLESS_RIVER_GIFT_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_FEARLESS_RIVER_GIFT_BASS));
-        Registry.register(Registry.INSTRUMENT, FEARLESS_RIVER_GIFT_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_FEARLESS_RIVER_GIFT_HARMONY));
-        Registry.register(Registry.INSTRUMENT, SWEET_MOON_LOVE_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_SWEET_MOON_LOVE));
-        Registry.register(Registry.INSTRUMENT, SWEET_MOON_LOVE_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_SWEET_MOON_LOVE_BASS));
-        Registry.register(Registry.INSTRUMENT, SWEET_MOON_LOVE_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_SWEET_MOON_LOVE_HARMONY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, BRO_GOAT_HORN, createInstrument(BLSounds.GOAT_HORN_BRO));
+        Registry.register(BuiltInRegistries.INSTRUMENT, FLY_GOAT_HORN, createInstrument(BLSounds.GOAT_HORN_FLY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, RESIST_GOAT_HORN, createInstrument(BLSounds.GOAT_HORN_RESIST));
+        Registry.register(BuiltInRegistries.INSTRUMENT, GREAT_SKY_FALLING_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_GREAT_SKY_FALLING));
+        Registry.register(BuiltInRegistries.INSTRUMENT, GREAT_SKY_FALLING_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_GREAT_SKY_FALLING_BASS));
+        Registry.register(BuiltInRegistries.INSTRUMENT, GREAT_SKY_FALLING_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_GREAT_SKY_FALLING_HARMONY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, OLD_HYMN_RESTING_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_OLD_HYMN_RESTING));
+        Registry.register(BuiltInRegistries.INSTRUMENT, OLD_HYMN_RESTING_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_OLD_HYMN_RESTING_BASS));
+        Registry.register(BuiltInRegistries.INSTRUMENT, OLD_HYMN_RESTING_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_OLD_HYMN_RESTING_HARMONY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, PURE_WATER_DESIRE_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_PURE_WATER_DESIRE));
+        Registry.register(BuiltInRegistries.INSTRUMENT, PURE_WATER_DESIRE_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_PURE_WATER_DESIRE_BASS));
+        Registry.register(BuiltInRegistries.INSTRUMENT, PURE_WATER_DESIRE_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_PURE_WATER_DESIRE_HARMONY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, MUMBLE_FIRE_MEMORY_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_MUMBLE_FIRE_MEMORY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, MUMBLE_FIRE_MEMORY_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_MUMBLE_FIRE_MEMORY_BASS));
+        Registry.register(BuiltInRegistries.INSTRUMENT, MUMBLE_FIRE_MEMORY_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_MUMBLE_FIRE_MEMORY_HARMONY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, DRY_URGE_ANGER_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_DRY_URGE_ANGER));
+        Registry.register(BuiltInRegistries.INSTRUMENT, DRY_URGE_ANGER_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_DRY_URGE_ANGER_BASS));
+        Registry.register(BuiltInRegistries.INSTRUMENT, DRY_URGE_ANGER_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_DRY_URGE_ANGER_HARMONY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, CLEAR_TEMPER_JOURNEY_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_CLEAR_TEMPER_JOURNEY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, CLEAR_TEMPER_JOURNEY_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_CLEAR_TEMPER_JOURNEY_BASS));
+        Registry.register(BuiltInRegistries.INSTRUMENT, CLEAR_TEMPER_JOURNEY_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_CLEAR_TEMPER_JOURNEY_HARMONY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, FRESH_NEST_THOUGHT_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_FRESH_NEST_THOUGHT));
+        Registry.register(BuiltInRegistries.INSTRUMENT, FRESH_NEST_THOUGHT_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_FRESH_NEST_THOUGHT_BASS));
+        Registry.register(BuiltInRegistries.INSTRUMENT, FRESH_NEST_THOUGHT_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_FRESH_NEST_THOUGHT_HARMONY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, SECRET_LAKE_TEAR_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_SECRET_LAKE_TEAR));
+        Registry.register(BuiltInRegistries.INSTRUMENT, SECRET_LAKE_TEAR_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_SECRET_LAKE_TEAR_BASS));
+        Registry.register(BuiltInRegistries.INSTRUMENT, SECRET_LAKE_TEAR_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_SECRET_LAKE_TEAR_HARMONY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, FEARLESS_RIVER_GIFT_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_FEARLESS_RIVER_GIFT));
+        Registry.register(BuiltInRegistries.INSTRUMENT, FEARLESS_RIVER_GIFT_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_FEARLESS_RIVER_GIFT_BASS));
+        Registry.register(BuiltInRegistries.INSTRUMENT, FEARLESS_RIVER_GIFT_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_FEARLESS_RIVER_GIFT_HARMONY));
+        Registry.register(BuiltInRegistries.INSTRUMENT, SWEET_MOON_LOVE_COPPER_HORN, createInstrument(BLSounds.COPPER_HORN_SWEET_MOON_LOVE));
+        Registry.register(BuiltInRegistries.INSTRUMENT, SWEET_MOON_LOVE_COPPER_HORN_BASS, createInstrument(BLSounds.COPPER_HORN_SWEET_MOON_LOVE_BASS));
+        Registry.register(BuiltInRegistries.INSTRUMENT, SWEET_MOON_LOVE_COPPER_HORN_HARMONY, createInstrument(BLSounds.COPPER_HORN_SWEET_MOON_LOVE_HARMONY));
 
     }
 
@@ -109,7 +111,7 @@ public final class BLInstruments {
      * @return {@link Instrument Instrument}
      */
     private static Instrument createInstrument(RegistryObject<SoundEvent> sound) {
-        return new Instrument(sound.get(), 140, 256.0F);
+        return new Instrument(sound.getHolder().get(), 140, 256.0F);
     }
 
 }

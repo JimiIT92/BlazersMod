@@ -14,7 +14,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import org.blazers.BlazersMod;
-import org.blazers.core.BLTabs;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -26,7 +25,7 @@ public class CarbonBowItem extends BowItem {
      * Constructor. Sets the {@link org.blazers.core.BLItems#CARBON_BOW Carbon Bow} {@link net.minecraft.world.item.Item.Properties Properties}
      */
     public CarbonBowItem() {
-        super(new Properties().tab(BLTabs.TAB_COMBAT).durability(384));
+        super(new Properties().durability(384));
     }
 
     /**
