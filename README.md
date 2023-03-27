@@ -1,6 +1,7 @@
-# LA MOD DEI BLAZERS! <img align="left" width=4% height=4% src="src/main/resources/assets/blazersmod/icon.png"/> 
-[![](https://img.shields.io/badge/Minecraft-1.18.2%20|%201.19.2-success)](https://minecraft.net/) 
-[![](https://img.shields.io/badge/Forge-1.18.2--40.1.53%20|%201.19.2--43.1.2-important?logo=curseforge)](https://forums.minecraftforge.net/) 
+# LA MOD DEI BLAZERS! <img align="left" width=4% height=4% src="src/main/resources/icon.png"/>
+[![](https://img.shields.io/badge/Minecraft-1.19.4-success)](https://minecraft.net/)
+[![](https://img.shields.io/badge/Forge-1.19.4--45.0.25-important?logo=curseforge)](https://forums.minecraftforge.net/)
+[![](https://img.shields.io/badge/Fabric-1.19.4--0.76.0-informational?logo=curseforge)](https://fabricmc.net/")
 [![](http://cf.way2muchnoise.eu/full_637993_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/blazers-mod)
 
 La prima, storica, ufficiale mod dei Blazers, i veri fan di [ErenBlaze](https://www.youtube.com/c/ErenBlaze)!
@@ -32,14 +33,14 @@ Quindi, benchè questa sia la _mod dei blazers_, è in realtà adatta a praticam
 
 # 🌐 Dove posso scaricarla?
 
-La mod è scaricabile **esclusivamente** da [CurseForge](https://www.curseforge.com/minecraft/mc-mods/blazers-mod). 
+La mod è scaricabile **esclusivamente** da [CurseForge](https://www.curseforge.com/minecraft/mc-mods/blazers-mod).
 Se avete ottenuto la mod tramite altri siti **cancellate il file immediatamente**, poichè potrebbe essere dannoso.
 
-Ogni aggiornamento e nuova release verranno rilasciate lì, seguite da un aggiornamento (per il momento) sul sito di [MineWorld](https://mineworldminecraft.altervista.org/blog/blazers-mod-versione-1-18-e-importanti-novita), la mia mod personale. 
+Ogni aggiornamento e nuova release verranno rilasciate lì, seguite da un aggiornamento (per il momento) sul sito di [MineWorld](https://mineworldminecraft.altervista.org/blog/blazers-mod-versione-1-18-e-importanti-novita), la mia mod personale.
 
 A breve arriverà anche un sito dedicato interamente al progetto, con la wiki dei vari crafting, blocchi, oggetti, mob..
 
-Restate sintonizzati per scoprire il futuro della Blazers Mod e come questo sarà strettamente collegato a MineWorld 👀 
+Restate sintonizzati per scoprire il futuro della Blazers Mod e come questo sarà strettamente collegato a MineWorld 👀
 
 # 🔗 Posso contribuire?
 
@@ -69,6 +70,9 @@ _[Ko-Fi](https://ko-fi.com/jimi_)_
 
 Tutto il codice della mod è stato scritto da me, con la gentile collaborazione dei ragazzi del [Forum di Minecraft Forge](https://forums.minecraftforge.net/),
 grazie ai quali ho potuto risolvere alcuni bug ostici saltati fuori durante lo sviluppo.
+
+Ringrazio, inoltre, tutti coloro che mi hanno aiutato col porting della mod per Fabric, ovvero i membri del
+[Server Discord ufficiale](https://discord.com/invite/v6v4pMv) e del [Server Discord di Kaupenjoe](https://url.kaupenjoe.net/discord)
 
 Le texture e l'idea originale della mod sono tutte a opera di ErenBlaze.
 
