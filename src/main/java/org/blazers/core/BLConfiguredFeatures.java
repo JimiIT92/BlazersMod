@@ -52,7 +52,7 @@ public final class BLConfiguredFeatures {
         register(context, ORE_RUBY, Feature.ORE, new OreFeatureConfig(oreRuby, 4));
         register(context, ORE_MALACHITE, Feature.ORE, new OreFeatureConfig(oreMalachite, 7));
         register(context, ORE_ONICE, Feature.ORE, new OreFeatureConfig(oreOnice, 7));
-        register(context, ORE_URANIUM, Feature.ORE, new OreFeatureConfig(oreUranium, 4));
+        register(context, ORE_URANIUM, Feature.SCATTERED_ORE, new OreFeatureConfig(oreUranium, 4, 1.0F));
 
         register(context, CATTAIL, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(BLBlocks.CATTAIL)));
         register(context, FALLEN_BIRCH_TREE, BLFeatures.FALLEN_BIRCH_TREE, new ProbabilityConfig(0.1F));

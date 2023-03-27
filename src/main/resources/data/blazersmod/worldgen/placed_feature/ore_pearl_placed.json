@@ -1,19 +1,19 @@
 {
-  "feature": "blazersmod:ore_ruby",
+  "feature": "blazersmod:ore_pearl",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 7
+      "count": 40
     },
     {
       "type": "minecraft:height_range",
       "height": {
-        "type": "minecraft:uniform",
+        "type": "minecraft:trapezoid",
         "max_inclusive": {
-          "above_bottom": 10
+          "above_bottom": 480
         },
         "min_inclusive": {
-          "below_top": 10
+          "above_bottom": -16
         }
       }
     },

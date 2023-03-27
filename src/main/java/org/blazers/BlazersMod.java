@@ -32,8 +32,8 @@ public final class BlazersMod implements ModInitializer {
         BLBlocks.registerFlammableBlocks();
         BLBlocks.registerDispenserBehaviors();
         BLEntityTypes.registerAttributes();
-        BLFlowersGeneration.generateFlowers();
         BLOreGeneration.generateOres();
+        BLFlowersGeneration.generateFlowers();
         BLEntitiesGeneration.generateEntities();
 
         GeckoLib.initialize();

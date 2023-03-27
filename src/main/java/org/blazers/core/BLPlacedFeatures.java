@@ -36,7 +36,7 @@ public final class BLPlacedFeatures {
         register(context, ORE_MALACHITE, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.ORE_MALACHITE), modifiersWithCount(7, PlacedFeatures.TEN_ABOVE_AND_BELOW_RANGE));
         register(context, ORE_ONICE, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.ORE_ONICE), modifiersWithCount(7, PlacedFeatures.TEN_ABOVE_AND_BELOW_RANGE));
 
-        register(context, ORE_URANIUM, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.ORE_URANIUM), List.of(SquarePlacementModifier.of(), HeightRangePlacementModifier.trapezoid(YOffset.fixed(8), YOffset.fixed(24)), BiomePlacementModifier.of()));
+        register(context, ORE_URANIUM, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.ORE_URANIUM), List.of(SquarePlacementModifier.of(), PlacedFeatures.EIGHT_ABOVE_AND_BELOW_RANGE, BiomePlacementModifier.of()));
 
         register(context, CATTAIL, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.CATTAIL), List.of(SquarePlacementModifier.of(), PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP, CountPlacementModifier.of(80), BiomePlacementModifier.of()));
 
@@ -45,7 +45,7 @@ public final class BLPlacedFeatures {
     }
 
     private static List<PlacementModifier> getCommonOrePlacements(int count, int minHeight, int maxHeight) {
-        return modifiersWithCount(7, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80)));
+        return modifiersWithCount(count, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(minHeight), YOffset.aboveBottom(maxHeight)));
     }
 
     private static void register(Registerable<PlacedFeature> context, RegistryKey<PlacedFeature> key, RegistryEntry<ConfiguredFeature<?, ?>> configuration,
