@@ -5,16 +5,17 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.ProjectileDamageSource;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.blazers.core.BLDamageTypes;
 import org.blazers.core.BLItems;
 import org.jetbrains.annotations.Nullable;
 
@@ -60,7 +61,7 @@ public class SpearEntity extends PersistentProjectileEntity {
         if (entity instanceof LivingEntity livingEntity) {
             f += EnchantmentHelper.getAttackDamage(this.spearItem, livingEntity.getGroup());
         }
-        DamageSource damageSource = new ProjectileDamageSource("spear", this, (entity2 = this.getOwner()) == null ? this : entity2).setProjectile();
+        DamageSource damageSource = new DamageSource(this.world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(BLDamageTypes.SPEAR), this, (entity2 = this.getOwner()) == null ? this : entity2);
         this.dealtDamage = true;
         SoundEvent soundEvent = SoundEvents.ITEM_TRIDENT_HIT;
         if (entity.damage(damageSource, f)) {

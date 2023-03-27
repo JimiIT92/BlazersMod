@@ -26,7 +26,7 @@ public class CattailBlock extends TallPlantBlock implements Waterloggable {
     private static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     public CattailBlock() {
-        super(FabricBlockSettings.of(Material.PLANT).noCollision().nonOpaque().breakInstantly().sounds(BlockSoundGroup.SMALL_DRIPLEAF).offsetType(OffsetType.XZ));
+        super(FabricBlockSettings.of(Material.PLANT).noCollision().nonOpaque().breakInstantly().sounds(BlockSoundGroup.SMALL_DRIPLEAF).offset(OffsetType.XZ));
         this.setDefaultState(this.stateManager.getDefaultState().with(HALF, DoubleBlockHalf.LOWER).with(WATERLOGGED, Boolean.FALSE));
     }
 

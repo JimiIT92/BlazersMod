@@ -1,6 +1,6 @@
 package org.blazers.core;
 
-import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
@@ -45,13 +45,13 @@ public enum BLArmorMaterials implements ArmorMaterial {
     }
 
     @Override
-    public int getDurability(EquipmentSlot slot) {
-        return BASE_DURABILITY[slot.getEntitySlotId()] * this.durabilityMultiplier;
+    public int getDurability(ArmorItem.Type slot) {
+        return BASE_DURABILITY[slot.getEquipmentSlot().getEntitySlotId()] * this.durabilityMultiplier;
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot slot) {
-        return this.protectionAmounts[slot.getEntitySlotId()];
+    public int getProtection(ArmorItem.Type slot) {
+        return this.protectionAmounts[slot.getEquipmentSlot().getEntitySlotId()];
     }
 
     @Override

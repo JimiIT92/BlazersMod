@@ -87,7 +87,7 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
     private final Block MATERIAL_BLOCK;
 
     public BLPointedDripstoneBlock(Block materialBlock) {
-        super(AbstractBlock.Settings.of(materialBlock.getDefaultState().getMaterial(), materialBlock.getDefaultMapColor()).nonOpaque().sounds(materialBlock.getDefaultState().getSoundGroup()).ticksRandomly().strength(1.5f, 6.0f).dynamicBounds().offsetType(AbstractBlock.OffsetType.XZ));
+        super(AbstractBlock.Settings.of(materialBlock.getDefaultState().getMaterial(), materialBlock.getDefaultMapColor()).nonOpaque().sounds(materialBlock.getDefaultState().getSoundGroup()).ticksRandomly().strength(1.5f, 6.0f).dynamicBounds().offset(AbstractBlock.OffsetType.XZ));
         this.setDefaultState(this.stateManager.getDefaultState().with(VERTICAL_DIRECTION, Direction.UP).with(THICKNESS, Thickness.TIP).with(WATERLOGGED, false));
         this.MATERIAL_BLOCK = materialBlock;
     }
@@ -138,7 +138,7 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
     @Override
     public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
         if (state.get(VERTICAL_DIRECTION) == Direction.UP && state.get(THICKNESS) == Thickness.TIP) {
-            entity.handleFallDamage(fallDistance + 2.0f, 2.0f, DamageSource.STALAGMITE);
+            entity.handleFallDamage(fallDistance + 2.0f, 2.0f, world.getDamageSources().stalagmite());
         } else {
             super.onLandedUpon(world, state, pos, entity, fallDistance);
         }
@@ -276,7 +276,7 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
 
     @Override
     public DamageSource getDamageSource(Entity attacker) {
-        return DamageSource.STALAGMITE;
+        return attacker.getDamageSources().fallingStalactite(attacker);
     }
 
     @Override

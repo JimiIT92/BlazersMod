@@ -25,4 +25,17 @@ public class FletchingScreen extends ForgingScreen<FletchingScreenHandler> {
         RenderSystem.disableBlend();
         super.drawForeground(matrices, mouseX, mouseY);
     }
+
+    @Override
+    protected void drawInvalidRecipeArrow(MatrixStack matrices, int x, int y) {
+        if (this.hasInvalidRecipe()) {
+            drawTexture(matrices, x + 99, y + 45, this.backgroundWidth, 0, 28, 21);
+        }
+    }
+
+    private boolean hasInvalidRecipe() {
+        return (this.handler).getSlot(0).hasStack() &&
+                (this.handler).getSlot(1).hasStack() &&
+                !(this.handler).getSlot((this.handler).getResultSlotIndex()).hasStack();
+    }
 }

@@ -40,8 +40,8 @@ public final class BLPlacedFeatures {
 
         register(context, CATTAIL, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.CATTAIL), List.of(SquarePlacementModifier.of(), PlacedFeatures.OCEAN_FLOOR_WG_HEIGHTMAP, CountPlacementModifier.of(80), BiomePlacementModifier.of()));
 
-        register(context, FALLEN_BIRCH_TREE, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.FALLEN_BIRCH_TREE), VegetationPlacedFeatures.modifiers(PlacedFeatures.createCountExtraModifier(3, 0.1F, 2)));
-        register(context, FALLEN_HOLLOW_BIRCH_TREE, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.FALLEN_HOLLOW_BIRCH_TREE), VegetationPlacedFeatures.modifiers(PlacedFeatures.createCountExtraModifier(3, 0.1F, 2)));
+        register(context, FALLEN_BIRCH_TREE, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.FALLEN_BIRCH_TREE), VegetationPlacedFeatures.treeModifiers(PlacedFeatures.createCountExtraModifier(3, 0.1F, 2)));
+        register(context, FALLEN_HOLLOW_BIRCH_TREE, configuredFeatureRegistryEntryLookup.getOrThrow(BLConfiguredFeatures.FALLEN_HOLLOW_BIRCH_TREE), VegetationPlacedFeatures.treeModifiers(PlacedFeatures.createCountExtraModifier(3, 0.1F, 2)));
     }
 
     private static List<PlacementModifier> getCommonOrePlacements(int count, int minHeight, int maxHeight) {

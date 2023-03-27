@@ -3,7 +3,6 @@ package org.blazers.item;
 import com.mojang.datafixers.util.Pair;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
@@ -13,7 +12,7 @@ public class PreEnchantedArmorItem extends ArmorItem implements IPreEnchantedIte
     private final Enchantment enchantment;
     private final int level;
 
-    public PreEnchantedArmorItem(ArmorMaterial material, EquipmentSlot slot, Enchantment enchantment, int level) {
+    public PreEnchantedArmorItem(ArmorMaterial material, Type slot, Enchantment enchantment, int level) {
         super(material, slot, new FabricItemSettings());
         this.enchantment = enchantment;
         this.level = level;

@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -90,47 +89,47 @@ public final class BLItems {
     public static final Item RED_KATANA = registerKatana("red_katana");
     public static final Item BLACK_KATANA = registerKatana("black_katana");
 
-    public static final Item EMERALD_HELMET = registerArmorItem("emerald_helmet", BLArmorMaterials.EMERALD, EquipmentSlot.HEAD);
-    public static final Item EMERALD_CHESTPLATE = registerArmorItem("emerald_chestplate", BLArmorMaterials.EMERALD, EquipmentSlot.CHEST);
-    public static final Item EMERALD_LEGGINGS = registerArmorItem("emerald_leggings", BLArmorMaterials.EMERALD, EquipmentSlot.LEGS);
-    public static final Item EMERALD_BOOTS = registerArmorItem("emerald_boots", BLArmorMaterials.EMERALD, EquipmentSlot.FEET);
-    public static final Item AMETHYST_HELMET = registerArmorItem("amethyst_helmet", BLArmorMaterials.AMETHYST, EquipmentSlot.HEAD);
-    public static final Item AMETHYST_CHESTPLATE = registerArmorItem("amethyst_chestplate", BLArmorMaterials.AMETHYST, EquipmentSlot.CHEST);
-    public static final Item AMETHYST_LEGGINGS = registerArmorItem("amethyst_leggings", BLArmorMaterials.AMETHYST, EquipmentSlot.LEGS);
-    public static final Item AMETHYST_BOOTS = registerArmorItem("amethyst_boots", BLArmorMaterials.AMETHYST, EquipmentSlot.FEET);
-    public static final Item SAPPHIRE_HELMET = registerArmorItem("sapphire_helmet", BLArmorMaterials.SAPPHIRE, EquipmentSlot.HEAD);
-    public static final Item SAPPHIRE_CHESTPLATE = registerArmorItem("sapphire_chestplate", BLArmorMaterials.SAPPHIRE, EquipmentSlot.CHEST);
-    public static final Item SAPPHIRE_LEGGINGS = registerArmorItem("sapphire_leggings", BLArmorMaterials.SAPPHIRE, EquipmentSlot.LEGS);
-    public static final Item SAPPHIRE_BOOTS = registerArmorItem("sapphire_boots", BLArmorMaterials.SAPPHIRE, EquipmentSlot.FEET);
-    public static final Item TOPAZ_HELMET = registerArmorItem("topaz_helmet", BLArmorMaterials.TOPAZ, EquipmentSlot.HEAD);
-    public static final Item TOPAZ_CHESTPLATE = registerArmorItem("topaz_chestplate", BLArmorMaterials.TOPAZ, EquipmentSlot.CHEST);
-    public static final Item TOPAZ_LEGGINGS = registerArmorItem("topaz_leggings", BLArmorMaterials.TOPAZ, EquipmentSlot.LEGS);
-    public static final Item TOPAZ_BOOTS = registerArmorItem("topaz_boots", BLArmorMaterials.TOPAZ, EquipmentSlot.FEET);
-    public static final Item PEARL_HELMET = registerArmorItem("pearl_helmet", BLArmorMaterials.PEARL, EquipmentSlot.HEAD);
-    public static final Item PEARL_CHESTPLATE = registerArmorItem("pearl_chestplate", BLArmorMaterials.PEARL, EquipmentSlot.CHEST);
-    public static final Item PEARL_LEGGINGS = registerArmorItem("pearl_leggings", BLArmorMaterials.PEARL, EquipmentSlot.LEGS);
-    public static final Item PEARL_BOOTS = registerArmorItem("pearl_boots", BLArmorMaterials.PEARL, EquipmentSlot.FEET);
-    public static final Item RUBY_HELMET = registerArmorItem("ruby_helmet", BLArmorMaterials.RUBY, EquipmentSlot.HEAD);
-    public static final Item RUBY_CHESTPLATE = registerArmorItem("ruby_chestplate", BLArmorMaterials.RUBY, EquipmentSlot.CHEST);
-    public static final Item RUBY_LEGGINGS = registerArmorItem("ruby_leggings", BLArmorMaterials.RUBY, EquipmentSlot.LEGS);
-    public static final Item RUBY_BOOTS = registerArmorItem("ruby_boots", BLArmorMaterials.RUBY, EquipmentSlot.FEET);
-    public static final Item MALACHITE_HELMET = registerArmorItem("malachite_helmet", BLArmorMaterials.MALACHITE, EquipmentSlot.HEAD);
-    public static final Item MALACHITE_CHESTPLATE = registerArmorItem("malachite_chestplate", BLArmorMaterials.MALACHITE, EquipmentSlot.CHEST);
-    public static final Item MALACHITE_LEGGINGS = registerArmorItem("malachite_leggings", BLArmorMaterials.MALACHITE, EquipmentSlot.LEGS);
-    public static final Item MALACHITE_BOOTS = registerArmorItem("malachite_boots", BLArmorMaterials.MALACHITE, EquipmentSlot.FEET);
-    public static final Item ONICE_HELMET = registerArmorItem("onice_helmet", BLArmorMaterials.ONICE, EquipmentSlot.HEAD);
-    public static final Item ONICE_CHESTPLATE = registerArmorItem("onice_chestplate", BLArmorMaterials.ONICE, EquipmentSlot.CHEST);
-    public static final Item ONICE_LEGGINGS = registerArmorItem("onice_leggings", BLArmorMaterials.ONICE, EquipmentSlot.LEGS);
-    public static final Item ONICE_BOOTS = registerArmorItem("onice_boots", BLArmorMaterials.ONICE, EquipmentSlot.FEET);
+    public static final Item EMERALD_HELMET = registerArmorItem("emerald_helmet", BLArmorMaterials.EMERALD, ArmorItem.Type.HELMET);
+    public static final Item EMERALD_CHESTPLATE = registerArmorItem("emerald_chestplate", BLArmorMaterials.EMERALD, ArmorItem.Type.CHESTPLATE);
+    public static final Item EMERALD_LEGGINGS = registerArmorItem("emerald_leggings", BLArmorMaterials.EMERALD, ArmorItem.Type.LEGGINGS);
+    public static final Item EMERALD_BOOTS = registerArmorItem("emerald_boots", BLArmorMaterials.EMERALD, ArmorItem.Type.BOOTS);
+    public static final Item AMETHYST_HELMET = registerArmorItem("amethyst_helmet", BLArmorMaterials.AMETHYST, ArmorItem.Type.HELMET);
+    public static final Item AMETHYST_CHESTPLATE = registerArmorItem("amethyst_chestplate", BLArmorMaterials.AMETHYST, ArmorItem.Type.CHESTPLATE);
+    public static final Item AMETHYST_LEGGINGS = registerArmorItem("amethyst_leggings", BLArmorMaterials.AMETHYST, ArmorItem.Type.LEGGINGS);
+    public static final Item AMETHYST_BOOTS = registerArmorItem("amethyst_boots", BLArmorMaterials.AMETHYST, ArmorItem.Type.BOOTS);
+    public static final Item SAPPHIRE_HELMET = registerArmorItem("sapphire_helmet", BLArmorMaterials.SAPPHIRE, ArmorItem.Type.HELMET);
+    public static final Item SAPPHIRE_CHESTPLATE = registerArmorItem("sapphire_chestplate", BLArmorMaterials.SAPPHIRE, ArmorItem.Type.CHESTPLATE);
+    public static final Item SAPPHIRE_LEGGINGS = registerArmorItem("sapphire_leggings", BLArmorMaterials.SAPPHIRE, ArmorItem.Type.LEGGINGS);
+    public static final Item SAPPHIRE_BOOTS = registerArmorItem("sapphire_boots", BLArmorMaterials.SAPPHIRE, ArmorItem.Type.BOOTS);
+    public static final Item TOPAZ_HELMET = registerArmorItem("topaz_helmet", BLArmorMaterials.TOPAZ, ArmorItem.Type.HELMET);
+    public static final Item TOPAZ_CHESTPLATE = registerArmorItem("topaz_chestplate", BLArmorMaterials.TOPAZ, ArmorItem.Type.CHESTPLATE);
+    public static final Item TOPAZ_LEGGINGS = registerArmorItem("topaz_leggings", BLArmorMaterials.TOPAZ, ArmorItem.Type.LEGGINGS);
+    public static final Item TOPAZ_BOOTS = registerArmorItem("topaz_boots", BLArmorMaterials.TOPAZ, ArmorItem.Type.BOOTS);
+    public static final Item PEARL_HELMET = registerArmorItem("pearl_helmet", BLArmorMaterials.PEARL, ArmorItem.Type.HELMET);
+    public static final Item PEARL_CHESTPLATE = registerArmorItem("pearl_chestplate", BLArmorMaterials.PEARL, ArmorItem.Type.CHESTPLATE);
+    public static final Item PEARL_LEGGINGS = registerArmorItem("pearl_leggings", BLArmorMaterials.PEARL, ArmorItem.Type.LEGGINGS);
+    public static final Item PEARL_BOOTS = registerArmorItem("pearl_boots", BLArmorMaterials.PEARL, ArmorItem.Type.BOOTS);
+    public static final Item RUBY_HELMET = registerArmorItem("ruby_helmet", BLArmorMaterials.RUBY, ArmorItem.Type.HELMET);
+    public static final Item RUBY_CHESTPLATE = registerArmorItem("ruby_chestplate", BLArmorMaterials.RUBY, ArmorItem.Type.CHESTPLATE);
+    public static final Item RUBY_LEGGINGS = registerArmorItem("ruby_leggings", BLArmorMaterials.RUBY, ArmorItem.Type.LEGGINGS);
+    public static final Item RUBY_BOOTS = registerArmorItem("ruby_boots", BLArmorMaterials.RUBY, ArmorItem.Type.BOOTS);
+    public static final Item MALACHITE_HELMET = registerArmorItem("malachite_helmet", BLArmorMaterials.MALACHITE, ArmorItem.Type.HELMET);
+    public static final Item MALACHITE_CHESTPLATE = registerArmorItem("malachite_chestplate", BLArmorMaterials.MALACHITE, ArmorItem.Type.CHESTPLATE);
+    public static final Item MALACHITE_LEGGINGS = registerArmorItem("malachite_leggings", BLArmorMaterials.MALACHITE, ArmorItem.Type.LEGGINGS);
+    public static final Item MALACHITE_BOOTS = registerArmorItem("malachite_boots", BLArmorMaterials.MALACHITE, ArmorItem.Type.BOOTS);
+    public static final Item ONICE_HELMET = registerArmorItem("onice_helmet", BLArmorMaterials.ONICE, ArmorItem.Type.HELMET);
+    public static final Item ONICE_CHESTPLATE = registerArmorItem("onice_chestplate", BLArmorMaterials.ONICE, ArmorItem.Type.CHESTPLATE);
+    public static final Item ONICE_LEGGINGS = registerArmorItem("onice_leggings", BLArmorMaterials.ONICE, ArmorItem.Type.LEGGINGS);
+    public static final Item ONICE_BOOTS = registerArmorItem("onice_boots", BLArmorMaterials.ONICE, ArmorItem.Type.BOOTS);
 
-    public static final Item BLAZERITE_HELMET = registerItem("blazerite_helmet", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.HEAD, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item BLAZERITE_CHESTPLATE = registerItem("blazerite_chestplate", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.CHEST, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item BLAZERITE_LEGGINGS = registerItem("blazerite_leggings", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.LEGS, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item BLAZERITE_BOOTS = registerItem("blazerite_boots", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  EquipmentSlot.FEET, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item GYULIANITE_HELMET = registerItem("gyulianite_helmet", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.HEAD, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item GYULIANITE_CHESTPLATE = registerItem("gyulianite_chestplate", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.CHEST, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item GYULIANITE_LEGGINGS = registerItem("gyulianite_leggings", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.LEGS, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item GYULIANITE_BOOTS = registerItem("gyulianite_boots", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  EquipmentSlot.FEET, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
+    public static final Item BLAZERITE_HELMET = registerItem("blazerite_helmet", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.HELMET, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
+    public static final Item BLAZERITE_CHESTPLATE = registerItem("blazerite_chestplate", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.CHESTPLATE, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
+    public static final Item BLAZERITE_LEGGINGS = registerItem("blazerite_leggings", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.LEGGINGS, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
+    public static final Item BLAZERITE_BOOTS = registerItem("blazerite_boots", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.BOOTS, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
+    public static final Item GYULIANITE_HELMET = registerItem("gyulianite_helmet", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.HELMET, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
+    public static final Item GYULIANITE_CHESTPLATE = registerItem("gyulianite_chestplate", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.CHESTPLATE, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
+    public static final Item GYULIANITE_LEGGINGS = registerItem("gyulianite_leggings", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.LEGGINGS, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
+    public static final Item GYULIANITE_BOOTS = registerItem("gyulianite_boots", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.BOOTS, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
 
     public static final Item EMERALD_HORSE_ARMOR = registerHorseArmorItem("emerald_horse_armor",13, "emerald");
     public static final Item SAPPHIRE_HORSE_ARMOR = registerHorseArmorItem("sapphire_horse_armor",13, "sapphire");
@@ -193,7 +192,7 @@ public final class BLItems {
         return registerItem(name, new SwordItem(toolMaterial, attackDamageModifier, attackSpeedModifier, createSimpleItemSettings()), BLTabs.TAB_COMBAT);
     }
 
-    private static Item registerArmorItem(String name, ArmorMaterial armorMaterial, EquipmentSlot slot) {
+    private static Item registerArmorItem(String name, ArmorMaterial armorMaterial, ArmorItem.Type slot) {
         return registerItem(name, new ArmorItem(armorMaterial, slot, createSimpleItemSettings()), BLTabs.TAB_COMBAT);
     }
 

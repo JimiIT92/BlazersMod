@@ -115,7 +115,7 @@ public class FireflyEntity extends AnimalEntity {
         }
 
         if (this.targetPosition == null || this.random.nextInt(10) == 0 || this.targetPosition.isWithinDistance(this.getPos(), 2.0D)) {
-            this.targetPosition = new BlockPos(this.getX() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7), this.getY() + (double)this.random.nextInt(6) - 2.0D, this.getZ() + (double)this.random.nextInt(7) - (double)this.random.nextInt(7));
+            this.targetPosition = new BlockPos(this.getBlockX() + this.random.nextInt(7) - this.random.nextInt(7), this.getBlockY() + this.random.nextInt(6) - 2, this.getBlockZ() + this.random.nextInt(7) - this.random.nextInt(7));
         }
 
         double d2 = (double)this.targetPosition.getX() + 0.5D - this.getX();

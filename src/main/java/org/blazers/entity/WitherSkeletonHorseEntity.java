@@ -39,7 +39,7 @@ public class WitherSkeletonHorseEntity extends HorseEntity {
 
     @Override
     protected void initAttributes(Random random) {
-        Objects.requireNonNull(this.getAttributeInstance(EntityAttributes.HORSE_JUMP_STRENGTH)).setBaseValue(this.getChildJumpStrengthBonus(random));
+        Objects.requireNonNull(this.getAttributeInstance(EntityAttributes.HORSE_JUMP_STRENGTH)).setBaseValue(getChildJumpStrengthBonus(random::nextDouble));
     }
 
     @Override

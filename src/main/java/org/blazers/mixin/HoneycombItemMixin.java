@@ -35,7 +35,10 @@ public final class HoneycombItemMixin {
                 Criteria.ITEM_USED_ON_BLOCK.trigger((ServerPlayerEntity)playerEntity, blockPos, itemStack);
             }
             itemStack.decrement(1);
-            world.setBlockState(blockPos, state.with(Properties.POWERED, false), Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
+            if(state.contains(Properties.POWERED)) {
+                state.with(Properties.POWERED, false);
+            }
+            world.setBlockState(blockPos, state, Block.NOTIFY_ALL | Block.REDRAW_ON_MAIN_THREAD);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Emitter.of(playerEntity, state));
             world.syncWorldEvent(playerEntity, WorldEvents.BLOCK_WAXED, blockPos, 0);
             infoReturnable.setReturnValue(ActionResult.success(world.isClient));

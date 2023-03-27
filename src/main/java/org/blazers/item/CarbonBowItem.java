@@ -30,7 +30,7 @@ public class CarbonBowItem extends BowItem {
             return;
         }
         boolean bl = playerEntity.getAbilities().creativeMode || EnchantmentHelper.getLevel(Enchantments.INFINITY, stack) > 0;
-        ItemStack itemStack = playerEntity.getArrowType(stack);
+        ItemStack itemStack = playerEntity.getProjectileType(stack);
         if (itemStack.isEmpty() && !bl) {
             return;
         }

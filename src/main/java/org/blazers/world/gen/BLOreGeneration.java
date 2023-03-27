@@ -10,13 +10,13 @@ import net.minecraft.world.gen.feature.PlacedFeature;
 public class BLOreGeneration {
 
     public static void generateOres() {
-//        addOverworldOre(BLPlacedFeatures.ORE_SAPPHIRE);
-//        addOverworldOre(BLPlacedFeatures.ORE_TOPAZ);
-//        addUnderwaterOre(BLPlacedFeatures.ORE_PEARL);
-//        addNetherOre(BLPlacedFeatures.ORE_RUBY);
-//        addNetherOre(BLPlacedFeatures.ORE_MALACHITE);
-//        addNetherOre(BLPlacedFeatures.ORE_ONICE);
-//        addNetherOre(BLPlacedFeatures.ORE_URANIUM);
+       /* addOverworldOre(BLPlacedFeatures.ORE_SAPPHIRE);
+        addOverworldOre(BLPlacedFeatures.ORE_TOPAZ);
+        addUnderwaterOre(BLPlacedFeatures.ORE_PEARL);
+        addNetherOre(BLPlacedFeatures.ORE_RUBY);
+        addNetherOre(BLPlacedFeatures.ORE_MALACHITE);
+        addNetherOre(BLPlacedFeatures.ORE_ONICE);
+        addNetherOre(BLPlacedFeatures.ORE_URANIUM);*/
     }
 
     private static void addOverworldOre(RegistryKey<PlacedFeature> ore) {

@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ForgingScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
+import net.minecraft.screen.slot.ForgingSlotsManager;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -31,6 +32,14 @@ public class FletchingScreenHandler extends ForgingScreenHandler {
         super(BLScreenHandlers.FLETCHING, syncId, playerInventory, context);
         this.world = playerInventory.player.world;
         this.recipes = this.world.getRecipeManager().listAllOfType(FletchingRecipe.Type.INSTANCE);
+    }
+
+    @Override
+    protected ForgingSlotsManager getForgingSlotsManager() {
+        return ForgingSlotsManager.create()
+                .input(0, 27, 47, (stack) -> true)
+                .input(1, 76, 47, (stack) -> true)
+                .output(2, 134, 47).build();
     }
 
     @Override
@@ -65,18 +74,22 @@ public class FletchingScreenHandler extends ForgingScreenHandler {
             this.output.setStack(0, ItemStack.EMPTY);
         } else {
             this.currentRecipe = list.get(0);
-            ItemStack itemStack = this.currentRecipe.craft(this.input);
+            ItemStack itemStack = this.currentRecipe.craft(this.input, this.world.getRegistryManager());
             this.output.setLastRecipe(this.currentRecipe);
             this.output.setStack(0, itemStack);
         }
     }
 
-    @Override
-    protected boolean isUsableAsAddition(ItemStack stack) {
-        return this.recipes.stream().anyMatch(recipe -> recipe.testAddition(stack));
+    public int getSlotFor(ItemStack stack) {
+        return this.testAddition(stack) ? 1 : 0;
     }
 
-    @Override
+    protected boolean testAddition(ItemStack stack) {
+        return this.recipes.stream().anyMatch((recipe) -> {
+            return recipe.testAddition(stack);
+        });
+    }
+
     public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
         return slot.inventory != this.output && super.canInsertIntoSlot(stack, slot);
     }

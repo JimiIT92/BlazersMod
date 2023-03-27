@@ -7,6 +7,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -211,7 +212,7 @@ public class CopperGolemEntity extends PathAwareEntity implements GeoEntity {
 
     @Override
     public boolean isInvulnerableTo(DamageSource damageSource) {
-        return damageSource.equals(DamageSource.LIGHTNING_BOLT);
+        return damageSource.isOf(DamageTypes.LIGHTNING_BOLT);
     }
 
     @Override

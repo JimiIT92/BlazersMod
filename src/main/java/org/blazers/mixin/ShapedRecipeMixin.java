@@ -7,6 +7,7 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShapedRecipe;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.tag.InstrumentTags;
 import net.minecraft.util.collection.DefaultedList;
 import org.blazers.item.CopperHornItem;
@@ -20,8 +21,8 @@ public final class ShapedRecipeMixin {
 
     ShapedRecipe recipe = (ShapedRecipe) (Object)this;
 
-    @Inject(method = "craft(Lnet/minecraft/inventory/CraftingInventory;)Lnet/minecraft/item/ItemStack;", at=@At("RETURN"), cancellable = true)
-    public void craft(CraftingInventory inventory, CallbackInfoReturnable<ItemStack> infoReturnable) {
+    @Inject(method = "craft(Lnet/minecraft/inventory/CraftingInventory;Lnet/minecraft/registry/DynamicRegistryManager;)Lnet/minecraft/item/ItemStack;", at=@At("RETURN"), cancellable = true)
+    public void craft(CraftingInventory inventory, DynamicRegistryManager registryManager, CallbackInfoReturnable<ItemStack> infoReturnable) {
         ItemStack recipeResult = infoReturnable.getReturnValue();
         Item item = recipeResult.getItem();
         if(item instanceof CopperHornItem) {
