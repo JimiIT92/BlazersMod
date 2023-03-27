@@ -4,9 +4,13 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.decoration.painting.PaintingEntity;
+import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.item.*;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
@@ -14,26 +18,26 @@ import net.minecraft.util.Rarity;
 import org.blazers.BlazersMod;
 import org.blazers.item.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+
+import static net.minecraft.item.ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS;
 
 public final class BLItems {
 
     private static final HashMap<ItemGroup, List<ItemStack>> itemGroups = new HashMap<>();
 
+    public static final Item RAW_URANIUM = registerSimpleItem("raw_uranium");
     public static final Item SAPPHIRE = registerSimpleItem("sapphire");
     public static final Item TOPAZ = registerSimpleItem("topaz");
     public static final Item PEARL = registerSimpleItem("pearl");
     public static final Item RUBY = registerSimpleItem("ruby");
     public static final Item MALACHITE = registerSimpleItem("malachite");
     public static final Item ONICE = registerSimpleItem("onice");
-    public static final Item RAW_URANIUM = registerSimpleItem("raw_uranium");
-    public static final Item URANIUM_INGOT = registerSimpleItem("uranium_ingot");
-    public static final Item CARBON = registerSimpleItem("carbon");
-    public static final Item URANIUM_NUGGET = registerSimpleItem("uranium_nugget");
     public static final Item BLAZERITE = registerRareItem("blazerite");
     public static final Item GYULIANITE = registerRareItem("gyulianite");
+    public static final Item URANIUM_NUGGET = registerSimpleItem("uranium_nugget");
+    public static final Item URANIUM_INGOT = registerSimpleItem("uranium_ingot");
+    public static final Item CARBON = registerSimpleItem("carbon");
 
     public static final Item HOSOMAKI = registerFood("hosomaki", BLFoods.HOSOMAKI);
     public static final Item NIGIRI = registerFood("nigiri", BLFoods.NIGIRI);
@@ -67,9 +71,9 @@ public final class BLItems {
     public static final Item MALACHITE_SPEAR = registerSpearItem("malachite_spear", BLToolMaterials.MALACHITE, 3);
 
     public static final Item BLAZERITE_SWORD = registerItem("blazerite_sword",
-            new PreEnchantedSwordItem(BLToolMaterials.BLAZERITE, Enchantments.FIRE_ASPECT, 10), BLTabs.TAB_COMBAT);
+            new PreEnchantedSwordItem(BLToolMaterials.BLAZERITE, Enchantments.FIRE_ASPECT, 10), BLTabs.COMBAT);
     public static final Item GYULIANITE_SWORD = registerItem("gyulianite_sword",
-            new PreEnchantedSwordItem(BLToolMaterials.GYULIANITE, Enchantments.KNOCKBACK, 10), BLTabs.TAB_COMBAT);
+            new PreEnchantedSwordItem(BLToolMaterials.GYULIANITE, Enchantments.KNOCKBACK, 10), BLTabs.COMBAT);
 
     public static final Item KATANA = registerKatana("katana");
     public static final Item WHITE_KATANA = registerKatana("white_katana");
@@ -122,14 +126,14 @@ public final class BLItems {
     public static final Item ONICE_LEGGINGS = registerArmorItem("onice_leggings", BLArmorMaterials.ONICE, ArmorItem.Type.LEGGINGS);
     public static final Item ONICE_BOOTS = registerArmorItem("onice_boots", BLArmorMaterials.ONICE, ArmorItem.Type.BOOTS);
 
-    public static final Item BLAZERITE_HELMET = registerItem("blazerite_helmet", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.HELMET, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item BLAZERITE_CHESTPLATE = registerItem("blazerite_chestplate", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.CHESTPLATE, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item BLAZERITE_LEGGINGS = registerItem("blazerite_leggings", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.LEGGINGS, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item BLAZERITE_BOOTS = registerItem("blazerite_boots", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.BOOTS, Enchantments.FIRE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item GYULIANITE_HELMET = registerItem("gyulianite_helmet", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.HELMET, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item GYULIANITE_CHESTPLATE = registerItem("gyulianite_chestplate", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.CHESTPLATE, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item GYULIANITE_LEGGINGS = registerItem("gyulianite_leggings", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.LEGGINGS, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
-    public static final Item GYULIANITE_BOOTS = registerItem("gyulianite_boots", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.BOOTS, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.TAB_COMBAT);
+    public static final Item BLAZERITE_HELMET = registerItem("blazerite_helmet", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.HELMET, Enchantments.FIRE_PROTECTION, 4), BLTabs.COMBAT);
+    public static final Item BLAZERITE_CHESTPLATE = registerItem("blazerite_chestplate", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.CHESTPLATE, Enchantments.FIRE_PROTECTION, 4), BLTabs.COMBAT);
+    public static final Item BLAZERITE_LEGGINGS = registerItem("blazerite_leggings", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.LEGGINGS, Enchantments.FIRE_PROTECTION, 4), BLTabs.COMBAT);
+    public static final Item BLAZERITE_BOOTS = registerItem("blazerite_boots", new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE,  ArmorItem.Type.BOOTS, Enchantments.FIRE_PROTECTION, 4), BLTabs.COMBAT);
+    public static final Item GYULIANITE_HELMET = registerItem("gyulianite_helmet", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.HELMET, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.COMBAT);
+    public static final Item GYULIANITE_CHESTPLATE = registerItem("gyulianite_chestplate", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.CHESTPLATE, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.COMBAT);
+    public static final Item GYULIANITE_LEGGINGS = registerItem("gyulianite_leggings", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.LEGGINGS, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.COMBAT);
+    public static final Item GYULIANITE_BOOTS = registerItem("gyulianite_boots", new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE,  ArmorItem.Type.BOOTS, Enchantments.PROJECTILE_PROTECTION, 4), BLTabs.COMBAT);
 
     public static final Item EMERALD_HORSE_ARMOR = registerHorseArmorItem("emerald_horse_armor",13, "emerald");
     public static final Item SAPPHIRE_HORSE_ARMOR = registerHorseArmorItem("sapphire_horse_armor",13, "sapphire");
@@ -137,31 +141,31 @@ public final class BLItems {
     public static final Item RUBY_HORSE_ARMOR = registerHorseArmorItem("ruby_horse_armor",13, "ruby");
     public static final Item MALACHITE_HORSE_ARMOR = registerHorseArmorItem("malachite_horse_armor",8, "malachite");
 
-    public static final Item CARBON_BOW = registerItem("carbon_bow", new CarbonBowItem(), BLTabs.TAB_COMBAT);
+    public static final Item CARBON_BOW = registerItem("carbon_bow", new CarbonBowItem(), BLTabs.COMBAT);
 
     public static final Item WITHER_SKELETON_HORSE_SPAWN_EGG = registerSpawnEgg("wither_skeleton_horse_spawn_egg", BLEntityTypes.WITHER_SKELETON_HORSE, 4672845, 1315860);
     public static final Item FIREFLY_SPAWN_EGG = registerSpawnEgg("firefly_spawn_egg", BLEntityTypes.FIREFLY, 0x0A0A0A, 0xF0C43E);
     public static final Item COPPER_GOLEM_SPAWN_EGG = registerSpawnEgg("copper_golem_spawn_egg", BLEntityTypes.COPPER_GOLEM, 0xCC6600, 0x00CC99);
 
-    public static final Item COPPER_HORN = registerItem("copper_horn", new CopperHornItem(), BLTabs.TAB_MISC);
-
     public static final Item MUSIC_DISC_SURVIVAL = registerMusicDisc("music_disc_survival", BLSounds.MUSIC_DISC_SURVIVAL, 28);
     public static final Item MUSIC_DISC_ENDERMAN_VS_BLAZE = registerMusicDisc("music_disc_enderman_vs_blaze", BLSounds.MUSIC_DISC_ENDERMAN_VS_BLAZE, 173);
+
+    public static final Item COPPER_HORN = registerItem("copper_horn", new CopperHornItem(), BLTabs.TOOLS);
 
     private static FabricItemSettings createSimpleItemSettings() {
         return new FabricItemSettings();
     }
 
     private static Item registerFood(String name, FoodComponent foodProperties) {
-        return registerItem(name, new Item(createSimpleItemSettings().food(foodProperties)), BLTabs.TAB_FOOD);
+        return registerItem(name, new Item(createSimpleItemSettings().food(foodProperties)), BLTabs.FOOD_AND_DRINK);
     }
 
     private static Item registerShovel(String name, ToolMaterial toolMaterial) {
-        return registerItem(name, new ShovelItem(toolMaterial, 1.5F, -3.0F, createSimpleItemSettings()), BLTabs.TAB_TOOLS);
+        return registerItem(name, new ShovelItem(toolMaterial, 1.5F, -3.0F, createSimpleItemSettings()), BLTabs.TOOLS);
     }
 
     private static Item registerPickaxe(String name, ToolMaterial toolMaterial) {
-        return registerItem(name, new BLPickaxeItem(toolMaterial), BLTabs.TAB_TOOLS);
+        return registerItem(name, new BLPickaxeItem(toolMaterial), BLTabs.TOOLS);
     }
 
     private static Item registerAxe(String name, ToolMaterial toolMaterial) {
@@ -169,7 +173,7 @@ public final class BLItems {
     }
 
     private static Item registerAxe(String name, ToolMaterial toolMaterial, float attackDamageModifier, float attackSpeedModifier) {
-        return registerItem(name, new BLAxeItem(toolMaterial, attackDamageModifier, attackSpeedModifier), BLTabs.TAB_TOOLS);
+        return registerItem(name, new BLAxeItem(toolMaterial, attackDamageModifier, attackSpeedModifier), BLTabs.TOOLS);
     }
 
     private static Item registerHoe(String name, ToolMaterial toolMaterial) {
@@ -177,7 +181,7 @@ public final class BLItems {
     }
 
     private static Item registerHoe(String name, ToolMaterial toolMaterial, int attackDamageModifier, float attackSpeedModifier) {
-        return registerItem(name, new BLHoeItem(toolMaterial, attackDamageModifier, attackSpeedModifier), BLTabs.TAB_TOOLS);
+        return registerItem(name, new BLHoeItem(toolMaterial, attackDamageModifier, attackSpeedModifier), BLTabs.TOOLS);
     }
 
     private static Item registerKatana(String name) {
@@ -189,55 +193,79 @@ public final class BLItems {
     }
 
     private static Item registerSword(String name, ToolMaterial toolMaterial, int attackDamageModifier, float attackSpeedModifier) {
-        return registerItem(name, new SwordItem(toolMaterial, attackDamageModifier, attackSpeedModifier, createSimpleItemSettings()), BLTabs.TAB_COMBAT);
+        return registerItem(name, new SwordItem(toolMaterial, attackDamageModifier, attackSpeedModifier, createSimpleItemSettings()), BLTabs.COMBAT);
     }
 
     private static Item registerArmorItem(String name, ArmorMaterial armorMaterial, ArmorItem.Type slot) {
-        return registerItem(name, new ArmorItem(armorMaterial, slot, createSimpleItemSettings()), BLTabs.TAB_COMBAT);
+        return registerItem(name, new ArmorItem(armorMaterial, slot, createSimpleItemSettings()), BLTabs.COMBAT);
     }
 
     private static Item registerHorseArmorItem(String name, int protection, String armorName) {
-        return registerItem(name, new BLHorseArmorItem(protection, armorName), BLTabs.TAB_MISC);
+        return registerItem(name, new BLHorseArmorItem(protection, armorName), BLTabs.COMBAT);
     }
 
     private static Item registerSpearItem(String name, ToolMaterial toolMaterial, int attackDamage) {
-        return registerItem(name, new SpearItem(toolMaterial, attackDamage, -2.4F), BLTabs.TAB_COMBAT);
+        return registerItem(name, new SpearItem(toolMaterial, attackDamage, -2.4F), BLTabs.COMBAT);
     }
 
     private static Item registerMusicDisc(String name, SoundEvent sound, int length) {
-        return registerItem(name, new BLMusicDiscItem(sound, length), BLTabs.TAB_MISC);
+        return registerItem(name, new BLMusicDiscItem(sound, length), BLTabs.TOOLS);
     }
 
     private static Item registerSpawnEgg(String name, EntityType entity, int primaryColor, int secondaryColor) {
-        return registerItem(name, new SpawnEggItem(entity, primaryColor, secondaryColor, new FabricItemSettings().maxCount(1)), BLTabs.TAB_MISC);
+        return registerItem(name, new SpawnEggItem(entity, primaryColor, secondaryColor, new FabricItemSettings().maxCount(1)), BLTabs.SPAWN_EGGS);
     }
 
     private static Item registerRareItem(final String name) {
-        return registerItem(name, new Item(createSimpleItemSettings().rarity(Rarity.RARE)), BLTabs.TAB_MISC);
+        return registerItem(name, new Item(createSimpleItemSettings().rarity(Rarity.RARE)), BLTabs.INGREDIENTS);
     }
 
     private static Item registerSimpleItem(final String name) {
-        return registerItem(name, new Item(createSimpleItemSettings()), BLTabs.TAB_MISC);
+        return registerItem(name, new Item(createSimpleItemSettings()), BLTabs.INGREDIENTS);
     }
 
-    public static Item registerItem(final String name, final Item item, final ItemGroup tab) {
+    public static Item registerItem(final String name, final Item item, final ItemGroup... tabs) {
         Item registeredItem = Registry.register(Registries.ITEM, new Identifier(BlazersMod.MOD_ID, name), item);
         if(!(item instanceof CopperHornItem)) {
-            if(!itemGroups.containsKey(tab)) {
-                itemGroups.put(tab, new ArrayList<>());
+            if(tabs != null) {
+                Arrays.stream(tabs).forEach(tab -> {
+                    if(!itemGroups.containsKey(tab)) {
+                        itemGroups.put(tab, new ArrayList<>());
+                    }
+                    itemGroups.get(tab).add(registeredItem.getDefaultStack());
+                });
             }
-            itemGroups.get(tab).add(registeredItem.getDefaultStack());
         }
         return registeredItem;
     }
 
     public static void addItemsToItemGroups() {
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
+            entries.getSearchTabStacks().removeIf(BLItems::isEblPainting);
+            entries.getDisplayStacks().removeIf(BLItems::isEblPainting);
+        });
         itemGroups.forEach((tab, items) -> ItemGroupEvents.modifyEntriesEvent(tab).register(entries -> entries.addAll(items)));
-        ItemGroupEvents.modifyEntriesEvent(BLTabs.TAB_MISC).register(entries -> {
+        ItemGroupEvents.modifyEntriesEvent(BLTabs.TOOLS).register(entries -> {
             for (RegistryEntry<Instrument> registryEntry : Registries.INSTRUMENT.iterateEntries(BLTags.Instruments.MELODY_COPPER_HORNS)) {
                 entries.add(CopperHornItem.getStackForInstrument(COPPER_HORN, registryEntry));
             }
         });
+        ItemGroupEvents.modifyEntriesEvent(BLTabs.FUNCTIONAL).register(entries -> {
+            for (RegistryEntry<PaintingVariant> registryEntry : Registries.PAINTING_VARIANT.iterateEntries(BLTags.Paintings.EBL_PAINTINGS)) {
+                ItemStack itemStack = new ItemStack(Items.PAINTING);
+                NbtCompound nbtCompound = itemStack.getOrCreateSubNbt("EntityTag");
+                PaintingEntity.writeVariantToNbt(nbtCompound, registryEntry);
+                entries.add(itemStack, PARENT_AND_SEARCH_TABS);
+            }
+        });
+    }
+
+    private static boolean isEblPainting(ItemStack stack) {
+        if(stack.isOf(Items.PAINTING) && stack.getSubNbt("EntityTag") != null) {
+            Optional<RegistryEntry.Reference<PaintingVariant>> optionalPaintingVariant = Registries.PAINTING_VARIANT.getEntry(RegistryKey.of(Registries.PAINTING_VARIANT.getKey(), Identifier.tryParse(stack.getSubNbt("EntityTag").getString("variant"))));
+            return optionalPaintingVariant.map(paintingVariantReference -> paintingVariantReference.isIn(BLTags.Paintings.EBL_PAINTINGS)).orElse(false);
+        }
+        return false;
     }
 
     public static void register() {

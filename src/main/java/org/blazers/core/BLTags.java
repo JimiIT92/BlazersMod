@@ -1,6 +1,7 @@
 package org.blazers.core;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.item.Instrument;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.TagKey;
@@ -29,6 +30,16 @@ public final class BLTags {
 
         private static TagKey<Instrument> tag(String name) {
             return TagKey.of(Registries.INSTRUMENT.getKey(), new Identifier(BlazersMod.MOD_ID, name));
+        }
+    }
+
+    public static class Paintings {
+
+        public static final TagKey<PaintingVariant> EBL_PAINTINGS = tag("ebl_paintings");
+
+
+        private static TagKey<PaintingVariant> tag(String name) {
+            return TagKey.of(Registries.PAINTING_VARIANT.getKey(), new Identifier(BlazersMod.MOD_ID, name));
         }
     }
 
