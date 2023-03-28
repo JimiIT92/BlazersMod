@@ -103,6 +103,8 @@ public final class BLTabs {
         CreativeModeTab tab = event.getTab();
         BLTabKeys tabKey = BLTabKeys.fromTab(tab);
         if(tab.equals(CreativeModeTabs.FUNCTIONAL_BLOCKS)) {
+            tab.getDisplayItems().removeIf(BLTabs::isEblPainting);
+            tab.getSearchTabDisplayItems().removeIf(BLTabs::isEblPainting);
             tab.getDisplayItems().stream().filter(BLTabs::isEblPainting).forEach(item -> event.getEntries().remove(item));
         }
         if(tabKey != null) {
@@ -119,7 +121,7 @@ public final class BLTabs {
                 ForgeRegistries.PAINTING_VARIANTS.getValues().stream().map(ForgeRegistries.PAINTING_VARIANTS::getHolder)
                         .filter(Optional::isPresent)
                         .map(Optional::get)
-                        .filter(paintingVariantHolder -> paintingVariantHolder.containsTag(BLTags.Paintings.EBL_PAINTINGS))
+                        .filter(paintingVariantHolder -> paintingVariantHolder.is(BLTags.Paintings.EBL_PAINTINGS))
                         .forEach(paintingVariantHolder -> {
                             ItemStack itemstack = new ItemStack(Items.PAINTING);
                             CompoundTag compoundtag = itemstack.getOrCreateTagElement("EntityTag");
@@ -133,7 +135,7 @@ public final class BLTabs {
     private static boolean isEblPainting(ItemStack stack) {
         if(stack.is(Items.PAINTING) && stack.getTagElement("EntityTag") != null) {
             Optional<Holder<PaintingVariant>> paintingVariant = ForgeRegistries.PAINTING_VARIANTS.getHolder(ResourceLocation.tryParse(stack.getTagElement("EntityTag").getString("variant")));
-            return paintingVariant.map(paintingVariantHolder -> paintingVariantHolder.containsTag(BLTags.Paintings.EBL_PAINTINGS)).orElse(false);
+            return paintingVariant.map(paintingVariantHolder -> paintingVariantHolder.is(BLTags.Paintings.EBL_PAINTINGS)).orElse(false);
         }
         return false;
     }
