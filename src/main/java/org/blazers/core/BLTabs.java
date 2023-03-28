@@ -17,9 +17,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.item.CopperHornItem;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -57,15 +55,15 @@ public final class BLTabs {
     @SubscribeEvent
     public static void register(CreativeModeTabEvent.Register event) {
         BUILDING_BLOCKS = registerTab(event, "building_blocks", () -> new ItemStack(BLBlocks.RUBY_BLOCK.get()));
-        COLORED_BLOCKS = registerTab(event, "colored_blocks", () -> new ItemStack(BLBlocks.YELLOW_CONCRETE_STAIRS.get()));
-        NATURAL = registerTab(event, "natural", () -> new ItemStack(BLBlocks.HOLLOW_BIRCH_LOG.get()));
-        FUNCTIONAL = registerTab(event, "functional", () -> new ItemStack(Items.PAINTING));
-        REDSTONE = registerTab(event, "redstone", () -> new ItemStack(BLBlocks.COPPER_BUTTON.get()));
-        TOOLS = registerTab(event, "tools", () -> new ItemStack(BLItems.EMERALD_PICKAXE.get()));
-        COMBAT = registerTab(event, "combat", () -> new ItemStack(BLItems.KATANA.get()));
-        FOOD_AND_DRINK = registerTab(event, "food_and_drink", () -> new ItemStack(BLItems.SASHIMI.get()));
-        INGREDIENTS = registerTab(event, "ingredients", () -> new ItemStack(BLItems.RUBY.get()));
-        SPAWN_EGGS = registerTab(event, "spawn_eggs", () -> new ItemStack(BLItems.COPPER_GOLEM_SPAWN_EGG.get()));
+        COLORED_BLOCKS = registerTab(event, "colored_blocks", BUILDING_BLOCKS,()  -> new ItemStack(BLBlocks.YELLOW_CONCRETE_STAIRS.get()));
+        NATURAL = registerTab(event, "natural", COLORED_BLOCKS, () -> new ItemStack(BLBlocks.HOLLOW_BIRCH_LOG.get()));
+        FUNCTIONAL = registerTab(event, "functional", NATURAL, () -> new ItemStack(Items.PAINTING));
+        REDSTONE = registerTab(event, "redstone", FUNCTIONAL, () -> new ItemStack(BLBlocks.COPPER_BUTTON.get()));
+        TOOLS = registerTab(event, "tools", REDSTONE, () -> new ItemStack(BLItems.EMERALD_PICKAXE.get()));
+        COMBAT = registerTab(event, "combat", TOOLS, () -> new ItemStack(BLItems.KATANA.get()));
+        FOOD_AND_DRINK = registerTab(event, "food_and_drink", COMBAT, () -> new ItemStack(BLItems.SASHIMI.get()));
+        INGREDIENTS = registerTab(event, "ingredients", FOOD_AND_DRINK, () -> new ItemStack(BLItems.RUBY.get()));
+        SPAWN_EGGS = registerTab(event, "spawn_eggs", INGREDIENTS, () -> new ItemStack(BLItems.COPPER_GOLEM_SPAWN_EGG.get()));
     }
 
     /**
@@ -77,13 +75,40 @@ public final class BLTabs {
      * @return {@link CreativeModeTab Registered Creative Mode Tab}
      */
     private static CreativeModeTab registerTab(CreativeModeTabEvent.Register event, String name, Supplier<ItemStack> iconSupplier) {
+        return registerTab(event, name, CreativeModeTabs.SPAWN_EGGS, iconSupplier);
+    }
+
+    /**
+     * Register a {@link CreativeModeTab Creative Tab}
+     *
+     * @param event {@link CreativeModeTabEvent.Register Creative Mode Tab Register Event}
+     * @param name {@link String Creative Mode Tab Name}
+     * @param iconSupplier {@link Supplier<ItemStack> Icon Supplier}
+     * @return {@link CreativeModeTab Registered Creative Mode Tab}
+     */
+    private static CreativeModeTab registerTab(CreativeModeTabEvent.Register event, String name, CreativeModeTab afterTab, Supplier<ItemStack> iconSupplier) {
+        return registerTab(event, name, afterTab, null, iconSupplier);
+    }
+
+    /**
+     * Register a {@link CreativeModeTab Creative Tab}
+     *
+     * @param event {@link CreativeModeTabEvent.Register Creative Mode Tab Register Event}
+     * @param name {@link String Creative Mode Tab Name}
+     * @param iconSupplier {@link Supplier<ItemStack> Icon Supplier}
+     * @return {@link CreativeModeTab Registered Creative Mode Tab}
+     */
+    private static CreativeModeTab registerTab(CreativeModeTabEvent.Register event, String name, CreativeModeTab afterTab, CreativeModeTab beforeTab, Supplier<ItemStack> iconSupplier) {
        return event.registerCreativeModeTab(new ResourceLocation(BlazersMod.MOD_ID, name),
+               beforeTab != null ? List.of(beforeTab) : List.of(),
+               afterTab != null ? List.of(afterTab) : List.of(),
                builder -> builder
                        .icon(iconSupplier)
                        .title(Component.translatable("itemGroup." + BlazersMod.MOD_ID + "." + name))
                        .build());
     }
 
+    //DEFAULT_AFTER_ENTRIES, List.of()
     /**
      * Get an {@link ItemStack Item Stack} for a {@link RegistryObject<Block> Block}
      *
@@ -103,9 +128,15 @@ public final class BLTabs {
         CreativeModeTab tab = event.getTab();
         BLTabKeys tabKey = BLTabKeys.fromTab(tab);
         if(tab.equals(CreativeModeTabs.FUNCTIONAL_BLOCKS)) {
-            tab.getDisplayItems().removeIf(BLTabs::isEblPainting);
-            tab.getSearchTabDisplayItems().removeIf(BLTabs::isEblPainting);
-            tab.getDisplayItems().stream().filter(BLTabs::isEblPainting).forEach(item -> event.getEntries().remove(item));
+            Iterator<Map.Entry<ItemStack, CreativeModeTab.TabVisibility>> iterator = event.getEntries().iterator();
+            ArrayList<ItemStack> itemsToRemove = new ArrayList<>();
+            while (iterator.hasNext()) {
+                ItemStack stack = iterator.next().getKey();
+                if(stack.is(Items.PAINTING)) {
+                    itemsToRemove.add(stack);
+                }
+            }
+            itemsToRemove.forEach(stack -> event.getEntries().remove(stack));
         }
         if(tabKey != null) {
             List<RegistryObject<Item>> items = BLTabs.ITEM_GROUPS.get(tabKey);
