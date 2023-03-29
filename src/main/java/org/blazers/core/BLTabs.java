@@ -108,7 +108,6 @@ public final class BLTabs {
                        .build());
     }
 
-    //DEFAULT_AFTER_ENTRIES, List.of()
     /**
      * Get an {@link ItemStack Item Stack} for a {@link RegistryObject<Block> Block}
      *
@@ -132,7 +131,7 @@ public final class BLTabs {
             ArrayList<ItemStack> itemsToRemove = new ArrayList<>();
             while (iterator.hasNext()) {
                 ItemStack stack = iterator.next().getKey();
-                if(stack.is(Items.PAINTING)) {
+                if(isEblPainting(stack)) {
                     itemsToRemove.add(stack);
                 }
             }
