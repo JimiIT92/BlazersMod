@@ -124,6 +124,7 @@ public class CopperHornItem extends InstrumentItem {
         return iterator.hasNext() ? Optional.of(iterator.next()) : Optional.empty();
     }
 
+
     /**
      * Get an {@link Instrument Instrument} {@link ResourceKey Resource Location}
      * based on the {@link TagKey<Instrument> Instrument Tag Key}

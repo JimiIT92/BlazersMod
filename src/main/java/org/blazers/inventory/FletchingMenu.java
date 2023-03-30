@@ -7,6 +7,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.ItemCombinerMenu;
+import net.minecraft.world.inventory.ItemCombinerMenuSlotDefinition;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -59,6 +60,13 @@ public class FletchingMenu extends ItemCombinerMenu {
         super(BLMenuTypes.FLETCHING.get(), id, inventory, containerLevelAccess);
         this.level = inventory.player.level;
         this.recipes = this.level.getRecipeManager().getAllRecipesFor(FletchingRecipe.Type.INSTANCE);
+    }
+
+    protected ItemCombinerMenuSlotDefinition createInputSlotDefinitions() {
+        return ItemCombinerMenuSlotDefinition.create()
+                .withSlot(0, 27, 47, (p_266883_) -> true)
+                .withSlot(1, 76, 47, (p_267323_) -> true)
+                .withResultSlot(2, 134, 47).build();
     }
 
     /**
@@ -118,10 +126,14 @@ public class FletchingMenu extends ItemCombinerMenu {
             this.resultSlots.setItem(0, ItemStack.EMPTY);
         } else {
             this.selectedRecipe = list.get(0);
-            ItemStack itemstack = this.selectedRecipe.assemble(this.inputSlots);
+            ItemStack itemstack = this.selectedRecipe.assemble(this.inputSlots, this.level.registryAccess());
             this.resultSlots.setRecipeUsed(this.selectedRecipe);
             this.resultSlots.setItem(0, itemstack);
         }
+    }
+
+    public int getSlotToQuickMoveTo(ItemStack stack) {
+        return this.shouldQuickMoveToAdditionalSlot(stack) ? 1 : 0;
     }
 
     /**

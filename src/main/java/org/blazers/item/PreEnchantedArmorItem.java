@@ -32,7 +32,7 @@ public class PreEnchantedArmorItem extends ArmorItem implements IPreEnchantedIte
      * @param enchantment {@link Enchantment Enchantment to apply}
      * @param level {@link Integer Enchantment level to apply}
      */
-    public PreEnchantedArmorItem(ArmorMaterial armorMaterial, EquipmentSlot slot, Enchantment enchantment, int level) {
+    public PreEnchantedArmorItem(ArmorMaterial armorMaterial, Type slot, Enchantment enchantment, int level) {
         super(armorMaterial, slot, new Properties());
         this.enchantment = enchantment;
         this.level = level;

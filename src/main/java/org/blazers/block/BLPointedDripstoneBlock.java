@@ -207,7 +207,7 @@ public class BLPointedDripstoneBlock extends Block implements Fallable, SimpleWa
      */
     public void fallOn(@NotNull Level level, BlockState state, @NotNull BlockPos pos, @NotNull Entity entity, float fallDistance) {
         if (state.getValue(TIP_DIRECTION) == Direction.UP && state.getValue(THICKNESS) == DripstoneThickness.TIP) {
-            entity.causeFallDamage(fallDistance + 2.0F, 2.0F, DamageSource.STALAGMITE);
+            entity.causeFallDamage(fallDistance + 2.0F, 2.0F, level.damageSources().stalagmite());
         } else {
             super.fallOn(level, state, pos, entity, fallDistance);
         }
@@ -425,8 +425,8 @@ public class BLPointedDripstoneBlock extends Block implements Fallable, SimpleWa
      *
      * @return {@link DamageSource Fall Damage Source}
      */
-    public @NotNull DamageSource getFallDamageSource() {
-        return DamageSource.STALAGMITE;
+    public @NotNull DamageSource getFallDamageSource(Entity entity) {
+        return entity.damageSources().fallingStalactite(entity);
     }
 
     /**

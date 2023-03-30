@@ -16,6 +16,7 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -37,26 +38,24 @@ import org.blazers.entity.goal.CopperGolemRandomStrollGoal;
 import org.blazers.event.EventUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.constant.DefaultAnimations;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.Locale;
 
 /**
  * Implementation class for a {@link PathfinderMob Copper Golem}
  */
-public class CopperGolem extends PathfinderMob implements GeoAnimatable {
+public class CopperGolem extends PathfinderMob implements GeoEntity {
 
     /**
      * {@link CopperGolem Copper Golem} {@link AnimatableInstanceCache Animation Factory}
      */
-    private final AnimatableInstanceCache factory = GeckoLibUtil.createInstanceCache(this);
+    private final AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
     /**
      * {@link String Weather State} Data
      */
@@ -252,7 +251,7 @@ public class CopperGolem extends PathfinderMob implements GeoAnimatable {
     public void setWeatherState(final WeatheringCopper.WeatherState weatherState, boolean playSound) {
         if(weatherState.equals(WeatheringCopper.WeatherState.OXIDIZED)) {
             this.goalSelector.getRunningGoals().forEach(WrappedGoal::stop);
-            this.goalSelector.removeAllGoals((p_262562_) -> true);
+            this.goalSelector.removeAllGoals(goal -> true);
         } else if(this.goalSelector.getAvailableGoals().isEmpty()) {
             this.registerGoals();
         }
@@ -393,7 +392,7 @@ public class CopperGolem extends PathfinderMob implements GeoAnimatable {
      */
     @Override
     public boolean isInvulnerableTo(@NotNull DamageSource source) {
-        return source.equals(DamageSource.LIGHTNING_BOLT);
+        return source.is(DamageTypes.LIGHTNING_BOLT);
     }
 
     /**
@@ -618,18 +617,17 @@ public class CopperGolem extends PathfinderMob implements GeoAnimatable {
     /**
      * Get the {@link CopperGolem Copper Golem} animation
      *
-     * @param event {@link AnimationState<T> Animation Event}
+     * @param state {@link AnimationState Animation State}
      * @return {@link CopperGolem Copper Golem} animation
-     * @param <T> Animation Event Type
      */
-    private <T extends GeoAnimatable> PlayState predicate(AnimationState event) {
+    private PlayState predicate(AnimationState state) {
         if(!isOxidized()) {
-            AnimationController<CopperGolem> controller = DefaultAnimations.genericWalkIdleController(this);
+            AnimationController<CopperGolem> controller = state.getController();
             if(isPressingCopperButton()) {
                 setAnimation(controller, "animation.copper_golem.interact", false);
             }
             else {
-                setAnimation(controller, event.isStarted() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
+                setAnimation(controller, state.isMoving() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
             }
         }
         return PlayState.CONTINUE;
@@ -643,11 +641,17 @@ public class CopperGolem extends PathfinderMob implements GeoAnimatable {
      * @param loop {@link Boolean If the animation should loop}
      */
     public void setAnimation(final AnimationController<CopperGolem> controller, final String animation, final boolean loop) {
-        if(loop) {
-            controller.setAnimation(RawAnimation.begin().thenLoop(animation));
-        } else {
-            controller.setAnimation(RawAnimation.begin().thenPlay(animation));
-        }
+        controller.setAnimation(RawAnimation.begin().then(animation, loop ? Animation.LoopType.LOOP : Animation.LoopType.PLAY_ONCE));
+    }
+
+    /**
+     * Register the {@link CopperGolem Copper Golem} {@link AnimatableManager.ControllerRegistrar Animation Controller}
+     *
+     * @param controllers {@link AnimatableManager.ControllerRegistrar Animation Data}
+     */
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(getAnimationController());
     }
 
     /**
@@ -656,18 +660,17 @@ public class CopperGolem extends PathfinderMob implements GeoAnimatable {
      * @return {@link AnimationController Animation Controller}
      */
     public AnimationController<CopperGolem> getAnimationController() {
-        return new AnimationController<>(this, "controller", 0, handler -> {
-            if(!isOxidized()) {
-                AnimationController<CopperGolem> controller = handler.getController();
-                if(isPressingCopperButton()) {
-                    setAnimation(controller, "animation.copper_golem.interact", false);
-                }
-                else {
-                    setAnimation(controller, handler.isMoving() ? "animation.copper_golem.walk" : "animation.copper_golem.idle", true);
-                }
-            }
-            return PlayState.CONTINUE;
-        });
+        return new AnimationController<>(this, "controller", 0, this::predicate);
+    }
+
+    /**
+     * Get the {@link CopperGolem Copper Golem} {@link AnimatableInstanceCache Animation Factory}
+     *
+     * @return {@link CopperGolem Copper Golem} {@link AnimatableInstanceCache Animation Factory}
+     */
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.factory;
     }
 
     /**
@@ -755,20 +758,5 @@ public class CopperGolem extends PathfinderMob implements GeoAnimatable {
             }
             world.addFreshEntity(copperGolem);
         }
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(DefaultAnimations.genericWalkIdleController(this));
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.factory;
-    }
-
-    @Override
-    public double getTick(Object object) {
-        return 0;
     }
 }

@@ -4,6 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.decoration.PaintingVariant;
 import net.minecraft.world.item.Instrument;
 import net.minecraft.world.level.block.Block;
 import org.blazers.BlazersMod;
@@ -55,6 +56,26 @@ public final class BLTags {
          */
         private static TagKey<Instrument> tag(String name) {
             return TagKey.create(Registries.INSTRUMENT, new ResourceLocation(BlazersMod.MOD_ID, name));
+        }
+    }
+
+    /**
+     * {@link org.blazers.BlazersMod Blazers Mod} {@link TagKey<PaintingVariant> Painting Tags}
+     */
+    public static class Paintings {
+
+        //#region Tags
+
+        public static final TagKey<PaintingVariant> EBL_PAINTINGS = tag("ebl_paintings");
+
+        /**
+         * Create a {@link TagKey<PaintingVariant> Painting Variant Tag}
+         *
+         * @param name {@link String Tag Name}
+         * @return {@link TagKey<PaintingVariant> Painting Variant Tag}
+         */
+        private static TagKey<PaintingVariant> tag(String name) {
+            return TagKey.create(Registries.PAINTING_VARIANT, new ResourceLocation(BlazersMod.MOD_ID, name));
         }
     }
 }
