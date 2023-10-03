@@ -3,6 +3,7 @@ package org.blazers.mixin;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.tags.InstrumentTags;
 import net.minecraft.world.Container;
+import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -26,8 +27,8 @@ public final class ShapedRecipeMixin {
      * @param inv {@link Container Inventory}
      * @param infoReturnable {@link CallbackInfoReturnable<ItemStack> Callback Info Returnable}
      */
-    @Inject(method = "assemble(Lnet/minecraft/world/Container;Lnet/minecraft/core/RegistryAccess;)Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"), cancellable = true)
-    public void assemble(Container inv, RegistryAccess registryAccess, CallbackInfoReturnable<ItemStack> infoReturnable) {
+    @Inject(method = "assemble(Lnet/minecraft/world/inventory/CraftingContainer;Lnet/minecraft/core/RegistryAccess;)Lnet/minecraft/world/item/ItemStack;", at = @At("RETURN"), cancellable = true)
+    public void assemble(CraftingContainer inv, RegistryAccess registryAccess, CallbackInfoReturnable<ItemStack> infoReturnable) {
         ItemStack recipeResult = infoReturnable.getReturnValue();
         Item item = recipeResult.getItem();
         if(item instanceof CopperHornItem) {
@@ -45,7 +46,7 @@ public final class ShapedRecipeMixin {
      * @param inventory {@link Container Crafting Inventory}
      * @return {@link ItemStack Goat Horn Item Stack}
      */
-    private ItemStack getGoatHorn(Container inventory) {
+    private ItemStack getGoatHorn(CraftingContainer inventory) {
         for (int i = 0; i < inventory.getContainerSize(); i++) {
             ItemStack itemStack = inventory.getItem(i);
             if(itemStack.is(Items.GOAT_HORN)) {

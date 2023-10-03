@@ -39,7 +39,7 @@ public class CopperGolemRandomStrollGoal extends RandomStrollGoal {
                 Path path = this.mob.getNavigation().createPath(copperButton, 2);
                 if(path != null) {
                     path.advance();
-                    Level world = this.mob.getLevel();
+                    Level world = this.mob.level();
                     BlockState state = world.getBlockState(copperButton);
                     copperGolem.setPressingCopperButton(true);
                     ((CopperButtonBlock)state.getBlock()).press(state, world, copperButton);
@@ -55,7 +55,7 @@ public class CopperGolemRandomStrollGoal extends RandomStrollGoal {
      */
     private Optional<BlockPos> getRandomNearbyCopperButton() {
         ArrayList<BlockPos> copperButtons = new ArrayList<>();
-        Level world = this.mob.getLevel();
+        Level world = this.mob.level();
         BlockPos pos = this.mob.blockPosition();
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {

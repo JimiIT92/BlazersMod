@@ -114,7 +114,7 @@ public class BLPointedDripstoneBlock extends Block implements Fallable, SimpleWa
      * @param materialBlock {@link Block Material Block}
      */
     public BLPointedDripstoneBlock(Block materialBlock) {
-        super(BlockBehaviour.Properties.of(materialBlock.defaultBlockState().getMaterial(), materialBlock.defaultMaterialColor()).noOcclusion().sound(materialBlock.defaultBlockState().getSoundType()).randomTicks().strength(0.5F, 0.5F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ));
+        super(BlockBehaviour.Properties.of().mapColor(materialBlock.defaultMapColor()).noOcclusion().sound(materialBlock.defaultBlockState().getSoundType()).randomTicks().strength(0.5F, 0.5F).dynamicShape().offsetType(BlockBehaviour.OffsetType.XZ));
         this.registerDefaultState(this.stateDefinition.any().setValue(TIP_DIRECTION, Direction.UP).setValue(THICKNESS, DripstoneThickness.TIP).setValue(WATERLOGGED, Boolean.FALSE));
         this.MATERIAL_BLOCK = materialBlock;
     }

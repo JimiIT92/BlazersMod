@@ -6,8 +6,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -15,6 +14,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.block.*;
 
+import java.util.Map;
 import java.util.function.Supplier;
 
 /**
@@ -29,24 +29,24 @@ public final class BLBlocks {
 
     //#region Blocks
 
-    public static final RegistryObject<Block> HOLLOW_OAK_LOG = registerBlock("hollow_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_STRIPPED_OAK_LOG = registerBlock("hollow_stripped_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_SPRUCE_LOG = registerBlock("hollow_spruce_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_STRIPPED_SPRUCE_LOG = registerBlock("hollow_stripped_spruce_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_BIRCH_LOG = registerBlock("hollow_birch_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.QUARTZ).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS, BLTabs.BLTabKeys.NATURAL);
-    public static final RegistryObject<Block> HOLLOW_STRIPPED_BIRCH_LOG = registerBlock("hollow_stripped_birch_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.SAND).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_JUNGLE_LOG = registerBlock("hollow_jungle_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.PODZOL).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_STRIPPED_JUNGLE_LOG = registerBlock("hollow_stripped_jungle_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.DIRT).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_ACACIA_LOG = registerBlock("hollow_acacia_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.STONE).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_STRIPPED_ACACIA_LOG = registerBlock("hollow_stripped_acacia_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_DARK_OAK_LOG = registerBlock("hollow_dark_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_STRIPPED_DARK_OAK_LOG = registerBlock("hollow_stripped_dark_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_MANGROVE_LOG = registerBlock("hollow_mangrove_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_STRIPPED_MANGROVE_LOG = registerBlock("hollow_stripped_mangrove_log", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_RED).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_CRIMSON_STEM = registerBlock("hollow_crimson_stem", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.CRIMSON_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_STRIPPED_CRIMSON_STEM = registerBlock("hollow_stripped_crimson_stem", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.CRIMSON_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_WARPED_STEM = registerBlock("hollow_warped_stem", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.WARPED_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
-    public static final RegistryObject<Block> HOLLOW_STRIPPED_WARPED_STEM = registerBlock("hollow_stripped_warped_stem", () -> new HollowBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.WARPED_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_OAK_LOG = registerBlock("hollow_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PODZOL).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_OAK_LOG = registerBlock("hollow_stripped_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_SPRUCE_LOG = registerBlock("hollow_spruce_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_SPRUCE_LOG = registerBlock("hollow_stripped_spruce_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_BIRCH_LOG = registerBlock("hollow_birch_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS, BLTabs.BLTabKeys.NATURAL);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_BIRCH_LOG = registerBlock("hollow_stripped_birch_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_JUNGLE_LOG = registerBlock("hollow_jungle_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PODZOL).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_JUNGLE_LOG = registerBlock("hollow_stripped_jungle_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_ACACIA_LOG = registerBlock("hollow_acacia_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_ACACIA_LOG = registerBlock("hollow_stripped_acacia_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_DARK_OAK_LOG = registerBlock("hollow_dark_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_DARK_OAK_LOG = registerBlock("hollow_stripped_dark_oak_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_MANGROVE_LOG = registerBlock("hollow_mangrove_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_MANGROVE_LOG = registerBlock("hollow_stripped_mangrove_log", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(2.0F).sound(SoundType.WOOD)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_CRIMSON_STEM = registerBlock("hollow_crimson_stem", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CRIMSON_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_CRIMSON_STEM = registerBlock("hollow_stripped_crimson_stem", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.CRIMSON_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_WARPED_STEM = registerBlock("hollow_warped_stem", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
+    public static final RegistryObject<Block> HOLLOW_STRIPPED_WARPED_STEM = registerBlock("hollow_stripped_warped_stem", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
 
     public static final RegistryObject<Block> COBBLED_GRANITE = registerSimpleBlock("cobbled_granite", BlockBehaviour.Properties.copy(Blocks.GRANITE));
     public static final RegistryObject<Block> COBBLED_DIORITE = registerSimpleBlock("cobbled_diorite", BlockBehaviour.Properties.copy(Blocks.DIORITE));
@@ -65,15 +65,15 @@ public final class BLBlocks {
     public static final RegistryObject<Block> RED_SANDSTONE_BRICKS = registerSimpleBlock("red_sandstone_bricks", BlockBehaviour.Properties.copy(Blocks.RED_SANDSTONE));
     public static final RegistryObject<Block> POLISHED_BLACKSTONE_TILES = registerSimpleBlock("polished_blackstone_tiles", BlockBehaviour.Properties.copy(Blocks.POLISHED_BLACKSTONE_BRICKS));
 
-    public static final RegistryObject<Block> SAPPHIRE_BLOCK = registerSimpleBlock("sapphire_block", createGemBlockProperties(MaterialColor.COLOR_BLUE));
-    public static final RegistryObject<Block> TOPAZ_BLOCK = registerSimpleBlock("topaz_block", createGemBlockProperties(MaterialColor.COLOR_ORANGE));
-    public static final RegistryObject<Block> PEARL_BLOCK = registerSimpleBlock("pearl_block", BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK)
+    public static final RegistryObject<Block> SAPPHIRE_BLOCK = registerSimpleBlock("sapphire_block", createGemBlockProperties(MapColor.COLOR_BLUE));
+    public static final RegistryObject<Block> TOPAZ_BLOCK = registerSimpleBlock("topaz_block", createGemBlockProperties(MapColor.COLOR_ORANGE));
+    public static final RegistryObject<Block> PEARL_BLOCK = registerSimpleBlock("pearl_block", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PINK)
             .sound(SoundType.CALCITE).requiresCorrectToolForDrops().strength(0.75F));
-    public static final RegistryObject<Block> RUBY_BLOCK = registerSimpleBlock("ruby_block", createGemBlockProperties(MaterialColor.COLOR_RED));
-    public static final RegistryObject<Block> MALACHITE_BLOCK = registerSimpleBlock("malachite_block", createGemBlockProperties(MaterialColor.TERRACOTTA_GREEN));
-    public static final RegistryObject<Block> ONICE_BLOCK = registerSimpleBlock("onice_block", createGemBlockProperties(MaterialColor.TERRACOTTA_BLACK));
-    public static final RegistryObject<Block> URANIUM_BLOCK = registerSimpleBlock("uranium_block", BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_GREEN).requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER));
-    public static final RegistryObject<Block> RAW_URANIUM_BLOCK = registerSimpleBlock("raw_uranium_block", BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(5.0F, 6.0F));
+    public static final RegistryObject<Block> RUBY_BLOCK = registerSimpleBlock("ruby_block", createGemBlockProperties(MapColor.COLOR_RED));
+    public static final RegistryObject<Block> MALACHITE_BLOCK = registerSimpleBlock("malachite_block", createGemBlockProperties(MapColor.TERRACOTTA_GREEN));
+    public static final RegistryObject<Block> ONICE_BLOCK = registerSimpleBlock("onice_block", createGemBlockProperties(MapColor.TERRACOTTA_BLACK));
+    public static final RegistryObject<Block> URANIUM_BLOCK = registerSimpleBlock("uranium_block", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).requiresCorrectToolForDrops().strength(3.0F, 6.0F).sound(SoundType.COPPER));
+    public static final RegistryObject<Block> RAW_URANIUM_BLOCK = registerSimpleBlock("raw_uranium_block", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(5.0F, 6.0F));
 
     public static final RegistryObject<Block> CUT_COPPER_BRICKS = registerBlock("cut_copper_bricks", () -> new WeatheringCutCopperBricks(WeatheringCopper.WeatherState.UNAFFECTED, Blocks.CUT_COPPER), BLTabs.BLTabKeys.BUILDING_BLOCKS);
     public static final RegistryObject<Block> EXPOSED_CUT_COPPER_BRICKS = registerBlock("exposed_cut_copper_bricks", () -> new WeatheringCutCopperBricks(WeatheringCopper.WeatherState.EXPOSED, Blocks.EXPOSED_CUT_COPPER), BLTabs.BLTabKeys.BUILDING_BLOCKS);
@@ -104,7 +104,7 @@ public final class BLBlocks {
     public static final RegistryObject<Block> TOPAZ_ORE = registerOreBlock("topaz_ore", false);
     public static final RegistryObject<Block> DEEPSLATE_TOPAZ_ORE = registerOreBlock("deepslate_topaz_ore", true);
     public static final RegistryObject<Block> PEARL_ORE = registerBlock("pearl_ore", () ->
-            new SandBlock(14406560, BlockBehaviour.Properties.of(Material.SAND, MaterialColor.SAND)
+            new SandBlock(14406560, BlockBehaviour.Properties.of().mapColor(MapColor.SAND)
                     .strength(0.5F)
                     .sound(SoundType.SAND)
                     .requiresCorrectToolForDrops()
@@ -113,18 +113,18 @@ public final class BLBlocks {
     public static final RegistryObject<Block> MALACHITE_ORE = registerNetherOreBlock("malachite_ore");
     public static final RegistryObject<Block> ONICE_ORE = registerNetherOreBlock("onice_ore");
     public static final RegistryObject<Block> URANIUM_ORE = registerBlock("uranium_ore", () -> new DropExperienceBlock(
-            BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_GREEN).requiresCorrectToolForDrops().strength(30.0F, 1200.0F).sound(SoundType.ANCIENT_DEBRIS)
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).requiresCorrectToolForDrops().strength(30.0F, 1200.0F).sound(SoundType.ANCIENT_DEBRIS)
     ), BLTabs.BLTabKeys.NATURAL);
 
     public static final RegistryObject<Block> ATOMIC_TNT = registerBlock("atomic_tnt", AtomicTntBlock::new, BLTabs.BLTabKeys.REDSTONE, BLTabs.BLTabKeys.COMBAT);
 
     public static final RegistryObject<Block> BROWN_MUSHROOM_WALL_FAN = registerBlockWithoutBlockItem("brown_mushroom_wall_fan",
-            () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_BROWN).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().dropsLike(Blocks.BROWN_MUSHROOM)));
+            () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().dropsLike(Blocks.BROWN_MUSHROOM)));
     public static final RegistryObject<Block> RED_MUSHROOM_WALL_FAN = registerBlockWithoutBlockItem("red_mushroom_wall_fan",
-            () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_RED).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().dropsLike(Blocks.RED_MUSHROOM)));
+            () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().dropsLike(Blocks.RED_MUSHROOM)));
 
     public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", CattailBlock::new, BLTabs.BLTabKeys.NATURAL);
-    public static final RegistryObject<Block> POTTED_CATTAIL = registerBlockWithoutBlockItem("potted_cattail", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CATTAIL, BlockBehaviour.Properties.of(Material.DECORATION).instabreak().noOcclusion()));
+    public static final RegistryObject<Block> POTTED_CATTAIL = registerBlockWithoutBlockItem("potted_cattail", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CATTAIL, BlockBehaviour.Properties.of().instabreak().noOcclusion()));
 
     public static final RegistryObject<Block> WHITE_CONCRETE_SLAB = registerBlock("white_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
     public static final RegistryObject<Block> ORANGE_CONCRETE_SLAB = registerBlock("orange_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
@@ -165,11 +165,11 @@ public final class BLBlocks {
      * Create the {@link BlockBehaviour.Properties Block Properties}
      * for a {@link Block Gem Block}
      *
-     * @param mapColor {@link MaterialColor Block Map Color}
+     * @param mapColor {@link MapColor Block Map Color}
      * @return {@link BlockBehaviour.Properties Block Properties}
      */
-    private static BlockBehaviour.Properties createGemBlockProperties(MaterialColor mapColor) {
-        return BlockBehaviour.Properties.of(Material.METAL, mapColor)
+    private static BlockBehaviour.Properties createGemBlockProperties(MapColor mapColor) {
+        return BlockBehaviour.Properties.of().mapColor(mapColor)
                 .requiresCorrectToolForDrops()
                 .strength(5.0F, 6.0F)
                 .sound(SoundType.METAL);
@@ -182,7 +182,7 @@ public final class BLBlocks {
      * @return {@link BlockBehaviour.Properties Block Properties}
      */
     private static BlockBehaviour.Properties createOreBlockProperties() {
-        return BlockBehaviour.Properties.of(Material.STONE)
+        return BlockBehaviour.Properties.of()
                 .requiresCorrectToolForDrops()
                 .strength(3.0F, 3.0F);
     }
@@ -195,7 +195,7 @@ public final class BLBlocks {
      */
     private static BlockBehaviour.Properties createDeepslateOreBlockProperties() {
         return createOreBlockProperties()
-                .color(MaterialColor.DEEPSLATE)
+                .mapColor(MapColor.DEEPSLATE)
                 .strength(4.5F, 3.0F)
                 .sound(SoundType.DEEPSLATE);
     }
@@ -220,7 +220,7 @@ public final class BLBlocks {
      */
     private static RegistryObject<Block> registerNetherOreBlock(String name) {
         return registerBlock(name, () ->
-                        new DropExperienceBlock(createOreBlockProperties().color(MaterialColor.NETHER).sound(SoundType.NETHER_ORE),
+                        new DropExperienceBlock(createOreBlockProperties().mapColor(MapColor.NETHER).sound(SoundType.NETHER_ORE),
                                 UniformInt.of(2, 5))
                 , BLTabs.BLTabKeys.NATURAL);
     }

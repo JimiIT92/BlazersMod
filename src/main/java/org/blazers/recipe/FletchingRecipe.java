@@ -1,12 +1,15 @@
 package org.blazers.recipe;
 
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.RegistryAccess;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import org.blazers.core.BLRecipeSerializers;
 import org.jetbrains.annotations.NotNull;
@@ -15,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 /**
  * {@link Blocks#FLETCHING_TABLE Fletching Table} Recipe Manager
  */
-public class FletchingRecipe extends LegacyUpgradeRecipe {
+public class FletchingRecipe implements Recipe<Container> {
 
     /**
      * {@link FletchingRecipe Fletching Recipe} {@link String ID}
@@ -37,13 +40,11 @@ public class FletchingRecipe extends LegacyUpgradeRecipe {
     /**
      * Constructor. Sets the {@link FletchingRecipe Fletching Recipe} properties
      *
-     * @param id {@link ResourceLocation Recipe ID}
      * @param base {@link Ingredient Base Recipe Ingredient}
      * @param addition {@link Ingredient Addition Recipe Ingredient}
      * @param result{@link Crafting Result}
      */
-    public FletchingRecipe(ResourceLocation id, Ingredient base, Ingredient addition, ItemStack result) {
-        super(id, base, addition, result);
+    public FletchingRecipe(Ingredient base, Ingredient addition, ItemStack result) {
         this.base = base;
         this.addition = addition;
         this.result = result;
@@ -79,6 +80,52 @@ public class FletchingRecipe extends LegacyUpgradeRecipe {
     }
 
     /**
+     * Check if the ingredients matches a recipe
+     *
+     * @param container {@link Container The crafting container}
+     * @param level {@link Level The level reference}
+     * @return {@link Boolean True if the ingredients matches a recipe}
+     */
+    public boolean matches(Container container, Level level) {
+        return this.base.test(container.getItem(0)) && this.addition.test(container.getItem(1));
+    }
+
+    /**
+     * Craft an item
+     *
+     * @param container {@link Container The crafting result}
+     * @param registryAccess {@link RegistryAccess The registry access}
+     * @return {@link ItemStack The crafting result}
+     */
+    public ItemStack assemble(Container container, RegistryAccess registryAccess) {
+        ItemStack itemstack = this.result.copy();
+        CompoundTag compoundtag = container.getItem(0).getTag();
+        if (compoundtag != null) {
+            itemstack.setTag(compoundtag.copy());
+        }
+
+        return itemstack;
+    }
+
+    /**
+     * Get the crafting result
+     *
+     * @param registryAccess {@link RegistryAccess The registry access}
+     * @return {@link ItemStack The crafting result}
+     */
+    public ItemStack getResultItem(RegistryAccess registryAccess) {
+        return this.result;
+    }
+
+    public boolean canCraftInDimensions(int ingredients, int results) {
+        return ingredients >= 3 && results >= 1;
+    }
+
+    public boolean isAdditionIngredient(ItemStack itemStack) {
+        return this.addition.test(itemStack);
+    }
+
+    /**
      * {@link FletchingRecipe Fletching Recipe} {@link RecipeType Type}
      */
     public static class Type implements RecipeType<FletchingRecipe> {
@@ -103,35 +150,29 @@ public class FletchingRecipe extends LegacyUpgradeRecipe {
      */
     public static class Serializer implements RecipeSerializer<FletchingRecipe> {
 
-        /**
-         * Parse a {@link JsonObject Recipe JSON}
-         *
-         * @param recipeId {@link ResourceLocation Recipe ID}
-         * @param serializedRecipe {@link JsonObject Recipe JSON}
-         * @return {@link FletchingRecipe Recipe}
-         */
-        @Override
-        public @NotNull FletchingRecipe fromJson(@NotNull ResourceLocation recipeId, @NotNull JsonObject serializedRecipe) {
-            Ingredient base = Ingredient.fromJson(GsonHelper.getAsJsonObject(serializedRecipe, "base"));
-            Ingredient addition = Ingredient.fromJson(GsonHelper.getAsJsonObject(serializedRecipe, "addition"));
-            ItemStack result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(serializedRecipe, "result"));
-            return new FletchingRecipe(recipeId, base, addition, result);
+        private static final Codec<FletchingRecipe> CODEC = RecordCodecBuilder.create((builder) -> builder.group(
+                Ingredient.CODEC.fieldOf("base").forGetter((recipe) -> recipe.base),
+                Ingredient.CODEC.fieldOf("addition").forGetter((recipe) -> recipe.addition),
+                CraftingRecipeCodecs.ITEMSTACK_OBJECT_CODEC.fieldOf("result").forGetter((recipe) -> recipe.result))
+                .apply(builder, FletchingRecipe::new));
+
+        public Codec<FletchingRecipe> codec() {
+            return CODEC;
         }
 
         /**
          * Parse a {@link FriendlyByteBuf Recipe Buffer}
          *
-         * @param recipeId {@link ResourceLocation Recipe ID}
          * @param buffer {@link FriendlyByteBuf Recipe Buffer}
          * @return {@link FletchingRecipe Recipe}
          */
         @Nullable
         @Override
-        public FletchingRecipe fromNetwork(@NotNull ResourceLocation recipeId, @NotNull FriendlyByteBuf buffer) {
+        public FletchingRecipe fromNetwork(@NotNull FriendlyByteBuf buffer) {
             Ingredient base = Ingredient.fromNetwork(buffer);
             Ingredient additioon = Ingredient.fromNetwork(buffer);
             ItemStack result = buffer.readItem();
-            return new FletchingRecipe(recipeId, base, additioon, result);
+            return new FletchingRecipe(base, additioon, result);
         }
 
         /**

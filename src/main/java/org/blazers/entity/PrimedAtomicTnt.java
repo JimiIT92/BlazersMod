@@ -58,7 +58,7 @@ public class PrimedAtomicTnt extends PrimedTnt {
      */
     @Override
     protected void explode() {
-        this.level.explode(this, this.getX(), this.getY(0.0625D), this.getZ(), 32.0F, Level.ExplosionInteraction.TNT);
+        this.level().explode(this, this.getX(), this.getY(0.0625D), this.getZ(), 32.0F, Level.ExplosionInteraction.TNT);
     }
 
     /**

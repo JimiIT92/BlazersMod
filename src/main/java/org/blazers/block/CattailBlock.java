@@ -21,7 +21,6 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -45,7 +44,7 @@ public class CattailBlock extends DoublePlantBlock implements SimpleWaterloggedB
      * Constructor. Sets the {@link DoublePlantBlock Cattail} {@link BlockBehaviour.Properties Block Properties}
      */
     public CattailBlock() {
-        super(BlockBehaviour.Properties.of(Material.PLANT).noCollission().noOcclusion().instabreak().sound(SoundType.SMALL_DRIPLEAF).offsetType(BlockBehaviour.OffsetType.XZ));
+        super(BlockBehaviour.Properties.of().noCollission().noOcclusion().instabreak().sound(SoundType.SMALL_DRIPLEAF).offsetType(BlockBehaviour.OffsetType.XZ));
         this.registerDefaultState(this.stateDefinition.any()
                 .setValue(HALF, DoubleBlockHalf.LOWER)
                 .setValue(WATERLOGGED, Boolean.FALSE)

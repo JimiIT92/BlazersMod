@@ -12,7 +12,9 @@ public final class BLBlockSetTypes {
 
     //#region Block Set Types
 
-    public static final BlockSetType COPPER_BLOCK_SET = new BlockSetType("copper", SoundType.COPPER,
+    public static final BlockSetType COPPER_BLOCK_SET = new BlockSetType("copper",
+            false,
+            SoundType.COPPER,
             SoundEvents.COPPER_BREAK, SoundEvents.COPPER_PLACE,
             SoundEvents.COPPER_BREAK, SoundEvents.COPPER_PLACE,
             SoundEvents.COPPER_BREAK, SoundEvents.COPPER_PLACE,

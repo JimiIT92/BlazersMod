@@ -352,7 +352,7 @@ public class CopperGolem extends PathfinderMob implements GeoEntity {
      * @param event {@link EventUtils.WorldEvents World Event}
      */
     private void fireWorldEvent(final EventUtils.WorldEvents event) {
-        EventUtils.fireWorldEvent(this.level, null, event, this.blockPosition());
+        EventUtils.fireWorldEvent(this.level(), null, event, this.blockPosition());
     }
 
     /**
@@ -482,7 +482,7 @@ public class CopperGolem extends PathfinderMob implements GeoEntity {
      * @return {@link CopperGolem Copper Golem} {@link Integer Experience Reward}
      */
     public int getExperienceReward() {
-        return 1 + this.level.random.nextInt(3);
+        return 1 + this.level().random.nextInt(3);
     }
 
     /**

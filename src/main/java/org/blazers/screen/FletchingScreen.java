@@ -1,6 +1,7 @@
 package org.blazers.screen;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.ItemCombinerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -37,13 +38,13 @@ public class FletchingScreen  extends ItemCombinerScreen<FletchingMenu> {
     /**
      * Render the error arrow inside the GUI
      *
-     * @param pose {@link PoseStack Pos}
+     * @param guiGraphics {@link PoseStack Pos}
      * @param x {@link Integer GUI X coordinate}
      * @param y {@link Integer GUI Y coordinate}
      */
-    protected void renderErrorIcon(PoseStack pose, int x, int y) {
+    protected void renderErrorIcon(GuiGraphics guiGraphics, int x, int y) {
         if ((this.menu.getSlot(0).hasItem() || this.menu.getSlot(1).hasItem()) && !this.menu.getSlot(this.menu.getResultSlot()).hasItem()) {
-            blit(pose, x + 99, y + 45, this.imageWidth, 0, 28, 21);
+            guiGraphics.blit(FLETCHING_LOCATION, x + 99, y + 45, this.imageWidth, 0, 28, 21);
         }
     }
 }

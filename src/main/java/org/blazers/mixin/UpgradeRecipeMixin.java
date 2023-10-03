@@ -5,7 +5,7 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.LegacyUpgradeRecipe;
+import net.minecraft.world.item.crafting.SmithingTransformRecipe;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import org.blazers.item.IPreEnchantedItem;
@@ -17,13 +17,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Map;
 
 /**
- * Change the behavior of the {@link LegacyUpgradeRecipe Upgrade Recipe} result
+ * Change the behavior of the {@link SmithingTransformRecipe Upgrade Recipe} result
  */
-@Mixin(LegacyUpgradeRecipe.class)
+@Mixin(SmithingTransformRecipe.class)
 public final class UpgradeRecipeMixin {
 
     /**
-     * Allows the {@link LegacyUpgradeRecipe UpgradeRecipe} to copy JSON NBT Tags
+     * Allows the {@link SmithingTransformRecipe UpgradeRecipe} to copy JSON NBT Tags
      * into the {@link ItemStack Recipe Result}
      *
      * @param inv {@link Container Inventory}

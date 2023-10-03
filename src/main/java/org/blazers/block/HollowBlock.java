@@ -99,7 +99,7 @@ public class HollowBlock extends RotatedPillarBlock implements SimpleWaterlogged
      */
     @Override
     public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
-        return this.material.isFlammable();
+        return state.isFlammable(level, pos, direction);
     }
 
     /**

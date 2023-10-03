@@ -1,7 +1,7 @@
 package org.blazers.item;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.BlockSource;
+import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.resources.ResourceLocation;
@@ -29,8 +29,8 @@ public class BLHorseArmorItem extends HorseArmorItem {
          * @param itemStack The {@link ItemStack Item Stack} to dispense
          */
         protected @NotNull ItemStack execute(BlockSource blockSource, @NotNull ItemStack itemStack) {
-            BlockPos blockpos = blockSource.getPos().relative(blockSource.getBlockState().getValue(DispenserBlock.FACING));
-            for(AbstractHorse horse : blockSource.getLevel().getEntitiesOfClass(AbstractHorse.class, new AABB(blockpos), entity -> entity.isAlive() && entity.canWearArmor())) {
+            BlockPos blockpos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
+            for(AbstractHorse horse : blockSource.level().getEntitiesOfClass(AbstractHorse.class, new AABB(blockpos), entity -> entity.isAlive() && entity.canWearArmor())) {
                 if (horse.isArmor(itemStack) && !horse.isWearingArmor() && horse.isTamed()) {
                     horse.getSlot(401).set(itemStack.split(1));
                     this.setSuccess(true);

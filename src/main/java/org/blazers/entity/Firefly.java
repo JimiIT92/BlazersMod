@@ -176,7 +176,7 @@ public class Firefly extends Animal {
     @Override
     protected void customServerAiStep() {
         super.customServerAiStep();
-        if (this.targetPosition != null && (!this.level.isEmptyBlock(this.targetPosition) || this.targetPosition.getY() <= this.level.getMinBuildHeight())) {
+        if (this.targetPosition != null && (!this.level().isEmptyBlock(this.targetPosition) || this.targetPosition.getY() <= this.level().getMinBuildHeight())) {
             this.targetPosition = null;
         }
 

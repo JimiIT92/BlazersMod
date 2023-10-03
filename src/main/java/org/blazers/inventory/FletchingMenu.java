@@ -10,6 +10,7 @@ import net.minecraft.world.inventory.ItemCombinerMenu;
 import net.minecraft.world.inventory.ItemCombinerMenuSlotDefinition;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -32,11 +33,11 @@ public class FletchingMenu extends ItemCombinerMenu {
     /**
      * {@link FletchingRecipe Selected Recipe}
      */
-    private FletchingRecipe selectedRecipe;
+    private RecipeHolder<FletchingRecipe> selectedRecipe;
     /**
      * {@link List<FletchingRecipe> Recipes}
      */
-    private final List<FletchingRecipe> recipes;
+    private final List<RecipeHolder<FletchingRecipe>> recipes;
 
     /**
      * Forge Constructor. Sets the {@link ItemCombinerMenu Menu} default properties
@@ -58,7 +59,7 @@ public class FletchingMenu extends ItemCombinerMenu {
      */
     public FletchingMenu(int id, Inventory inventory, ContainerLevelAccess containerLevelAccess) {
         super(BLMenuTypes.FLETCHING.get(), id, inventory, containerLevelAccess);
-        this.level = inventory.player.level;
+        this.level = inventory.player.level();
         this.recipes = this.level.getRecipeManager().getAllRecipesFor(FletchingRecipe.Type.INSTANCE);
     }
 
@@ -89,7 +90,7 @@ public class FletchingMenu extends ItemCombinerMenu {
      * @return {@link Boolean True} if the {@link Player Player} can take the output result
      */
     protected boolean mayPickup(@NotNull Player player, boolean hasItem) {
-        return this.selectedRecipe != null && this.selectedRecipe.matches(this.inputSlots, this.level);
+        return this.selectedRecipe != null && this.selectedRecipe.value().matches(this.inputSlots, this.level);
     }
 
     /**
@@ -99,8 +100,8 @@ public class FletchingMenu extends ItemCombinerMenu {
      * @param stack {@link ItemStack Crafting Result}
      */
     protected void onTake(@NotNull Player player, ItemStack stack) {
-        stack.onCraftedBy(player.level, player, stack.getCount());
-        this.resultSlots.awardUsedRecipes(player);
+        stack.onCraftedBy(player.level(), player, stack.getCount());
+        this.resultSlots.awardUsedRecipes(player, List.of(stack));
         this.shrinkStackInSlot(0);
         this.shrinkStackInSlot(1);
         this.level.playSound(player, player.blockPosition(), SoundEvents.VILLAGER_WORK_FLETCHER, SoundSource.BLOCKS, 0.75F, 1.0F);
@@ -121,12 +122,12 @@ public class FletchingMenu extends ItemCombinerMenu {
      * Create the {@link ItemStack Crafting Result}
      */
     public void createResult() {
-        List<FletchingRecipe> list = this.level.getRecipeManager().getRecipesFor(FletchingRecipe.Type.INSTANCE, this.inputSlots, this.level);
+        List<RecipeHolder<FletchingRecipe>> list = this.level.getRecipeManager().getRecipesFor(FletchingRecipe.Type.INSTANCE, this.inputSlots, this.level);
         if (list.isEmpty()) {
             this.resultSlots.setItem(0, ItemStack.EMPTY);
         } else {
             this.selectedRecipe = list.get(0);
-            ItemStack itemstack = this.selectedRecipe.assemble(this.inputSlots, this.level.registryAccess());
+            ItemStack itemstack = this.selectedRecipe.value().assemble(this.inputSlots, this.level.registryAccess());
             this.resultSlots.setRecipeUsed(this.selectedRecipe);
             this.resultSlots.setItem(0, itemstack);
         }
@@ -143,7 +144,7 @@ public class FletchingMenu extends ItemCombinerMenu {
      * @return {@link Boolean True} if an {@link ItemStack Item Stack} can be quick move to a crafting slot
      */
     protected boolean shouldQuickMoveToAdditionalSlot(@NotNull ItemStack stack) {
-        return this.recipes.stream().anyMatch(recipe -> recipe.isAdditionIngredient(stack));
+        return this.recipes.stream().anyMatch(recipe -> recipe.value().isAdditionIngredient(stack));
     }
 
     /**

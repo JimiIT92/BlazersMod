@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.extensions.IForgeBlock;
 import org.blazers.BlazersMod;
 import org.blazers.entity.PrimedAtomicTnt;
@@ -28,7 +27,7 @@ public class AtomicTntBlock extends TntBlock implements IForgeBlock {
      * Constructor. Sets the {@link TntBlock Atomic TNT Block} properties
      */
     public AtomicTntBlock() {
-        super(BlockBehaviour.Properties.of(Material.EXPLOSIVE).instabreak().sound(SoundType.GRASS));
+        super(BlockBehaviour.Properties.of().instabreak().sound(SoundType.GRASS));
     }
 
     /**

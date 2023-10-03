@@ -4,7 +4,7 @@ import net.minecraft.client.RecipeBookCategories;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.BlockSource;
+import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -60,6 +60,7 @@ public final class BlazersMod {
     public BlazersMod() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        BLTabs.register(eventBus);
         BLItems.register(eventBus);
         BLBlocks.register(eventBus);
         BLBlockSetTypes.register();
@@ -119,8 +120,8 @@ public final class BlazersMod {
              * @param itemStack The {@link ItemStack Item Stack} to dispense
              */
             protected @NotNull ItemStack execute(@NotNull BlockSource blockSource, @NotNull ItemStack itemStack) {
-                Level level = blockSource.getLevel();
-                BlockPos blockpos = blockSource.getPos().relative(blockSource.getBlockState().getValue(DispenserBlock.FACING));
+                Level level = blockSource.level();
+                BlockPos blockpos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
                 PrimedTnt primedTnt = AtomicTntBlock.getPrimedAtomicTnt(level, blockpos, null);
                 level.addFreshEntity(primedTnt);
                 level.playSound(null, primedTnt.getX(), primedTnt.getY(), primedTnt.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);

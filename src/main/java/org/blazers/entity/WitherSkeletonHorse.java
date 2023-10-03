@@ -106,9 +106,9 @@ public class WitherSkeletonHorse extends Horse {
      */
     public void aiStep() {
         if(this.isAlive()) {
-            if (this.level.isClientSide) {
+            if (this.level().isClientSide) {
                 for(int i = 0; i < 2; ++i) {
-                    this.level.addParticle(ParticleTypes.SMOKE,
+                    this.level().addParticle(ParticleTypes.SMOKE,
                             this.getRandomX(0.5D),
                             this.getRandomY() - 0.25D,
                             this.getRandomZ(0.5D),
