@@ -24,7 +24,7 @@ public final class ItemFrameEntityMixin {
         if(player.isSneaking() && !stack.isEmpty() && stack.isOf(Items.SHEARS)) {
             boolean invisible = !entity.isInvisible();
             entity.setInvisible(invisible);
-            entity.world.playSound(player, entity.getBlockPos(), invisible ? SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM : SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 0.75F, 1.0F);
+            entity.getWorld().playSound(player, entity.getBlockPos(), invisible ? SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM : SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 0.75F, 1.0F);
             stack.damage(1, player, p -> p.sendToolBreakStatus(hand));
             infoReturnable.setReturnValue(ActionResult.CONSUME);
         }

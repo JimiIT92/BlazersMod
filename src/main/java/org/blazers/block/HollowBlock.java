@@ -61,7 +61,7 @@ public class HollowBlock extends PillarBlock implements Waterloggable {
     }
 
     public HollowBlock(MapColor color, BlockSoundGroup sound) {
-        super(FabricBlockSettings.of(Material.WOOD, color).strength(2.0f).sounds(sound).nonOpaque().blockVision((state, world, pos) -> false));
+        super(FabricBlockSettings.create().mapColor(color).strength(2.0f).sounds(sound).nonOpaque().blockVision((state, world, pos) -> false));
         this.setDefaultState(this.getDefaultState().with(AXIS, Direction.Axis.Y).with(WATERLOGGED, Boolean.FALSE));
     }
 

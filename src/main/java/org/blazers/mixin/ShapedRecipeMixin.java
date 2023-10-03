@@ -1,6 +1,6 @@
 package org.blazers.mixin;
 
-import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.RecipeInputInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -21,8 +21,8 @@ public final class ShapedRecipeMixin {
 
     ShapedRecipe recipe = (ShapedRecipe) (Object)this;
 
-    @Inject(method = "craft(Lnet/minecraft/inventory/CraftingInventory;Lnet/minecraft/registry/DynamicRegistryManager;)Lnet/minecraft/item/ItemStack;", at=@At("RETURN"), cancellable = true)
-    public void craft(CraftingInventory inventory, DynamicRegistryManager registryManager, CallbackInfoReturnable<ItemStack> infoReturnable) {
+    @Inject(method = "craft(Lnet/minecraft/inventory/RecipeInputInventory;Lnet/minecraft/registry/DynamicRegistryManager;)Lnet/minecraft/item/ItemStack;", at=@At("RETURN"), cancellable = true)
+    public void craft(RecipeInputInventory inventory, DynamicRegistryManager registryManager, CallbackInfoReturnable<ItemStack> infoReturnable) {
         ItemStack recipeResult = infoReturnable.getReturnValue();
         Item item = recipeResult.getItem();
         if(item instanceof CopperHornItem) {
@@ -44,7 +44,7 @@ public final class ShapedRecipeMixin {
         infoReturnable.setReturnValue(recipeResult);
     }
 
-    private ItemStack getGoatHorn(CraftingInventory inventory) {
+    private ItemStack getGoatHorn(RecipeInputInventory inventory) {
         for (int i = 0; i < inventory.size(); i++) {
             ItemStack itemStack = inventory.getStack(i);
             if(itemStack.isOf(Items.GOAT_HORN)) {

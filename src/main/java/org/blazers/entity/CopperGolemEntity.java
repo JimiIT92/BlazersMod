@@ -193,7 +193,7 @@ public class CopperGolemEntity extends PathAwareEntity implements GeoEntity {
     }
 
     private void fireWorldEvent(final int event) {
-        world.syncWorldEvent(null, event, this.getBlockPos(), 0);
+        getWorld().syncWorldEvent(null, event, this.getBlockPos(), 0);
     }
 
     private void resetOxidationTime() {
@@ -265,7 +265,7 @@ public class CopperGolemEntity extends PathAwareEntity implements GeoEntity {
 
     @Override
     public int getXpToDrop() {
-        return 1 + this.world.random.nextInt(3);
+        return 1 + this.getWorld().random.nextInt(3);
     }
 
     @Override

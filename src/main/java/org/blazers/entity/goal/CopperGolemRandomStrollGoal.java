@@ -26,7 +26,7 @@ public class CopperGolemRandomStrollGoal extends WanderAroundGoal {
                 Path path = this.mob.getNavigation().findPathTo(copperButton, 2);
                 if(path != null) {
                     this.mob.getNavigation().startMovingAlong(path, this.mob.speed);
-                    World world = this.mob.world;
+                    World world = this.mob.getWorld();
                     BlockState state = world.getBlockState(copperButton);
                     copperGolem.setPressingCopperButton(true);
                     ((CopperButtonBlock)state.getBlock()).powerOn(state, world, copperButton);

@@ -6,7 +6,6 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Thickness;
-import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -19,7 +18,6 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
@@ -87,7 +85,7 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
     private final Block MATERIAL_BLOCK;
 
     public BLPointedDripstoneBlock(Block materialBlock) {
-        super(AbstractBlock.Settings.of(materialBlock.getDefaultState().getMaterial(), materialBlock.getDefaultMapColor()).nonOpaque().sounds(materialBlock.getDefaultState().getSoundGroup()).ticksRandomly().strength(1.5f, 6.0f).dynamicBounds().offset(AbstractBlock.OffsetType.XZ));
+        super(AbstractBlock.Settings.create().mapColor(materialBlock.getDefaultMapColor()).nonOpaque().sounds(materialBlock.getDefaultState().getSoundGroup()).ticksRandomly().strength(1.5f, 6.0f).dynamicBounds().offset(AbstractBlock.OffsetType.XZ));
         this.setDefaultState(this.stateManager.getDefaultState().with(VERTICAL_DIRECTION, Direction.UP).with(THICKNESS, Thickness.TIP).with(WATERLOGGED, false));
         this.MATERIAL_BLOCK = materialBlock;
     }
@@ -221,11 +219,6 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
     }
 
     @Override
-    public PistonBehavior getPistonBehavior(BlockState state) {
-        return PistonBehavior.DESTROY;
-    }
-
-    @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction direction;
@@ -277,11 +270,6 @@ public class BLPointedDripstoneBlock extends Block implements LandingBlock, Wate
     @Override
     public DamageSource getDamageSource(Entity attacker) {
         return attacker.getDamageSources().fallingStalactite(attacker);
-    }
-
-    @Override
-    public Predicate<Entity> getEntityPredicate() {
-        return EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.and(EntityPredicates.VALID_LIVING_ENTITY);
     }
 
     private void spawnFallingBlock(BlockState state, ServerWorld world, BlockPos pos) {

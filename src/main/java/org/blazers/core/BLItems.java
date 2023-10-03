@@ -244,20 +244,20 @@ public final class BLItems {
             entries.getSearchTabStacks().removeIf(BLItems::isEblPainting);
             entries.getDisplayStacks().removeIf(BLItems::isEblPainting);
         });
-        itemGroups.forEach((tab, items) -> ItemGroupEvents.modifyEntriesEvent(tab).register(entries -> entries.addAll(items)));
-        ItemGroupEvents.modifyEntriesEvent(BLTabs.TOOLS).register(entries -> {
+        itemGroups.forEach((tab, items) -> Registries.ITEM_GROUP.getKey(tab).ifPresent(tabKey -> ItemGroupEvents.modifyEntriesEvent(tabKey).register(entries -> entries.addAll(items))));
+        Registries.ITEM_GROUP.getKey(BLTabs.TOOLS).ifPresent(tabKey -> ItemGroupEvents.modifyEntriesEvent(tabKey).register(entries -> {
             for (RegistryEntry<Instrument> registryEntry : Registries.INSTRUMENT.iterateEntries(BLTags.Instruments.MELODY_COPPER_HORNS)) {
                 entries.add(CopperHornItem.getStackForInstrument(COPPER_HORN, registryEntry));
             }
-        });
-        ItemGroupEvents.modifyEntriesEvent(BLTabs.FUNCTIONAL).register(entries -> {
+        }));
+        Registries.ITEM_GROUP.getKey(BLTabs.FUNCTIONAL).ifPresent(tabKey -> ItemGroupEvents.modifyEntriesEvent(tabKey).register(entries -> {
             for (RegistryEntry<PaintingVariant> registryEntry : Registries.PAINTING_VARIANT.iterateEntries(BLTags.Paintings.EBL_PAINTINGS)) {
                 ItemStack itemStack = new ItemStack(Items.PAINTING);
                 NbtCompound nbtCompound = itemStack.getOrCreateSubNbt("EntityTag");
                 PaintingEntity.writeVariantToNbt(nbtCompound, registryEntry);
                 entries.add(itemStack, PARENT_AND_SEARCH_TABS);
             }
-        });
+        }));
     }
 
     private static boolean isEblPainting(ItemStack stack) {

@@ -60,9 +60,9 @@ public class WitherSkeletonHorseEntity extends HorseEntity {
     @Override
     public void tickMovement() {
         if(this.isAlive()) {
-            if(this.world.isClient) {
+            if(this.getWorld().isClient) {
                 for (int i = 0; i < 2; ++i) {
-                    this.world.addParticle(ParticleTypes.SMOKE,
+                    this.getWorld().addParticle(ParticleTypes.SMOKE,
                             this.getParticleX(0.5D),
                             this.getRandomBodyY() - 0.25D,
                             this.getParticleZ(0.5D),

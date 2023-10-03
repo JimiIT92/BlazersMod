@@ -10,6 +10,7 @@ import org.blazers.BlazersMod;
 public final class BLBlockSetTypes {
     public static final BlockSetType COPPER = BlockSetTypeRegistry.register(
             new Identifier(BlazersMod.MOD_ID, "copper"),
+            false,
             BlockSoundGroup.COPPER,
             SoundEvents.BLOCK_COPPER_BREAK,
             SoundEvents.BLOCK_COPPER_PLACE,

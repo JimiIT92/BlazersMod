@@ -3,8 +3,8 @@ package org.blazers.inventory;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.ForgingScreen;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -21,15 +21,15 @@ public class FletchingScreen extends ForgingScreen<FletchingScreenHandler> {
     }
 
     @Override
-    protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
+    protected void drawForeground(DrawContext matrices, int mouseX, int mouseY) {
         RenderSystem.disableBlend();
         super.drawForeground(matrices, mouseX, mouseY);
     }
 
     @Override
-    protected void drawInvalidRecipeArrow(MatrixStack matrices, int x, int y) {
+    protected void drawInvalidRecipeArrow(DrawContext matrices, int x, int y) {
         if (this.hasInvalidRecipe()) {
-            drawTexture(matrices, x + 99, y + 45, this.backgroundWidth, 0, 28, 21);
+            matrices.drawTexture(TEXTURE, x + 99, y + 45, this.backgroundWidth, 0, 28, 21);
         }
     }
 

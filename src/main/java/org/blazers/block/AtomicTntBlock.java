@@ -33,8 +33,8 @@ public class AtomicTntBlock extends TntBlock {
 
         @Override
         protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-            ServerWorld world = pointer.getWorld();
-            BlockPos blockPos = pointer.getPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
+            ServerWorld world = pointer.world();
+            BlockPos blockPos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING));
             TntEntity tntEntity = getPrimedAtomicTnt(world, blockPos, null);
             world.spawnEntity(tntEntity);
             world.playSound(null, tntEntity.getX(), tntEntity.getY(), tntEntity.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0f, 1.0f);

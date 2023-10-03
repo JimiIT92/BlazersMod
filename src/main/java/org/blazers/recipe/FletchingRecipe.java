@@ -1,7 +1,8 @@
 package org.blazers.recipe;
 
-import com.google.gson.JsonObject;
 import com.mojang.datafixers.util.Pair;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -11,23 +12,20 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.*;
 import net.minecraft.registry.DynamicRegistryManager;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
+import net.minecraft.world.World;
 import org.blazers.item.IPreEnchantedItem;
 
 import java.util.Map;
 
-public class FletchingRecipe extends LegacySmithingRecipe {
+public class FletchingRecipe implements Recipe<Inventory> {
 
     public static final String ID = "fletching";
     private final Ingredient base;
     private final Ingredient addition;
     private final ItemStack result;
-    private final Identifier id;
 
-    public FletchingRecipe(Identifier id, Ingredient base, Ingredient addition, ItemStack result) {
-        super(id, base, addition, result);
-        this.id = id;
+    public FletchingRecipe(Ingredient base, Ingredient addition, ItemStack result) {
+
         this.base = base;
         this.addition = addition;
         this.result = result;
@@ -42,6 +40,18 @@ public class FletchingRecipe extends LegacySmithingRecipe {
             EnchantmentHelper.set(Map.of(itemEnchantment.getFirst(), itemEnchantment.getSecond()), recipeResult);
         }
         return recipeResult;
+    }
+
+    public boolean matches(Inventory inventory, World world) {
+        return this.base.test(inventory.getStack(0)) && this.addition.test(inventory.getStack(1));
+    }
+
+    public boolean fits(int width, int height) {
+        return width >= 2 && height >= 1;
+    }
+
+    public ItemStack getResult(DynamicRegistryManager registryManager) {
+        return this.result;
     }
 
     @Override
@@ -59,6 +69,10 @@ public class FletchingRecipe extends LegacySmithingRecipe {
         return Type.INSTANCE;
     }
 
+    public boolean testAddition(ItemStack stack) {
+        return this.addition.test(stack);
+    }
+
     public static class Type implements RecipeType<FletchingRecipe> {
         private Type() { }
         public static final Type INSTANCE = new Type();
@@ -70,20 +84,26 @@ public class FletchingRecipe extends LegacySmithingRecipe {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = FletchingRecipe.ID;
 
-        @Override
-        public FletchingRecipe read(Identifier identifier, JsonObject jsonObject) {
-            Ingredient ingredient = Ingredient.fromJson(JsonHelper.getObject(jsonObject, "base"));
-            Ingredient ingredient2 = Ingredient.fromJson(JsonHelper.getObject(jsonObject, "addition"));
-            ItemStack itemStack = ShapedRecipe.outputFromJson(JsonHelper.getObject(jsonObject, "result"));
-            return new FletchingRecipe(identifier, ingredient, ingredient2, itemStack);
+        private static final Codec<FletchingRecipe> CODEC = RecordCodecBuilder.create((instance) -> {
+            return instance.group(Ingredient.ALLOW_EMPTY_CODEC.fieldOf("base").forGetter((recipe) -> {
+                return recipe.base;
+            }), Ingredient.ALLOW_EMPTY_CODEC.fieldOf("addition").forGetter((recipe) -> {
+                return recipe.addition;
+            }), RecipeCodecs.CRAFTING_RESULT.fieldOf("result").forGetter((recipe) -> {
+                return recipe.result;
+            })).apply(instance, FletchingRecipe::new);
+        });
+
+        public Codec<FletchingRecipe> codec() {
+            return CODEC;
         }
 
         @Override
-        public FletchingRecipe read(Identifier identifier, PacketByteBuf packetByteBuf) {
+        public FletchingRecipe read(PacketByteBuf packetByteBuf) {
             Ingredient ingredient = Ingredient.fromPacket(packetByteBuf);
             Ingredient ingredient2 = Ingredient.fromPacket(packetByteBuf);
             ItemStack itemStack = packetByteBuf.readItemStack();
-            return new FletchingRecipe(identifier, ingredient, ingredient2, itemStack);
+            return new FletchingRecipe(ingredient, ingredient2, itemStack);
         }
 
         @Override

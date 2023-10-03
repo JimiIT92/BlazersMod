@@ -110,7 +110,7 @@ public class FireflyEntity extends AnimalEntity {
     @Override
     protected void mobTick() {
         super.mobTick();
-        if (this.targetPosition != null && (!this.world.isAir(this.targetPosition) || this.targetPosition.getY() <= this.world.getBottomY())) {
+        if (this.targetPosition != null && (!this.getWorld().isAir(this.targetPosition) || this.targetPosition.getY() <= this.getWorld().getBottomY())) {
             this.targetPosition = null;
         }
 

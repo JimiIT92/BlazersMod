@@ -5,6 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.screen.ForgingScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.slot.ForgingSlotsManager;
@@ -21,8 +22,8 @@ import java.util.List;
 public class FletchingScreenHandler extends ForgingScreenHandler {
     private final World world;
     @Nullable
-    private FletchingRecipe currentRecipe;
-    private final List<FletchingRecipe> recipes;
+    private RecipeEntry<FletchingRecipe> currentRecipe;
+    private final List<RecipeEntry<FletchingRecipe>> recipes;
 
     public FletchingScreenHandler(int syncId, PlayerInventory playerInventory) {
         this(syncId, playerInventory, ScreenHandlerContext.EMPTY);
@@ -30,7 +31,7 @@ public class FletchingScreenHandler extends ForgingScreenHandler {
 
     public FletchingScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(BLScreenHandlers.FLETCHING, syncId, playerInventory, context);
-        this.world = playerInventory.player.world;
+        this.world = playerInventory.player.getWorld();
         this.recipes = this.world.getRecipeManager().listAllOfType(FletchingRecipe.Type.INSTANCE);
     }
 
@@ -49,13 +50,13 @@ public class FletchingScreenHandler extends ForgingScreenHandler {
 
     @Override
     protected boolean canTakeOutput(PlayerEntity player, boolean present) {
-        return this.currentRecipe != null && this.currentRecipe.matches(this.input, this.world);
+        return this.currentRecipe != null && this.currentRecipe.value().matches(this.input, this.world);
     }
 
     @Override
     protected void onTakeOutput(PlayerEntity player, ItemStack stack) {
-        stack.onCraft(player.world, player, stack.getCount());
-        this.output.unlockLastRecipe(player);
+        stack.onCraft(player.getWorld(), player, stack.getCount());
+        this.output.unlockLastRecipe(player, List.of(stack));
         this.decrementStack(0);
         this.decrementStack(1);
         this.world.playSound(player, player.getBlockPos(), SoundEvents.ENTITY_VILLAGER_WORK_FLETCHER, SoundCategory.BLOCKS, 0.75F, 1.0F);
@@ -69,12 +70,12 @@ public class FletchingScreenHandler extends ForgingScreenHandler {
 
     @Override
     public void updateResult() {
-        List<FletchingRecipe> list = this.world.getRecipeManager().getAllMatches(FletchingRecipe.Type.INSTANCE, this.input, this.world);
+        List<RecipeEntry<FletchingRecipe>> list = this.world.getRecipeManager().getAllMatches(FletchingRecipe.Type.INSTANCE, this.input, this.world);
         if (list.isEmpty()) {
             this.output.setStack(0, ItemStack.EMPTY);
         } else {
             this.currentRecipe = list.get(0);
-            ItemStack itemStack = this.currentRecipe.craft(this.input, this.world.getRegistryManager());
+            ItemStack itemStack = this.currentRecipe.value().craft(this.input, this.world.getRegistryManager());
             this.output.setLastRecipe(this.currentRecipe);
             this.output.setStack(0, itemStack);
         }
@@ -86,7 +87,7 @@ public class FletchingScreenHandler extends ForgingScreenHandler {
 
     protected boolean testAddition(ItemStack stack) {
         return this.recipes.stream().anyMatch((recipe) -> {
-            return recipe.testAddition(stack);
+            return recipe.value().testAddition(stack);
         });
     }
 

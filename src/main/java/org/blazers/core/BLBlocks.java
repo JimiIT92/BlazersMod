@@ -56,13 +56,13 @@ public final class BLBlocks {
 
     public static final Block SAPPHIRE_BLOCK = registerSimpleBlock("sapphire_block", createGemBlockProperties(MapColor.BLACK));
     public static final Block TOPAZ_BLOCK = registerSimpleBlock("topaz_block", createGemBlockProperties(MapColor.ORANGE));
-    public static final Block PEARL_BLOCK = registerSimpleBlock("pearl_block", FabricBlockSettings.of(Material.STONE, MapColor.PINK)
+    public static final Block PEARL_BLOCK = registerSimpleBlock("pearl_block", FabricBlockSettings.create().mapColor(MapColor.PINK)
             .sounds(BlockSoundGroup.CALCITE).requiresTool().strength(0.75F));
     public static final Block RUBY_BLOCK = registerSimpleBlock("ruby_block", createGemBlockProperties(MapColor.RED));
     public static final Block MALACHITE_BLOCK = registerSimpleBlock("malachite_block", createGemBlockProperties(MapColor.TERRACOTTA_GREEN));
     public static final Block ONICE_BLOCK = registerSimpleBlock("onice_block", createGemBlockProperties(MapColor.TERRACOTTA_BLACK));
-    public static final Block URANIUM_BLOCK = registerSimpleBlock("uranium_block", FabricBlockSettings.of(Material.METAL, MapColor.GREEN).requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.COPPER));
-    public static final Block RAW_URANIUM_BLOCK = registerSimpleBlock("raw_uranium_block", FabricBlockSettings.of(Material.STONE, MapColor.ORANGE).requiresTool().strength(5.0F, 6.0F));
+    public static final Block URANIUM_BLOCK = registerSimpleBlock("uranium_block", FabricBlockSettings.create().mapColor(MapColor.GREEN).requiresTool().strength(3.0F, 6.0F).sounds(BlockSoundGroup.COPPER));
+    public static final Block RAW_URANIUM_BLOCK = registerSimpleBlock("raw_uranium_block", FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(5.0F, 6.0F));
 
     public static final Block CUT_COPPER_BRICKS = registerBlock("cut_copper_bricks", new OxidizableCutCopperBricksBlock(Oxidizable.OxidationLevel.UNAFFECTED, Blocks.CUT_COPPER), BLTabs.BUILDING_BLOCKS);
     public static final Block EXPOSED_CUT_COPPER_BRICKS = registerBlock("exposed_cut_copper_bricks", new OxidizableCutCopperBricksBlock(Oxidizable.OxidationLevel.EXPOSED, Blocks.EXPOSED_CUT_COPPER), BLTabs.BUILDING_BLOCKS);
@@ -92,7 +92,7 @@ public final class BLBlocks {
     public static final Block DEEPSLATE_SAPPHIRE_ORE = registerOreBlock("deepslate_sapphire_ore", true);
     public static final Block TOPAZ_ORE = registerOreBlock("topaz_ore", false);
     public static final Block DEEPSLATE_TOPAZ_ORE = registerOreBlock("deepslate_topaz_ore", true);
-    public static final Block PEARL_ORE = registerBlock("pearl_ore", new SandBlock(14406560, FabricBlockSettings.of(Material.AGGREGATE, MapColor.PALE_YELLOW)
+    public static final Block PEARL_ORE = registerBlock("pearl_ore", new SandBlock(14406560, FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW)
             .strength(0.5F)
             .sounds(BlockSoundGroup.SAND)
             .requiresTool()
@@ -101,18 +101,18 @@ public final class BLBlocks {
     public static final Block MALACHITE_ORE = registerNetherOreBlock("malachite_ore");
     public static final Block ONICE_ORE = registerNetherOreBlock("onice_ore");
     public static final Block URANIUM_ORE = registerBlock("uranium_ore", new ExperienceDroppingBlock(
-            FabricBlockSettings.of(Material.METAL, MapColor.GREEN).requiresTool().strength(30.0F, 1200.0F).sounds(BlockSoundGroup.ANCIENT_DEBRIS)
+            FabricBlockSettings.create().mapColor(MapColor.GREEN).requiresTool().strength(30.0F, 1200.0F).sounds(BlockSoundGroup.ANCIENT_DEBRIS)
     ), BLTabs.NATURAL);
 
     public static final Block ATOMIC_TNT = registerBlock("atomic_tnt", new AtomicTntBlock(), BLTabs.REDSTONE, BLTabs.COMBAT);
 
     public static final Block BROWN_MUSHROOM_WALL_FAN = registerBlockWithoutBlockItem("brown_mushroom_wall_fan",
-            new DeadCoralWallFanBlock(FabricBlockSettings.of(Material.PLANT, MapColor.BROWN).sounds(BlockSoundGroup.GRASS).requiresTool().noCollision().breakInstantly().dropsLike(Blocks.BROWN_MUSHROOM)));
+            new DeadCoralWallFanBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).sounds(BlockSoundGroup.GRASS).requiresTool().noCollision().breakInstantly().dropsLike(Blocks.BROWN_MUSHROOM)));
     public static final Block RED_MUSHROOM_WALL_FAN = registerBlockWithoutBlockItem("red_mushroom_wall_fan",
-            new DeadCoralWallFanBlock(FabricBlockSettings.of(Material.PLANT, MapColor.RED).sounds(BlockSoundGroup.GRASS).requiresTool().noCollision().breakInstantly().dropsLike(Blocks.RED_MUSHROOM)));
+            new DeadCoralWallFanBlock(FabricBlockSettings.create().mapColor(MapColor.RED).sounds(BlockSoundGroup.GRASS).requiresTool().noCollision().breakInstantly().dropsLike(Blocks.RED_MUSHROOM)));
 
     public static final Block CATTAIL = registerBlock("cattail", new CattailBlock(), BLTabs.NATURAL);
-    public static final Block POTTED_CATTAIL = registerBlockWithoutBlockItem("potted_cattail", new FlowerPotBlock(CATTAIL, FabricBlockSettings.of(Material.DECORATION).breakInstantly().nonOpaque()));
+    public static final Block POTTED_CATTAIL = registerBlockWithoutBlockItem("potted_cattail", new FlowerPotBlock(CATTAIL, FabricBlockSettings.create().breakInstantly().nonOpaque()));
 
     public static final Block WHITE_CONCRETE_SLAB = registerBlock("white_concrete_slab", new SlabBlock(FabricBlockSettings.copyOf(Blocks.WHITE_CONCRETE)), BLTabs.COLORED_BLOCKS);
     public static final Block ORANGE_CONCRETE_SLAB = registerBlock("orange_concrete_slab", new SlabBlock(FabricBlockSettings.copyOf(Blocks.ORANGE_CONCRETE)), BLTabs.COLORED_BLOCKS);
@@ -148,14 +148,14 @@ public final class BLBlocks {
     public static final Block BLACK_CONCRETE_STAIRS = registerBlock("black_concrete_stairs", new StairsBlock(Blocks.BLACK_CONCRETE.getDefaultState(), FabricBlockSettings.copyOf(Blocks.BLACK_CONCRETE)), BLTabs.COLORED_BLOCKS);
 
     private static FabricBlockSettings createGemBlockProperties(MapColor mapColor) {
-        return FabricBlockSettings.of(Material.METAL, mapColor)
+        return FabricBlockSettings.create().mapColor(mapColor)
                 .requiresTool()
                 .strength(5.0F, 6.0F)
                 .sounds(BlockSoundGroup.METAL);
     }
 
     private static FabricBlockSettings createOreBlockSettings() {
-        return FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F);
+        return FabricBlockSettings.create().requiresTool().strength(3.0F, 3.0F);
     }
 
     private static FabricBlockSettings createDeepslateOreBlockSettings() {

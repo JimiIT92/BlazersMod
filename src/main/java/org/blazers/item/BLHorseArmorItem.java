@@ -26,8 +26,8 @@ public class BLHorseArmorItem extends HorseArmorItem {
 
         @Override
         protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-            BlockPos blockPos = pointer.getPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
-            List<AbstractHorseEntity> list = pointer.getWorld().getEntitiesByClass(AbstractHorseEntity.class, new Box(blockPos), entity -> entity.isAlive() && entity.hasArmorSlot());
+            BlockPos blockPos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING));
+            List<AbstractHorseEntity> list = pointer.world().getEntitiesByClass(AbstractHorseEntity.class, new Box(blockPos), entity -> entity.isAlive() && entity.hasArmorSlot());
             for (AbstractHorseEntity abstractHorseEntity : list) {
                 if (!abstractHorseEntity.isHorseArmor(stack) || abstractHorseEntity.hasArmorInSlot() || !abstractHorseEntity.isTame()) continue;
                 abstractHorseEntity.getStackReference(401).set(stack.split(1));
@@ -45,8 +45,8 @@ public class BLHorseArmorItem extends HorseArmorItem {
     }
 
     public static boolean dispenseArmor(BlockPointer pointer, ItemStack armor) {
-        BlockPos blockPos = pointer.getPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
-        List<HorseEntity> list = pointer.getWorld().getEntitiesByClass(HorseEntity.class, new Box(blockPos), new EntityPredicates.Equipable(armor));
+        BlockPos blockPos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING));
+        List<HorseEntity> list = pointer.world().getEntitiesByClass(HorseEntity.class, new Box(blockPos), new EntityPredicates.Equipable(armor));
         if (list.isEmpty()) {
             return false;
         }

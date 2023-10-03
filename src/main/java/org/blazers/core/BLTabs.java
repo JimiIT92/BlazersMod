@@ -4,6 +4,9 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.blazers.BlazersMod;
 
@@ -23,7 +26,12 @@ public final class BLTabs {
     public static ItemGroup SPAWN_EGGS;
 
     private static ItemGroup createTab(final String name, final Supplier<ItemStack> item) {
-        return FabricItemGroup.builder(new Identifier(BlazersMod.MOD_ID, name)).icon(item).build();
+        return Registry.register(Registries.ITEM_GROUP, new Identifier(BlazersMod.MOD_ID, name),
+                FabricItemGroup.builder()
+                        .displayName(Text.translatable("itemGroup." + BlazersMod.MOD_ID + "." + name))
+                        .icon(item)
+                        .build()
+        );
     }
 
     public static void registerItemGroup() {
