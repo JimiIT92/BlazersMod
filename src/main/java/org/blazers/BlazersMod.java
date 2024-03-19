@@ -21,7 +21,6 @@ public final class BlazersMod implements ModInitializer {
         BLFeatures.register();
         BLItems.register();
         BLBlocks.register();
-        BLBlockSetTypes.register();
         BLPaintings.register();
         BLScreenHandlers.register();
         BLRecipes.register();

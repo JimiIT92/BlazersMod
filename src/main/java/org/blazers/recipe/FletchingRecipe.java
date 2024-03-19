@@ -89,7 +89,7 @@ public class FletchingRecipe implements Recipe<Inventory> {
                 return recipe.base;
             }), Ingredient.ALLOW_EMPTY_CODEC.fieldOf("addition").forGetter((recipe) -> {
                 return recipe.addition;
-            }), RecipeCodecs.CRAFTING_RESULT.fieldOf("result").forGetter((recipe) -> {
+            }), ItemStack.RECIPE_RESULT_CODEC.fieldOf("result").forGetter((recipe) -> {
                 return recipe.result;
             })).apply(instance, FletchingRecipe::new);
         });

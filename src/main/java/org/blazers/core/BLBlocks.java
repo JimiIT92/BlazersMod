@@ -11,6 +11,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.ColorCode;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import org.blazers.BlazersMod;
@@ -92,7 +93,7 @@ public final class BLBlocks {
     public static final Block DEEPSLATE_SAPPHIRE_ORE = registerOreBlock("deepslate_sapphire_ore", true);
     public static final Block TOPAZ_ORE = registerOreBlock("topaz_ore", false);
     public static final Block DEEPSLATE_TOPAZ_ORE = registerOreBlock("deepslate_topaz_ore", true);
-    public static final Block PEARL_ORE = registerBlock("pearl_ore", new SandBlock(14406560, FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW)
+    public static final Block PEARL_ORE = registerBlock("pearl_ore", new ColoredFallingBlock(new ColorCode(14406560), FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW)
             .strength(0.5F)
             .sounds(BlockSoundGroup.SAND)
             .requiresTool()
@@ -101,6 +102,7 @@ public final class BLBlocks {
     public static final Block MALACHITE_ORE = registerNetherOreBlock("malachite_ore");
     public static final Block ONICE_ORE = registerNetherOreBlock("onice_ore");
     public static final Block URANIUM_ORE = registerBlock("uranium_ore", new ExperienceDroppingBlock(
+            UniformIntProvider.create(2, 5),
             FabricBlockSettings.create().mapColor(MapColor.GREEN).requiresTool().strength(30.0F, 1200.0F).sounds(BlockSoundGroup.ANCIENT_DEBRIS)
     ), BLTabs.NATURAL);
 
@@ -163,11 +165,11 @@ public final class BLBlocks {
     }
 
     private static Block registerOreBlock(final String name, final boolean isDeepslateOre) {
-        return registerBlock(name, new ExperienceDroppingBlock(isDeepslateOre ? createDeepslateOreBlockSettings() : createOreBlockSettings(), UniformIntProvider.create(3, 7)), BLTabs.NATURAL);
+        return registerBlock(name, new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), isDeepslateOre ? createDeepslateOreBlockSettings() : createOreBlockSettings()), BLTabs.NATURAL);
     }
 
     private static Block registerNetherOreBlock(final String name) {
-        return registerBlock(name, new ExperienceDroppingBlock(createOreBlockSettings().mapColor(MapColor.DARK_RED).sounds(BlockSoundGroup.NETHER_ORE), UniformIntProvider.create(2, 5)), BLTabs.NATURAL);
+        return registerBlock(name, new ExperienceDroppingBlock(UniformIntProvider.create(2, 5), createOreBlockSettings().mapColor(MapColor.DARK_RED).sounds(BlockSoundGroup.NETHER_ORE)), BLTabs.NATURAL);
     }
 
     private static Block registerDripstone(final String name, final Block materialBlock) {

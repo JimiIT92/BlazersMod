@@ -25,11 +25,11 @@ public class SpearEntity extends PersistentProjectileEntity {
     private boolean dealtDamage;
 
     public SpearEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
-        super(entityType, world);
+        super(entityType, world, BLItems.SPEAR.getDefaultStack());
     }
 
     public SpearEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world, LivingEntity owner, ItemStack stack) {
-        super(entityType, owner, world);
+        super(entityType, owner, world, stack);
         this.spearItem = stack.copy();
     }
 

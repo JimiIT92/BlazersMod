@@ -7,8 +7,7 @@ import net.minecraft.entity.TntEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
 import org.blazers.core.BLEntityTypes;
-
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class AtomicTntEntity extends TntEntity {
 
