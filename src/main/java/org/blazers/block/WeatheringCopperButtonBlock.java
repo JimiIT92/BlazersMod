@@ -48,7 +48,7 @@ public class WeatheringCopperButtonBlock extends CopperButtonBlock implements IW
      * @param random {@link Random Random variable}
      */
     public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
-        this.onRandomTick(state, level, pos, random);
+        this.changeOverTime(state, level, pos, random);
     }
 
     /**

@@ -42,7 +42,7 @@ public class ThrownSpear extends AbstractArrow {
      * @param level {@link Level World reference}
      */
     public ThrownSpear(EntityType<? extends AbstractArrow> type, Level level) {
-        super(type, level);
+        super(type, level, BLItems.SPEAR.get().getDefaultInstance());
     }
 
     /**
@@ -54,7 +54,7 @@ public class ThrownSpear extends AbstractArrow {
      * @param stack {@link ItemStack Spear Item}
      */
     public ThrownSpear(EntityType<? extends AbstractArrow> type, Level world, LivingEntity entity, ItemStack stack) {
-        super(type, entity, world);
+        super(type, entity, world, stack);
         this.spearItem = stack.copy();
     }
 

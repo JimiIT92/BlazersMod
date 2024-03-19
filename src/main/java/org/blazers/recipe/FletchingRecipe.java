@@ -86,7 +86,7 @@ public class FletchingRecipe implements Recipe<Container> {
      * @param level {@link Level The level reference}
      * @return {@link Boolean True if the ingredients matches a recipe}
      */
-    public boolean matches(Container container, Level level) {
+    public boolean matches(Container container, @NotNull Level level) {
         return this.base.test(container.getItem(0)) && this.addition.test(container.getItem(1));
     }
 
@@ -97,7 +97,7 @@ public class FletchingRecipe implements Recipe<Container> {
      * @param registryAccess {@link RegistryAccess The registry access}
      * @return {@link ItemStack The crafting result}
      */
-    public ItemStack assemble(Container container, RegistryAccess registryAccess) {
+    public @NotNull ItemStack assemble(Container container, @NotNull RegistryAccess registryAccess) {
         ItemStack itemstack = this.result.copy();
         CompoundTag compoundtag = container.getItem(0).getTag();
         if (compoundtag != null) {
@@ -113,7 +113,7 @@ public class FletchingRecipe implements Recipe<Container> {
      * @param registryAccess {@link RegistryAccess The registry access}
      * @return {@link ItemStack The crafting result}
      */
-    public ItemStack getResultItem(RegistryAccess registryAccess) {
+    public @NotNull ItemStack getResultItem(@NotNull RegistryAccess registryAccess) {
         return this.result;
     }
 
@@ -153,10 +153,10 @@ public class FletchingRecipe implements Recipe<Container> {
         private static final Codec<FletchingRecipe> CODEC = RecordCodecBuilder.create((builder) -> builder.group(
                 Ingredient.CODEC.fieldOf("base").forGetter((recipe) -> recipe.base),
                 Ingredient.CODEC.fieldOf("addition").forGetter((recipe) -> recipe.addition),
-                CraftingRecipeCodecs.ITEMSTACK_OBJECT_CODEC.fieldOf("result").forGetter((recipe) -> recipe.result))
+                ItemStack.ITEM_WITH_COUNT_CODEC.fieldOf("result").forGetter((recipe) -> recipe.result))
                 .apply(builder, FletchingRecipe::new));
 
-        public Codec<FletchingRecipe> codec() {
+        public @NotNull Codec<FletchingRecipe> codec() {
             return CODEC;
         }
 

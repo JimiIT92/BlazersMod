@@ -25,7 +25,7 @@ public class WaxedCutCopperBricksBlock extends Block {
      * @param parentBlock {@link BlockBehaviour Parent Block Properties}
      */
     public WaxedCutCopperBricksBlock(BlockBehaviour parentBlock) {
-        super(BlockBehaviour.Properties.copy(parentBlock));
+        super(BlockBehaviour.Properties.ofFullCopy(parentBlock));
     }
 
     /**

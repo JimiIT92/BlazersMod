@@ -38,7 +38,7 @@ public class WeatheringCutCopperBricks extends Block implements IWeatheringCutCo
      * @param parentBlock {@link BlockBehaviour Parent Block Properties}
      */
     public WeatheringCutCopperBricks(WeatheringCopper.WeatherState weatherState, BlockBehaviour parentBlock) {
-        super(BlockBehaviour.Properties.copy(parentBlock));
+        super(BlockBehaviour.Properties.ofFullCopy(parentBlock));
         this.weatherState = weatherState;
     }
 
@@ -51,7 +51,7 @@ public class WeatheringCutCopperBricks extends Block implements IWeatheringCutCo
      * @param random {@link Random Random variable}
      */
     public void randomTick(@NotNull BlockState state, @NotNull ServerLevel level, @NotNull BlockPos pos, @NotNull RandomSource random) {
-        this.onRandomTick(state, level, pos, random);
+        this.changeOverTime(state, level, pos, random);
     }
 
     /**

@@ -8,8 +8,6 @@ import net.minecraft.core.dispenser.BlockSource;
 import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.item.ItemStack;
@@ -18,7 +16,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -63,7 +60,6 @@ public final class BlazersMod {
         BLTabs.register(eventBus);
         BLItems.register(eventBus);
         BLBlocks.register(eventBus);
-        BLBlockSetTypes.register();
         BLPaintings.register(eventBus);
         BLSounds.register(eventBus);
         BLEntityTypes.register(eventBus);
@@ -99,7 +95,7 @@ public final class BlazersMod {
      * @param event {@link FMLCommonSetupEvent FML Common Setup Event}
      */
     private void commonSetup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
+        /*event.enqueueWork(() -> {
             SpawnPlacements.register(BLEntityTypes.WITHER_SKELETON_HORSE.get(),
                     SpawnPlacements.Type.ON_GROUND,
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -109,7 +105,7 @@ public final class BlazersMod {
                     Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     (entity, level, spawn, pos, random) ->
                             level.getBlockState(pos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON));
-        });
+        });*/
         event.enqueueWork(() -> ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BLBlocks.CATTAIL.getId(), BLBlocks.POTTED_CATTAIL));
         event.enqueueWork(BLInstruments::register);
         event.enqueueWork(() -> DispenserBlock.registerBehavior(BLBlocks.ATOMIC_TNT.get(), new DefaultDispenseItemBehavior() {

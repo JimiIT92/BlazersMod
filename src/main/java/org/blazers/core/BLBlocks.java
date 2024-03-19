@@ -1,5 +1,6 @@
 package org.blazers.core;
 
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -14,7 +15,6 @@ import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.block.*;
 
-import java.util.Map;
 import java.util.function.Supplier;
 
 /**
@@ -48,22 +48,22 @@ public final class BLBlocks {
     public static final RegistryObject<Block> HOLLOW_WARPED_STEM = registerBlock("hollow_warped_stem", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
     public static final RegistryObject<Block> HOLLOW_STRIPPED_WARPED_STEM = registerBlock("hollow_stripped_warped_stem", () -> new HollowBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WARPED_STEM).strength(2.0F).sound(SoundType.STEM)), BLTabs.BLTabKeys.BUILDING_BLOCKS);
 
-    public static final RegistryObject<Block> COBBLED_GRANITE = registerSimpleBlock("cobbled_granite", BlockBehaviour.Properties.copy(Blocks.GRANITE));
-    public static final RegistryObject<Block> COBBLED_DIORITE = registerSimpleBlock("cobbled_diorite", BlockBehaviour.Properties.copy(Blocks.DIORITE));
-    public static final RegistryObject<Block> COBBLED_ANDESITE = registerSimpleBlock("cobbled_andesite", BlockBehaviour.Properties.copy(Blocks.ANDESITE));
-    public static final RegistryObject<Block> SANDSTONE_BRICKS = registerSimpleBlock("sandstone_bricks", BlockBehaviour.Properties.copy(Blocks.SANDSTONE));
-    public static final RegistryObject<Block> CUT_BRICKS = registerSimpleBlock("cut_bricks", BlockBehaviour.Properties.copy(Blocks.BRICKS));
-    public static final RegistryObject<Block> PURPUR_TILES = registerSimpleBlock("purpur_tiles", BlockBehaviour.Properties.copy(Blocks.PURPUR_BLOCK));
-    public static final RegistryObject<Block> STONE_TILES = registerSimpleBlock("stone_tiles", BlockBehaviour.Properties.copy(Blocks.STONE_BRICKS));
-    public static final RegistryObject<Block> MOSSY_STONE_TILES = registerSimpleBlock("mossy_stone_tiles", BlockBehaviour.Properties.copy(Blocks.MOSSY_STONE_BRICKS));
-    public static final RegistryObject<Block> CUT_DEEPSLATE_BRICKS = registerSimpleBlock("cut_deepslate_bricks", BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_BRICKS));
-    public static final RegistryObject<Block> POLISHED_DEEPSLATE_BRICKS = registerSimpleBlock("polished_deepslate_bricks", BlockBehaviour.Properties.copy(Blocks.POLISHED_DEEPSLATE));
-    public static final RegistryObject<Block> END_STONE_TILES = registerSimpleBlock("end_stone_tiles", BlockBehaviour.Properties.copy(Blocks.END_STONE_BRICKS));
-    public static final RegistryObject<Block> QUARTZ_TILES = registerSimpleBlock("quartz_tiles", BlockBehaviour.Properties.copy(Blocks.QUARTZ_BRICKS));
-    public static final RegistryObject<Block> CUT_PRISMARINE_BRICKS = registerSimpleBlock("cut_prismarine_bricks", BlockBehaviour.Properties.copy(Blocks.PRISMARINE_BRICKS));
-    public static final RegistryObject<Block> DARK_PRISMARINE_BRICKS = registerSimpleBlock("dark_prismarine_bricks", BlockBehaviour.Properties.copy(Blocks.DARK_PRISMARINE));
-    public static final RegistryObject<Block> RED_SANDSTONE_BRICKS = registerSimpleBlock("red_sandstone_bricks", BlockBehaviour.Properties.copy(Blocks.RED_SANDSTONE));
-    public static final RegistryObject<Block> POLISHED_BLACKSTONE_TILES = registerSimpleBlock("polished_blackstone_tiles", BlockBehaviour.Properties.copy(Blocks.POLISHED_BLACKSTONE_BRICKS));
+    public static final RegistryObject<Block> COBBLED_GRANITE = registerSimpleBlock("cobbled_granite", BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE));
+    public static final RegistryObject<Block> COBBLED_DIORITE = registerSimpleBlock("cobbled_diorite", BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE));
+    public static final RegistryObject<Block> COBBLED_ANDESITE = registerSimpleBlock("cobbled_andesite", BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE));
+    public static final RegistryObject<Block> SANDSTONE_BRICKS = registerSimpleBlock("sandstone_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE));
+    public static final RegistryObject<Block> CUT_BRICKS = registerSimpleBlock("cut_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS));
+    public static final RegistryObject<Block> PURPUR_TILES = registerSimpleBlock("purpur_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_BLOCK));
+    public static final RegistryObject<Block> STONE_TILES = registerSimpleBlock("stone_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS));
+    public static final RegistryObject<Block> MOSSY_STONE_TILES = registerSimpleBlock("mossy_stone_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICKS));
+    public static final RegistryObject<Block> CUT_DEEPSLATE_BRICKS = registerSimpleBlock("cut_deepslate_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS));
+    public static final RegistryObject<Block> POLISHED_DEEPSLATE_BRICKS = registerSimpleBlock("polished_deepslate_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE));
+    public static final RegistryObject<Block> END_STONE_TILES = registerSimpleBlock("end_stone_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE_BRICKS));
+    public static final RegistryObject<Block> QUARTZ_TILES = registerSimpleBlock("quartz_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BRICKS));
+    public static final RegistryObject<Block> CUT_PRISMARINE_BRICKS = registerSimpleBlock("cut_prismarine_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS));
+    public static final RegistryObject<Block> DARK_PRISMARINE_BRICKS = registerSimpleBlock("dark_prismarine_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_PRISMARINE));
+    public static final RegistryObject<Block> RED_SANDSTONE_BRICKS = registerSimpleBlock("red_sandstone_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SANDSTONE));
+    public static final RegistryObject<Block> POLISHED_BLACKSTONE_TILES = registerSimpleBlock("polished_blackstone_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICKS));
 
     public static final RegistryObject<Block> SAPPHIRE_BLOCK = registerSimpleBlock("sapphire_block", createGemBlockProperties(MapColor.COLOR_BLUE));
     public static final RegistryObject<Block> TOPAZ_BLOCK = registerSimpleBlock("topaz_block", createGemBlockProperties(MapColor.COLOR_ORANGE));
@@ -104,7 +104,7 @@ public final class BLBlocks {
     public static final RegistryObject<Block> TOPAZ_ORE = registerOreBlock("topaz_ore", false);
     public static final RegistryObject<Block> DEEPSLATE_TOPAZ_ORE = registerOreBlock("deepslate_topaz_ore", true);
     public static final RegistryObject<Block> PEARL_ORE = registerBlock("pearl_ore", () ->
-            new SandBlock(14406560, BlockBehaviour.Properties.of().mapColor(MapColor.SAND)
+            new ColoredFallingBlock(new ColorRGBA(14406560), BlockBehaviour.Properties.of().mapColor(MapColor.SAND)
                     .strength(0.5F)
                     .sound(SoundType.SAND)
                     .requiresCorrectToolForDrops()
@@ -113,51 +113,52 @@ public final class BLBlocks {
     public static final RegistryObject<Block> MALACHITE_ORE = registerNetherOreBlock("malachite_ore");
     public static final RegistryObject<Block> ONICE_ORE = registerNetherOreBlock("onice_ore");
     public static final RegistryObject<Block> URANIUM_ORE = registerBlock("uranium_ore", () -> new DropExperienceBlock(
+            UniformInt.of(2, 5),
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).requiresCorrectToolForDrops().strength(30.0F, 1200.0F).sound(SoundType.ANCIENT_DEBRIS)
     ), BLTabs.BLTabKeys.NATURAL);
 
     public static final RegistryObject<Block> ATOMIC_TNT = registerBlock("atomic_tnt", AtomicTntBlock::new, BLTabs.BLTabKeys.REDSTONE, BLTabs.BLTabKeys.COMBAT);
 
     public static final RegistryObject<Block> BROWN_MUSHROOM_WALL_FAN = registerBlockWithoutBlockItem("brown_mushroom_wall_fan",
-            () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().dropsLike(Blocks.BROWN_MUSHROOM)));
+            () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().lootFrom(() -> Blocks.BROWN_MUSHROOM)));
     public static final RegistryObject<Block> RED_MUSHROOM_WALL_FAN = registerBlockWithoutBlockItem("red_mushroom_wall_fan",
-            () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().dropsLike(Blocks.RED_MUSHROOM)));
+            () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().lootFrom(() -> Blocks.RED_MUSHROOM)));
 
     public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", CattailBlock::new, BLTabs.BLTabKeys.NATURAL);
     public static final RegistryObject<Block> POTTED_CATTAIL = registerBlockWithoutBlockItem("potted_cattail", () -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, CATTAIL, BlockBehaviour.Properties.of().instabreak().noOcclusion()));
 
-    public static final RegistryObject<Block> WHITE_CONCRETE_SLAB = registerBlock("white_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> ORANGE_CONCRETE_SLAB = registerBlock("orange_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> MAGENTA_CONCRETE_SLAB = registerBlock("magenta_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_SLAB = registerBlock("light_blue_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> YELLOW_CONCRETE_SLAB = registerBlock("yellow_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> LIME_CONCRETE_SLAB = registerBlock("lime_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> PINK_CONCRETE_SLAB = registerBlock("pink_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> GRAY_CONCRETE_SLAB = registerBlock("gray_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_SLAB = registerBlock("light_gray_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> CYAN_CONCRETE_SLAB = registerBlock("cyan_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> PURPLE_CONCRETE_SLAB = registerBlock("purple_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> BLUE_CONCRETE_SLAB = registerBlock("blue_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> BROWN_CONCRETE_SLAB = registerBlock("brown_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> GREEN_CONCRETE_SLAB = registerBlock("green_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> RED_CONCRETE_SLAB = registerBlock("red_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> BLACK_CONCRETE_SLAB = registerBlock("black_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> WHITE_CONCRETE_STAIRS = registerBlock("white_concrete_stairs", () -> new StairBlock(Blocks.WHITE_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.WHITE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> ORANGE_CONCRETE_STAIRS = registerBlock("orange_concrete_stairs", () -> new StairBlock(Blocks.ORANGE_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.ORANGE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> MAGENTA_CONCRETE_STAIRS = registerBlock("magenta_concrete_stairs", () -> new StairBlock(Blocks.MAGENTA_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.MAGENTA_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_STAIRS = registerBlock("light_blue_concrete_stairs", () -> new StairBlock(Blocks.LIGHT_BLUE_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.LIGHT_BLUE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> YELLOW_CONCRETE_STAIRS = registerBlock("yellow_concrete_stairs", () -> new StairBlock(Blocks.YELLOW_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.YELLOW_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> LIME_CONCRETE_STAIRS = registerBlock("lime_concrete_stairs", () -> new StairBlock(Blocks.LIME_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.LIME_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> PINK_CONCRETE_STAIRS = registerBlock("pink_concrete_stairs", () -> new StairBlock(Blocks.PINK_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.PINK_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> GRAY_CONCRETE_STAIRS = registerBlock("gray_concrete_stairs", () -> new StairBlock(Blocks.GRAY_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.GRAY_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_STAIRS = registerBlock("light_gray_concrete_stairs", () -> new StairBlock(Blocks.LIGHT_GRAY_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.LIGHT_GRAY_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> CYAN_CONCRETE_STAIRS = registerBlock("cyan_concrete_stairs", () -> new StairBlock(Blocks.CYAN_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.CYAN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> PURPLE_CONCRETE_STAIRS = registerBlock("purple_concrete_stairs", () -> new StairBlock(Blocks.PURPLE_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.PURPLE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> BLUE_CONCRETE_STAIRS = registerBlock("blue_concrete_stairs", () -> new StairBlock(Blocks.BLUE_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.BLUE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> BROWN_CONCRETE_STAIRS = registerBlock("brown_concrete_stairs", () -> new StairBlock(Blocks.BROWN_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.BROWN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> GREEN_CONCRETE_STAIRS = registerBlock("green_concrete_stairs", () -> new StairBlock(Blocks.GREEN_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.GREEN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> RED_CONCRETE_STAIRS = registerBlock("red_concrete_stairs", () -> new StairBlock(Blocks.RED_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.RED_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
-    public static final RegistryObject<Block> BLACK_CONCRETE_STAIRS = registerBlock("black_concrete_stairs", () -> new StairBlock(Blocks.BLACK_CONCRETE::defaultBlockState, BlockBehaviour.Properties.copy(Blocks.BLACK_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> WHITE_CONCRETE_SLAB = registerBlock("white_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_SLAB = registerBlock("orange_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_SLAB = registerBlock("magenta_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_SLAB = registerBlock("light_blue_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_SLAB = registerBlock("yellow_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> LIME_CONCRETE_SLAB = registerBlock("lime_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> PINK_CONCRETE_SLAB = registerBlock("pink_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> GRAY_CONCRETE_SLAB = registerBlock("gray_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_SLAB = registerBlock("light_gray_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> CYAN_CONCRETE_SLAB = registerBlock("cyan_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_SLAB = registerBlock("purple_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> BLUE_CONCRETE_SLAB = registerBlock("blue_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> BROWN_CONCRETE_SLAB = registerBlock("brown_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> GREEN_CONCRETE_SLAB = registerBlock("green_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> RED_CONCRETE_SLAB = registerBlock("red_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> BLACK_CONCRETE_SLAB = registerBlock("black_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> WHITE_CONCRETE_STAIRS = registerBlock("white_concrete_stairs", () -> new StairBlock(Blocks.WHITE_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_STAIRS = registerBlock("orange_concrete_stairs", () -> new StairBlock(Blocks.ORANGE_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_STAIRS = registerBlock("magenta_concrete_stairs", () -> new StairBlock(Blocks.MAGENTA_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_STAIRS = registerBlock("light_blue_concrete_stairs", () -> new StairBlock(Blocks.LIGHT_BLUE_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_BLUE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_STAIRS = registerBlock("yellow_concrete_stairs", () -> new StairBlock(Blocks.YELLOW_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.YELLOW_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> LIME_CONCRETE_STAIRS = registerBlock("lime_concrete_stairs", () -> new StairBlock(Blocks.LIME_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.LIME_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> PINK_CONCRETE_STAIRS = registerBlock("pink_concrete_stairs", () -> new StairBlock(Blocks.PINK_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> GRAY_CONCRETE_STAIRS = registerBlock("gray_concrete_stairs", () -> new StairBlock(Blocks.GRAY_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_STAIRS = registerBlock("light_gray_concrete_stairs", () -> new StairBlock(Blocks.LIGHT_GRAY_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> CYAN_CONCRETE_STAIRS = registerBlock("cyan_concrete_stairs", () -> new StairBlock(Blocks.CYAN_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.CYAN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_STAIRS = registerBlock("purple_concrete_stairs", () -> new StairBlock(Blocks.PURPLE_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> BLUE_CONCRETE_STAIRS = registerBlock("blue_concrete_stairs", () -> new StairBlock(Blocks.BLUE_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> BROWN_CONCRETE_STAIRS = registerBlock("brown_concrete_stairs", () -> new StairBlock(Blocks.BROWN_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.BROWN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> GREEN_CONCRETE_STAIRS = registerBlock("green_concrete_stairs", () -> new StairBlock(Blocks.GREEN_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.GREEN_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> RED_CONCRETE_STAIRS = registerBlock("red_concrete_stairs", () -> new StairBlock(Blocks.RED_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.RED_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
+    public static final RegistryObject<Block> BLACK_CONCRETE_STAIRS = registerBlock("black_concrete_stairs", () -> new StairBlock(Blocks.BLACK_CONCRETE.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.BLACK_CONCRETE)), BLTabs.BLTabKeys.COLORED_BLOCKS);
 
     //#endregion
 
@@ -208,8 +209,7 @@ public final class BLBlocks {
      * @return {@link RegistryObject<Item> Registered Block}
      */
     private static RegistryObject<Block> registerOreBlock(String name, boolean isDeepslateOre) {
-        return registerBlock(name, () -> new DropExperienceBlock(isDeepslateOre ? createDeepslateOreBlockProperties() : createOreBlockProperties(),
-                UniformInt.of(3, 7)), BLTabs.BLTabKeys.NATURAL);
+        return registerBlock(name, () -> new DropExperienceBlock(UniformInt.of(3, 7), isDeepslateOre ? createDeepslateOreBlockProperties() : createOreBlockProperties()), BLTabs.BLTabKeys.NATURAL);
     }
 
     /**
@@ -220,8 +220,7 @@ public final class BLBlocks {
      */
     private static RegistryObject<Block> registerNetherOreBlock(String name) {
         return registerBlock(name, () ->
-                        new DropExperienceBlock(createOreBlockProperties().mapColor(MapColor.NETHER).sound(SoundType.NETHER_ORE),
-                                UniformInt.of(2, 5))
+                        new DropExperienceBlock(UniformInt.of(2, 5), createOreBlockProperties().mapColor(MapColor.NETHER).sound(SoundType.NETHER_ORE))
                 , BLTabs.BLTabKeys.NATURAL);
     }
 
