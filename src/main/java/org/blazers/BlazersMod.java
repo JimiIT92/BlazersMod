@@ -95,17 +95,6 @@ public final class BlazersMod {
      * @param event {@link FMLCommonSetupEvent FML Common Setup Event}
      */
     private void commonSetup(final FMLCommonSetupEvent event) {
-        /*event.enqueueWork(() -> {
-            SpawnPlacements.register(BLEntityTypes.WITHER_SKELETON_HORSE.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    (entity, level, spawnType, pos, random) -> true);
-            SpawnPlacements.register(BLEntityTypes.FIREFLY.get(),
-                    SpawnPlacements.Type.ON_GROUND,
-                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    (entity, level, spawn, pos, random) ->
-                            level.getBlockState(pos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON));
-        });*/
         event.enqueueWork(() -> ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BLBlocks.CATTAIL.getId(), BLBlocks.POTTED_CATTAIL));
         event.enqueueWork(BLInstruments::register);
         event.enqueueWork(() -> DispenserBlock.registerBehavior(BLBlocks.ATOMIC_TNT.get(), new DefaultDispenseItemBehavior() {
