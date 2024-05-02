@@ -1,0 +1,236 @@
+package org.blazers.event;
+
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.RegistryObject;
+import org.blazers.BlazersMod;
+import org.blazers.core.BLBlocks;
+import org.blazers.core.BLTabs;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Handle all events for {@link CreativeModeTab Creative Mode Tabs}
+ */
+@Mod.EventBusSubscriber(modid = BlazersMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public final class CreativeModeTabEvents {
+
+    /**
+     * Set the {@link BlazersMod Blazers Mod} {@link CreativeModeTab Creative Mode Tab} contents
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    @SubscribeEvent
+    public static void onTabContentsEvent(final BuildCreativeModeTabContentsEvent event) {
+        final ResourceKey<CreativeModeTab> tabKey = event.getTabKey();
+        if(isTab(tabKey, BLTabs.BUILDING_BLOCKS)) {
+            setBuildingBlocksTabContent(event);
+        }
+        else if(isTab(tabKey, BLTabs.COLORED_BLOCKS)) {
+            setColoredBlocksTabContent(event);
+        }
+        else if(isTab(tabKey, BLTabs.NATURAL)) {
+            setNaturalTabContent(event);
+        }
+        else if(isTab(tabKey, BLTabs.FUNCTIONAL)) {
+            setFunctionalTabContent(event);
+        }
+        else if(isTab(tabKey, BLTabs.REDSTONE)) {
+            setRedstoneTabContent(event);
+        }
+        else if(isTab(tabKey, BLTabs.TOOLS)) {
+            setToolsTabContent(event);
+        }
+        else if(isTab(tabKey, BLTabs.COMBAT)) {
+            setCombatTabContent(event);
+        }
+        else if(isTab(tabKey, BLTabs.FOOD_AND_DRINK)) {
+            setFoodAndDrinkTabContent(event);
+        }
+        else if(isTab(tabKey, BLTabs.INGREDIENTS)) {
+            setIngredientsTabContent(event);
+        }
+        else if(isTab(tabKey, BLTabs.SPAWN_EGGS)) {
+            setSpawnEggsTabContent(event);
+        }
+    }
+
+    /**
+     * Set the content of the {@link BLTabs#BUILDING_BLOCKS Building Blocks Creative Mode Tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    private static void setBuildingBlocksTabContent(final BuildCreativeModeTabContentsEvent event) {
+        addToTab(event,
+                BLBlocks.HOLLOW_OAK_LOG,
+                BLBlocks.STRIPPED_HOLLOW_OAK_LOG,
+                BLBlocks.HOLLOW_SPRUCE_LOG,
+                BLBlocks.STRIPPED_HOLLOW_SPRUCE_LOG,
+                BLBlocks.HOLLOW_BIRCH_LOG,
+                BLBlocks.STRIPPED_HOLLOW_BIRCH_LOG,
+                BLBlocks.HOLLOW_JUNGLE_LOG,
+                BLBlocks.STRIPPED_HOLLOW_JUNGLE_LOG,
+                BLBlocks.HOLLOW_ACACIA_LOG,
+                BLBlocks.STRIPPED_HOLLOW_ACACIA_LOG,
+                BLBlocks.HOLLOW_DARK_OAK_LOG,
+                BLBlocks.STRIPPED_HOLLOW_DARK_OAK_LOG,
+                BLBlocks.HOLLOW_CHERRY_LOG,
+                BLBlocks.STRIPPED_HOLLOW_CHERRY_LOG,
+                BLBlocks.HOLLOW_MANGROVE_LOG,
+                BLBlocks.STRIPPED_HOLLOW_MANGROVE_LOG,
+                BLBlocks.HOLLOW_BAMBOO_BLOCK,
+                BLBlocks.STRIPPED_HOLLOW_BAMBOO_BLOCK,
+                BLBlocks.HOLLOW_CRIMSON_STEM,
+                BLBlocks.STRIPPED_HOLLOW_CRIMSON_STEM,
+                BLBlocks.HOLLOW_WARPED_STEM,
+                BLBlocks.STRIPPED_HOLLOW_WARPED_STEM
+        );
+    }
+
+    /**
+     * Set the content of the {@link BLTabs#COLORED_BLOCKS Colored Blocks Creative Mode Tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    private static void setColoredBlocksTabContent(final BuildCreativeModeTabContentsEvent event) {
+
+    }
+
+    /**
+     * Set the content of the {@link BLTabs#NATURAL Natural Creative Mode Tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    private static void setNaturalTabContent(final BuildCreativeModeTabContentsEvent event) {
+        addToTab(event,
+            BLBlocks.HOLLOW_BIRCH_LOG
+        );
+    }
+
+    /**
+     * Set the content of the {@link BLTabs#FUNCTIONAL Functional Creative Mode Tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    private static void setFunctionalTabContent(final BuildCreativeModeTabContentsEvent event) {
+
+    }
+
+    /**
+     * Set the content of the {@link BLTabs#REDSTONE Redstone Creative Mode Tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    private static void setRedstoneTabContent(final BuildCreativeModeTabContentsEvent event) {
+
+    }
+
+    /**
+     * Set the content of the {@link BLTabs#TOOLS Tools Creative Mode Tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    private static void setToolsTabContent(final BuildCreativeModeTabContentsEvent event) {
+
+    }
+
+    /**
+     * Set the content of the {@link BLTabs#COMBAT Combat Creative Mode Tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    private static void setCombatTabContent(final BuildCreativeModeTabContentsEvent event) {
+
+    }
+
+    /**
+     * Set the content of the {@link BLTabs#FOOD_AND_DRINK Food And Drink Creative Mode Tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    private static void setFoodAndDrinkTabContent(final BuildCreativeModeTabContentsEvent event) {
+
+    }
+
+    /**
+     * Set the content of the {@link BLTabs#INGREDIENTS Ingredients Creative Mode Tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    private static void setIngredientsTabContent(final BuildCreativeModeTabContentsEvent event) {
+
+    }
+
+    /**
+     * Set the content of the {@link BLTabs#SPAWN_EGGS Spawn Eggs Creative Mode Tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    private static void setSpawnEggsTabContent(final BuildCreativeModeTabContentsEvent event) {
+
+    }
+
+    /**
+     * Check if the provided {@link ResourceKey<CreativeModeTab> Creative Mode Tab Key} corresponds to a
+     * {@link BlazersMod Blazers Mod} {@link RegistryObject<CreativeModeTab> Registered Creative Mode Tab}
+     *
+     * @param tabKey {@link ResourceKey<CreativeModeTab> The Creative Mode Tab Key}
+     * @param target {@link RegistryObject<CreativeModeTab> The target Creative Mode Tab}
+     * @return {@link Boolean True if the key corresponds to the target tab}
+     */
+    private static boolean isTab(final ResourceKey<CreativeModeTab> tabKey, final RegistryObject<CreativeModeTab> target) {
+        return isTab(tabKey, target.getKey());
+    }
+
+    /**
+     * Check if the provided {@link ResourceKey<CreativeModeTab> Creative Mode Tab Key} corresponds to a
+     * {@link BlazersMod Blazers Mod} {@link RegistryObject<CreativeModeTab> Registered Creative Mode Tab}
+     *
+     * @param tabKey {@link ResourceKey<CreativeModeTab> The Creative Mode Tab Key}
+     * @param target {@link ResourceKey<CreativeModeTab> The target Creative Mode Tab}
+     * @return {@link Boolean True if the key corresponds to the target tab}
+     */
+    private static boolean isTab(final ResourceKey<CreativeModeTab> tabKey, final ResourceKey<CreativeModeTab> target) {
+        return tabKey.equals(target);
+    }
+
+    /**
+     * Add some {@link T items} to a {@link CreativeModeTab creative tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent Creative mode tab build contents event}
+     * @param items {@link T The items to add}
+     */
+    @SafeVarargs
+    private static <T extends ItemLike> void addToTab(final BuildCreativeModeTabContentsEvent event, @NotNull final T... items) {
+        addToTab(event, Arrays.stream(items).map(item -> item.asItem().getDefaultInstance()).toList());
+    }
+
+    /**
+     * Add some {@link RegistryObject items} to a {@link CreativeModeTab creative tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent Creative mode tab build contents event}
+     * @param items {@link RegistryObject The items to add}
+     */
+    @SafeVarargs
+    private static void addToTab(final BuildCreativeModeTabContentsEvent event, @NotNull final RegistryObject<? extends ItemLike>... items) {
+        addToTab(event, Arrays.stream(items).map(item -> item.get().asItem().getDefaultInstance()).toList());
+    }
+
+    /**
+     * Add some {@link ItemStack items} to a {@link CreativeModeTab creative tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent Creative mode tab build contents event}
+     * @param items {@link List <ItemStack> The items to add}
+     */
+    private static void addToTab(final BuildCreativeModeTabContentsEvent event, @NotNull final List<ItemStack> items) {
+        event.acceptAll(items);
+    }
+
+}

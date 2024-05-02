@@ -1,0 +1,298 @@
+package org.blazers.block;
+
+import com.google.common.base.Suppliers;
+import com.google.common.collect.ImmutableMap;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.flag.FeatureFlag;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
+import org.blazers.BlazersMod;
+import org.blazers.core.BLBlocks;
+import org.blazers.helper.BlockHelper;
+import org.blazers.helper.PropertyHelper;
+import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nullable;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
+
+import static net.minecraft.world.level.block.state.properties.BlockStateProperties.WATERLOGGED;
+
+/**
+ * {@link BlazersMod Blazers Mod} {@link RotatedPillarBlock Hollow Block}
+ */
+public final class HollowLog extends RotatedPillarBlock implements SimpleWaterloggedBlock {
+
+    /**
+     * {@link Supplier<Map> Hollowable Blocks}
+     */
+    public static final Supplier<Map<Block, Block>> HOLLOWABLES = Suppliers.memoize(() -> ImmutableMap.<Block, Block>builder()
+            .put(Blocks.OAK_LOG, BLBlocks.HOLLOW_OAK_LOG.get())
+            .put(Blocks.STRIPPED_OAK_LOG, BLBlocks.STRIPPED_HOLLOW_OAK_LOG.get())
+            .put(BLBlocks.HOLLOW_OAK_LOG.get(), BLBlocks.STRIPPED_HOLLOW_OAK_LOG.get())
+            .put(Blocks.SPRUCE_LOG, BLBlocks.HOLLOW_SPRUCE_LOG.get())
+            .put(Blocks.STRIPPED_SPRUCE_LOG, BLBlocks.STRIPPED_HOLLOW_SPRUCE_LOG.get())
+            .put(BLBlocks.HOLLOW_SPRUCE_LOG.get(), BLBlocks.STRIPPED_HOLLOW_SPRUCE_LOG.get())
+            .put(Blocks.BIRCH_LOG, BLBlocks.HOLLOW_BIRCH_LOG.get())
+            .put(Blocks.STRIPPED_BIRCH_LOG, BLBlocks.STRIPPED_HOLLOW_BIRCH_LOG.get())
+            .put(BLBlocks.HOLLOW_BIRCH_LOG.get(), BLBlocks.STRIPPED_HOLLOW_BIRCH_LOG.get())
+            .put(Blocks.JUNGLE_LOG, BLBlocks.HOLLOW_JUNGLE_LOG.get())
+            .put(Blocks.STRIPPED_JUNGLE_LOG, BLBlocks.STRIPPED_HOLLOW_JUNGLE_LOG.get())
+            .put(BLBlocks.HOLLOW_JUNGLE_LOG.get(), BLBlocks.STRIPPED_HOLLOW_JUNGLE_LOG.get())
+            .put(Blocks.ACACIA_LOG, BLBlocks.HOLLOW_ACACIA_LOG.get())
+            .put(Blocks.STRIPPED_ACACIA_LOG, BLBlocks.STRIPPED_HOLLOW_ACACIA_LOG.get())
+            .put(BLBlocks.HOLLOW_ACACIA_LOG.get(), BLBlocks.STRIPPED_HOLLOW_ACACIA_LOG.get())
+            .put(Blocks.DARK_OAK_LOG, BLBlocks.HOLLOW_DARK_OAK_LOG.get())
+            .put(Blocks.STRIPPED_DARK_OAK_LOG, BLBlocks.STRIPPED_HOLLOW_DARK_OAK_LOG.get())
+            .put(BLBlocks.HOLLOW_DARK_OAK_LOG.get(), BLBlocks.STRIPPED_HOLLOW_DARK_OAK_LOG.get())
+            .put(Blocks.MANGROVE_LOG, BLBlocks.HOLLOW_MANGROVE_LOG.get())
+            .put(Blocks.STRIPPED_MANGROVE_LOG, BLBlocks.STRIPPED_HOLLOW_MANGROVE_LOG.get())
+            .put(BLBlocks.HOLLOW_MANGROVE_LOG.get(), BLBlocks.STRIPPED_HOLLOW_MANGROVE_LOG.get())
+            .put(Blocks.CHERRY_LOG, BLBlocks.HOLLOW_CHERRY_LOG.get())
+            .put(Blocks.STRIPPED_CHERRY_LOG, BLBlocks.STRIPPED_HOLLOW_CHERRY_LOG.get())
+            .put(BLBlocks.HOLLOW_CHERRY_LOG.get(), BLBlocks.STRIPPED_HOLLOW_CHERRY_LOG.get())
+            .put(Blocks.BAMBOO_BLOCK, BLBlocks.HOLLOW_BAMBOO_BLOCK.get())
+            .put(Blocks.STRIPPED_BAMBOO_BLOCK, BLBlocks.STRIPPED_HOLLOW_BAMBOO_BLOCK.get())
+            .put(BLBlocks.HOLLOW_BAMBOO_BLOCK.get(), BLBlocks.STRIPPED_HOLLOW_BAMBOO_BLOCK.get())
+            .put(Blocks.CRIMSON_STEM, BLBlocks.HOLLOW_CRIMSON_STEM.get())
+            .put(Blocks.STRIPPED_CRIMSON_STEM, BLBlocks.STRIPPED_HOLLOW_CRIMSON_STEM.get())
+            .put(BLBlocks.HOLLOW_CRIMSON_STEM.get(), BLBlocks.STRIPPED_HOLLOW_CRIMSON_STEM.get())
+            .put(Blocks.WARPED_STEM, BLBlocks.HOLLOW_WARPED_STEM.get())
+            .put(Blocks.STRIPPED_WARPED_STEM, BLBlocks.STRIPPED_HOLLOW_WARPED_STEM.get())
+            .put(BLBlocks.HOLLOW_WARPED_STEM.get(), BLBlocks.STRIPPED_HOLLOW_WARPED_STEM.get())
+    .build());
+
+    /**
+     * The {@link WoodType log Wood Type}
+     */
+    private final WoodType woodType;
+
+    /**
+     * Constructor. Set the {@link BlockBehaviour.Properties Block properties}
+     *
+     * @param woodType The {@link WoodType log Wood Type}
+     * @param color {@link MapColor The Block color on maps}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     */
+    public HollowLog(final WoodType woodType, final MapColor color, final FeatureFlag... featureFlags) {
+        super(PropertyHelper.block(color, 2F, woodType.soundType(), featureFlags).instrument(NoteBlockInstrument.BASS));
+        this.registerDefaultState(this.defaultBlockState().setValue(AXIS, Direction.Axis.Y).setValue(WATERLOGGED, false));
+        this.woodType = woodType;
+    }
+
+    /**
+     * Check if the {@link Block Block} can catch fire
+     *
+     * @param blockState {@link BlockState The current Block State}
+     * @param blockGetter {@link BlockGetter The level reference}
+     * @param blockPos {@link BlockPos The current Block Pos}
+     * @param direction {@link Direction The direction the fire is coming from}
+     * @return {@link Boolean True if the source Block is flammable}
+     */
+    @Override
+    public boolean isFlammable(final BlockState blockState, final BlockGetter blockGetter, final BlockPos blockPos, final Direction direction) {
+        return true;
+    }
+
+    /**
+     * Get the Block {@link Integer flammability value}
+     *
+     * @param blockState {@link BlockState The current Block State}
+     * @param blockGetter {@link BlockGetter The level reference}
+     * @param blockPos {@link BlockPos The current Block Pos}
+     * @param direction {@link Direction The direction the fire is coming from}
+     * @return {@link Integer 5 if is flammable, 0 otherwise}
+     */
+    @Override
+    public int getFlammability(final BlockState blockState, final BlockGetter blockGetter, final BlockPos blockPos, final Direction direction) {
+        return BlockHelper.isFlammable(woodType) ? 5 : 0;
+    }
+
+    /**
+     * Get the Block {@link Integer fire spread speed value}
+     *
+     * @param blockState {@link BlockState The current Block State}
+     * @param blockGetter {@link BlockGetter The level reference}
+     * @param blockPos {@link BlockPos The current Block Pos}
+     * @param direction {@link Direction The direction the fire is coming from}
+     * @return {@link Integer 5 if is flammable, 0 otherwise}
+     */
+    @Override
+    public int getFireSpreadSpeed(final BlockState blockState,final BlockGetter blockGetter, final BlockPos blockPos, final Direction direction) {
+        return BlockHelper.isFlammable(woodType) ? 5 : 0;
+    }
+
+    /**
+     * Get the {@link BlockState Block State} after the {@link Block Block} has been placed
+     *
+     * @param placeContext {@link BlockPlaceContext The block place context}
+     * @return {@link BlockState The placed Block State}
+     */
+    public BlockState getStateForPlacement(final BlockPlaceContext placeContext) {
+        return this.defaultBlockState().setValue(AXIS, placeContext.getClickedFace().getAxis()).setValue(WATERLOGGED, Fluids.WATER.equals(placeContext.getLevel().getFluidState(placeContext.getClickedPos()).getType()));
+    }
+
+    /**
+     * Update the {@link BlockState Block State} on neighbor changes
+     *
+     * @param blockState {@link BlockState The current Block State}
+     * @param direction {@link Direction The direction the changes are coming}
+     * @param neighborBlockState {@link BlockState The neighbor Block State}
+     * @param levelAccessor {@link LevelAccessor The level reference}
+     * @param blockPos {@link BlockPos The current Block Pos}
+     * @param neighborBlockPos {@link BlockPos The neighbor Block Pos}
+     * @return {@link BlockState The updated Block State}
+     */
+    public @NotNull BlockState updateShape(final BlockState blockState, final @NotNull Direction direction, final @NotNull BlockState neighborBlockState, final @NotNull LevelAccessor levelAccessor, final @NotNull BlockPos blockPos, final @NotNull BlockPos neighborBlockPos) {
+        if (blockState.getValue(WATERLOGGED)) {
+            levelAccessor.scheduleTick(blockPos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
+        }
+        return super.updateShape(blockState, direction, neighborBlockState, levelAccessor, blockPos, neighborBlockPos);
+    }
+
+    /**
+     * Create the {@link StateDefinition Block State definition}
+     *
+     * @param stateBuilder {@link StateDefinition.Builder The Block State builder}
+     */
+    @Override
+    protected void createBlockStateDefinition(final StateDefinition.Builder<Block, BlockState> stateBuilder) {
+        stateBuilder.add(AXIS).add(WATERLOGGED);
+    }
+
+    /**
+     * Get the {@link FluidState Block Fluid State}
+     *
+     * @param blockState {@link BlockState The current Block State}
+     * @return {@link Fluids#WATER Water if is Waterlogged}
+     */
+    public @NotNull FluidState getFluidState(final BlockState blockState) {
+        return blockState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(blockState);
+    }
+
+    /**
+     * Get the {@link Float Block shade brightness}
+     *
+     * @param blockState {@link BlockState The current Block State}
+     * @param blockGetter {@link BlockGetter The level reference}
+     * @param blockPos {@link BlockPos The current Block Pos}
+     * @return {@link Float 1.0}
+     */
+    @Override
+    public float getShadeBrightness(final @NotNull BlockState blockState, final @NotNull BlockGetter blockGetter, final @NotNull BlockPos blockPos) {
+        return 1.0F;
+    }
+
+    /**
+     * Check if the Block can propagate the skylight
+     *
+     * @param blockState {@link BlockState The current Block State}
+     * @param blockGetter {@link BlockGetter The level reference}
+     * @param blockPos {@link BlockPos The current Block Pos}
+     * @return {@link Boolean#TRUE True}
+     */
+    @Override
+    public boolean propagatesSkylightDown(final @NotNull BlockState blockState, final @NotNull BlockGetter blockGetter, final @NotNull BlockPos blockPos) {
+        return true;
+    }
+
+    /**
+     * Get the {@link VoxelShape Block Shape}
+     *
+     * @param blockState {@link BlockState The current Block State}
+     * @param blockGetter {@link BlockGetter The level reference}
+     * @param blockPos {@link BlockPos The current Block Pos}
+     * @param collisionContext {@link CollisionContext The collision context}
+     * @return {@link VoxelShape The Block Shape}
+     */
+    @Override
+    public @NotNull VoxelShape getShape(final BlockState blockState, final @NotNull BlockGetter blockGetter, final @NotNull BlockPos blockPos, final @NotNull CollisionContext collisionContext) {
+        return switch (blockState.getValue(AXIS)) {
+            case X -> Shapes.or(
+                    Block.box(0, 12, 4, 16, 15, 12),
+                    Block.box(0, 1, 4, 16, 4, 12),
+                    Block.box(0, 0, 15, 16, 16, 16),
+                    Block.box(0, 0, 0, 16, 16, 1),
+                    Block.box(0, 0, 1, 16, 1, 15),
+                    Block.box(0, 15, 1, 16, 16, 15),
+                    Block.box(0, 1, 12, 16, 15, 15),
+                    Block.box(0, 1, 1, 16, 15, 4)
+            );
+            case Y -> Shapes.or(
+                    Block.box(4, 0, 12, 12, 16, 15),
+                    Block.box(4, 0, 1, 12, 16, 4),
+                    Block.box(0, 0, 0, 1, 16, 16),
+                    Block.box(15, 0, 0, 16, 16, 16),
+                    Block.box(1, 0, 0, 15, 16, 1),
+                    Block.box(1, 0, 15, 15, 16, 16),
+                    Block.box(1, 0, 1, 4, 16, 15),
+                    Block.box(12, 0, 1, 15, 16, 15)
+            );
+            case Z -> Shapes.or(
+                    Block.box(4, 12, 0, 12, 15, 16),
+                    Block.box(4, 1, 0, 12, 4, 16),
+                    Block.box(0, 0, 0, 1, 16, 16),
+                    Block.box(15, 0, 0, 16, 16, 16),
+                    Block.box(1, 0, 0, 15, 1, 16),
+                    Block.box(1, 15, 0, 15, 16, 16),
+                    Block.box(1, 1, 0, 4, 15, 16),
+                    Block.box(12, 1, 0, 15, 15, 16)
+            );
+        };
+    }
+
+    /**
+     * Get the {@link BlockState modified Block State} after interacting with a tool
+     *
+     * @param blockState {@link BlockState The current Block State}
+     * @param context {@link UseOnContext The Item Use Context}
+     * @param toolAction {@link ToolAction The tool action}
+     * @param isClient {@link Boolean If the action only happened on the Client}
+     * @return {@link BlockState The modified Block State}
+     */
+    @Nullable
+    @Override
+    public BlockState getToolModifiedState(final BlockState blockState, final UseOnContext context, final ToolAction toolAction, final boolean isClient) {
+        if(context.getItemInHand().getItem() instanceof AxeItem && toolAction.equals(ToolActions.AXE_STRIP)) {
+            final Optional<BlockState> optionalHollowState = getHollow(blockState);
+            if(optionalHollowState.isPresent()) {
+                return optionalHollowState.get().setValue(AXIS, blockState.getValue(AXIS)).setValue(WATERLOGGED, blockState.getValue(WATERLOGGED));
+            }
+        }
+        return super.getToolModifiedState(blockState, context, toolAction, isClient);
+    }
+
+    /**
+     * Get the {@link BlockState Hollow Block State}
+     * based on the {@link BlockState current Block State}
+     *
+     * @param blockState {@link BlockState The current Block State}
+     * @return {@link Optional<BlockState> The Hollow Block State, if any}
+     */
+    public static Optional<BlockState> getHollow(final BlockState blockState) {
+        return Optional.ofNullable(HOLLOWABLES.get().get(blockState.getBlock())).map(block -> block.withPropertiesOf(blockState));
+    }
+
+}
