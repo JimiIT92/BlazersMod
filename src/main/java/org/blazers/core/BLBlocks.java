@@ -5,10 +5,7 @@ import net.minecraft.util.ColorRGBA;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.ColoredFallingBlock;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
@@ -127,6 +124,23 @@ public final class BLBlocks {
 
     //#region Misc
 
+    public static final RegistryObject<Block> COBBLED_GRANITE = registerBlock("cobbled_granite", BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE));
+    public static final RegistryObject<Block> COBBLED_DIORITE = registerBlock("cobbled_diorite", BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE));
+    public static final RegistryObject<Block> COBBLED_ANDESITE = registerBlock("cobbled_andesite", BlockBehaviour.Properties.ofFullCopy(Blocks.ANDESITE));
+    public static final RegistryObject<Block> SANDSTONE_BRICKS = registerBlock("sandstone_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE));
+    public static final RegistryObject<Block> CUT_BRICKS = registerBlock("cut_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.BRICKS));
+    public static final RegistryObject<Block> PURPUR_TILES = registerBlock("purpur_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.PURPUR_BLOCK));
+    public static final RegistryObject<Block> STONE_TILES = registerBlock("stone_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_BRICKS));
+    public static final RegistryObject<Block> MOSSY_STONE_TILES = registerBlock("mossy_stone_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICKS));
+    public static final RegistryObject<Block> CUT_DEEPSLATE_BRICKS = registerBlock("cut_deepslate_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICKS));
+    public static final RegistryObject<Block> POLISHED_DEEPSLATE_BRICKS = registerBlock("polished_deepslate_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE));
+    public static final RegistryObject<Block> END_STONE_TILES = registerBlock("end_stone_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.END_STONE_BRICKS));
+    public static final RegistryObject<Block> QUARTZ_TILES = registerBlock("quartz_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.QUARTZ_BRICKS));
+    public static final RegistryObject<Block> CUT_PRISMARINE_BRICKS = registerBlock("cut_prismarine_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.PRISMARINE_BRICKS));
+    public static final RegistryObject<Block> DARK_PRISMARINE_BRICKS = registerBlock("dark_prismarine_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.DARK_PRISMARINE));
+    public static final RegistryObject<Block> RED_SANDSTONE_BRICKS = registerBlock("red_sandstone_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SANDSTONE));
+    public static final RegistryObject<Block> POLISHED_BLACKSTONE_TILES = registerBlock("polished_blackstone_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICKS));
+
     //#endregion
 
     //#endregion
@@ -213,6 +227,17 @@ public final class BLBlocks {
      */
     private static RegistryObject<Block> registerBlockWithoutBlockItem(final String name, final Supplier<? extends Block> blockSupplier) {
         return BLOCKS.register(name, blockSupplier);
+    }
+
+    /**
+     * Register a {@link Block Block}
+     *
+     * @param name {@link String The Block name}
+     * @param properties {@link BlockBehaviour.Properties The Block properties}
+     * @return {@link RegistryObject<Block> The registered Block}
+     */
+    private static RegistryObject<Block> registerBlock(final String name, final BlockBehaviour.Properties properties) {
+        return registerBlock(name, Suppliers.memoize(() -> new Block(properties)));
     }
 
     /**

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "blazersmod:block/polished_blackstone_tiles"
+  }
+}

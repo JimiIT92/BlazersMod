@@ -2,6 +2,22 @@
   "replace": false,
   "values": [
     "#blazersmod:ores",
-    "#blazersmod:storage_blocks"
+    "#blazersmod:storage_blocks",
+    "blazersmod:cobbled_andesite",
+    "blazersmod:cobbled_diorite",
+    "blazersmod:cobbled_granite",
+    "blazersmod:cut_bricks",
+    "blazersmod:cut_prismarine_bricks",
+    "blazersmod:cut_deepslate_bricks",
+    "blazersmod:dark_prismarine_bricks",
+    "blazersmod:polished_deepslate_bricks",
+    "blazersmod:sandstone_bricks",
+    "blazersmod:red_sandstone_bricks",
+    "blazersmod:stone_tiles",
+    "blazersmod:mossy_stone_tiles",
+    "blazersmod:end_stone_tiles",
+    "blazersmod:polished_blackstone_tiles",
+    "blazersmod:purpur_tiles",
+    "blazersmod:quartz_tiles"
   ]
 }
