@@ -1,10 +1,17 @@
 package org.blazers.core;
 
 import com.google.common.base.Suppliers;
+import net.minecraft.util.ColorRGBA;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ColoredFallingBlock;
+import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -12,9 +19,9 @@ import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.block.HollowLog;
 import org.blazers.helper.BlockHelper;
+import org.blazers.helper.PropertyHelper;
 import org.blazers.helper.RegistryHelper;
 
-import java.util.Locale;
 import java.util.function.Supplier;
 
 /**
@@ -60,6 +67,22 @@ public final class BLBlocks {
 
     //#endregion
 
+    //#region Ores and Ore Blocks
+
+    public static final RegistryObject<Block> SAPPHIRE_ORE = registerOre(BLMaterials.SAPPHIRE, false);
+    public static final RegistryObject<Block> DEEPSLATE_SAPPHIRE_ORE = registerOre(BLMaterials.SAPPHIRE, true);
+    public static final RegistryObject<Block> TOPAZ_ORE = registerOre(BLMaterials.TOPAZ, false);
+    public static final RegistryObject<Block> DEEPSLATE_TOPAZ_ORE = registerOre(BLMaterials.TOPAZ, true);
+    public static final RegistryObject<Block> PEARL_ORE = registerBlock(BlockHelper.oreName(BLMaterials.PEARL, false), Suppliers.memoize(() ->
+        new ColoredFallingBlock(new ColorRGBA(14406560), PropertyHelper.block(MapColor.SAND, 0.5F, SoundType.SAND).requiresCorrectToolForDrops())
+    ));
+    public static final RegistryObject<Block> RUBY_ORE = registerNetherOre(BLMaterials.RUBY);
+    public static final RegistryObject<Block> MALACHITE_ORE = registerNetherOre(BLMaterials.MALACHITE);
+    public static final RegistryObject<Block> ONICE_ORE = registerNetherOre(BLMaterials.ONICE);
+    public static final RegistryObject<Block> URANIUM_ORE = registerOre(BLMaterials.URANIUM, false, 2, 5, PropertyHelper.netherOre().mapColor(MapColor.COLOR_GREEN).strength(30F, 1200F).sound(SoundType.ANCIENT_DEBRIS));
+
+    //#endregion
+
     //#endregion
 
     //#region Methods
@@ -69,11 +92,48 @@ public final class BLBlocks {
      *
      * @param woodType The {@link WoodType log Wood Type}
      * @param isStrippedLog {@link Boolean If the log is a stripped log}
-     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
      * @return {@link RegistryObject<Block> The registered hollow log}
      */
     private static RegistryObject<Block> registerHollowLog(final WoodType woodType, final boolean isStrippedLog, final FeatureFlag... featureFlags) {
         return registerBlock(getHollowLogName(woodType, isStrippedLog), Suppliers.memoize(() -> new HollowLog(woodType, BlockHelper.woodColor(woodType, isStrippedLog), featureFlags)));
+    }
+
+    /**
+     * Register a {@link DropExperienceBlock Nether Ore Block}
+     *
+     * @param material {@link BLMaterials The Ore material}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
+     * @return {@link RegistryObject<Block> The registered Nether Ore Block}
+     */
+    private static RegistryObject<Block> registerNetherOre(final BLMaterials material, final FeatureFlag... featureFlags) {
+        return registerOre(material, false, 2, 5, PropertyHelper.netherOre(featureFlags));
+    }
+
+    /**
+     * Register an {@link DropExperienceBlock Ore Block}
+     *
+     * @param material {@link BLMaterials The Ore material}
+     * @param isDeepslateOre {@link Boolean If the Ore Block is a Deepslate Ore Block}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
+     * @return {@link RegistryObject<Block> The registered Ore Block}
+     */
+    private static RegistryObject<Block> registerOre(final BLMaterials material, final boolean isDeepslateOre, final FeatureFlag... featureFlags) {
+        return registerOre(material, isDeepslateOre, 3, 7, PropertyHelper.ore(isDeepslateOre, featureFlags));
+    }
+
+    /**
+     * Register an {@link DropExperienceBlock Ore Block}
+     *
+     * @param material {@link BLMaterials The Ore material}
+     * @param isDeepslateOre {@link Boolean If the Ore Block is a Deepslate Ore Block}
+     * @param experience {@link Integer The minimum Ore Block experience dropped when mined}
+     * @param additionalExperience {@link Integer The additional maximum Ore Block experience dropped when mined}
+     * @param properties {@link BlockBehaviour.Properties The Block properties}
+     * @return {@link RegistryObject<Block> The registered Ore Block}
+     */
+    private static RegistryObject<Block> registerOre(final BLMaterials material, final boolean isDeepslateOre, final int experience, final int additionalExperience, final BlockBehaviour.Properties properties) {
+        return registerBlock(BlockHelper.oreName(material, isDeepslateOre), Suppliers.memoize(() -> new DropExperienceBlock(UniformInt.of(experience, additionalExperience), properties)));
     }
 
     /**
@@ -84,7 +144,7 @@ public final class BLBlocks {
      * @return {@link String The hollow log name}
      */
     private static String getHollowLogName(final WoodType woodType, final boolean isStrippedLog) {
-        return "hollow_" + (isStrippedLog ? "stripped_" : "") + woodType.name().toLowerCase(Locale.ROOT) + "_" + (woodType.equals(WoodType.BAMBOO) ? "block" : woodType.equals(WoodType.CRIMSON) || woodType.equals(WoodType.WARPED) ? "stem" : "log");
+        return "hollow_" + BlockHelper.woodName(woodType, isStrippedLog);
     }
 
     /**
@@ -103,7 +163,7 @@ public final class BLBlocks {
      *
      * @param name {@link String The Block name}
      * @param blockSupplier {@link Supplier<Block> The Block supplier}
-     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
      * @return {@link RegistryObject<Block> The registered Block}
      */
     private static RegistryObject<Block> registerBlock(final String name, final Supplier<? extends Block> blockSupplier, final FeatureFlag... featureFlags) {

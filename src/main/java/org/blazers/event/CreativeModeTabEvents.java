@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.core.BLBlocks;
+import org.blazers.core.BLItems;
 import org.blazers.core.BLTabs;
 import org.jetbrains.annotations.NotNull;
 
@@ -110,6 +111,15 @@ public final class CreativeModeTabEvents {
      */
     private static void setNaturalTabContent(final BuildCreativeModeTabContentsEvent event) {
         addToTab(event,
+            BLBlocks.SAPPHIRE_ORE,
+            BLBlocks.DEEPSLATE_SAPPHIRE_ORE,
+            BLBlocks.TOPAZ_ORE,
+            BLBlocks.DEEPSLATE_TOPAZ_ORE,
+            BLBlocks.PEARL_ORE,
+            BLBlocks.RUBY_ORE,
+            BLBlocks.MALACHITE_ORE,
+            BLBlocks.ONICE_ORE,
+            BLBlocks.URANIUM_ORE,
             BLBlocks.HOLLOW_BIRCH_LOG
         );
     }
@@ -165,7 +175,15 @@ public final class CreativeModeTabEvents {
      * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
      */
     private static void setIngredientsTabContent(final BuildCreativeModeTabContentsEvent event) {
-
+        addToTab(event,
+            BLItems.RAW_URANIUM,
+            BLItems.SAPPHIRE,
+            BLItems.TOPAZ,
+            BLItems.PEARL,
+            BLItems.RUBY,
+            BLItems.MALACHITE,
+            BLItems.ONICE
+        );
     }
 
     /**

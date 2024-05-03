@@ -36,12 +36,12 @@ public final class BLTabs {
     public static RegistryObject<CreativeModeTab> BUILDING_BLOCKS = registerCreativeTab("building_blocks", CreativeModeTabs.SPAWN_EGGS, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
     public static RegistryObject<CreativeModeTab> COLORED_BLOCKS = registerCreativeTab("colored_blocks", BUILDING_BLOCKS, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
     public static RegistryObject<CreativeModeTab> NATURAL = registerCreativeTab("natural", COLORED_BLOCKS, Suppliers.memoize(() -> BlockHelper.itemStack(BLBlocks.HOLLOW_BIRCH_LOG)));
-    public static RegistryObject<CreativeModeTab> FUNCTIONAL = registerCreativeTab("functional", NATURAL, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
+    public static RegistryObject<CreativeModeTab> FUNCTIONAL = registerCreativeTab("functional", NATURAL, Suppliers.memoize(Items.PAINTING::getDefaultInstance));
     public static RegistryObject<CreativeModeTab> REDSTONE = registerCreativeTab("redstone", FUNCTIONAL, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
     public static RegistryObject<CreativeModeTab> TOOLS = registerCreativeTab("tools", REDSTONE, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
     public static RegistryObject<CreativeModeTab> COMBAT = registerCreativeTab("combat", TOOLS, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
     public static RegistryObject<CreativeModeTab> FOOD_AND_DRINK = registerCreativeTab("food_and_drink", COMBAT, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
-    public static RegistryObject<CreativeModeTab> INGREDIENTS = registerCreativeTab("ingredients", FOOD_AND_DRINK, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
+    public static RegistryObject<CreativeModeTab> INGREDIENTS = registerCreativeTab("ingredients", FOOD_AND_DRINK, Suppliers.memoize(() -> BLItems.RUBY.get().getDefaultInstance()));
     public static RegistryObject<CreativeModeTab> SPAWN_EGGS = registerCreativeTab("spawn_eggs", INGREDIENTS, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
 
     //#endregion

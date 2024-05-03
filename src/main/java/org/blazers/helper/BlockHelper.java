@@ -4,7 +4,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
+import org.blazers.core.BLMaterials;
 
+import java.util.Locale;
 import java.util.function.Supplier;
 
 /**
@@ -12,6 +14,13 @@ import java.util.function.Supplier;
  */
 public final class BlockHelper {
 
+    /**
+     * Get the {@link MapColor color} of a given {@link WoodType Wood Type}
+     *
+     * @param woodType {@link WoodType The Wood Type to get the color from}
+     * @param isStrippedLog {@link Boolean If the Wood Type is referring to a stripped log}
+     * @return {@link MapColor The wood Map Color}
+     */
     public static MapColor woodColor(final WoodType woodType, final boolean isStrippedLog) {
         if(woodType.equals(WoodType.OAK)) {
             return isStrippedLog ? MapColor.WOOD : MapColor.PODZOL;
@@ -47,6 +56,48 @@ public final class BlockHelper {
             return MapColor.WARPED_STEM;
         }
         return MapColor.WOOD;
+    }
+
+    /**
+     * Get the {@link String name} of an {@link Block Ore Block}
+     *
+     * @param material {@link BLMaterials The Ore Block material}
+     * @param isDeepslateOre {@link Boolean If the Ore Block is a Deepslate Ore Block}
+     * @return {@link String The Ore Block name}
+     */
+    public static String oreName(final BLMaterials material, final boolean isDeepslateOre) {
+        return (isDeepslateOre ? "deepslate_" : "") + lower(material.name()) + "_ore";
+    }
+
+    /**
+     * Get the {@link String name} of a {@link BLMaterials material}
+     *
+     * @param material {@link BLMaterials The material to get the name from}
+     * @return {@link String The material name}
+     */
+    public static String materialName(final BLMaterials material) {
+        return lower(material.name());
+    }
+
+    /**
+     * Get the {@link String name} of a {@link WoodType Wood Type}
+     *
+     * @param woodType {@link WoodType The Wood Type to get the name from}
+     * @param isStrippedLog {@link Boolean If the Wood Type is referring to a stripped log}
+     * @return {@link String The material name}
+     */
+    public static String woodName(final WoodType woodType, final boolean isStrippedLog) {
+        return (isStrippedLog ? "stripped_" : "") + lower(woodType.name()) + "_" + (woodType.equals(WoodType.BAMBOO) ? "block" : woodType.equals(WoodType.CRIMSON) || woodType.equals(WoodType.WARPED) ? "stem" : "log");
+    }
+
+    /**
+     * Make a {@link String text} lowercase
+     *
+     * @param text {@link String The text}
+     * @return {@link String The lowercase text}
+     */
+    private static String lower(final String text) {
+        return text.toLowerCase(Locale.ROOT);
     }
 
     /**

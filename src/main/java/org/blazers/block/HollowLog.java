@@ -94,7 +94,7 @@ public final class HollowLog extends RotatedPillarBlock implements SimpleWaterlo
      *
      * @param woodType The {@link WoodType log Wood Type}
      * @param color {@link MapColor The Block color on maps}
-     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
      */
     public HollowLog(final WoodType woodType, final MapColor color, final FeatureFlag... featureFlags) {
         super(PropertyHelper.block(color, 2F, woodType.soundType(), featureFlags).instrument(NoteBlockInstrument.BASS));

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#blazersmod:ruby_ores",
+    "#blazersmod:malachite_ores",
+    "#blazersmod:onice_ores",
+    "#blazersmod:uranium_ores"
+  ]
+}

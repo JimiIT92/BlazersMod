@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#blazersmod:sapphire_ores",
+    "#blazersmod:topaz_ores",
+    "#blazersmod:ruby_ores",
+    "#blazersmod:malachite_ores",
+    "#blazersmod:onice_ores",
+    "#blazersmod:uranium_ores"
+  ]
+}

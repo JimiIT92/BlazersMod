@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pearl_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "blazersmod:pearl_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "blazersmod:pearl_from_blasting_pearl_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_pearl_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "blazersmod:pearl_from_blasting_pearl_ore"
+    ]
+  }
+}
