@@ -31,8 +31,9 @@ public final class BLItems {
 
     //#endregion
 
-    //#region Items
+    //#region Gems
 
+    public static final RegistryObject<Item> CARBON = registerGem(BLMaterials.CARBON);
     public static final RegistryObject<Item> SAPPHIRE = registerGem(BLMaterials.SAPPHIRE);
     public static final RegistryObject<Item> TOPAZ = registerGem(BLMaterials.TOPAZ);
     public static final RegistryObject<Item> PEARL = registerGem(BLMaterials.PEARL);
@@ -40,6 +41,12 @@ public final class BLItems {
     public static final RegistryObject<Item> MALACHITE = registerGem(BLMaterials.MALACHITE);
     public static final RegistryObject<Item> ONICE = registerGem(BLMaterials.ONICE);
     public static final RegistryObject<Item> RAW_URANIUM = registerGem(BLMaterials.RAW_URANIUM);
+    public static final RegistryObject<Item> URANIUM_NUGGET = registerNugget(BLMaterials.URANIUM);
+    public static final RegistryObject<Item> URANIUM_INGOT = registerIngot(BLMaterials.URANIUM);
+    public static final RegistryObject<Item> BLAZERITE = registerGem(BLMaterials.BLAZERITE, Rarity.RARE);
+    public static final RegistryObject<Item> GYULIANITE = registerGem(BLMaterials.GYULIANITE, Rarity.RARE);
+
+
 
     //#endregion
 
@@ -66,6 +73,28 @@ public final class BLItems {
      */
     private static RegistryObject<Item> registerGem(final BLMaterials material, final Rarity rarity, final FeatureFlag... featureFlags) {
         return registerItem(BlockHelper.materialName(material), rarity, featureFlags);
+    }
+
+    /**
+     * Register a {@link Item nugget}
+     *
+     * @param material {@link BLMaterials The nugget material}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @return {@link RegistryObject<Item> The registered nugget}
+     */
+    private static RegistryObject<Item> registerNugget(final BLMaterials material, final FeatureFlag... featureFlags) {
+        return registerItem(BlockHelper.materialName(material) + "_nugget", featureFlags);
+    }
+
+    /**
+     * Register an {@link Item ingot}
+     *
+     * @param material {@link BLMaterials The ingot material}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @return {@link RegistryObject<Item> The registered ingot}
+     */
+    private static RegistryObject<Item> registerIngot(final BLMaterials material, final FeatureFlag... featureFlags) {
+        return registerItem(BlockHelper.materialName(material) + "_ingot", featureFlags);
     }
 
     /**

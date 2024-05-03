@@ -15,7 +15,10 @@ public enum BLMaterials {
     MALACHITE(MapColor.TERRACOTTA_GREEN),
     ONICE(MapColor.TERRACOTTA_BLACK),
     URANIUM(MapColor.COLOR_GREEN, SoundType.COPPER, 3.0F, 6.0F),
-    RAW_URANIUM(MapColor.COLOR_ORANGE);
+    RAW_URANIUM(MapColor.COLOR_ORANGE),
+    BLAZERITE,
+    GYULIANITE,
+    CARBON;
 
     /**
      * The {@link MapColor material Map Color}

@@ -184,13 +184,18 @@ public final class CreativeModeTabEvents {
      */
     private static void setIngredientsTabContent(final BuildCreativeModeTabContentsEvent event) {
         addToTab(event,
+            BLItems.CARBON,
             BLItems.RAW_URANIUM,
             BLItems.SAPPHIRE,
             BLItems.TOPAZ,
             BLItems.PEARL,
             BLItems.RUBY,
             BLItems.MALACHITE,
-            BLItems.ONICE
+            BLItems.ONICE,
+            BLItems.URANIUM_NUGGET,
+            BLItems.URANIUM_INGOT,
+            BLItems.BLAZERITE,
+            BLItems.GYULIANITE
         );
     }
 

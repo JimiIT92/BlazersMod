@@ -9,6 +9,7 @@
   "itemGroup.blazersmod.food_and_drink": "Food and Drinks (Blazers Mod)",
   "itemGroup.blazersmod.ingredients": "Ingredients (Blazers Mod)",
   "itemGroup.blazersmod.spawn_eggs": "Spawn Eggs (Blazers Mod)",
+  "item.blazersmod.carbon":  "Carbon",
   "item.blazersmod.sapphire": "Sapphire",
   "item.blazersmod.topaz": "Topaz",
   "item.blazersmod.pearl": "Pearl",
@@ -16,6 +17,10 @@
   "item.blazersmod.malachite": "Malachite",
   "item.blazersmod.onice": "Onice",
   "item.blazersmod.raw_uranium": "Raw Uranium",
+  "item.blazersmod.uranium_nugget": "Uranium Nugget",
+  "item.blazersmod.uranium_ingot":  "Uranium Ingot",
+  "item.blazersmod.blazerite": "Blazerite",
+  "item.blazersmod.gyulianite":  "Gyulianite",
   "block.blazersmod.hollow_oak_log": "Hollow Oak Log",
   "block.blazersmod.hollow_stripped_oak_log": "Hollow Stripped Oak Log",
   "block.blazersmod.hollow_spruce_log": "Hollow Spruce Log",
@@ -64,5 +69,9 @@
   "advancements.story.ruby_sapphire_and_emerald.title": "Nuzlocke!",
   "advancements.story.ruby_sapphire_and_emerald.description": "Acquire ruby, sapphire and emerald",
   "advancements.nether.raw_uranium.title": "Handle with care",
-  "advancements.nether.raw_uranium.description": "Obtain Uranium"
+  "advancements.nether.raw_uranium.description": "Obtain Uranium",
+  "advancements.nether.blazerite.title": "Hi blazers!",
+  "advancements.nether.blazerite.description": "Obtain Blazerite",
+  "advancements.nether.gyulianite.title": "Woof woof!",
+  "advancements.nether.gyulianite.description": "Obtain Gyulianite"
 }
