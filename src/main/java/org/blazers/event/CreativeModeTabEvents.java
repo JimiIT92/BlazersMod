@@ -91,7 +91,15 @@ public final class CreativeModeTabEvents {
                 BLBlocks.HOLLOW_CRIMSON_STEM,
                 BLBlocks.STRIPPED_HOLLOW_CRIMSON_STEM,
                 BLBlocks.HOLLOW_WARPED_STEM,
-                BLBlocks.STRIPPED_HOLLOW_WARPED_STEM
+                BLBlocks.STRIPPED_HOLLOW_WARPED_STEM,
+                BLBlocks.SAPPHIRE_BLOCK,
+                BLBlocks.TOPAZ_BLOCK,
+                BLBlocks.PEARL_BLOCK,
+                BLBlocks.RUBY_BLOCK,
+                BLBlocks.MALACHITE_BLOCK,
+                BLBlocks.ONICE_BLOCK,
+                BLBlocks.RAW_URANIUM_BLOCK,
+                BLBlocks.URANIUM_BLOCK
         );
     }
 

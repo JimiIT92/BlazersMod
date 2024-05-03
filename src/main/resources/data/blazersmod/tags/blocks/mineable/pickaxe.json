@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#blazersmod:ores"
+    "#blazersmod:ores",
+    "#blazersmod:storage_blocks"
   ]
 }

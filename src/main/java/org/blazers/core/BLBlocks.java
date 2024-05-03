@@ -69,17 +69,63 @@ public final class BLBlocks {
 
     //#region Ores and Ore Blocks
 
+    //#region Sapphire
+
     public static final RegistryObject<Block> SAPPHIRE_ORE = registerOre(BLMaterials.SAPPHIRE, false);
     public static final RegistryObject<Block> DEEPSLATE_SAPPHIRE_ORE = registerOre(BLMaterials.SAPPHIRE, true);
+    public static final RegistryObject<Block> SAPPHIRE_BLOCK = registerOreStorageBlock(BLMaterials.SAPPHIRE);
+
+    //#endregion
+
+    //#region Topaz
+
     public static final RegistryObject<Block> TOPAZ_ORE = registerOre(BLMaterials.TOPAZ, false);
     public static final RegistryObject<Block> DEEPSLATE_TOPAZ_ORE = registerOre(BLMaterials.TOPAZ, true);
+    public static final RegistryObject<Block> TOPAZ_BLOCK = registerOreStorageBlock(BLMaterials.TOPAZ);
+
+    //#endregion
+
+    //#region Pearl
+
     public static final RegistryObject<Block> PEARL_ORE = registerBlock(BlockHelper.oreName(BLMaterials.PEARL, false), Suppliers.memoize(() ->
         new ColoredFallingBlock(new ColorRGBA(14406560), PropertyHelper.block(MapColor.SAND, 0.5F, SoundType.SAND).requiresCorrectToolForDrops())
     ));
+    public static final RegistryObject<Block> PEARL_BLOCK = registerOreStorageBlock(BLMaterials.PEARL);
+
+    //#endregion
+
+    //#region Ruby
+
     public static final RegistryObject<Block> RUBY_ORE = registerNetherOre(BLMaterials.RUBY);
+    public static final RegistryObject<Block> RUBY_BLOCK = registerOreStorageBlock(BLMaterials.RUBY);
+
+    //#endregion
+
+    //#region Malachite
+
     public static final RegistryObject<Block> MALACHITE_ORE = registerNetherOre(BLMaterials.MALACHITE);
+    public static final RegistryObject<Block> MALACHITE_BLOCK = registerOreStorageBlock(BLMaterials.MALACHITE);
+
+    //#endregion
+
+    //#region Onice
+
     public static final RegistryObject<Block> ONICE_ORE = registerNetherOre(BLMaterials.ONICE);
+    public static final RegistryObject<Block> ONICE_BLOCK = registerOreStorageBlock(BLMaterials.ONICE);
+
+    //#endregion
+
+    //#region Uranium
+
     public static final RegistryObject<Block> URANIUM_ORE = registerOre(BLMaterials.URANIUM, false, 2, 5, PropertyHelper.netherOre().mapColor(MapColor.COLOR_GREEN).strength(30F, 1200F).sound(SoundType.ANCIENT_DEBRIS));
+    public static final RegistryObject<Block> URANIUM_BLOCK = registerOreStorageBlock(BLMaterials.URANIUM);
+    public static final RegistryObject<Block> RAW_URANIUM_BLOCK = registerOreStorageBlock(BLMaterials.RAW_URANIUM);
+
+    //#endregion
+
+    //#endregion
+
+    //#region Misc
 
     //#endregion
 
@@ -134,6 +180,17 @@ public final class BLBlocks {
      */
     private static RegistryObject<Block> registerOre(final BLMaterials material, final boolean isDeepslateOre, final int experience, final int additionalExperience, final BlockBehaviour.Properties properties) {
         return registerBlock(BlockHelper.oreName(material, isDeepslateOre), Suppliers.memoize(() -> new DropExperienceBlock(UniformInt.of(experience, additionalExperience), properties)));
+    }
+
+    /**
+     * Register an {@link Block Ore Storage Block}
+     *
+     * @param material {@link BLMaterials The Ore material}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
+     * @return {@link RegistryObject<Block> The registered Ore Storage Block}
+     */
+    private static RegistryObject<Block> registerOreStorageBlock(final BLMaterials material, final FeatureFlag... featureFlags) {
+        return registerBlock(BlockHelper.materialName(material) + "_block", Suppliers.memoize(() -> new Block(PropertyHelper.oreStorage(material, featureFlags))));
     }
 
     /**

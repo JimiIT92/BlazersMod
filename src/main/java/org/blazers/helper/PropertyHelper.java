@@ -6,6 +6,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import org.blazers.core.BLMaterials;
 
 /**
  * Helper methods for {@link BlockBehaviour.Properties Block Properties} and {@link Item.Properties Item Properties}
@@ -41,6 +42,17 @@ public final class PropertyHelper {
      */
     public static BlockBehaviour.Properties netherOre(final FeatureFlag... featureFlags) {
         return ore(false).mapColor(MapColor.NETHER).sound(SoundType.NETHER_ORE);
+    }
+
+    /**
+     * Get the {@link BlockBehaviour.Properties properties} for an {@link Block Ore Storage Block}
+     *
+     * @param material {@link BLMaterials The Ore Storage material}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
+     * @return {@link BlockBehaviour.Properties The Ore Block properties}
+     */
+    public static BlockBehaviour.Properties oreStorage(final BLMaterials material, final FeatureFlag... featureFlags) {
+        return block(material.color(), material.strength(), material.blastResistance(), material.sound(), featureFlags).requiresCorrectToolForDrops();
     }
 
     /**

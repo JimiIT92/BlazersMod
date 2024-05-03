@@ -39,7 +39,7 @@ public final class BLItems {
     public static final RegistryObject<Item> RUBY = registerGem(BLMaterials.RUBY);
     public static final RegistryObject<Item> MALACHITE = registerGem(BLMaterials.MALACHITE);
     public static final RegistryObject<Item> ONICE = registerGem(BLMaterials.ONICE);
-    public static final RegistryObject<Item> RAW_URANIUM = registerRawGem(BLMaterials.URANIUM);
+    public static final RegistryObject<Item> RAW_URANIUM = registerGem(BLMaterials.RAW_URANIUM);
 
     //#endregion
 
@@ -66,17 +66,6 @@ public final class BLItems {
      */
     private static RegistryObject<Item> registerGem(final BLMaterials material, final Rarity rarity, final FeatureFlag... featureFlags) {
         return registerItem(BlockHelper.materialName(material), rarity, featureFlags);
-    }
-
-    /**
-     * Register a {@link Item raw gem}
-     *
-     * @param material {@link BLMaterials The raw gem material}
-     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
-     * @return {@link RegistryObject<Item> The registered raw gem}
-     */
-    private static RegistryObject<Item> registerRawGem(final BLMaterials material, final FeatureFlag... featureFlags) {
-        return registerItem("raw_" + BlockHelper.materialName(material), featureFlags);
     }
 
     /**

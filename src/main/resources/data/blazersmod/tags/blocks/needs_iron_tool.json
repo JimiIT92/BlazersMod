@@ -7,6 +7,8 @@
     "blazersmod:deepslate_topaz_ore",
     "blazersmod:ruby_ore",
     "blazersmod:malachite_ore",
-    "blazersmod:onice_ore"
+    "blazersmod:onice_ore",
+    "blazersmod:ruby_block",
+    "blazersmod:sapphire_block"
   ]
 }
