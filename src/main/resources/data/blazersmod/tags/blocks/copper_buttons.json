@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "blazersmod:copper_button",
+    "blazersmod:exposed_copper_button",
+    "blazersmod:weathered_copper_button",
+    "blazersmod:oxidized_copper_button",
+    "blazersmod:waxed_copper_button",
+    "blazersmod:waxed_exposed_copper_button",
+    "blazersmod:waxed_weathered_copper_button",
+    "blazersmod:waxed_oxidized_copper_button"
+  ]
+}

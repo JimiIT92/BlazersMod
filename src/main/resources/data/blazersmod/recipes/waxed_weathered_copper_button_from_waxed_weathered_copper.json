@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:waxed_weathered_copper"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "blazersmod:waxed_weathered_copper_button"
+  }
+}

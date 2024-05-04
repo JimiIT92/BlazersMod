@@ -48,7 +48,11 @@
                   "blazersmod:cut_copper_bricks",
                   "blazersmod:exposed_cut_copper_bricks",
                   "blazersmod:weathered_cut_copper_bricks",
-                  "blazersmod:oxidized_cut_copper_bricks"
+                  "blazersmod:oxidized_cut_copper_bricks",
+                  "blazersmod:copper_button",
+                  "blazersmod:exposed_copper_button",
+                  "blazersmod:weathered_copper_button",
+                  "blazersmod:oxidized_copper_button"
                 ]
               }
             }

@@ -37,7 +37,7 @@ public final class BLTabs {
     public static RegistryObject<CreativeModeTab> COLORED_BLOCKS = registerCreativeTab("colored_blocks", BUILDING_BLOCKS, Suppliers.memoize(() -> BlockHelper.itemStack(BLBlocks.RUBY_BLOCK)));
     public static RegistryObject<CreativeModeTab> NATURAL = registerCreativeTab("natural", COLORED_BLOCKS, Suppliers.memoize(() -> BlockHelper.itemStack(BLBlocks.HOLLOW_BIRCH_LOG)));
     public static RegistryObject<CreativeModeTab> FUNCTIONAL = registerCreativeTab("functional", NATURAL, Suppliers.memoize(Items.PAINTING::getDefaultInstance));
-    public static RegistryObject<CreativeModeTab> REDSTONE = registerCreativeTab("redstone", FUNCTIONAL, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
+    public static RegistryObject<CreativeModeTab> REDSTONE = registerCreativeTab("redstone", FUNCTIONAL, Suppliers.memoize(() -> BlockHelper.itemStack(BLBlocks.COPPER_BUTTON)));
     public static RegistryObject<CreativeModeTab> TOOLS = registerCreativeTab("tools", REDSTONE, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
     public static RegistryObject<CreativeModeTab> COMBAT = registerCreativeTab("combat", TOOLS, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
     public static RegistryObject<CreativeModeTab> FOOD_AND_DRINK = registerCreativeTab("food_and_drink", COMBAT, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));

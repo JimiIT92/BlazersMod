@@ -48,7 +48,11 @@
                   "blazersmod:waxed_cut_copper_bricks",
                   "blazersmod:waxed_exposed_cut_copper_bricks",
                   "blazersmod:waxed_weathered_cut_copper_bricks",
-                  "blazersmod:waxed_oxidized_cut_copper_bricks"
+                  "blazersmod:waxed_oxidized_cut_copper_bricks",
+                  "blazersmod:waxed_copper_button",
+                  "blazersmod:waxed_exposed_copper_button",
+                  "blazersmod:waxed_weathered_copper_button",
+                  "blazersmod:waxed_oxidized_copper_button"
                 ]
               }
             }

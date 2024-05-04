@@ -1,7 +1,5 @@
 package org.blazers.block.weathering;
 
-import com.mojang.serialization.MapCodec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -9,11 +7,13 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.HoneycombItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,17 +26,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 /**
- * {@link BlazersMod Blazers Mod} {@link IBLWeatheringBlock weathering Block}
+ * {@link BlazersMod Blazers Mod} {@link CopperButton weathering Button Block}
  */
-public class BLWeatheringBlock extends Block implements IBLWeatheringBlock {
-
-    /**
-     * The {@link MapCodec<BLWeatheringBlock> Block codec}
-     */
-    private static final MapCodec<BLWeatheringBlock> CODEC = RecordCodecBuilder.mapCodec(builder -> builder.group(
-            WeatheringCopper.WeatherState.CODEC.fieldOf("weathering_state").forGetter(IBLWeatheringBlock::getAge),
-            propertiesCodec()
-    ).apply(builder, BLWeatheringBlock::new));
+public class WeatheringButton extends CopperButton implements IBLWeatheringBlock {
 
     /**
      * {@link WeatheringCopper.WeatherState The Block weather state}
@@ -47,10 +39,10 @@ public class BLWeatheringBlock extends Block implements IBLWeatheringBlock {
      * Constructor. Set the {@link BlockBehaviour.Properties Block properties}
      *
      * @param weatherState {@link WeatheringCopper.WeatherState The Block weather state}
-     * @param properties {@link BlockBehaviour.Properties The Block properties}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
      */
-    public BLWeatheringBlock(final WeatheringCopper.WeatherState weatherState, final BlockBehaviour.Properties properties) {
-        super(properties);
+    public WeatheringButton(final WeatheringCopper.WeatherState weatherState, final FeatureFlag... featureFlags) {
+        super(featureFlags);
         this.weatherState = weatherState;
     }
 
@@ -89,16 +81,6 @@ public class BLWeatheringBlock extends Block implements IBLWeatheringBlock {
     }
 
     /**
-     * Get the {@link MapCodec<BLWeatheringBlock> Block codec}
-     *
-     * @return {@link MapCodec<BLWeatheringBlock> The Block codec}
-     */
-    @Override
-    public @NotNull MapCodec<BLWeatheringBlock> codec() {
-        return CODEC;
-    }
-
-    /**
      * Interact with the {@link Block Block} on right click
      *
      * @param itemStack {@link ItemStack The used Item Stack}
@@ -132,13 +114,14 @@ public class BLWeatheringBlock extends Block implements IBLWeatheringBlock {
         final Optional<BlockState> previousBlockState = IBLWeatheringBlock.getPrevious(blockState);
         if(previousBlockState.isPresent()) {
             final Player player = context.getPlayer();
-            context.getLevel().levelEvent(player, 3005, context.getClickedPos(), 0);
+            final Level level = context.getLevel();
+            final BlockPos blockPos = context.getClickedPos();
+            level.levelEvent(player, 3005, blockPos, 0);
             if(player != null) {
                 player.playSound(SoundEvents.AXE_SCRAPE);
             }
-            return previousBlockState.get();
+            return previousBlockState.get().setValue(ButtonBlock.POWERED, false);
         }
         return super.getToolModifiedState(blockState, context, toolAction, simulate);
     }
-
 }

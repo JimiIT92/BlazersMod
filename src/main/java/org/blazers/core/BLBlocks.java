@@ -17,6 +17,8 @@ import org.blazers.BlazersMod;
 import org.blazers.block.HollowLog;
 import org.blazers.block.weathering.BLWaxedBlock;
 import org.blazers.block.weathering.BLWeatheringBlock;
+import org.blazers.block.weathering.WaxedButton;
+import org.blazers.block.weathering.WeatheringButton;
 import org.blazers.helper.BlockHelper;
 import org.blazers.helper.PropertyHelper;
 import org.blazers.helper.RegistryHelper;
@@ -134,6 +136,15 @@ public final class BLBlocks {
     public static final RegistryObject<Block> WAXED_EXPOSED_CUT_COPPER_BRICKS = registerWeatheringBlock("cut_copper_bricks", WeatheringCopper.WeatherState.EXPOSED, true, Suppliers.memoize(() -> new BLWaxedBlock(PropertyHelper.from(Blocks.WAXED_EXPOSED_CUT_COPPER))));
     public static final RegistryObject<Block> WAXED_WEATHERED_CUT_COPPER_BRICKS = registerWeatheringBlock("cut_copper_bricks", WeatheringCopper.WeatherState.WEATHERED, true, Suppliers.memoize(() -> new BLWaxedBlock(PropertyHelper.from(Blocks.WAXED_WEATHERED_CUT_COPPER))));
     public static final RegistryObject<Block> WAXED_OXIDIZED_CUT_COPPER_BRICKS = registerWeatheringBlock("cut_copper_bricks", WeatheringCopper.WeatherState.OXIDIZED, true, Suppliers.memoize(() -> new BLWaxedBlock(PropertyHelper.from(Blocks.WAXED_OXIDIZED_CUT_COPPER))));
+
+    public static final RegistryObject<Block> COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.UNAFFECTED, false, Suppliers.memoize(() -> new WeatheringButton(WeatheringCopper.WeatherState.UNAFFECTED)));
+    public static final RegistryObject<Block> EXPOSED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.EXPOSED, false, Suppliers.memoize(() -> new WeatheringButton(WeatheringCopper.WeatherState.EXPOSED)));
+    public static final RegistryObject<Block> WEATHERED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.WEATHERED, false, Suppliers.memoize(() -> new WeatheringButton(WeatheringCopper.WeatherState.WEATHERED)));
+    public static final RegistryObject<Block> OXIDIZED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.OXIDIZED, false, Suppliers.memoize(() -> new WeatheringButton(WeatheringCopper.WeatherState.OXIDIZED)));
+    public static final RegistryObject<Block> WAXED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.UNAFFECTED, true, Suppliers.memoize(WaxedButton::new));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.EXPOSED, true, Suppliers.memoize(WaxedButton::new));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.WEATHERED, true, Suppliers.memoize(WaxedButton::new));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.OXIDIZED, true, Suppliers.memoize(WaxedButton::new));
 
     //#endregion
 

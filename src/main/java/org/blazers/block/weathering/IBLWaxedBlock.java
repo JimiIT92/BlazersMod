@@ -13,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.ToolActions;
@@ -37,6 +38,10 @@ public interface IBLWaxedBlock {
             .put(BLBlocks.EXPOSED_CUT_COPPER_BRICKS.get(), BLBlocks.WAXED_EXPOSED_CUT_COPPER_BRICKS.get())
             .put(BLBlocks.WEATHERED_CUT_COPPER_BRICKS.get(), BLBlocks.WAXED_WEATHERED_CUT_COPPER_BRICKS.get())
             .put(BLBlocks.OXIDIZED_CUT_COPPER_BRICKS.get(), BLBlocks.WAXED_OXIDIZED_CUT_COPPER_BRICKS.get())
+            .put(BLBlocks.COPPER_BUTTON.get(), BLBlocks.WAXED_COPPER_BUTTON.get())
+            .put(BLBlocks.EXPOSED_COPPER_BUTTON.get(), BLBlocks.WAXED_EXPOSED_COPPER_BUTTON.get())
+            .put(BLBlocks.WEATHERED_COPPER_BUTTON.get(), BLBlocks.WAXED_WEATHERED_COPPER_BUTTON.get())
+            .put(BLBlocks.OXIDIZED_COPPER_BUTTON.get(), BLBlocks.WAXED_OXIDIZED_COPPER_BUTTON.get())
     .build());
 
     /**
@@ -61,7 +66,13 @@ public interface IBLWaxedBlock {
      * @return {@link Optional<BlockState> The previous waxable Block State, if any}
      */
     static Optional<BlockState> getPrevious(final BlockState blockState) {
-        return getPrevious(blockState.getBlock()).map(block -> block.withPropertiesOf(blockState));
+        return getPrevious(blockState.getBlock()).map(block -> {
+            BlockState previousBlockState = block.withPropertiesOf(blockState);
+            if(block instanceof ButtonBlock) {
+                previousBlockState = previousBlockState.setValue(ButtonBlock.POWERED, false);
+            }
+            return previousBlockState;
+        });
     }
 
     /**
@@ -81,7 +92,13 @@ public interface IBLWaxedBlock {
      * @return {@link Optional<BlockState> The next waxable Block State, if any}
      */
     static @NotNull Optional<BlockState> getNext(final BlockState blockState) {
-        return getNext(blockState.getBlock()).map(block -> block.withPropertiesOf(blockState));
+        return getNext(blockState.getBlock()).map(block -> {
+            BlockState nextBlockState = block.withPropertiesOf(blockState);
+            if(block instanceof ButtonBlock) {
+                nextBlockState = nextBlockState.setValue(ButtonBlock.POWERED, false);
+            }
+            return nextBlockState;
+        });
     }
 
     /**
@@ -117,30 +134,19 @@ public interface IBLWaxedBlock {
     static boolean wax(final BlockState blockState, final Player player, final Level level, final ItemStack itemStack, final BlockPos blockPos, final InteractionHand hand) {
         final Optional<BlockState> waxedBlockState = getNext(blockState);
         if(waxedBlockState.isPresent()) {
-            changeBlock(waxedBlockState.get(), player, level, itemStack, blockPos, hand, 3003);
+            if(player instanceof ServerPlayer serverPlayer) {
+                CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger(serverPlayer, blockPos, itemStack);
+            }
+            ItemHelper.hurt(itemStack, player, hand);
+            BlockState updatedBlockState = waxedBlockState.get().getBlock().withPropertiesOf(blockState);
+            if(blockState.getBlock() instanceof ButtonBlock) {
+                updatedBlockState = updatedBlockState.setValue(ButtonBlock.POWERED, false);
+            }
+            level.setBlockAndUpdate(blockPos, updatedBlockState);
+            level.levelEvent(player, 3003, blockPos, 0);
             return true;
         }
         return false;
-    }
-
-    /**
-     * Change the current {@link BlockState Block State} with the provided one
-     *
-     * @param blockState {@link BlockState The Block State to place}
-     * @param player {@link Player The Player interacting with the Block}
-     * @param level {@link Level The Level reference}
-     * @param itemStack {@link ItemStack The used Item Stack}
-     * @param blockPos {@link BlockPos The current Block Pos}
-     * @param hand {@link InteractionHand The hand used to interact with the Block}
-     * @param eventId {@link Integer The event to broadcast}
-     */
-    private static void changeBlock(final BlockState blockState, final Player player, final Level level, final ItemStack itemStack, final BlockPos blockPos, final InteractionHand hand, final int eventId) {
-        if(player instanceof ServerPlayer serverPlayer) {
-            CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger(serverPlayer, blockPos, itemStack);
-        }
-        ItemHelper.hurt(itemStack, player, hand);
-        level.setBlockAndUpdate(blockPos, blockState);
-        level.levelEvent(player, eventId, blockPos, 0);
     }
 
 }

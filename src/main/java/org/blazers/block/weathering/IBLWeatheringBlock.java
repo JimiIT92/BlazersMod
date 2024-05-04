@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.ChangeOverTimeBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,6 +30,9 @@ public interface IBLWeatheringBlock extends ChangeOverTimeBlock<WeatheringCopper
             .put(BLBlocks.CUT_COPPER_BRICKS.get(), BLBlocks.EXPOSED_CUT_COPPER_BRICKS.get())
             .put(BLBlocks.EXPOSED_CUT_COPPER_BRICKS.get(), BLBlocks.WEATHERED_CUT_COPPER_BRICKS.get())
             .put(BLBlocks.WEATHERED_CUT_COPPER_BRICKS.get(), BLBlocks.OXIDIZED_CUT_COPPER_BRICKS.get())
+            .put(BLBlocks.COPPER_BUTTON.get(), BLBlocks.EXPOSED_COPPER_BUTTON.get())
+            .put(BLBlocks.EXPOSED_COPPER_BUTTON.get(), BLBlocks.WEATHERED_COPPER_BUTTON.get())
+            .put(BLBlocks.WEATHERED_COPPER_BUTTON.get(), BLBlocks.OXIDIZED_COPPER_BUTTON.get())
     .build());
     /**
      * The {@link Supplier<BiMap> inverted weathering states map}
@@ -52,7 +56,13 @@ public interface IBLWeatheringBlock extends ChangeOverTimeBlock<WeatheringCopper
      * @return {@link Optional<BlockState> The previous weathering Block State, if any}
      */
     static Optional<BlockState> getPrevious(final BlockState blockState) {
-        return getPrevious(blockState.getBlock()).map(block -> block.withPropertiesOf(blockState));
+        return getPrevious(blockState.getBlock()).map(block -> {
+            BlockState previousBlockState = block.withPropertiesOf(blockState);
+            if(block instanceof ButtonBlock) {
+                previousBlockState = previousBlockState.setValue(ButtonBlock.POWERED, false);
+            }
+            return previousBlockState;
+        });
     }
 
     /**
@@ -76,7 +86,12 @@ public interface IBLWeatheringBlock extends ChangeOverTimeBlock<WeatheringCopper
      * @return {@link BlockState The first weathering Block State}
      */
     static BlockState getFirst(BlockState blockState) {
-        return getFirst(blockState.getBlock()).withPropertiesOf(blockState);
+        final Block block = blockState.getBlock();
+        BlockState firstBlockState = getFirst(block).withPropertiesOf(blockState);
+        if(block instanceof ButtonBlock) {
+            firstBlockState = firstBlockState.setValue(ButtonBlock.POWERED, false);
+        }
+        return firstBlockState;
     }
 
     /**
@@ -97,7 +112,13 @@ public interface IBLWeatheringBlock extends ChangeOverTimeBlock<WeatheringCopper
      */
     @Override
     default @NotNull Optional<BlockState> getNext(final BlockState blockState) {
-        return getNext(blockState.getBlock()).map(block -> block.withPropertiesOf(blockState));
+        return getNext(blockState.getBlock()).map(block -> {
+            BlockState nextBlockState = block.withPropertiesOf(blockState);
+            if(block instanceof ButtonBlock) {
+                nextBlockState = nextBlockState.setValue(ButtonBlock.POWERED, false);
+            }
+            return nextBlockState;
+        });
     }
 
     /**

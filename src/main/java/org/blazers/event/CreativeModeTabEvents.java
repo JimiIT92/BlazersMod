@@ -123,7 +123,15 @@ public final class CreativeModeTabEvents {
                 BLBlocks.WAXED_CUT_COPPER_BRICKS,
                 BLBlocks.WAXED_EXPOSED_CUT_COPPER_BRICKS,
                 BLBlocks.WAXED_WEATHERED_CUT_COPPER_BRICKS,
-                BLBlocks.WAXED_OXIDIZED_CUT_COPPER_BRICKS
+                BLBlocks.WAXED_OXIDIZED_CUT_COPPER_BRICKS,
+                BLBlocks.COPPER_BUTTON,
+                BLBlocks.EXPOSED_COPPER_BUTTON,
+                BLBlocks.WEATHERED_COPPER_BUTTON,
+                BLBlocks.OXIDIZED_COPPER_BUTTON,
+                BLBlocks.WAXED_COPPER_BUTTON,
+                BLBlocks.WAXED_EXPOSED_COPPER_BUTTON,
+                BLBlocks.WAXED_WEATHERED_COPPER_BUTTON,
+                BLBlocks.WAXED_OXIDIZED_COPPER_BUTTON
         );
     }
 
@@ -171,7 +179,16 @@ public final class CreativeModeTabEvents {
      * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
      */
     private static void setRedstoneTabContent(final BuildCreativeModeTabContentsEvent event) {
-
+        addToTab(event,
+            BLBlocks.COPPER_BUTTON,
+            BLBlocks.EXPOSED_COPPER_BUTTON,
+            BLBlocks.WEATHERED_COPPER_BUTTON,
+            BLBlocks.OXIDIZED_COPPER_BUTTON,
+            BLBlocks.WAXED_COPPER_BUTTON,
+            BLBlocks.WAXED_EXPOSED_COPPER_BUTTON,
+            BLBlocks.WAXED_WEATHERED_COPPER_BUTTON,
+            BLBlocks.WAXED_OXIDIZED_COPPER_BUTTON
+        );
     }
 
     /**
