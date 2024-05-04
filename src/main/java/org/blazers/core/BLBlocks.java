@@ -15,6 +15,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.block.HollowLog;
+import org.blazers.block.weathering.BLWaxedBlock;
+import org.blazers.block.weathering.BLWeatheringBlock;
 import org.blazers.helper.BlockHelper;
 import org.blazers.helper.PropertyHelper;
 import org.blazers.helper.RegistryHelper;
@@ -122,6 +124,19 @@ public final class BLBlocks {
 
     //#endregion
 
+    //#region Copper Blocks
+
+    public static final RegistryObject<Block> CUT_COPPER_BRICKS = registerWeatheringBlock("cut_copper_bricks", WeatheringCopper.WeatherState.UNAFFECTED, Blocks.CUT_COPPER);
+    public static final RegistryObject<Block> EXPOSED_CUT_COPPER_BRICKS = registerWeatheringBlock("cut_copper_bricks", WeatheringCopper.WeatherState.EXPOSED, Blocks.EXPOSED_CUT_COPPER);
+    public static final RegistryObject<Block> WEATHERED_CUT_COPPER_BRICKS = registerWeatheringBlock("cut_copper_bricks", WeatheringCopper.WeatherState.WEATHERED, Blocks.WEATHERED_CUT_COPPER);
+    public static final RegistryObject<Block> OXIDIZED_CUT_COPPER_BRICKS = registerWeatheringBlock("cut_copper_bricks", WeatheringCopper.WeatherState.OXIDIZED, Blocks.OXIDIZED_CUT_COPPER);
+    public static final RegistryObject<Block> WAXED_CUT_COPPER_BRICKS = registerWeatheringBlock("cut_copper_bricks", WeatheringCopper.WeatherState.UNAFFECTED, true, Suppliers.memoize(() -> new BLWaxedBlock(PropertyHelper.from(Blocks.WAXED_CUT_COPPER))));
+    public static final RegistryObject<Block> WAXED_EXPOSED_CUT_COPPER_BRICKS = registerWeatheringBlock("cut_copper_bricks", WeatheringCopper.WeatherState.EXPOSED, true, Suppliers.memoize(() -> new BLWaxedBlock(PropertyHelper.from(Blocks.WAXED_EXPOSED_CUT_COPPER))));
+    public static final RegistryObject<Block> WAXED_WEATHERED_CUT_COPPER_BRICKS = registerWeatheringBlock("cut_copper_bricks", WeatheringCopper.WeatherState.WEATHERED, true, Suppliers.memoize(() -> new BLWaxedBlock(PropertyHelper.from(Blocks.WAXED_WEATHERED_CUT_COPPER))));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_CUT_COPPER_BRICKS = registerWeatheringBlock("cut_copper_bricks", WeatheringCopper.WeatherState.OXIDIZED, true, Suppliers.memoize(() -> new BLWaxedBlock(PropertyHelper.from(Blocks.WAXED_OXIDIZED_CUT_COPPER))));
+
+    //#endregion
+
     //#region Misc
 
     public static final RegistryObject<Block> COBBLED_GRANITE = registerBlock("cobbled_granite", BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE));
@@ -216,6 +231,32 @@ public final class BLBlocks {
      */
     private static String getHollowLogName(final WoodType woodType, final boolean isStrippedLog) {
         return "hollow_" + BlockHelper.woodName(woodType, isStrippedLog);
+    }
+
+    /**
+     * Register a {@link Block weathering Block}
+     *
+     * @param materialName {@link String The Block material name}
+     * @param weatherState {@link WeatheringCopper.WeatherState The weather state}
+     * @param parentBlock {@link Block The Block to get the properties from}
+     * @return {@link RegistryObject<Block> The registered weathering Block}
+     */
+    private static RegistryObject<Block> registerWeatheringBlock(final String materialName, final WeatheringCopper.WeatherState weatherState, final Block parentBlock, final FeatureFlag... featureFlags) {
+        final BlockBehaviour.Properties properties = PropertyHelper.from(parentBlock, featureFlags);
+        return registerWeatheringBlock(materialName, weatherState, false, Suppliers.memoize(() -> new BLWeatheringBlock(weatherState, properties)));
+    }
+
+    /**
+     * Register a {@link Block weathering Block}
+     *
+     * @param materialName {@link String The Block material name}
+     * @param weatherState {@link WeatheringCopper.WeatherState The weather state}
+     * @param isWaxed {@link Boolean If the Block is waxed}
+     * @param blockSupplier {@link Supplier<Block> The Block supplier}
+     * @return {@link RegistryObject<Block> The registered weathering Block}
+     */
+    private static RegistryObject<Block> registerWeatheringBlock(final String materialName, final WeatheringCopper.WeatherState weatherState, final boolean isWaxed, final Supplier<Block> blockSupplier) {
+        return registerBlock(BlockHelper.weatheringBlockName(materialName, weatherState, isWaxed), blockSupplier);
     }
 
     /**

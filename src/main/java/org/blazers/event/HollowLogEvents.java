@@ -4,6 +4,7 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
@@ -37,7 +38,7 @@ public final class HollowLogEvents {
             final BlockPos clickedPos = event.getPos();
             final ItemStack itemStack = event.getItemStack();
             final Level level = event.getLevel();
-            if(player.isShiftKeyDown() && itemStack.getItem() instanceof AxeItem) {
+            if(player.isShiftKeyDown() && itemStack.is(ItemTags.AXES)) {
                 HollowLog.getHollow(level.getBlockState(clickedPos)).ifPresent(hollowState -> {
                     level.setBlockAndUpdate(clickedPos, hollowState.setValue(BlockStateProperties.WATERLOGGED, LevelHelper.isUnderwater(level, clickedPos)));
                     ItemHelper.hurt(itemStack, player, event.getHand(), SoundEvents.AXE_STRIP);

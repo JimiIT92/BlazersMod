@@ -115,7 +115,15 @@ public final class CreativeModeTabEvents {
                 BLBlocks.MALACHITE_BLOCK,
                 BLBlocks.ONICE_BLOCK,
                 BLBlocks.RAW_URANIUM_BLOCK,
-                BLBlocks.URANIUM_BLOCK
+                BLBlocks.URANIUM_BLOCK,
+                BLBlocks.CUT_COPPER_BRICKS,
+                BLBlocks.EXPOSED_CUT_COPPER_BRICKS,
+                BLBlocks.WEATHERED_CUT_COPPER_BRICKS,
+                BLBlocks.OXIDIZED_CUT_COPPER_BRICKS,
+                BLBlocks.WAXED_CUT_COPPER_BRICKS,
+                BLBlocks.WAXED_EXPOSED_CUT_COPPER_BRICKS,
+                BLBlocks.WAXED_WEATHERED_CUT_COPPER_BRICKS,
+                BLBlocks.WAXED_OXIDIZED_CUT_COPPER_BRICKS
         );
     }
 

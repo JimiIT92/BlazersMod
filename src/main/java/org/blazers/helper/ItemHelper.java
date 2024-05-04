@@ -81,7 +81,11 @@ public final class ItemHelper {
             if(player.isCreative()) {
                 return;
             }
-            itemStack.hurtAndBreak(amount, player, slot);
+            if(itemStack.isDamageableItem()) {
+                itemStack.hurtAndBreak(amount, player, slot);
+            } else {
+                itemStack.shrink(amount);
+            }
             return;
         }
         itemStack.shrink(amount);

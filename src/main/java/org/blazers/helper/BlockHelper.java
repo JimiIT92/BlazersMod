@@ -2,6 +2,7 @@ package org.blazers.helper;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import org.blazers.core.BLMaterials;
@@ -88,6 +89,32 @@ public final class BlockHelper {
      */
     public static String woodName(final WoodType woodType, final boolean isStrippedLog) {
         return (isStrippedLog ? "stripped_" : "") + lower(woodType.name()) + "_" + (woodType.equals(WoodType.BAMBOO) ? "block" : woodType.equals(WoodType.CRIMSON) || woodType.equals(WoodType.WARPED) ? "stem" : "log");
+    }
+
+    /**
+     * Get the {@link String name} of a {@link WeatheringCopper.WeatherState weather state}
+     *
+     * @param weatherState {@link WeatheringCopper.WeatherState The weather state}
+     * @return {@link String The weather state name}
+     */
+    public static String weatherStateName(final WeatheringCopper.WeatherState weatherState) {
+        if(!weatherState.equals(WeatheringCopper.WeatherState.UNAFFECTED)) {
+            return lower(weatherState.getSerializedName());
+        }
+        return "";
+    }
+
+    /**
+     * Get the {@link String name} of a {@link Block weathering Block}
+     *
+     * @param materialName {@link String The Block material name}
+     * @param weatherState {@link WeatheringCopper.WeatherState The weather state}
+     * @param isWaxed {@link Boolean If the Block is waxed}
+     * @return {@link String The weathering Block name}
+     */
+    public static String weatheringBlockName(final String materialName, final WeatheringCopper.WeatherState weatherState,final boolean isWaxed) {
+        final String weatherStateName = weatherStateName(weatherState);
+        return (isWaxed ? "waxed_" : "") + weatherStateName + (weatherStateName.isEmpty() ? "" : "_") + materialName;
     }
 
     /**

@@ -82,4 +82,14 @@ public final class PropertyHelper {
         return BlockBehaviour.Properties.of().mapColor(color).strength(strength, blastResistance).sound(sound).requiredFeatures(featureFlags);
     }
 
+    /**
+     * Get a copy of some {@link BlockBehaviour.Properties Block properties}
+     *
+     * @param block {@link Block The Block to copy from}
+     * @return {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
+     */
+    public static BlockBehaviour.Properties from(final Block block, final FeatureFlag... featureFlags) {
+        return BlockBehaviour.Properties.ofFullCopy(block).requiredFeatures(featureFlags);
+    }
+
 }
