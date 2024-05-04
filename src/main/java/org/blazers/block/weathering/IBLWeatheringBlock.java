@@ -3,6 +3,9 @@ package org.blazers.block.weathering;
 import com.google.common.base.Suppliers;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChangeOverTimeBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
@@ -105,6 +108,58 @@ public interface IBLWeatheringBlock extends ChangeOverTimeBlock<WeatheringCopper
     @Override
     default float getChanceModifier() {
         return this.getAge() == WeatheringCopper.WeatherState.UNAFFECTED ? 0.75F : 1.0F;
+    }
+
+    /**
+     * Clear some oxidization from {@link BLWeatheringBlock weathering Blocks} when struck by a {@link LightningBolt Lightning Bolt}
+     *
+     * @param blockState {@link BlockState The current Block State}
+     * @param level {@link Level The Level reference}
+     * @param blockPos {@link BlockPos The current BlockPos}
+     */
+    static void lightningStrike(final BlockState blockState, final Level level, final BlockPos blockPos) {
+        level.setBlockAndUpdate(blockPos, getFirst(level.getBlockState(blockPos)));
+        final BlockPos.MutableBlockPos mutableBlockPos = blockPos.mutable();
+        for (int i = 0; i < level.random.nextInt(3) + 3; i++) {
+            randomWalkCleaningCopper(level, blockPos, mutableBlockPos);
+        }
+    }
+
+    /**
+     * Randomly clear some oxidization level from some {@link BLWeatheringBlock weathering Blocks}
+     *
+     * @param level {@link Level The Level reference}
+     * @param blockPos {@link BlockPos The current BlockPos}
+     * @param mutableBlockPos {@link BlockPos.MutableBlockPos The mutable BlockPos}
+     */
+    private static void randomWalkCleaningCopper(final Level level, final BlockPos blockPos, final BlockPos.MutableBlockPos mutableBlockPos) {
+        mutableBlockPos.set(blockPos);
+        for (int i = 0; i < level.random.nextInt(8) + 1; i++) {
+            final Optional<BlockPos> cleanedBlockPos = randomStepCleaningCopper(level, mutableBlockPos);
+            if (cleanedBlockPos.isEmpty()) {
+                break;
+            }
+            mutableBlockPos.set(cleanedBlockPos.get());
+        }
+    }
+
+    /**
+     * Get the {@link BlockPos BlockPos} of the {@link BLWeatheringBlock weathering Block} to clean
+     *
+     * @param level {@link Level The Level reference}
+     * @param blockPos {@link BlockPos The current BlockPos}
+     * @return {@link Optional<BlockPos> The weathering BlockPos, if any}
+     */
+    private static Optional<BlockPos> randomStepCleaningCopper(final Level level, final BlockPos blockPos) {
+        for (final BlockPos pos : BlockPos.randomInCube(level.random, 10, blockPos, 1)) {
+            final BlockState blockState = level.getBlockState(pos);
+            if (blockState.getBlock() instanceof BLWeatheringBlock) {
+                getPrevious(blockState).ifPresent(previousBlockState -> level.setBlockAndUpdate(pos, previousBlockState));
+                level.levelEvent(3002, pos, -1);
+                return Optional.of(pos);
+            }
+        }
+        return Optional.empty();
     }
 
 }

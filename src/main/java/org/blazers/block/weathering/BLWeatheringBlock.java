@@ -141,4 +141,5 @@ public class BLWeatheringBlock extends Block implements IBLWeatheringBlock {
         }
         return super.getToolModifiedState(blockState, context, toolAction, simulate);
     }
+
 }
