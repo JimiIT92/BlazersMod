@@ -14,16 +14,16 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 /**
- * {@link BlazersMod Blazers Mod} {@link CopperButton waxed Button Block}
+ * {@link BlazersMod Blazers Mod} {@link CopperButtonBlock waxed Button Block}
  */
-public class WaxedButton extends CopperButton implements IBLWaxedBlock {
+public class WaxedButtonBlock extends CopperButtonBlock implements IBLWaxedBlock {
 
     /**
      * Constructor. Set the {@link Properties Block properties}
      *
      * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
      */
-    public WaxedButton(final FeatureFlag... featureFlags) {
+    public WaxedButtonBlock(final FeatureFlag... featureFlags) {
         super(featureFlags);
     }
 

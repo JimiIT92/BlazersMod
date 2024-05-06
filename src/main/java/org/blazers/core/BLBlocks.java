@@ -14,10 +14,11 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
-import org.blazers.block.HollowLog;
+import org.blazers.block.AtomicTntBlock;
+import org.blazers.block.HollowLogBlock;
 import org.blazers.block.weathering.BLWaxedBlock;
 import org.blazers.block.weathering.BLWeatheringBlock;
-import org.blazers.block.weathering.WaxedButton;
+import org.blazers.block.weathering.WaxedButtonBlock;
 import org.blazers.block.weathering.WeatheringButton;
 import org.blazers.helper.BlockHelper;
 import org.blazers.helper.PropertyHelper;
@@ -141,10 +142,10 @@ public final class BLBlocks {
     public static final RegistryObject<Block> EXPOSED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.EXPOSED, false, Suppliers.memoize(() -> new WeatheringButton(WeatheringCopper.WeatherState.EXPOSED)));
     public static final RegistryObject<Block> WEATHERED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.WEATHERED, false, Suppliers.memoize(() -> new WeatheringButton(WeatheringCopper.WeatherState.WEATHERED)));
     public static final RegistryObject<Block> OXIDIZED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.OXIDIZED, false, Suppliers.memoize(() -> new WeatheringButton(WeatheringCopper.WeatherState.OXIDIZED)));
-    public static final RegistryObject<Block> WAXED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.UNAFFECTED, true, Suppliers.memoize(WaxedButton::new));
-    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.EXPOSED, true, Suppliers.memoize(WaxedButton::new));
-    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.WEATHERED, true, Suppliers.memoize(WaxedButton::new));
-    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.OXIDIZED, true, Suppliers.memoize(WaxedButton::new));
+    public static final RegistryObject<Block> WAXED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.UNAFFECTED, true, Suppliers.memoize(WaxedButtonBlock::new));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.EXPOSED, true, Suppliers.memoize(WaxedButtonBlock::new));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.WEATHERED, true, Suppliers.memoize(WaxedButtonBlock::new));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_BUTTON = registerWeatheringBlock("copper_button", WeatheringCopper.WeatherState.OXIDIZED, true, Suppliers.memoize(WaxedButtonBlock::new));
 
     //#endregion
 
@@ -167,6 +168,8 @@ public final class BLBlocks {
     public static final RegistryObject<Block> RED_SANDSTONE_BRICKS = registerBlock("red_sandstone_bricks", BlockBehaviour.Properties.ofFullCopy(Blocks.RED_SANDSTONE));
     public static final RegistryObject<Block> POLISHED_BLACKSTONE_TILES = registerBlock("polished_blackstone_tiles", BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICKS));
 
+    public static final RegistryObject<Block> ATOMIC_TNT = registerBlock("atomic_tnt", Suppliers.memoize(AtomicTntBlock::new));
+
     //#endregion
 
     //#endregion
@@ -174,7 +177,7 @@ public final class BLBlocks {
     //#region Methods
 
     /**
-     * Register an {@link HollowLog hollow log}
+     * Register an {@link HollowLogBlock hollow log}
      *
      * @param woodType The {@link WoodType log Wood Type}
      * @param isStrippedLog {@link Boolean If the log is a stripped log}
@@ -182,7 +185,7 @@ public final class BLBlocks {
      * @return {@link RegistryObject<Block> The registered hollow log}
      */
     private static RegistryObject<Block> registerHollowLog(final WoodType woodType, final boolean isStrippedLog, final FeatureFlag... featureFlags) {
-        return registerBlock(getHollowLogName(woodType, isStrippedLog), Suppliers.memoize(() -> new HollowLog(woodType, BlockHelper.woodColor(woodType, isStrippedLog), featureFlags)));
+        return registerBlock(getHollowLogName(woodType, isStrippedLog), Suppliers.memoize(() -> new HollowLogBlock(woodType, BlockHelper.woodColor(woodType, isStrippedLog), featureFlags)));
     }
 
     /**
@@ -234,7 +237,7 @@ public final class BLBlocks {
     }
 
     /**
-     * Get the {@link String name} for an {@link HollowLog hollow log}
+     * Get the {@link String name} for an {@link HollowLogBlock hollow log}
      *
      * @param woodType {@link WoodType The Wood Type}
      * @param isStrippedLog {@link Boolean If the log is a stripped log}

@@ -4,12 +4,10 @@ import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.blazers.core.BLBlocks;
-import org.blazers.core.BLDispenseBehaviors;
-import org.blazers.core.BLItems;
-import org.blazers.core.BLTabs;
+import org.blazers.core.*;
 
 /**
  * {@link BlazersMod Blazers Mod} main class
@@ -32,8 +30,20 @@ public final class BlazersMod {
         BLItems.register(eventBus);
         BLBlocks.register(eventBus);
 
+        BLEntityTypes.register(eventBus);
+
+        eventBus.addListener(this::onClientSetup);
         eventBus.addListener(this::onCommonSetup);
         MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    /**
+     * Set up the {@link BlazersMod Blazers Mod} client stuffs, like entity renderers
+     *
+     * @param event {@link FMLClientSetupEvent The FML Client Setup Event}
+     */
+    private void onClientSetup(final FMLClientSetupEvent event) {
+        event.enqueueWork(BLEntityTypes::registerRenderers);
     }
 
     /**

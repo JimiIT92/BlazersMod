@@ -26,9 +26,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 /**
- * {@link BlazersMod Blazers Mod} {@link CopperButton weathering Button Block}
+ * {@link BlazersMod Blazers Mod} {@link CopperButtonBlock weathering Button Block}
  */
-public class WeatheringButton extends CopperButton implements IBLWeatheringBlock {
+public class WeatheringButton extends CopperButtonBlock implements IBLWeatheringBlock {
 
     /**
      * {@link WeatheringCopper.WeatherState The Block weather state}

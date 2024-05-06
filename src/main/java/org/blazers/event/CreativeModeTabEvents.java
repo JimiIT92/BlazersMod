@@ -187,7 +187,8 @@ public final class CreativeModeTabEvents {
             BLBlocks.WAXED_COPPER_BUTTON,
             BLBlocks.WAXED_EXPOSED_COPPER_BUTTON,
             BLBlocks.WAXED_WEATHERED_COPPER_BUTTON,
-            BLBlocks.WAXED_OXIDIZED_COPPER_BUTTON
+            BLBlocks.WAXED_OXIDIZED_COPPER_BUTTON,
+            BLBlocks.ATOMIC_TNT
         );
     }
 
@@ -206,7 +207,9 @@ public final class CreativeModeTabEvents {
      * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
      */
     private static void setCombatTabContent(final BuildCreativeModeTabContentsEvent event) {
-
+        addToTab(event,
+            BLBlocks.ATOMIC_TNT
+        );
     }
 
     /**

@@ -92,6 +92,7 @@
   "block.blazersmod.waxed_exposed_copper_button": "Waxed Exposed Copper Button",
   "block.blazersmod.waxed_weathered_copper_button": "Waxed Weathered Copper Button",
   "block.blazersmod.waxed_oxidized_copper_button": "Waxed Oxidized Copper Button",
+  "block.blazersmod.atomic_tnt": "Atomic TNT",
   "advancements.story.mine_emerald.title": "Can I keep it?",
   "advancements.story.mine_emerald.description": "Acquire emerald",
   "advancements.story.mine_sapphire.title": "Shine brighter than a diamond!",
@@ -105,5 +106,7 @@
   "advancements.nether.blazerite.title": "Hi blazers!",
   "advancements.nether.blazerite.description": "Obtain Blazerite",
   "advancements.nether.gyulianite.title": "Woof woof!",
-  "advancements.nether.gyulianite.description": "Obtain Gyulianite"
+  "advancements.nether.gyulianite.description": "Obtain Gyulianite",
+  "advancements.nether.atomic_tnt.title": "The big block theory",
+  "advancements.nether.atomic_tnt.description": "Craft the ultimate weapon"
 }

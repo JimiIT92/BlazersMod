@@ -43,7 +43,7 @@ import static net.minecraft.world.level.block.state.properties.BlockStatePropert
 /**
  * {@link BlazersMod Blazers Mod} {@link RotatedPillarBlock Hollow Block}
  */
-public final class HollowLog extends RotatedPillarBlock implements SimpleWaterloggedBlock {
+public final class HollowLogBlock extends RotatedPillarBlock implements SimpleWaterloggedBlock {
 
     /**
      * {@link Supplier<Map> Hollowable Blocks}
@@ -96,7 +96,7 @@ public final class HollowLog extends RotatedPillarBlock implements SimpleWaterlo
      * @param color {@link MapColor The Block color on maps}
      * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
      */
-    public HollowLog(final WoodType woodType, final MapColor color, final FeatureFlag... featureFlags) {
+    public HollowLogBlock(final WoodType woodType, final MapColor color, final FeatureFlag... featureFlags) {
         super(PropertyHelper.block(color, 2F, woodType.soundType(), featureFlags).instrument(NoteBlockInstrument.BASS));
         this.registerDefaultState(this.defaultBlockState().setValue(AXIS, Direction.Axis.Y).setValue(WATERLOGGED, false));
         this.woodType = woodType;

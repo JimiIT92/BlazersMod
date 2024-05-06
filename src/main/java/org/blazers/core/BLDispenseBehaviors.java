@@ -2,16 +2,23 @@ package org.blazers.core;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.dispenser.BlockSource;
+import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.item.HoneycombItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DispenserBlock;
+import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
+import net.minecraft.world.level.gameevent.GameEvent;
 import org.blazers.BlazersMod;
+import org.blazers.block.AtomicTntBlock;
 import org.blazers.block.weathering.IBLWaxedBlock;
 import org.jetbrains.annotations.NotNull;
 
@@ -46,6 +53,32 @@ public final class BLDispenseBehaviors {
         };
     }
 
+    /**
+     * Get the {@link DispenseItemBehavior Dispense Behavior} for a {@link TntBlock TNT Block}
+     *
+     * @return {@link DispenseItemBehavior The TNT Dispense Behavior}
+     */
+    private static DispenseItemBehavior tntDispenseBehavior() {
+        return new DefaultDispenseItemBehavior() {
+            /**
+             * Dispense the specified {@link ItemStack Item Stack}
+             *
+             * @param blockSource  {@link BlockSource Block Source}
+             * @param itemStack The {@link ItemStack Item Stack} to dispense
+             */
+            protected @NotNull ItemStack execute(@NotNull BlockSource blockSource, @NotNull ItemStack itemStack) {
+                Level level = blockSource.level();
+                BlockPos blockpos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
+                PrimedTnt primedTnt = AtomicTntBlock.getPrimedAtomicTnt(level, blockpos, null);
+                level.addFreshEntity(primedTnt);
+                level.playSound(null, primedTnt.getX(), primedTnt.getY(), primedTnt.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.gameEvent(null, GameEvent.ENTITY_PLACE, blockpos);
+                itemStack.shrink(1);
+                return itemStack;
+            }
+        };
+    }
+
     //#endregion
 
     //#region Methods
@@ -69,6 +102,7 @@ public final class BLDispenseBehaviors {
      */
     public static void registerDispenseBehaviors() {
         registerDispenseBehavior(Items.HONEYCOMB, honeycombDispenseBehavior());
+        registerDispenseBehavior(BLBlocks.ATOMIC_TNT.get(), tntDispenseBehavior());
     }
 
     //#endregion

@@ -16,12 +16,12 @@ import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.blazers.BlazersMod;
-import org.blazers.block.HollowLog;
+import org.blazers.block.HollowLogBlock;
 import org.blazers.helper.ItemHelper;
 import org.blazers.helper.LevelHelper;
 
 /**
- * Handle all events for {@link HollowLog Hollow Logs}
+ * Handle all events for {@link HollowLogBlock Hollow Logs}
  */
 @Mod.EventBusSubscriber(modid = BlazersMod.MOD_ID)
 public final class HollowLogEvents {
@@ -39,7 +39,7 @@ public final class HollowLogEvents {
             final ItemStack itemStack = event.getItemStack();
             final Level level = event.getLevel();
             if(player.isShiftKeyDown() && itemStack.is(ItemTags.AXES)) {
-                HollowLog.getHollow(level.getBlockState(clickedPos)).ifPresent(hollowState -> {
+                HollowLogBlock.getHollow(level.getBlockState(clickedPos)).ifPresent(hollowState -> {
                     level.setBlockAndUpdate(clickedPos, hollowState.setValue(BlockStateProperties.WATERLOGGED, LevelHelper.isUnderwater(level, clickedPos)));
                     ItemHelper.hurt(itemStack, player, event.getHand(), SoundEvents.AXE_STRIP);
                     if(player instanceof ServerPlayer) {
