@@ -1,0 +1,6 @@
+{
+  "parent": "blazersmod:block/pointed_dripstone",
+  "textures": {
+    "cross": "blazersmod:block/pointed_andesite_dripstone_up_tip_merge"
+  }
+}

@@ -15,7 +15,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.block.AtomicTntBlock;
+import org.blazers.block.BLPointedDripstoneBlock;
 import org.blazers.block.HollowLogBlock;
+import org.blazers.block.PointedIceDripstoneBlock;
 import org.blazers.block.weathering.BLWaxedBlock;
 import org.blazers.block.weathering.BLWeatheringBlock;
 import org.blazers.block.weathering.WaxedButtonBlock;
@@ -149,6 +151,16 @@ public final class BLBlocks {
 
     //#endregion
 
+    //#region Pointed Dripstones
+
+    public static final RegistryObject<Block> POINTED_STONE_DRIPSTONE = registerPointedDripstone("stone", Blocks.STONE);
+    public static final RegistryObject<Block> POINTED_GRANITE_DRIPSTONE = registerPointedDripstone("granite", Blocks.GRANITE);
+    public static final RegistryObject<Block> POINTED_DIORITE_DRIPSTONE = registerPointedDripstone("diorite", Blocks.DIORITE);
+    public static final RegistryObject<Block> POINTED_ANDESITE_DRIPSTONE = registerPointedDripstone("andesite", Blocks.ANDESITE);
+    public static final RegistryObject<Block> POINTED_ICE_DRIPSTONE = registerPointedDripstone("ice", Blocks.ICE);
+
+    //#endregion
+
     //#region Misc
 
     public static final RegistryObject<Block> COBBLED_GRANITE = registerBlock("cobbled_granite", BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE));
@@ -271,6 +283,18 @@ public final class BLBlocks {
      */
     private static RegistryObject<Block> registerWeatheringBlock(final String materialName, final WeatheringCopper.WeatherState weatherState, final boolean isWaxed, final Supplier<Block> blockSupplier) {
         return registerBlock(BlockHelper.weatheringBlockName(materialName, weatherState, isWaxed), blockSupplier);
+    }
+
+    /**
+     * Register a {@link PointedDripstoneBlock Pointed Dripstone Block}
+     *
+     * @param materialName {@link String The Block material name}
+     * @param block {@link Block The Block the pointed dripstone is based on}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
+     * @return {@link RegistryObject<Block> The registered Pointed Dripstone}
+     */
+    private static RegistryObject<Block> registerPointedDripstone(final String materialName, final Block block, final FeatureFlag... featureFlags) {
+        return registerBlock("pointed_" + materialName + "_dripstone", Suppliers.memoize(() -> block.equals(Blocks.ICE) ? new PointedIceDripstoneBlock() : new BLPointedDripstoneBlock(Suppliers.memoize(() -> block), featureFlags)));
     }
 
     /**

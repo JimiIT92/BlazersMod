@@ -131,7 +131,12 @@ public final class CreativeModeTabEvents {
                 BLBlocks.WAXED_COPPER_BUTTON,
                 BLBlocks.WAXED_EXPOSED_COPPER_BUTTON,
                 BLBlocks.WAXED_WEATHERED_COPPER_BUTTON,
-                BLBlocks.WAXED_OXIDIZED_COPPER_BUTTON
+                BLBlocks.WAXED_OXIDIZED_COPPER_BUTTON,
+                BLBlocks.POINTED_STONE_DRIPSTONE,
+                BLBlocks.POINTED_GRANITE_DRIPSTONE,
+                BLBlocks.POINTED_DIORITE_DRIPSTONE,
+                BLBlocks.POINTED_ANDESITE_DRIPSTONE,
+                BLBlocks.POINTED_ICE_DRIPSTONE
         );
     }
 

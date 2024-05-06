@@ -18,6 +18,7 @@ minecraft {
     mappings channel: 'official', version: minecraft_version
     reobf = false
     copyIdeResources = true
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
         configureEach {
