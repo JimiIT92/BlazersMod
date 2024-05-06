@@ -218,7 +218,11 @@ public final class CreativeModeTabEvents {
      * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
      */
     private static void setFoodAndDrinkTabContent(final BuildCreativeModeTabContentsEvent event) {
-
+        addToTab(event,
+            BLItems.HOSOMAKI,
+            BLItems.NIGIRI,
+            BLItems.SASHIMI
+        );
     }
 
     /**

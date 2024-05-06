@@ -50,6 +50,14 @@ public final class BLItems {
 
     //#endregion
 
+    //#region Food
+
+    public static final RegistryObject<Item> HOSOMAKI = registerFood("hosomaki", 2, 0.1F);
+    public static final RegistryObject<Item> NIGIRI = registerFood("nigiri", 5, 0.6F);
+    public static final RegistryObject<Item> SASHIMI = registerFood("sashimi", 6, 0.8F);
+
+    //#endregion
+
     //#region Methods
 
     /**
@@ -95,6 +103,19 @@ public final class BLItems {
      */
     private static RegistryObject<Item> registerIngot(final BLMaterials material, final FeatureFlag... featureFlags) {
         return registerItem(BlockHelper.materialName(material) + "_ingot", featureFlags);
+    }
+
+    /**
+     * Register a {@link Item Food Item}
+     *
+     * @param name {@link String The item name}
+     * @param nutrition {@link Integer The food nutrition value}
+     * @param saturationModifier {@link Float The food saturation modifier value}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @return {@link RegistryObject<Item> The registered Food Item}
+     */
+    private static RegistryObject<Item> registerFood(final String name, final int nutrition, final float saturationModifier, final FeatureFlag... featureFlags) {
+        return registerItem(name, Suppliers.memoize(() -> new Item(PropertyHelper.food(nutrition, saturationModifier, featureFlags))));
     }
 
     /**

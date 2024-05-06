@@ -1,6 +1,7 @@
 package org.blazers.helper;
 
 import net.minecraft.world.flag.FeatureFlag;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -12,6 +13,18 @@ import org.blazers.core.BLMaterials;
  * Helper methods for {@link BlockBehaviour.Properties Block Properties} and {@link Item.Properties Item Properties}
  */
 public final class PropertyHelper {
+
+    /**
+     * Get the {@link Item.Properties properties} for a {@link Item Food Item}
+     *
+     * @param nutrition {@link Integer The food nutrition value}
+     * @param saturationModifier {@link Float The food saturation modifier value}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @return {@link Item.Properties The Item properties}
+     */
+    public static Item.Properties food(final int nutrition, final float saturationModifier, final FeatureFlag... featureFlags) {
+        return item(featureFlags).food(new FoodProperties.Builder().nutrition(nutrition).saturationModifier(saturationModifier).build());
+    }
 
     /**
      * Get the {@link Item.Properties properties} for a simple {@link Item Item}
