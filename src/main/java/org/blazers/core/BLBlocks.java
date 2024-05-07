@@ -166,10 +166,47 @@ public final class BLBlocks {
     public static final RegistryObject<Block> BROWN_MUSHROOM_WALL_FAN = registerWallFan(Blocks.BROWN_MUSHROOM, MapColor.COLOR_BROWN);
     public static final RegistryObject<Block> RED_MUSHROOM_WALL_FAN = registerWallFan(Blocks.RED_MUSHROOM, MapColor.COLOR_RED);
 
-    //public static final RegistryObject<Block> BROWN_MUSHROOM_WALL_FAN = registerBlockWithoutBlockItem("brown_mushroom_wall_fan",
-      //      () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().lootFrom(() -> Blocks.BROWN_MUSHROOM)));
-    //public static final RegistryObject<Block> RED_MUSHROOM_WALL_FAN = registerBlockWithoutBlockItem("red_mushroom_wall_fan",
-      //      () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().lootFrom(() -> Blocks.RED_MUSHROOM)));
+    //#endregion
+
+    //#region Slabs
+
+    public static final RegistryObject<Block> WHITE_CONCRETE_SLAB = registerSlab(Blocks.WHITE_CONCRETE);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_SLAB = registerSlab(Blocks.ORANGE_CONCRETE);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_SLAB = registerSlab(Blocks.MAGENTA_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_SLAB = registerSlab(Blocks.LIGHT_BLUE_CONCRETE);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_SLAB = registerSlab(Blocks.YELLOW_CONCRETE);
+    public static final RegistryObject<Block> LIME_CONCRETE_SLAB = registerSlab(Blocks.LIME_CONCRETE);
+    public static final RegistryObject<Block> PINK_CONCRETE_SLAB = registerSlab(Blocks.PINK_CONCRETE);
+    public static final RegistryObject<Block> GRAY_CONCRETE_SLAB = registerSlab(Blocks.GRAY_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_SLAB = registerSlab(Blocks.LIGHT_GRAY_CONCRETE);
+    public static final RegistryObject<Block> CYAN_CONCRETE_SLAB = registerSlab(Blocks.CYAN_CONCRETE);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_SLAB = registerSlab(Blocks.PURPLE_CONCRETE);
+    public static final RegistryObject<Block> BLUE_CONCRETE_SLAB = registerSlab(Blocks.BLUE_CONCRETE);
+    public static final RegistryObject<Block> BROWN_CONCRETE_SLAB = registerSlab(Blocks.BROWN_CONCRETE);
+    public static final RegistryObject<Block> GREEN_CONCRETE_SLAB = registerSlab(Blocks.GREEN_CONCRETE);
+    public static final RegistryObject<Block> RED_CONCRETE_SLAB = registerSlab(Blocks.RED_CONCRETE);
+    public static final RegistryObject<Block> BLACK_CONCRETE_SLAB = registerSlab(Blocks.BLACK_CONCRETE);
+
+    //#endregion
+
+    //#region Stairs
+
+    public static final RegistryObject<Block> WHITE_CONCRETE_STAIRS = registerStairs(Blocks.WHITE_CONCRETE);
+    public static final RegistryObject<Block> ORANGE_CONCRETE_STAIRS = registerStairs(Blocks.ORANGE_CONCRETE);
+    public static final RegistryObject<Block> MAGENTA_CONCRETE_STAIRS = registerStairs(Blocks.MAGENTA_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_BLUE_CONCRETE_STAIRS = registerStairs(Blocks.LIGHT_BLUE_CONCRETE);
+    public static final RegistryObject<Block> YELLOW_CONCRETE_STAIRS = registerStairs(Blocks.YELLOW_CONCRETE);
+    public static final RegistryObject<Block> LIME_CONCRETE_STAIRS = registerStairs(Blocks.LIME_CONCRETE);
+    public static final RegistryObject<Block> PINK_CONCRETE_STAIRS = registerStairs(Blocks.PINK_CONCRETE);
+    public static final RegistryObject<Block> GRAY_CONCRETE_STAIRS = registerStairs(Blocks.GRAY_CONCRETE);
+    public static final RegistryObject<Block> LIGHT_GRAY_CONCRETE_STAIRS = registerStairs(Blocks.LIGHT_GRAY_CONCRETE);
+    public static final RegistryObject<Block> CYAN_CONCRETE_STAIRS = registerStairs(Blocks.CYAN_CONCRETE);
+    public static final RegistryObject<Block> PURPLE_CONCRETE_STAIRS = registerStairs(Blocks.PURPLE_CONCRETE);
+    public static final RegistryObject<Block> BLUE_CONCRETE_STAIRS = registerStairs(Blocks.BLUE_CONCRETE);
+    public static final RegistryObject<Block> BROWN_CONCRETE_STAIRS = registerStairs(Blocks.BROWN_CONCRETE);
+    public static final RegistryObject<Block> GREEN_CONCRETE_STAIRS = registerStairs(Blocks.GREEN_CONCRETE);
+    public static final RegistryObject<Block> RED_CONCRETE_STAIRS = registerStairs(Blocks.RED_CONCRETE);
+    public static final RegistryObject<Block> BLACK_CONCRETE_STAIRS = registerStairs(Blocks.BLACK_CONCRETE);
 
     //#endregion
 
@@ -319,6 +356,28 @@ public final class BLBlocks {
     private static RegistryObject<Block> registerWallFan(final Block block, final MapColor color, final FeatureFlag... featureFlags) {
         return registerBlockWithoutBlockItem(BlockHelper.blockName(block) + "_wall_fan",
                 Suppliers.memoize(() -> new BaseCoralWallFanBlock(PropertyHelper.block(color, 0F, SoundType.GRASS, featureFlags).noCollission().instabreak().lootFrom(Suppliers.memoize(() -> block)))));
+    }
+
+    /**
+     * Register a {@link SlabBlock Slab Block}
+     *
+     * @param block {@link Block The Block the slab is based on}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
+     * @return {@link RegistryObject<Block> The registered Slab}
+     */
+    private static RegistryObject<Block> registerSlab(final Block block, final FeatureFlag... featureFlags) {
+        return registerBlock(BlockHelper.blockName(block) + "_slab", Suppliers.memoize(() -> new SlabBlock(PropertyHelper.from(block, featureFlags))));
+    }
+
+    /**
+     * Register a {@link StairBlock Stairs Block}
+     *
+     * @param block {@link Block The Block the stairs is based on}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
+     * @return {@link RegistryObject<Block> The registered Stairs}
+     */
+    private static RegistryObject<Block> registerStairs(final Block block, final FeatureFlag... featureFlags) {
+        return registerBlock(BlockHelper.blockName(block) + "_stairs", Suppliers.memoize(() -> new StairBlock(block.defaultBlockState(), PropertyHelper.from(block, featureFlags))));
     }
 
     /**

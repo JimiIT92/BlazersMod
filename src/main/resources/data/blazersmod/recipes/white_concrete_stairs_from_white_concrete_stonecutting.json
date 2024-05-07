@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:white_concrete"
+  },
+  "result": {
+    "count": 1,
+    "id":  "blazersmod:white_concrete_stairs"
+  }
+}

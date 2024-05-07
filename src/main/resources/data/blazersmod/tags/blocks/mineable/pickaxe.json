@@ -3,6 +3,8 @@
   "values": [
     "#blazersmod:ores",
     "#blazersmod:storage_blocks",
+    "#blazersmod:concrete_slabs",
+    "#blazersmod:concrete_stairs",
     "blazersmod:cobbled_andesite",
     "blazersmod:cobbled_diorite",
     "blazersmod:cobbled_granite",

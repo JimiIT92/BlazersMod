@@ -31,6 +31,8 @@ public final class BLItems {
 
     //#endregion
 
+    //#region Items
+
     //#region Gems
 
     public static final RegistryObject<Item> CARBON = registerGem(BLMaterials.CARBON);
@@ -46,8 +48,6 @@ public final class BLItems {
     public static final RegistryObject<Item> BLAZERITE = registerGem(BLMaterials.BLAZERITE, Rarity.RARE);
     public static final RegistryObject<Item> GYULIANITE = registerGem(BLMaterials.GYULIANITE, Rarity.RARE);
 
-
-
     //#endregion
 
     //#region Food
@@ -55,6 +55,8 @@ public final class BLItems {
     public static final RegistryObject<Item> HOSOMAKI = registerFood("hosomaki", 2, 0.1F);
     public static final RegistryObject<Item> NIGIRI = registerFood("nigiri", 5, 0.6F);
     public static final RegistryObject<Item> SASHIMI = registerFood("sashimi", 6, 0.8F);
+
+    //#endregion
 
     //#endregion
 
