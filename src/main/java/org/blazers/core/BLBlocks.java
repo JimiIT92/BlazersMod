@@ -153,11 +153,23 @@ public final class BLBlocks {
 
     //#region Pointed Dripstones
 
-    public static final RegistryObject<Block> POINTED_STONE_DRIPSTONE = registerPointedDripstone("stone", Blocks.STONE);
-    public static final RegistryObject<Block> POINTED_GRANITE_DRIPSTONE = registerPointedDripstone("granite", Blocks.GRANITE);
-    public static final RegistryObject<Block> POINTED_DIORITE_DRIPSTONE = registerPointedDripstone("diorite", Blocks.DIORITE);
-    public static final RegistryObject<Block> POINTED_ANDESITE_DRIPSTONE = registerPointedDripstone("andesite", Blocks.ANDESITE);
-    public static final RegistryObject<Block> POINTED_ICE_DRIPSTONE = registerPointedDripstone("ice", Blocks.ICE);
+    public static final RegistryObject<Block> POINTED_STONE_DRIPSTONE = registerPointedDripstone(Blocks.STONE);
+    public static final RegistryObject<Block> POINTED_GRANITE_DRIPSTONE = registerPointedDripstone(Blocks.GRANITE);
+    public static final RegistryObject<Block> POINTED_DIORITE_DRIPSTONE = registerPointedDripstone(Blocks.DIORITE);
+    public static final RegistryObject<Block> POINTED_ANDESITE_DRIPSTONE = registerPointedDripstone(Blocks.ANDESITE);
+    public static final RegistryObject<Block> POINTED_ICE_DRIPSTONE = registerPointedDripstone(Blocks.ICE);
+
+    //#endregion
+
+    //#region Mushroom Wall Fans
+
+    public static final RegistryObject<Block> BROWN_MUSHROOM_WALL_FAN = registerWallFan(Blocks.BROWN_MUSHROOM, MapColor.COLOR_BROWN);
+    public static final RegistryObject<Block> RED_MUSHROOM_WALL_FAN = registerWallFan(Blocks.RED_MUSHROOM, MapColor.COLOR_RED);
+
+    //public static final RegistryObject<Block> BROWN_MUSHROOM_WALL_FAN = registerBlockWithoutBlockItem("brown_mushroom_wall_fan",
+      //      () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().lootFrom(() -> Blocks.BROWN_MUSHROOM)));
+    //public static final RegistryObject<Block> RED_MUSHROOM_WALL_FAN = registerBlockWithoutBlockItem("red_mushroom_wall_fan",
+      //      () -> new BaseCoralWallFanBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).sound(SoundType.GRASS).requiresCorrectToolForDrops().noCollission().instabreak().lootFrom(() -> Blocks.RED_MUSHROOM)));
 
     //#endregion
 
@@ -288,13 +300,25 @@ public final class BLBlocks {
     /**
      * Register a {@link PointedDripstoneBlock Pointed Dripstone Block}
      *
-     * @param materialName {@link String The Block material name}
      * @param block {@link Block The Block the pointed dripstone is based on}
      * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
      * @return {@link RegistryObject<Block> The registered Pointed Dripstone}
      */
-    private static RegistryObject<Block> registerPointedDripstone(final String materialName, final Block block, final FeatureFlag... featureFlags) {
-        return registerBlock("pointed_" + materialName + "_dripstone", Suppliers.memoize(() -> block.equals(Blocks.ICE) ? new PointedIceDripstoneBlock() : new BLPointedDripstoneBlock(Suppliers.memoize(() -> block), featureFlags)));
+    private static RegistryObject<Block> registerPointedDripstone(final Block block, final FeatureFlag... featureFlags) {
+        return registerBlock("pointed_" + BlockHelper.blockName(block) + "_dripstone", Suppliers.memoize(() -> block.equals(Blocks.ICE) ? new PointedIceDripstoneBlock() : new BLPointedDripstoneBlock(Suppliers.memoize(() -> block), featureFlags)));
+    }
+
+    /**
+     * Register a {@link BaseCoralWallFanBlock Wall Fan Block}
+     *
+     * @param block {@link Block The Block the pointed dripstone is based on}
+     * @param color {@link MapColor The Block color on maps}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
+     * @return {@link RegistryObject<Block> The registered Wall Fan}
+     */
+    private static RegistryObject<Block> registerWallFan(final Block block, final MapColor color, final FeatureFlag... featureFlags) {
+        return registerBlockWithoutBlockItem(BlockHelper.blockName(block) + "_wall_fan",
+                Suppliers.memoize(() -> new BaseCoralWallFanBlock(PropertyHelper.block(color, 0F, SoundType.GRASS, featureFlags).noCollission().instabreak().lootFrom(Suppliers.memoize(() -> block)))));
     }
 
     /**

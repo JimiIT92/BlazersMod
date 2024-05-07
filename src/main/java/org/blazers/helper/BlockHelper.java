@@ -118,6 +118,16 @@ public final class BlockHelper {
     }
 
     /**
+     * Get the {@link String name} of a {@link Block Block}
+     *
+     * @param block {@link Block The Block}
+     * @return {@link String The Block name}
+     */
+    public static String blockName(final Block block) {
+        return lower(block.getName().getString().replace(" ", "_"));
+    }
+
+    /**
      * Make a {@link String text} lowercase
      *
      * @param text {@link String The text}
