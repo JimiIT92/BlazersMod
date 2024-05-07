@@ -198,7 +198,8 @@ public final class CreativeModeTabEvents {
             BLBlocks.MALACHITE_ORE,
             BLBlocks.ONICE_ORE,
             BLBlocks.URANIUM_ORE,
-            BLBlocks.HOLLOW_BIRCH_LOG
+            BLBlocks.HOLLOW_BIRCH_LOG,
+            BLBlocks.CATTAIL
         );
     }
 

@@ -14,10 +14,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
-import org.blazers.block.AtomicTntBlock;
-import org.blazers.block.BLPointedDripstoneBlock;
-import org.blazers.block.HollowLogBlock;
-import org.blazers.block.PointedIceDripstoneBlock;
+import org.blazers.block.*;
 import org.blazers.block.weathering.BLWaxedBlock;
 import org.blazers.block.weathering.BLWeatheringBlock;
 import org.blazers.block.weathering.WaxedButtonBlock;
@@ -210,6 +207,13 @@ public final class BLBlocks {
 
     //#endregion
 
+    //#region Plants
+
+    public static final RegistryObject<Block> CATTAIL = registerBlock("cattail", Suppliers.memoize(CattailBlock::new));
+    public static final RegistryObject<Block> POTTED_CATTAIL = registerFlowerPot("cattail", Suppliers.memoize(CATTAIL::get));
+
+    //#endregion
+
     //#region Misc
 
     public static final RegistryObject<Block> COBBLED_GRANITE = registerBlock("cobbled_granite", BlockBehaviour.Properties.ofFullCopy(Blocks.GRANITE));
@@ -381,6 +385,18 @@ public final class BLBlocks {
     }
 
     /**
+     * Register a {@link FlowerPotBlock Flower Pot Block}
+     *
+     * @param plantName {@link String The plant name}
+     * @param blockSupplier {@link Supplier<Block> The supplier for the Block this flower pot is based on}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Block to work}
+     * @return {@link RegistryObject<Block> The registered Flower Pot}
+     */
+    private static RegistryObject<Block> registerFlowerPot(final String plantName, final Supplier<Block> blockSupplier, final FeatureFlag... featureFlags) {
+        return registerBlockWithoutBlockItem("potted_" + plantName, Suppliers.memoize(() -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, blockSupplier, PropertyHelper.from(Blocks.POTTED_DANDELION).instabreak().noOcclusion())));
+    }
+
+    /**
      * Register a {@link Block Block} without registering its {@link BlockItem Block Item}
      *
      * @param name {@link String The Block name}
@@ -427,6 +443,13 @@ public final class BLBlocks {
      */
     public static void register(final IEventBus eventBus) {
         BLOCKS.register(eventBus);
+    }
+
+    /**
+     * Register all {@link BlazersMod Blazers Mod} {@link FlowerPotBlock Flower Pots}
+     */
+    public static void registerFlowerPots() {
+        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(CATTAIL.getId(), POTTED_CATTAIL);
     }
 
     //#endregion
