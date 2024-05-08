@@ -245,7 +245,15 @@ public final class CreativeModeTabEvents {
             BLItems.SAPPHIRE_SHOVEL,
             BLItems.SAPPHIRE_PICKAXE,
             BLItems.SAPPHIRE_AXE,
-            BLItems.SAPPHIRE_HOE
+            BLItems.SAPPHIRE_HOE,
+            BLItems.RUBY_SHOVEL,
+            BLItems.RUBY_PICKAXE,
+            BLItems.RUBY_AXE,
+            BLItems.RUBY_HOE,
+            BLItems.ONICE_SHOVEL,
+            BLItems.ONICE_PICKAXE,
+            BLItems.ONICE_AXE,
+            BLItems.ONICE_HOE
         );
     }
 
@@ -260,9 +268,13 @@ public final class CreativeModeTabEvents {
             BLItems.AMETHYST_SWORD,
             BLItems.SAPPHIRE_SWORD,
             BLItems.PEARL_SWORD,
+            BLItems.RUBY_SWORD,
             BLItems.EMERALD_AXE,
             BLItems.SAPPHIRE_AXE,
+            BLItems.RUBY_AXE,
+            BLItems.ONICE_AXE,
             BLItems.TOPAZ_HAMMER,
+            BLItems.ONICE_SICKLE,
             BLBlocks.ATOMIC_TNT
         );
     }

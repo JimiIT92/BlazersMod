@@ -97,6 +97,26 @@ public final class BLItems {
 
     //#endregion
 
+    //#region Ruby
+
+    public static final RegistryObject<Item> RUBY_SWORD = registerSword(BLTiers.RUBY);
+    public static final RegistryObject<Item> RUBY_SHOVEL = registerShovel(BLTiers.RUBY);
+    public static final RegistryObject<Item> RUBY_PICKAXE = registerPickaxe(BLTiers.RUBY);
+    public static final RegistryObject<Item> RUBY_AXE = registerAxe(BLTiers.RUBY);
+    public static final RegistryObject<Item> RUBY_HOE = registerHoe(BLTiers.RUBY);
+
+    //#endregion
+
+    //#region Onice
+
+    public static final RegistryObject<Item> ONICE_SICKLE = registerSword(BLTiers.ONICE, "sickle", 3, -2.4F);
+    public static final RegistryObject<Item> ONICE_SHOVEL = registerShovel(BLTiers.ONICE);
+    public static final RegistryObject<Item> ONICE_PICKAXE = registerPickaxe(BLTiers.ONICE);
+    public static final RegistryObject<Item> ONICE_AXE = registerAxe(BLTiers.ONICE, 5.5F, -3F);
+    public static final RegistryObject<Item> ONICE_HOE = registerHoe(BLTiers.ONICE, -2F, -0.5F);
+
+    //#endregion
+
     //#endregion
 
     //#endregion
@@ -236,12 +256,12 @@ public final class BLItems {
      * Register an {@link AxeItem Axe Item}
      *
      * @param tier {@link BLTiers The Axe Tier}
-     * @param attackDamageModifier {@link Integer The attack damage modifier}
+     * @param attackDamageModifier {@link Float The attack damage modifier}
      * @param attackSpeedModifier {@link Float The attack speed modifier}
      * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
      * @return {@link RegistryObject<Item> The registered Axe Item}
      */
-    private static RegistryObject<Item> registerAxe(final Tier tier, final int attackDamageModifier, final float attackSpeedModifier, final FeatureFlag... featureFlags) {
+    private static RegistryObject<Item> registerAxe(final Tier tier, final float attackDamageModifier, final float attackSpeedModifier, final FeatureFlag... featureFlags) {
         return registerItem(ItemHelper.tierName(tier) + "_axe", Suppliers.memoize(() -> new AxeItem(tier, PropertyHelper.item(featureFlags).attributes(AxeItem.createAttributes(tier, attackDamageModifier, attackSpeedModifier)))));
     }
 
@@ -260,12 +280,12 @@ public final class BLItems {
      * Register an {@link HoeItem Hoe Item}
      *
      * @param tier {@link BLTiers The Hoe Tier}
-     * @param attackDamageModifier {@link Integer The attack damage modifier}
+     * @param attackDamageModifier {@link Float The attack damage modifier}
      * @param attackSpeedModifier {@link Float The attack speed modifier}
      * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
      * @return {@link RegistryObject<Item> The registered Hoe Item}
      */
-    private static RegistryObject<Item> registerHoe(final Tier tier, final int attackDamageModifier, final float attackSpeedModifier, final FeatureFlag... featureFlags) {
+    private static RegistryObject<Item> registerHoe(final Tier tier, final float attackDamageModifier, final float attackSpeedModifier, final FeatureFlag... featureFlags) {
         return registerItem(ItemHelper.tierName(tier) + "_hoe", Suppliers.memoize(() -> new HoeItem(tier, PropertyHelper.item(featureFlags).attributes(HoeItem.createAttributes(tier, attackDamageModifier, attackSpeedModifier)))));
     }
 

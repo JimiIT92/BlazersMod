@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "blazersmod:emerald_pickaxe",
-    "blazersmod:sapphire_pickaxe"
+    "blazersmod:sapphire_pickaxe",
+    "blazersmod:ruby_pickaxe",
+    "blazersmod:onice_pickaxe"
   ]
 }

@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "blazersmod:emerald_hoe",
-    "blazersmod:sapphire_hoe"
+    "blazersmod:sapphire_hoe",
+    "blazersmod:ruby_hoe",
+    "blazersmod:onice_hoe"
   ]
 }

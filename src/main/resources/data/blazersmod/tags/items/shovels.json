@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "blazersmod:emerald_shovel",
-    "blazersmod:sapphire_shovel"
+    "blazersmod:sapphire_shovel",
+    "blazersmod:ruby_shovel",
+    "blazersmod:onice_shovel"
   ]
 }

@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "blazersmod:emerald_axe",
-    "blazersmod:sapphire_axe"
+    "blazersmod:sapphire_axe",
+    "blazersmod:ruby_axe",
+    "blazersmod:onice_axe"
   ]
 }
