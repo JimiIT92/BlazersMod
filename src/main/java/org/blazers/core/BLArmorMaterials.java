@@ -72,7 +72,7 @@ public final class BLArmorMaterials {
             2.5F,
             0F,
             SoundEvents.ARMOR_EQUIP_DIAMOND,
-            Suppliers.memoize(BLItems.SAPPHIRE::get)
+            Suppliers.memoize(() -> BLItems.SAPPHIRE.get())
     );
     public static final Supplier<ArmorMaterial> TOPAZ = createArmorMaterial(
             ItemHelper.tierName(BLTiers.TOPAZ),
@@ -85,7 +85,7 @@ public final class BLArmorMaterials {
             1F,
             0F,
             SoundEvents.ARMOR_EQUIP_IRON,
-            Suppliers.memoize(BLItems.TOPAZ::get)
+            Suppliers.memoize(() -> BLItems.TOPAZ.get())
     );
     public static final Supplier<ArmorMaterial> PEARL = createArmorMaterial(
             ItemHelper.tierName(BLTiers.PEARL),
@@ -98,7 +98,7 @@ public final class BLArmorMaterials {
             0F,
             0F,
             Holder.direct(SoundEvents.BONE_BLOCK_BREAK),
-            Suppliers.memoize(BLItems.PEARL::get)
+            Suppliers.memoize(() -> BLItems.PEARL.get())
     );
     public static final Supplier<ArmorMaterial> RUBY = createArmorMaterial(
             ItemHelper.tierName(BLTiers.RUBY),
@@ -111,7 +111,7 @@ public final class BLArmorMaterials {
             2.5F,
             0F,
             SoundEvents.ARMOR_EQUIP_DIAMOND,
-            Suppliers.memoize(BLItems.RUBY::get)
+            Suppliers.memoize(() -> BLItems.RUBY.get())
     );
     public static final Supplier<ArmorMaterial> ONICE = createArmorMaterial(
             ItemHelper.tierName(BLTiers.ONICE),
@@ -124,7 +124,7 @@ public final class BLArmorMaterials {
             1F,
             0F,
             SoundEvents.ARMOR_EQUIP_IRON,
-            Suppliers.memoize(BLItems.ONICE::get)
+            Suppliers.memoize(() -> BLItems.ONICE.get())
     );
     public static final Supplier<ArmorMaterial> MALACHITE = createArmorMaterial(
             ItemHelper.tierName(BLTiers.MALACHITE),
@@ -137,7 +137,7 @@ public final class BLArmorMaterials {
             1F,
             0F,
             SoundEvents.ARMOR_EQUIP_IRON,
-            Suppliers.memoize(BLItems.MALACHITE::get)
+            Suppliers.memoize(() -> BLItems.MALACHITE.get())
     );
 
     //#endregion

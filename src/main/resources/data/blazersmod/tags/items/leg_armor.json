@@ -2,6 +2,12 @@
   "replace": false,
   "values": [
     "blazersmod:emerald_leggings",
-    "blazersmod:amethyst_leggings"
+    "blazersmod:amethyst_leggings",
+    "blazersmod:sapphire_leggings",
+    "blazersmod:topaz_leggings",
+    "blazersmod:pearl_leggings",
+    "blazersmod:ruby_leggings",
+    "blazersmod:onice_leggings",
+    "blazersmod:malachite_leggings"
   ]
 }

@@ -2,6 +2,12 @@
   "replace": false,
   "values": [
     "blazersmod:emerald_helmet",
-    "blazersmod:amethyst_helmet"
+    "blazersmod:amethyst_helmet",
+    "blazersmod:sapphire_helmet",
+    "blazersmod:topaz_helmet",
+    "blazersmod:pearl_helmet",
+    "blazersmod:ruby_helmet",
+    "blazersmod:onice_helmet",
+    "blazersmod:malachite_helmet"
   ]
 }

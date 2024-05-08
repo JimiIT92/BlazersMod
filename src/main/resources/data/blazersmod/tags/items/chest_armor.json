@@ -2,6 +2,12 @@
   "replace": false,
   "values": [
     "blazersmod:emerald_chestplate",
-    "blazersmod:amethyst_chestplate"
+    "blazersmod:amethyst_chestplate",
+    "blazersmod:sapphire_chestplate",
+    "blazersmod:topaz_chestplate",
+    "blazersmod:pearl_chestplate",
+    "blazersmod:ruby_chestplate",
+    "blazersmod:onice_chestplate",
+    "blazersmod:malachite_chestplate"
   ]
 }

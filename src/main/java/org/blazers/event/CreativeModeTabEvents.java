@@ -283,7 +283,7 @@ public final class CreativeModeTabEvents {
             BLItems.AMETHYST_CHESTPLATE,
             BLItems.AMETHYST_LEGGINGS,
             BLItems.AMETHYST_BOOTS,
-            /*BLItems.SAPPHIRE_HELMET,
+            BLItems.SAPPHIRE_HELMET,
             BLItems.SAPPHIRE_CHESTPLATE,
             BLItems.SAPPHIRE_LEGGINGS,
             BLItems.SAPPHIRE_BOOTS,
@@ -306,7 +306,7 @@ public final class CreativeModeTabEvents {
             BLItems.MALACHITE_HELMET,
             BLItems.MALACHITE_CHESTPLATE,
             BLItems.MALACHITE_LEGGINGS,
-            BLItems.MALACHITE_BOOTS,*/
+            BLItems.MALACHITE_BOOTS,
             BLBlocks.ATOMIC_TNT,
             BLItems.CARBON_BOW
         );

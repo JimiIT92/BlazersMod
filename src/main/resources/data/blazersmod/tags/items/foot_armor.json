@@ -2,6 +2,12 @@
   "replace": false,
   "values": [
     "blazersmod:emerald_boots",
-    "blazersmod:amethyst_boots"
+    "blazersmod:amethyst_boots",
+    "blazersmod:sapphire_boots",
+    "blazersmod:topaz_boots",
+    "blazersmod:pearl_boots",
+    "blazersmod:ruby_boots",
+    "blazersmod:onice_boots",
+    "blazersmod:malachite_boots"
   ]
 }
