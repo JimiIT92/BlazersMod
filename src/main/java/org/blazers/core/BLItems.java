@@ -85,6 +85,18 @@ public final class BLItems {
 
     //#endregion
 
+    //#region Topaz
+
+    public static final RegistryObject<Item> TOPAZ_HAMMER = registerSword(BLTiers.TOPAZ, "hammer", 5, -3F);
+
+    //#endregion
+
+    //#region Pearl
+
+    public static final RegistryObject<Item> PEARL_SWORD = registerSword(BLTiers.PEARL);
+
+    //#endregion
+
     //#endregion
 
     //#endregion

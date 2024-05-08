@@ -257,10 +257,12 @@ public final class CreativeModeTabEvents {
     private static void setCombatTabContent(final BuildCreativeModeTabContentsEvent event) {
         addToTab(event,
             BLItems.EMERALD_SWORD,
-            BLItems.EMERALD_AXE,
             BLItems.AMETHYST_SWORD,
             BLItems.SAPPHIRE_SWORD,
+            BLItems.PEARL_SWORD,
+            BLItems.EMERALD_AXE,
             BLItems.SAPPHIRE_AXE,
+            BLItems.TOPAZ_HAMMER,
             BLBlocks.ATOMIC_TNT
         );
     }
