@@ -127,9 +127,6 @@ public final class ItemHelper {
         if(tier.equals(BLTiers.ONICE)) {
             return BlockHelper.lower("ONICE");
         }
-        if(tier.equals(BLTiers.CARBON)) {
-            return BlockHelper.lower("CARBON");
-        }
         if(tier.equals(BLTiers.BLAZERITE)) {
             return BlockHelper.lower("BLAZERITE");
         }

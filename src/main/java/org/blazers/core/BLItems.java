@@ -1,6 +1,8 @@
 package org.blazers.core;
 
 import com.google.common.base.Suppliers;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -13,6 +15,7 @@ import org.blazers.helper.BlockHelper;
 import org.blazers.helper.ItemHelper;
 import org.blazers.helper.PropertyHelper;
 import org.blazers.helper.RegistryHelper;
+import org.blazers.item.CarbonBowItem;
 
 import java.util.function.Supplier;
 
@@ -114,6 +117,12 @@ public final class BLItems {
     public static final RegistryObject<Item> ONICE_PICKAXE = registerPickaxe(BLTiers.ONICE);
     public static final RegistryObject<Item> ONICE_AXE = registerAxe(BLTiers.ONICE, 5.5F, -3F);
     public static final RegistryObject<Item> ONICE_HOE = registerHoe(BLTiers.ONICE, -2F, -0.5F);
+
+    //#endregion
+
+    //#region Carbon
+
+    public static final RegistryObject<Item> CARBON_BOW = registerItem("carbon_bow", Suppliers.memoize(CarbonBowItem::new));
 
     //#endregion
 
@@ -337,6 +346,31 @@ public final class BLItems {
 
     //#endregion
 
+    //#region Item properties
+
+    /**
+     * Register an {@link ItemProperties Item property}
+     *
+     * @param item {@link RegistryObject<Item> The Item to register the property to}
+     * @param name {@link String The property name}
+     */
+    private static void registerUseItemProperty(final RegistryObject<Item> item, final String name) {
+        registerUseItemProperty(item, name, (itemStack, level, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem().is(itemStack.getItem()) ? 1F : 0F);
+    }
+
+    /**
+     * Register an {@link ItemProperties Item property}
+     *
+     * @param item {@link RegistryObject<Item> The Item to register the property to}
+     * @param name {@link String The property name}
+     * @param itemPropertyFunction {@link ItemPropertyFunction The Item property function}
+     */
+    private static void registerUseItemProperty(final RegistryObject<Item> item, final String name, final ItemPropertyFunction itemPropertyFunction) {
+        ItemProperties.register(item.get(), RegistryHelper.location(name), itemPropertyFunction);
+    }
+
+    //#endregion
+
     //#region Bus register
 
     /**
@@ -346,6 +380,14 @@ public final class BLItems {
      */
     public static void register(final IEventBus eventBus) {
         ITEMS.register(eventBus);
+    }
+
+    /**
+     * Register all {@link BlazersMod Blazers Mod} {@link ItemProperties Item Properties}
+     */
+    public static void registerItemProperties() {
+        registerUseItemProperty(CARBON_BOW, "pull", (itemStack, level, entity, seed) -> entity == null ? 0F : !entity.getUseItem().is(itemStack.getItem()) ? 0F : (float)(itemStack.getUseDuration() - entity.getUseItemRemainingTicks()) / 2F);
+        registerUseItemProperty(CARBON_BOW, "pulling");
     }
 
     //#endregion

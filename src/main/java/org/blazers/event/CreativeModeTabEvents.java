@@ -275,7 +275,8 @@ public final class CreativeModeTabEvents {
             BLItems.ONICE_AXE,
             BLItems.TOPAZ_HAMMER,
             BLItems.ONICE_SICKLE,
-            BLBlocks.ATOMIC_TNT
+            BLBlocks.ATOMIC_TNT,
+            BLItems.CARBON_BOW
         );
     }
 

@@ -43,6 +43,7 @@ public final class BlazersMod {
      * @param event {@link FMLClientSetupEvent The FML Client Setup Event}
      */
     private void onClientSetup(final FMLClientSetupEvent event) {
+        event.enqueueWork(BLItems::registerItemProperties);
         event.enqueueWork(BLEntityTypes::registerRenderers);
     }
 
