@@ -6,6 +6,8 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import org.blazers.core.BLTiers;
 
 /**
  * Helper methods for {@link Item Items}
@@ -89,6 +91,52 @@ public final class ItemHelper {
             return;
         }
         itemStack.shrink(amount);
+    }
+
+    /**
+     * Get the {@link String name} of an {@link Tier Item Tier}
+     *
+     * @param tier {@link Tier The Item Tier}
+     * @return {@link String The Item Tier name}
+     */
+    public static String tierName(final Tier tier) {
+        if(tier.equals(BLTiers.FLINT)) {
+            return BlockHelper.lower("FLINT");
+        }
+        if(tier.equals(BLTiers.EMERALD)) {
+            return BlockHelper.lower("EMERALD");
+        }
+        if(tier.equals(BLTiers.AMETHYST)) {
+            return BlockHelper.lower("AMETHYST");
+        }
+        if(tier.equals(BLTiers.SAPPHIRE)) {
+            return BlockHelper.lower("SAPPHIRE");
+        }
+        if(tier.equals(BLTiers.TOPAZ)) {
+            return BlockHelper.lower("TOPAZ");
+        }
+        if(tier.equals(BLTiers.PEARL)) {
+            return BlockHelper.lower("PEARL");
+        }
+        if(tier.equals(BLTiers.RUBY)) {
+            return BlockHelper.lower("RUBY");
+        }
+        if(tier.equals(BLTiers.MALACHITE)) {
+            return BlockHelper.lower("MALACHITE");
+        }
+        if(tier.equals(BLTiers.ONICE)) {
+            return BlockHelper.lower("ONICE");
+        }
+        if(tier.equals(BLTiers.CARBON)) {
+            return BlockHelper.lower("CARBON");
+        }
+        if(tier.equals(BLTiers.BLAZERITE)) {
+            return BlockHelper.lower("BLAZERITE");
+        }
+        if(tier.equals(BLTiers.GYULIANITE)) {
+            return BlockHelper.lower("GYULIANITE");
+        }
+        return "";
     }
 
 }

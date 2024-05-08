@@ -133,7 +133,7 @@ public final class BlockHelper {
      * @param text {@link String The text}
      * @return {@link String The lowercase text}
      */
-    private static String lower(final String text) {
+    static String lower(final String text) {
         return text.toLowerCase(Locale.ROOT);
     }
 

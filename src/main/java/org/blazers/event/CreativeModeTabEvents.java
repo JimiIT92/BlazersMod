@@ -237,7 +237,16 @@ public final class CreativeModeTabEvents {
      * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
      */
     private static void setToolsTabContent(final BuildCreativeModeTabContentsEvent event) {
-
+        addToTab(event,
+            BLItems.EMERALD_SHOVEL,
+            BLItems.EMERALD_PICKAXE,
+            BLItems.EMERALD_AXE,
+            BLItems.EMERALD_HOE,
+            BLItems.SAPPHIRE_SHOVEL,
+            BLItems.SAPPHIRE_PICKAXE,
+            BLItems.SAPPHIRE_AXE,
+            BLItems.SAPPHIRE_HOE
+        );
     }
 
     /**
@@ -247,6 +256,11 @@ public final class CreativeModeTabEvents {
      */
     private static void setCombatTabContent(final BuildCreativeModeTabContentsEvent event) {
         addToTab(event,
+            BLItems.EMERALD_SWORD,
+            BLItems.EMERALD_AXE,
+            BLItems.AMETHYST_SWORD,
+            BLItems.SAPPHIRE_SWORD,
+            BLItems.SAPPHIRE_AXE,
             BLBlocks.ATOMIC_TNT
         );
     }
