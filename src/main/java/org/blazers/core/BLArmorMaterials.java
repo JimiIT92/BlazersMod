@@ -48,7 +48,7 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_DIAMOND,
             Suppliers.memoize(() -> Items.EMERALD)
     );
-    public static final RegistryObject<ArmorMaterial> AMETHYST = registerArmorMaterial(
+    public static final Supplier<ArmorMaterial> AMETHYST = createArmorMaterial(
             ItemHelper.tierName(BLTiers.AMETHYST),
             2,
             4,
@@ -61,7 +61,7 @@ public final class BLArmorMaterials {
             Holder.direct(SoundEvents.AMETHYST_BLOCK_CHIME),
             Suppliers.memoize(() -> Items.AMETHYST_SHARD)
     );
-    public static final RegistryObject<ArmorMaterial> SAPPHIRE = registerArmorMaterial(
+    public static final Supplier<ArmorMaterial> SAPPHIRE = createArmorMaterial(
             ItemHelper.tierName(BLTiers.SAPPHIRE),
             3,
             6,
@@ -74,7 +74,7 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_DIAMOND,
             Suppliers.memoize(BLItems.SAPPHIRE::get)
     );
-    public static final RegistryObject<ArmorMaterial> TOPAZ = registerArmorMaterial(
+    public static final Supplier<ArmorMaterial> TOPAZ = createArmorMaterial(
             ItemHelper.tierName(BLTiers.TOPAZ),
             2,
             6,
@@ -87,7 +87,7 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_IRON,
             Suppliers.memoize(BLItems.TOPAZ::get)
     );
-    public static final RegistryObject<ArmorMaterial> PEARL = registerArmorMaterial(
+    public static final Supplier<ArmorMaterial> PEARL = createArmorMaterial(
             ItemHelper.tierName(BLTiers.PEARL),
             2,
             4,
@@ -100,7 +100,7 @@ public final class BLArmorMaterials {
             Holder.direct(SoundEvents.BONE_BLOCK_BREAK),
             Suppliers.memoize(BLItems.PEARL::get)
     );
-    public static final RegistryObject<ArmorMaterial> RUBY = registerArmorMaterial(
+    public static final Supplier<ArmorMaterial> RUBY = createArmorMaterial(
             ItemHelper.tierName(BLTiers.RUBY),
             3,
             6,
@@ -113,7 +113,7 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_DIAMOND,
             Suppliers.memoize(BLItems.RUBY::get)
     );
-    public static final RegistryObject<ArmorMaterial> ONICE = registerArmorMaterial(
+    public static final Supplier<ArmorMaterial> ONICE = createArmorMaterial(
             ItemHelper.tierName(BLTiers.ONICE),
             2,
             6,
@@ -126,7 +126,7 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_IRON,
             Suppliers.memoize(BLItems.ONICE::get)
     );
-    public static final RegistryObject<ArmorMaterial> MALACHITE = registerArmorMaterial(
+    public static final Supplier<ArmorMaterial> MALACHITE = createArmorMaterial(
             ItemHelper.tierName(BLTiers.MALACHITE),
             2,
             6,

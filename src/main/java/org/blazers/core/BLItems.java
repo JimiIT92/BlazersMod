@@ -82,10 +82,10 @@ public final class BLItems {
 
     public static final RegistryObject<Item> AMETHYST_SWORD = registerSword(BLTiers.AMETHYST);
 
-    /*public static final RegistryObject<Item> AMETHYST_HELMET = registerArmorItem(BLTier.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.HELMET);
-    public static final RegistryObject<Item> AMETHYST_CHESTPLATE = registerArmorItem(BLTier.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.CHESTPLATE);
-    public static final RegistryObject<Item> AMETHYST_LEGGINGS = registerArmorItem(BLTier.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.LEGGINGS);
-    public static final RegistryObject<Item> AMETHYST_BOOTS = registerArmorItem(BLTier.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.BOOTS);*/
+    public static final RegistryObject<Item> AMETHYST_HELMET = registerArmorItem(BLTiers.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> AMETHYST_CHESTPLATE = registerArmorItem(BLTiers.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> AMETHYST_LEGGINGS = registerArmorItem(BLTiers.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> AMETHYST_BOOTS = registerArmorItem(BLTiers.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.BOOTS);
 
     //#endregion
 

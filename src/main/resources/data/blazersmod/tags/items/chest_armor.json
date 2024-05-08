@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "blazersmod:emerald_chestplate"
+    "blazersmod:emerald_chestplate",
+    "blazersmod:amethyst_chestplate"
   ]
 }
