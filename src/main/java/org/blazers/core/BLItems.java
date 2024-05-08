@@ -18,7 +18,6 @@ import org.blazers.helper.PropertyHelper;
 import org.blazers.helper.RegistryHelper;
 import org.blazers.item.CarbonBowItem;
 
-import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
@@ -72,10 +71,10 @@ public final class BLItems {
     public static final RegistryObject<Item> EMERALD_AXE = registerAxe(BLTiers.EMERALD);
     public static final RegistryObject<Item> EMERALD_HOE = registerHoe(BLTiers.EMERALD);
 
-    /*public static final RegistryObject<Item> EMERALD_HELMET = registerArmorItem(BLArmorMaterials.EMERALD, 35, ArmorItem.Type.HELMET);
-    public static final RegistryObject<Item> EMERALD_CHESTPLATE = registerArmorItem(BLArmorMaterials.EMERALD, 35, ArmorItem.Type.CHESTPLATE);
-    public static final RegistryObject<Item> EMERALD_LEGGINGS = registerArmorItem(BLArmorMaterials.EMERALD, 35, ArmorItem.Type.LEGGINGS);
-    public static final RegistryObject<Item> EMERALD_BOOTS = registerArmorItem(BLArmorMaterials.EMERALD, 35, ArmorItem.Type.BOOTS);*/
+    public static final RegistryObject<Item> EMERALD_HELMET = registerArmorItem(BLTiers.EMERALD, BLArmorMaterials.EMERALD, 35, ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> EMERALD_CHESTPLATE = registerArmorItem(BLTiers.EMERALD,BLArmorMaterials.EMERALD, 35, ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> EMERALD_LEGGINGS = registerArmorItem(BLTiers.EMERALD,BLArmorMaterials.EMERALD, 35, ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> EMERALD_BOOTS = registerArmorItem(BLTiers.EMERALD,BLArmorMaterials.EMERALD, 35, ArmorItem.Type.BOOTS);
 
     //#endregion
 
@@ -83,10 +82,10 @@ public final class BLItems {
 
     public static final RegistryObject<Item> AMETHYST_SWORD = registerSword(BLTiers.AMETHYST);
 
-    /*public static final RegistryObject<Item> AMETHYST_HELMET = registerArmorItem(BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.HELMET);
-    public static final RegistryObject<Item> AMETHYST_CHESTPLATE = registerArmorItem(BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.CHESTPLATE);
-    public static final RegistryObject<Item> AMETHYST_LEGGINGS = registerArmorItem(BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.LEGGINGS);
-    public static final RegistryObject<Item> AMETHYST_BOOTS = registerArmorItem(BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.BOOTS);*/
+    /*public static final RegistryObject<Item> AMETHYST_HELMET = registerArmorItem(BLTier.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> AMETHYST_CHESTPLATE = registerArmorItem(BLTier.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> AMETHYST_LEGGINGS = registerArmorItem(BLTier.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> AMETHYST_BOOTS = registerArmorItem(BLTier.AMETHYST, BLArmorMaterials.AMETHYST, 10, ArmorItem.Type.BOOTS);*/
 
     //#endregion
 
@@ -98,10 +97,10 @@ public final class BLItems {
     public static final RegistryObject<Item> SAPPHIRE_AXE = registerAxe(BLTiers.SAPPHIRE);
     public static final RegistryObject<Item> SAPPHIRE_HOE = registerHoe(BLTiers.SAPPHIRE);
 
-    /*public static final RegistryObject<Item> SAPPHIRE_HELMET = registerArmorItem(BLArmorMaterials.SAPPHIRE, 35, ArmorItem.Type.HELMET);
-    public static final RegistryObject<Item> SAPPHIRE_CHESTPLATE = registerArmorItem(BLArmorMaterials.SAPPHIRE, 35, ArmorItem.Type.CHESTPLATE);
-    public static final RegistryObject<Item> SAPPHIRE_LEGGINGS = registerArmorItem(BLArmorMaterials.SAPPHIRE, 35, ArmorItem.Type.LEGGINGS);
-    public static final RegistryObject<Item> SAPPHIRE_BOOTS = registerArmorItem(BLArmorMaterials.SAPPHIRE, 35, ArmorItem.Type.BOOTS);*/
+    /*public static final RegistryObject<Item> SAPPHIRE_HELMET = registerArmorItem(BLTiers.SAPPHIRE, BLArmorMaterials.SAPPHIRE, 35, ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> SAPPHIRE_CHESTPLATE = registerArmorItem(BLTiers.SAPPHIRE, BLArmorMaterials.SAPPHIRE, 35, ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> SAPPHIRE_LEGGINGS = registerArmorItem(BLTiers.SAPPHIRE, BLArmorMaterials.SAPPHIRE, 35, ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> SAPPHIRE_BOOTS = registerArmorItem(BLTiers.SAPPHIRE, BLArmorMaterials.SAPPHIRE, 35, ArmorItem.Type.BOOTS);*/
 
     //#endregion
 
@@ -109,10 +108,10 @@ public final class BLItems {
 
     public static final RegistryObject<Item> TOPAZ_HAMMER = registerSword(BLTiers.TOPAZ, "hammer", 5, -3F);
 
-    /*public static final RegistryObject<Item> TOPAZ_HELMET = registerArmorItem(BLArmorMaterials.TOPAZ, 24, ArmorItem.Type.HELMET);
-    public static final RegistryObject<Item> TOPAZ_CHESTPLATE = registerArmorItem(BLArmorMaterials.TOPAZ, 24, ArmorItem.Type.CHESTPLATE);
-    public static final RegistryObject<Item> TOPAZ_LEGGINGS = registerArmorItem(BLArmorMaterials.TOPAZ, 24, ArmorItem.Type.LEGGINGS);
-    public static final RegistryObject<Item> TOPAZ_BOOTS = registerArmorItem(BLArmorMaterials.TOPAZ, 24, ArmorItem.Type.BOOTS);*/
+    /*public static final RegistryObject<Item> TOPAZ_HELMET = registerArmorItem(BLTiers.TOPAZ, BLArmorMaterials.TOPAZ, 24, ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> TOPAZ_CHESTPLATE = registerArmorItem(BLTiers.TOPAZ, BLArmorMaterials.TOPAZ, 24, ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> TOPAZ_LEGGINGS = registerArmorItem(BLTiers.TOPAZ, BLArmorMaterials.TOPAZ, 24, ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> TOPAZ_BOOTS = registerArmorItem(BLTiers.TOPAZ, BLArmorMaterials.TOPAZ, 24, ArmorItem.Type.BOOTS);*/
 
     //#endregion
 
@@ -120,10 +119,10 @@ public final class BLItems {
 
     public static final RegistryObject<Item> PEARL_SWORD = registerSword(BLTiers.PEARL);
 
-    /*public static final RegistryObject<Item> PEARL_HELMET = registerArmorItem(BLArmorMaterials.PEARL, 10, ArmorItem.Type.HELMET);
-    public static final RegistryObject<Item> PEARL_CHESTPLATE = registerArmorItem(BLArmorMaterials.PEARL, 10, ArmorItem.Type.CHESTPLATE);
-    public static final RegistryObject<Item> PEARL_LEGGINGS = registerArmorItem(BLArmorMaterials.PEARL, 10, ArmorItem.Type.LEGGINGS);
-    public static final RegistryObject<Item> PEARL_BOOTS = registerArmorItem(BLArmorMaterials.PEARL, 10, ArmorItem.Type.BOOTS);*/
+    /*public static final RegistryObject<Item> PEARL_HELMET = registerArmorItem(BLTiers.PEARL, BLArmorMaterials.PEARL, 10, ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> PEARL_CHESTPLATE = registerArmorItem(BLTiers.PEARL, BLArmorMaterials.PEARL, 10, ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> PEARL_LEGGINGS = registerArmorItem(BLTiers.PEARL, BLArmorMaterials.PEARL, 10, ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> PEARL_BOOTS = registerArmorItem(BLTiers.PEARL, BLArmorMaterials.PEARL, 10, ArmorItem.Type.BOOTS);*/
 
     //#endregion
 
@@ -135,10 +134,10 @@ public final class BLItems {
     public static final RegistryObject<Item> RUBY_AXE = registerAxe(BLTiers.RUBY);
     public static final RegistryObject<Item> RUBY_HOE = registerHoe(BLTiers.RUBY);
 
-    /*public static final RegistryObject<Item> RUBY_HELMET = registerArmorItem(BLArmorMaterials.RUBY, 35, ArmorItem.Type.HELMET);
-    public static final RegistryObject<Item> RUBY_CHESTPLATE = registerArmorItem(BLArmorMaterials.RUBY, 35, ArmorItem.Type.CHESTPLATE);
-    public static final RegistryObject<Item> RUBY_LEGGINGS = registerArmorItem(BLArmorMaterials.RUBY, 35, ArmorItem.Type.LEGGINGS);
-    public static final RegistryObject<Item> RUBY_BOOTS = registerArmorItem(BLArmorMaterials.RUBY, 35, ArmorItem.Type.BOOTS);*/
+    /*public static final RegistryObject<Item> RUBY_HELMET = registerArmorItem(BLTiers.RUBY, BLArmorMaterials.RUBY, 35, ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> RUBY_CHESTPLATE = registerArmorItem(BLTiers.RUBY, BLArmorMaterials.RUBY, 35, ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> RUBY_LEGGINGS = registerArmorItem(BLTiers.RUBY, BLArmorMaterials.RUBY, 35, ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> RUBY_BOOTS = registerArmorItem(BLTiers.RUBY, BLArmorMaterials.RUBY, 35, ArmorItem.Type.BOOTS);*/
 
     //#endregion
 
@@ -150,19 +149,19 @@ public final class BLItems {
     public static final RegistryObject<Item> ONICE_AXE = registerAxe(BLTiers.ONICE, 5.5F, -3F);
     public static final RegistryObject<Item> ONICE_HOE = registerHoe(BLTiers.ONICE, -2F, -0.5F);
 
-    /*public static final RegistryObject<Item> ONICE_HELMET = registerArmorItem(BLArmorMaterials.ONICE, 24, ArmorItem.Type.HELMET);
-    public static final RegistryObject<Item> ONICE_CHESTPLATE = registerArmorItem(BLArmorMaterials.ONICE, 24, ArmorItem.Type.CHESTPLATE);
-    public static final RegistryObject<Item> ONICE_LEGGINGS = registerArmorItem(BLArmorMaterials.ONICE, 24, ArmorItem.Type.LEGGINGS);
-    public static final RegistryObject<Item> ONICE_BOOTS = registerArmorItem(BLArmorMaterials.ONICE, 24, ArmorItem.Type.BOOTS);*/
+    /*public static final RegistryObject<Item> ONICE_HELMET = registerArmorItem(BLTiers.ONICE, BLArmorMaterials.ONICE, 24, ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> ONICE_CHESTPLATE = registerArmorItem(BLTiers.ONICE, BLArmorMaterials.ONICE, 24, ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> ONICE_LEGGINGS = registerArmorItem(BLTiers.ONICE, BLArmorMaterials.ONICE, 24, ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> ONICE_BOOTS = registerArmorItem(BLTiers.ONICE, BLArmorMaterials.ONICE, 24, ArmorItem.Type.BOOTS);*/
 
     //#endregion
 
     //#region Malachite
 
-    /*public static final RegistryObject<Item> MALACHITE_HELMET = registerArmorItem(BLArmorMaterials.MALACHITE, 24, ArmorItem.Type.HELMET);
-    public static final RegistryObject<Item> MALACHITE_CHESTPLATE = registerArmorItem(BLArmorMaterials.MALACHITE, 24, ArmorItem.Type.CHESTPLATE);
-    public static final RegistryObject<Item> MALACHITE_LEGGINGS = registerArmorItem(BLArmorMaterials.MALACHITE, 24, ArmorItem.Type.LEGGINGS);
-    public static final RegistryObject<Item> MALACHITE_BOOTS = registerArmorItem(BLArmorMaterials.MALACHITE, 24, ArmorItem.Type.BOOTS);*/
+    /*public static final RegistryObject<Item> MALACHITE_HELMET = registerArmorItem(BLTiers.MALACHITE, BLArmorMaterials.MALACHITE, 24, ArmorItem.Type.HELMET);
+    public static final RegistryObject<Item> MALACHITE_CHESTPLATE = registerArmorItem(BLTiers.MALACHITE, BLArmorMaterials.MALACHITE, 24, ArmorItem.Type.CHESTPLATE);
+    public static final RegistryObject<Item> MALACHITE_LEGGINGS = registerArmorItem(BLTiers.MALACHITE, BLArmorMaterials.MALACHITE, 24, ArmorItem.Type.LEGGINGS);
+    public static final RegistryObject<Item> MALACHITE_BOOTS = registerArmorItem(BLTiers.MALACHITE, BLArmorMaterials.MALACHITE, 24, ArmorItem.Type.BOOTS);*/
 
     //#endregion
 
@@ -347,19 +346,15 @@ public final class BLItems {
     /**
      * Register an {@link ArmorItem Armor Item}
      *
-     * @param armorMaterial {@link Holder<ArmorMaterial> The Armor material}
+     * @param tier {@link Tier The Item tier}
+     * @param armorMaterialSupplier {@link Holder<ArmorMaterial> The Armor material}
      * @param durabilityModifier {@link Integer The durability modifier}
      * @param armorType {@link ArmorItem.Type The Armor Item type}
      * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
      * @return {@link RegistryObject<Item> The registered Armor Item}
      */
-    private static RegistryObject<Item> registerArmorItem(final RegistryObject<ArmorMaterial> armorMaterial, final int durabilityModifier, final ArmorItem.Type armorType, final FeatureFlag... featureFlags) {
-        final Optional<Holder<ArmorMaterial>> optionalArmorMaterialHolder = armorMaterial.getHolder();
-        if(optionalArmorMaterialHolder.isPresent()) {
-            final Holder<ArmorMaterial> armorMaterialHolder = optionalArmorMaterialHolder.get();
-            return registerItem(armorMaterialHolder.getRegisteredName() + "_" + armorType.name(), Suppliers.memoize(() -> new ArmorItem(armorMaterialHolder, armorType, PropertyHelper.item(featureFlags).durability(armorType.getDurability(durabilityModifier)))));
-        }
-        return null;
+    private static RegistryObject<Item> registerArmorItem(final Tier tier, final Supplier<ArmorMaterial> armorMaterialSupplier, final int durabilityModifier, final ArmorItem.Type armorType, final FeatureFlag... featureFlags) {
+        return registerItem(ItemHelper.tierName(tier) + "_" + armorType.getSerializedName(), Suppliers.memoize(() -> new ArmorItem(Holder.direct(armorMaterialSupplier.get()), armorType, PropertyHelper.item(featureFlags).durability(armorType.getDurability(durabilityModifier)))));
     }
 
     /**

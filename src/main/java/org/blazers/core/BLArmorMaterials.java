@@ -35,7 +35,7 @@ public final class BLArmorMaterials {
 
     //#region Armor Materials
 
-    public static final RegistryObject<ArmorMaterial> EMERALD = registerArmorMaterial(
+    public static final Supplier<ArmorMaterial> EMERALD = createArmorMaterial(
             ItemHelper.tierName(BLTiers.EMERALD),
             3,
             6,
@@ -161,7 +161,27 @@ public final class BLArmorMaterials {
      * @return {@link RegistryObject<ArmorMaterial> The registered Armor Material}
      */
     private static RegistryObject<ArmorMaterial> registerArmorMaterial(final String name, final int bootDefence, final int leggingsDefence, final int chestplateDefence, final int helmetDefence, final int bodyDefence, final int enchantmentValue, final float armorThoughness, final float knockbackResistance, final Holder<SoundEvent> equipSound, final Supplier<Item> repairItemSupplier) {
-        return ARMOR_MATERIALS.register(name, Suppliers.memoize(() -> new ArmorMaterial(
+        return ARMOR_MATERIALS.register(name, createArmorMaterial(name, bootDefence, leggingsDefence, chestplateDefence, helmetDefence, bodyDefence, enchantmentValue, armorThoughness, knockbackResistance, equipSound, repairItemSupplier));
+    }
+
+    /**
+     * Register an {@link ArmorMaterial Armor Material}
+     *
+     * @param name {@link String The armor material name}
+     * @param bootDefence {@link Integer The defence amount of boots}
+     * @param leggingsDefence {@link Integer The defence amount of leggings}
+     * @param chestplateDefence {@link Integer The defence amount of chestplates}
+     * @param helmetDefence {@link Integer The defence amount of helmets}
+     * @param bodyDefence {@link Integer The defence amount of armor when equipped on the body, like horse armors}
+     * @param enchantmentValue {@link Integer The armor enchantability value}
+     * @param armorThoughness {@link Integer The armor thoughness}
+     * @param knockbackResistance {@link Integer The armor knockback resistance}
+     * @param equipSound {@link Holder<SoundEvent> The armor equip sound}
+     * @param repairItemSupplier {@link Supplier<Item> The supplier for the Item used to repair the armor}
+     * @return {@link RegistryObject<ArmorMaterial> The registered Armor Material}
+     */
+    private static Supplier<ArmorMaterial> createArmorMaterial(final String name, final int bootDefence, final int leggingsDefence, final int chestplateDefence, final int helmetDefence, final int bodyDefence, final int enchantmentValue, final float armorThoughness, final float knockbackResistance, final Holder<SoundEvent> equipSound, final Supplier<Item> repairItemSupplier) {
+        return Suppliers.memoize(() -> new ArmorMaterial(
                 Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
                     map.put(ArmorItem.Type.BOOTS, bootDefence);
                     map.put(ArmorItem.Type.LEGGINGS, leggingsDefence);
@@ -175,7 +195,7 @@ public final class BLArmorMaterials {
                 List.of(new ArmorMaterial.Layer(RegistryHelper.location(name), "", true)),
                 armorThoughness,
                 knockbackResistance
-        )));
+        ));
     }
 
     //#endregion
