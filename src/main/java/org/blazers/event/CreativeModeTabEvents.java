@@ -313,7 +313,9 @@ public final class CreativeModeTabEvents {
             BLItems.RUBY_HORSE_ARMOR,
             BLItems.MALACHITE_HORSE_ARMOR,
             BLBlocks.ATOMIC_TNT,
-            BLItems.CARBON_BOW
+            BLItems.CARBON_BOW,
+            BLItems.SPEAR,
+            BLItems.MALACHITE_SPEAR
         );
     }
 

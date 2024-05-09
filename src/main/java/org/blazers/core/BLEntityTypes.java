@@ -11,7 +11,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.client.renderer.AtomicTntRenderer;
+import org.blazers.client.renderer.projectile.ThrownMalachiteSpearRenderer;
+import org.blazers.client.renderer.projectile.ThrownSpearRenderer;
 import org.blazers.entity.block.PrimedAtomicTnt;
+import org.blazers.entity.projectile.ThrownSpear;
 import org.blazers.helper.RegistryHelper;
 
 /**
@@ -35,6 +38,18 @@ public final class BLEntityTypes {
             .sized(0.98F, 0.98F)
             .clientTrackingRange(10)
             .updateInterval(10)
+    );
+
+    public static final RegistryObject<EntityType<ThrownSpear>> SPEAR = registerEntityType("spear", EntityType.Builder.<ThrownSpear>of(ThrownSpear::new, MobCategory.MISC)
+            .sized(0.5F, 0.5F).
+            clientTrackingRange(4)
+            .updateInterval(20)
+    );
+
+    public static final RegistryObject<EntityType<ThrownSpear>> MALACHITE_SPEAR = registerEntityType("malachite_spear", EntityType.Builder.<ThrownSpear>of(ThrownSpear::new, MobCategory.MISC)
+            .sized(0.5F, 0.5F)
+            .clientTrackingRange(4)
+            .updateInterval(20)
     );
 
     //#endregion
@@ -62,6 +77,8 @@ public final class BLEntityTypes {
      */
     public static void registerRenderers() {
         EntityRenderers.register(PRIMED_ATOMIC_TNT.get(), AtomicTntRenderer::new);
+        EntityRenderers.register(SPEAR.get(), ThrownSpearRenderer::new);
+        EntityRenderers.register(MALACHITE_SPEAR.get(), ThrownMalachiteSpearRenderer::new);
     }
 
     //#endregion

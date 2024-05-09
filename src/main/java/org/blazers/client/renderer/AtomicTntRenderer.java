@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
  * {@link EntityRenderer Renderer class} for the {@link PrimedAtomicTnt Primed Atomic TNT}
  */
 @OnlyIn(Dist.CLIENT)
-public class AtomicTntRenderer extends EntityRenderer<PrimedAtomicTnt> {
+public final class AtomicTntRenderer extends EntityRenderer<PrimedAtomicTnt> {
 
     /**
      * {@link BlockRenderDispatcher The Block Renderer Dispatcher instance}

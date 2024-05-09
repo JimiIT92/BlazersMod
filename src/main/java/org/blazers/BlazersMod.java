@@ -1,5 +1,6 @@
 package org.blazers;
 
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -7,6 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.blazers.client.BLItemRenderer;
 import org.blazers.core.*;
 
 /**
@@ -19,6 +21,10 @@ public final class BlazersMod {
      * {@link String Mod ID}
      */
     public static final String MOD_ID = "blazersmod";
+    /**
+     * {@link BlazersMod Blazers Mod} {@link BlockEntityWithoutLevelRenderer Custom Item Renderer}
+     */
+    private static BlockEntityWithoutLevelRenderer ITEMS_RENDERER;
 
     /**
      * Initialize the {@link BlazersMod Blazers Mod}
@@ -56,6 +62,18 @@ public final class BlazersMod {
     private void onCommonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(BLDispenseBehaviors::registerDispenseBehaviors);
         event.enqueueWork(BLBlocks::registerFlowerPots);
+    }
+
+    /**
+     * Get the {@link BlazersMod Blazers Mod} {@link BlockEntityWithoutLevelRenderer Items Renderer}
+     *
+     * @return {@link BlazersMod Blazers Mod} {@link BlockEntityWithoutLevelRenderer Items Renderer}
+     */
+    public static BlockEntityWithoutLevelRenderer getItemsRenderer() {
+        if(ITEMS_RENDERER == null) {
+            ITEMS_RENDERER = new BLItemRenderer();
+        }
+        return ITEMS_RENDERER;
     }
 
 }

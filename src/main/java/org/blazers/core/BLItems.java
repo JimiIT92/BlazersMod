@@ -18,6 +18,7 @@ import org.blazers.helper.PropertyHelper;
 import org.blazers.helper.RegistryHelper;
 import org.blazers.item.BLHorseArmorItem;
 import org.blazers.item.CarbonBowItem;
+import org.blazers.item.SpearItem;
 
 import java.util.function.Supplier;
 
@@ -59,6 +60,13 @@ public final class BLItems {
     public static final RegistryObject<Item> HOSOMAKI = registerFood("hosomaki", 2, 0.1F);
     public static final RegistryObject<Item> NIGIRI = registerFood("nigiri", 5, 0.6F);
     public static final RegistryObject<Item> SASHIMI = registerFood("sashimi", 6, 0.8F);
+
+    //#endregion
+
+    //#region Spears
+
+    public static final RegistryObject<Item> SPEAR = registerSpear(BLTiers.FLINT, 1);
+    public static final RegistryObject<Item> MALACHITE_SPEAR = registerSpear(BLTiers.MALACHITE, 3);
 
     //#endregion
 
@@ -381,6 +389,18 @@ public final class BLItems {
     }
 
     /**
+     * Register a {@link SpearItem Spear Item}
+     *
+     * @param tier {@link BLTiers The Sword Tier}
+     * @param attackDamageModifier {@link Integer The attack damage modifier}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @return {@link RegistryObject<Item> The registered Spear Item}
+     */
+    private static RegistryObject<Item> registerSpear(final Tier tier, final int attackDamageModifier, final FeatureFlag... featureFlags) {
+        return registerItem((tier.equals(BLTiers.FLINT) ? "" : ItemHelper.tierName(tier) + "_") + "spear", Suppliers.memoize(() -> new SpearItem(tier, PropertyHelper.item(featureFlags).attributes(SwordItem.createAttributes(tier, attackDamageModifier, -2.4F)))));
+    }
+
+    /**
      * Register a simple {@link Item Item}
      *
      * @param name {@link String The Item name}
@@ -451,6 +471,16 @@ public final class BLItems {
         ItemProperties.register(item.get(), RegistryHelper.location(name), itemPropertyFunction);
     }
 
+    /**
+     * Register all {@link BlazersMod Blazers Mod} {@link ItemProperties Item Properties}
+     */
+    public static void registerItemProperties() {
+        registerUseItemProperty(CARBON_BOW, "pull", (itemStack, level, entity, seed) -> entity == null ? 0F : !entity.getUseItem().is(itemStack.getItem()) ? 0F : (float)(itemStack.getUseDuration() - entity.getUseItemRemainingTicks()) / 2F);
+        registerUseItemProperty(CARBON_BOW, "pulling");
+        registerUseItemProperty(SPEAR, "throwing");
+        registerUseItemProperty(MALACHITE_SPEAR, "throwing");
+    }
+
     //#endregion
 
     //#region Bus register
@@ -462,14 +492,6 @@ public final class BLItems {
      */
     public static void register(final IEventBus eventBus) {
         ITEMS.register(eventBus);
-    }
-
-    /**
-     * Register all {@link BlazersMod Blazers Mod} {@link ItemProperties Item Properties}
-     */
-    public static void registerItemProperties() {
-        registerUseItemProperty(CARBON_BOW, "pull", (itemStack, level, entity, seed) -> entity == null ? 0F : !entity.getUseItem().is(itemStack.getItem()) ? 0F : (float)(itemStack.getUseDuration() - entity.getUseItemRemainingTicks()) / 2F);
-        registerUseItemProperty(CARBON_BOW, "pulling");
     }
 
     //#endregion
