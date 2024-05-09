@@ -307,6 +307,11 @@ public final class CreativeModeTabEvents {
             BLItems.MALACHITE_CHESTPLATE,
             BLItems.MALACHITE_LEGGINGS,
             BLItems.MALACHITE_BOOTS,
+            BLItems.EMERALD_HORSE_ARMOR,
+            BLItems.SAPPHIRE_HORSE_ARMOR,
+            BLItems.TOPAZ_HORSE_ARMOR,
+            BLItems.RUBY_HORSE_ARMOR,
+            BLItems.MALACHITE_HORSE_ARMOR,
             BLBlocks.ATOMIC_TNT,
             BLItems.CARBON_BOW
         );

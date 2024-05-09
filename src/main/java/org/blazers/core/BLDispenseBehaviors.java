@@ -7,7 +7,9 @@ import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.item.PrimedTnt;
+import net.minecraft.world.item.AnimalArmorItem;
 import net.minecraft.world.item.HoneycombItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -17,9 +19,11 @@ import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.AABB;
 import org.blazers.BlazersMod;
 import org.blazers.block.AtomicTntBlock;
 import org.blazers.block.weathering.IBLWaxedBlock;
+import org.blazers.helper.ItemHelper;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -66,15 +70,47 @@ public final class BLDispenseBehaviors {
              * @param blockSource  {@link BlockSource Block Source}
              * @param itemStack The {@link ItemStack Item Stack} to dispense
              */
-            protected @NotNull ItemStack execute(@NotNull BlockSource blockSource, @NotNull ItemStack itemStack) {
-                Level level = blockSource.level();
-                BlockPos blockpos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
-                PrimedTnt primedTnt = AtomicTntBlock.getPrimedAtomicTnt(level, blockpos, null);
+            protected @NotNull ItemStack execute(final @NotNull BlockSource blockSource, final @NotNull ItemStack itemStack) {
+                final Level level = blockSource.level();
+                final BlockPos blockPos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
+                final PrimedTnt primedTnt = AtomicTntBlock.getPrimedAtomicTnt(level, blockPos, null);
                 level.addFreshEntity(primedTnt);
                 level.playSound(null, primedTnt.getX(), primedTnt.getY(), primedTnt.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
-                level.gameEvent(null, GameEvent.ENTITY_PLACE, blockpos);
-                itemStack.shrink(1);
+                level.gameEvent(null, GameEvent.ENTITY_PLACE, blockPos);
+                ItemHelper.hurt(itemStack, null, null, 1);
                 return itemStack;
+            }
+        };
+    }
+
+    /**
+     * Get the {@link DispenseItemBehavior Dispense Item Behavior} for an {@link AnimalArmorItem Horse Armor}
+     *
+     * @return {@link DispenseItemBehavior The Horse Armor Dispense Item Behavior}
+     */
+    private static DispenseItemBehavior horseArmorItemDispenseBehavior() {
+        return new OptionalDispenseItemBehavior() {
+
+            /**
+             * Equip the {@link AnimalArmorItem Horse Armor} if there's a Horse in front of the dispenser
+             *
+             * @param blockSource {@link BlockSource The Block Source reference}
+             * @param itemStack   {@link ItemStack The Item Stack inside the dispenser}
+             * @return {@link ItemStack The modified Item Stack}
+             */
+            @Override
+            protected @NotNull ItemStack execute(final @NotNull BlockSource blockSource, final @NotNull ItemStack itemStack) {
+                final BlockPos blockPos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
+
+                for (final AbstractHorse abstractHorse : blockSource.level().getEntitiesOfClass(AbstractHorse.class, new AABB(blockPos), horse -> horse.isAlive() && horse.canWearBodyArmor())) {
+                    if (abstractHorse.isBodyArmorItem(itemStack) && !abstractHorse.isWearingBodyArmor() && abstractHorse.isTamed()) {
+                        abstractHorse.setBodyArmorItem(itemStack.split(1));
+                        this.setSuccess(true);
+                        return itemStack;
+                    }
+                }
+
+                return super.execute(blockSource, itemStack);
             }
         };
     }
@@ -103,6 +139,11 @@ public final class BLDispenseBehaviors {
     public static void registerDispenseBehaviors() {
         registerDispenseBehavior(Items.HONEYCOMB, honeycombDispenseBehavior());
         registerDispenseBehavior(BLBlocks.ATOMIC_TNT.get(), tntDispenseBehavior());
+        registerDispenseBehavior(BLItems.EMERALD_HORSE_ARMOR.get(), horseArmorItemDispenseBehavior());
+        registerDispenseBehavior(BLItems.SAPPHIRE_HORSE_ARMOR.get(), horseArmorItemDispenseBehavior());
+        registerDispenseBehavior(BLItems.TOPAZ_HORSE_ARMOR.get(), horseArmorItemDispenseBehavior());
+        registerDispenseBehavior(BLItems.RUBY_HORSE_ARMOR.get(), horseArmorItemDispenseBehavior());
+        registerDispenseBehavior(BLItems.MALACHITE_HORSE_ARMOR.get(), horseArmorItemDispenseBehavior());
     }
 
     //#endregion
