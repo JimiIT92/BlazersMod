@@ -24,7 +24,7 @@ import java.util.function.Consumer;
 /**
  * {@link BlazersMod Blazers Mod} {@link SwordItem Spear Item}
  */
-public class SpearItem extends SwordItem {
+public final class SpearItem extends SwordItem {
 
     /**
      * Constructor. Set the {@link Item.Properties Item properties}
