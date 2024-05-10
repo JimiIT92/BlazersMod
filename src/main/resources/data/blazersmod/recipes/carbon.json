@@ -1,16 +1,16 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "minecraft:iron_ingot"
+  "template": {
+    "item": "minecraft:coal"
   },
   "base": {
     "item": "minecraft:coal_block"
   },
+  "addition": {
+    "item": "minecraft:iron_ingot"
+  },
   "result": {
     "count": 1,
     "id": "blazersmod:carbon"
-  },
-  "template": {
-    "item": "minecraft:coal"
   }
 }

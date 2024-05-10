@@ -39,7 +39,7 @@ public final class BLTabs {
     public static RegistryObject<CreativeModeTab> FUNCTIONAL = registerCreativeTab("functional", NATURAL, Suppliers.memoize(Items.PAINTING::getDefaultInstance));
     public static RegistryObject<CreativeModeTab> REDSTONE = registerCreativeTab("redstone", FUNCTIONAL, Suppliers.memoize(() -> BlockHelper.itemStack(BLBlocks.COPPER_BUTTON)));
     public static RegistryObject<CreativeModeTab> TOOLS = registerCreativeTab("tools", REDSTONE, Suppliers.memoize(() -> BLItems.EMERALD_PICKAXE.get().getDefaultInstance()));
-    public static RegistryObject<CreativeModeTab> COMBAT = registerCreativeTab("combat", TOOLS, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
+    public static RegistryObject<CreativeModeTab> COMBAT = registerCreativeTab("combat", TOOLS, Suppliers.memoize(() -> BLItems.KATANA.get().getDefaultInstance()));
     public static RegistryObject<CreativeModeTab> FOOD_AND_DRINK = registerCreativeTab("food_and_drink", COMBAT, Suppliers.memoize(() -> BLItems.SASHIMI.get().getDefaultInstance()));
     public static RegistryObject<CreativeModeTab> INGREDIENTS = registerCreativeTab("ingredients", FOOD_AND_DRINK, Suppliers.memoize(() -> BLItems.RUBY.get().getDefaultInstance()));
     public static RegistryObject<CreativeModeTab> SPAWN_EGGS = registerCreativeTab("spawn_eggs", INGREDIENTS, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));

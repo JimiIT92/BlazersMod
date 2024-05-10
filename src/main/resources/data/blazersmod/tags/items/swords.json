@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "#blazersmod:katanas",
     "blazersmod:emerald_sword",
     "blazersmod:amethyst_sword",
     "blazersmod:sapphire_sword",

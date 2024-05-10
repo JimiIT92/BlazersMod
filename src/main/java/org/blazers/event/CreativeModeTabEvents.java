@@ -323,7 +323,24 @@ public final class CreativeModeTabEvents {
             BLBlocks.ATOMIC_TNT,
             BLItems.CARBON_BOW,
             BLItems.SPEAR,
-            BLItems.MALACHITE_SPEAR
+            BLItems.MALACHITE_SPEAR,
+            BLItems.KATANA,
+            BLItems.WHITE_KATANA,
+            BLItems.ORANGE_KATANA,
+            BLItems.MAGENTA_KATANA,
+            BLItems.LIGHT_BLUE_KATANA,
+            BLItems.YELLOW_KATANA,
+            BLItems.LIME_KATANA,
+            BLItems.PINK_KATANA,
+            BLItems.GRAY_KATANA,
+            BLItems.LIGHT_GRAY_KATANA,
+            BLItems.CYAN_KATANA,
+            BLItems.PURPLE_KATANA,
+            BLItems.BLUE_KATANA,
+            BLItems.BROWN_KATANA,
+            BLItems.GREEN_KATANA,
+            BLItems.RED_KATANA,
+            BLItems.BLACK_KATANA
         );
     }
 

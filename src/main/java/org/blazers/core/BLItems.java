@@ -194,6 +194,28 @@ public final class BLItems {
 
     //#endregion
 
+    //#region Katanas
+
+    public static final RegistryObject<Item> KATANA = registerKatana(null);
+    public static final RegistryObject<Item> WHITE_KATANA = registerKatana(DyeColor.WHITE);
+    public static final RegistryObject<Item> ORANGE_KATANA = registerKatana(DyeColor.ORANGE);
+    public static final RegistryObject<Item> MAGENTA_KATANA = registerKatana(DyeColor.MAGENTA);
+    public static final RegistryObject<Item> LIGHT_BLUE_KATANA = registerKatana(DyeColor.LIGHT_BLUE);
+    public static final RegistryObject<Item> YELLOW_KATANA = registerKatana(DyeColor.YELLOW);
+    public static final RegistryObject<Item> LIME_KATANA = registerKatana(DyeColor.LIME);
+    public static final RegistryObject<Item> PINK_KATANA = registerKatana(DyeColor.PINK);
+    public static final RegistryObject<Item> GRAY_KATANA = registerKatana(DyeColor.GRAY);
+    public static final RegistryObject<Item> LIGHT_GRAY_KATANA = registerKatana(DyeColor.LIGHT_GRAY);
+    public static final RegistryObject<Item> CYAN_KATANA = registerKatana(DyeColor.CYAN);
+    public static final RegistryObject<Item> PURPLE_KATANA = registerKatana(DyeColor.PURPLE);
+    public static final RegistryObject<Item> BLUE_KATANA = registerKatana(DyeColor.BLUE);
+    public static final RegistryObject<Item> BROWN_KATANA = registerKatana(DyeColor.BROWN);
+    public static final RegistryObject<Item> GREEN_KATANA = registerKatana(DyeColor.GREEN);
+    public static final RegistryObject<Item> RED_KATANA = registerKatana(DyeColor.RED);
+    public static final RegistryObject<Item> BLACK_KATANA = registerKatana(DyeColor.BLACK);
+
+    //#endregion
+
     //#region Music Discs
 
     public static final RegistryObject<Item> MUSIC_DISC_SURVIVAL = registerMusicDisc("survival", Suppliers.memoize(() -> BLSounds.MUSIC_DISC_SURVIVAL.get()), 28);
@@ -291,6 +313,17 @@ public final class BLItems {
      */
     private static RegistryObject<Item> registerSword(final Tier tier, final int attackDamageModifier, final float attackSpeedModifier, final FeatureFlag... featureFlags) {
         return registerSword(tier, "sword", 3, -2.4F, featureFlags);
+    }
+
+    /**
+     * Register a {@link Item Katana}
+     *
+     * @param color {@link DyeColor The Katana color}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @return {@link RegistryObject<Item> The registered Katana Item}
+     */
+    private static RegistryObject<Item> registerKatana(final DyeColor color, final FeatureFlag... featureFlags) {
+        return registerItem((color == null ? "" : (color.getSerializedName() + "_" )) + "katana" , Suppliers.memoize(() -> new SwordItem(BLTiers.CARBON, PropertyHelper.item(featureFlags).attributes(SwordItem.createAttributes(BLTiers.CARBON, 3, 0)))));
     }
 
     /**
