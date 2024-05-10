@@ -4,6 +4,7 @@ import com.google.common.base.Suppliers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.core.Holder;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -189,6 +190,13 @@ public final class BLItems {
     public static final RegistryObject<Item> CARBON_BOW = registerItem("carbon_bow", Suppliers.memoize(CarbonBowItem::new));
 
     //#endregion
+
+    //#endregion
+
+    //#region Music Discs
+
+    public static final RegistryObject<Item> MUSIC_DISC_SURVIVAL = registerMusicDisc("survival", Suppliers.memoize(() -> BLSounds.MUSIC_DISC_SURVIVAL.get()), 28);
+    public static final RegistryObject<Item> MUSIC_DISC_ENDERMAN_VS_BLAZE = registerMusicDisc("enderman_vs_blaze", Suppliers.memoize(() -> BLSounds.MUSIC_DISC_ENDERMAN_VS_BLAZE.get()), 173);
 
     //#endregion
 
@@ -398,6 +406,19 @@ public final class BLItems {
      */
     private static RegistryObject<Item> registerSpear(final Tier tier, final int attackDamageModifier, final FeatureFlag... featureFlags) {
         return registerItem((tier.equals(BLTiers.FLINT) ? "" : ItemHelper.tierName(tier) + "_") + "spear", Suppliers.memoize(() -> new SpearItem(tier, PropertyHelper.item(featureFlags).attributes(SwordItem.createAttributes(tier, attackDamageModifier, -2.4F)))));
+    }
+
+    /**
+     * Register a {@link RecordItem Music Disc Item}
+     *
+     * @param name {@link String The Music Disc name}
+     * @param soundSupplier {@link Supplier<SoundEvent> The Supplier for the Music Disc Sound}
+     * @param length {@link Integer The Music Disc duration in seconds}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @return {@link RegistryObject<Item> The registered Music Disc}
+     */
+    private static RegistryObject<Item> registerMusicDisc(final String name, final Supplier<SoundEvent> soundSupplier, final int length, final FeatureFlag... featureFlags) {
+        return registerItem("music_disc_" + name, Suppliers.memoize(() -> new RecordItem(15, soundSupplier.get(), PropertyHelper.item(featureFlags).rarity(Rarity.RARE).stacksTo(1), length * 20)));
     }
 
     /**

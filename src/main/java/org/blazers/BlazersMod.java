@@ -33,6 +33,7 @@ public final class BlazersMod {
         final IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         BLTabs.register(eventBus);
+        BLSounds.register(eventBus);
         BLArmorMaterials.register(eventBus);
         BLItems.register(eventBus);
         BLBlocks.register(eventBus);

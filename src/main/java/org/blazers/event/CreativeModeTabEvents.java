@@ -253,7 +253,9 @@ public final class CreativeModeTabEvents {
             BLItems.ONICE_SHOVEL,
             BLItems.ONICE_PICKAXE,
             BLItems.ONICE_AXE,
-            BLItems.ONICE_HOE
+            BLItems.ONICE_HOE,
+            BLItems.MUSIC_DISC_SURVIVAL,
+            BLItems.MUSIC_DISC_ENDERMAN_VS_BLAZE
         );
     }
 
