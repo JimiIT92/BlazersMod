@@ -20,7 +20,28 @@ public final class RegistryHelper {
      * @return {@link ResourceLocation The resource location}
      */
     public static ResourceLocation location(final String name) {
-        return new ResourceLocation(BlazersMod.MOD_ID, name);
+        return location(BlazersMod.MOD_ID, name);
+    }
+
+    /**
+     * Get a {@link BlazersMod Blazers Mod} {@link ResourceLocation Resource Location}
+     *
+     * @param modId {@link String The mod ID}
+     * @param name {@link String The resource name}
+     * @return {@link ResourceLocation The resource location}
+     */
+    public static ResourceLocation location(final String modId, final String name) {
+        return new ResourceLocation(modId, name);
+    }
+
+    /**
+     * Parse a {@link String serialized Resource Location}
+     *
+     * @param resourceLocation {@link String The serialized Resource Location}
+     * @return {@link ResourceLocation The Resource Location}
+     */
+    public static ResourceLocation parse(final String resourceLocation) {
+        return ResourceLocation.tryParse(resourceLocation);
     }
 
     /**

@@ -19,6 +19,7 @@ import org.blazers.helper.PropertyHelper;
 import org.blazers.helper.RegistryHelper;
 import org.blazers.item.BLHorseArmorItem;
 import org.blazers.item.CarbonBowItem;
+import org.blazers.item.CopperHornItem;
 import org.blazers.item.SpearItem;
 
 import java.util.function.Supplier;
@@ -197,6 +198,12 @@ public final class BLItems {
 
     public static final RegistryObject<Item> MUSIC_DISC_SURVIVAL = registerMusicDisc("survival", Suppliers.memoize(() -> BLSounds.MUSIC_DISC_SURVIVAL.get()), 28);
     public static final RegistryObject<Item> MUSIC_DISC_ENDERMAN_VS_BLAZE = registerMusicDisc("enderman_vs_blaze", Suppliers.memoize(() -> BLSounds.MUSIC_DISC_ENDERMAN_VS_BLAZE.get()), 173);
+
+    //#endregion
+
+    //#region Misc
+
+    public static final RegistryObject<Item> COPPER_HORN = registerItem("copper_horn", CopperHornItem::new);
 
     //#endregion
 
@@ -500,6 +507,7 @@ public final class BLItems {
         registerUseItemProperty(CARBON_BOW, "pulling");
         registerUseItemProperty(SPEAR, "throwing");
         registerUseItemProperty(MALACHITE_SPEAR, "throwing");
+        registerUseItemProperty(COPPER_HORN, "tooting");
     }
 
     //#endregion

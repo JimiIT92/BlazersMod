@@ -1,5 +1,6 @@
 package org.blazers.event;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -12,6 +13,8 @@ import org.blazers.BlazersMod;
 import org.blazers.core.BLBlocks;
 import org.blazers.core.BLItems;
 import org.blazers.core.BLTabs;
+import org.blazers.core.BLTags;
+import org.blazers.item.CopperHornItem;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
@@ -253,7 +256,10 @@ public final class CreativeModeTabEvents {
             BLItems.ONICE_SHOVEL,
             BLItems.ONICE_PICKAXE,
             BLItems.ONICE_AXE,
-            BLItems.ONICE_HOE,
+            BLItems.ONICE_HOE
+        );
+        BuiltInRegistries.INSTRUMENT.asLookup().get(BLTags.Instruments.MELODY_COPPER_HORNS).ifPresent(instruments -> instruments.forEach(instrumentHolder -> event.accept(CopperHornItem.create(BLItems.COPPER_HORN.get(), instrumentHolder), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS)));
+        addToTab(event,
             BLItems.MUSIC_DISC_SURVIVAL,
             BLItems.MUSIC_DISC_ENDERMAN_VS_BLAZE
         );

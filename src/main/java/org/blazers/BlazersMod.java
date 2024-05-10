@@ -63,6 +63,7 @@ public final class BlazersMod {
     private void onCommonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(BLDispenseBehaviors::registerDispenseBehaviors);
         event.enqueueWork(BLBlocks::registerFlowerPots);
+        event.enqueueWork(BLInstruments::registerInstruments);
     }
 
     /**

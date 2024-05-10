@@ -1,7 +1,9 @@
 package org.blazers.core;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Instrument;
 import net.minecraft.world.level.block.Block;
 import org.blazers.BlazersMod;
 import org.blazers.helper.RegistryHelper;
@@ -37,4 +39,31 @@ public final class BLTags {
         //#endregion
 
     }
+
+    /**
+     * {@link BlazersMod Blazers Mod} {@link TagKey<Instrument> Instrument Tags }
+     */
+    public static class Instruments {
+
+        //#region Instruments
+
+        public static final TagKey<Instrument> BASS_COPPER_HORNS = tag("bass_copper_horns");
+        public static final TagKey<Instrument> HARMONY_COPPER_HORNS = tag("harmony_copper_horns");
+        public static final TagKey<Instrument> MELODY_COPPER_HORNS = tag("melody_copper_horns");
+        public static final TagKey<Instrument> COPPER_HORNS = tag("copper_horns");
+
+        //#endregion
+
+        /**
+         * Create a {@link TagKey<Instrument> Instrument Tag}
+         *
+         * @param name {@link String The tag name}
+         * @return {@link TagKey<Instrument> The Instrument Tag}
+         */
+        private static TagKey<Instrument> tag(final String name) {
+            return TagKey.create(Registries.INSTRUMENT, RegistryHelper.location(name));
+        }
+
+    }
+
 }
