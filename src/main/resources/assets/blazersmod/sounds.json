@@ -1,4 +1,16 @@
 {
+  "bruh": {
+    "subtitle": "sounds.blazersmod.bruh",
+    "sounds": [
+      "blazersmod:bruh"
+    ]
+  },
+  "reversed_bruh": {
+    "subtitle": "sounds.blazersmod.reversed_bruh",
+    "sounds": [
+      "blazersmod:reversed_bruh"
+    ]
+  },
   "music_disc_survival": {
     "sounds": [
       {

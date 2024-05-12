@@ -75,6 +75,13 @@ public final class BLSounds {
 
     //#endregion
 
+    //#region Misc
+
+    public static final RegistryObject<SoundEvent> BRUH = registerSound("bruh");
+    public static final RegistryObject<SoundEvent> REVERSED_BRUH = registerSound("reversed_bruh");
+
+    //#endregion
+
     //#endregion
 
     //#region Methods

@@ -1,9 +1,17 @@
 package org.blazers.event;
 
+import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.PaintingVariantTags;
+import net.minecraft.world.entity.decoration.Painting;
+import net.minecraft.world.entity.decoration.PaintingVariant;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,8 +25,8 @@ import org.blazers.core.BLTags;
 import org.blazers.item.CopperHornItem;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Handle all events for {@link CreativeModeTab Creative Mode Tabs}
@@ -34,28 +42,31 @@ public final class CreativeModeTabEvents {
     @SubscribeEvent
     public static void onTabContentsEvent(final BuildCreativeModeTabContentsEvent event) {
         final ResourceKey<CreativeModeTab> tabKey = event.getTabKey();
+        if(isTab(tabKey, CreativeModeTabs.FUNCTIONAL_BLOCKS)) {
+            removeEblPaintings(event);
+        }
         if(isTab(tabKey, BLTabs.BUILDING_BLOCKS)) {
             setBuildingBlocksTabContent(event);
         }
         else if(isTab(tabKey, BLTabs.COLORED_BLOCKS)) {
             setColoredBlocksTabContent(event);
         }
-        else if(isTab(tabKey, BLTabs.NATURAL)) {
+        else if(isTab(tabKey, BLTabs.NATURAL_BLOCKS)) {
             setNaturalTabContent(event);
         }
-        else if(isTab(tabKey, BLTabs.FUNCTIONAL)) {
+        else if(isTab(tabKey, BLTabs.FUNCTIONAL_BLOCKS)) {
             setFunctionalTabContent(event);
         }
-        else if(isTab(tabKey, BLTabs.REDSTONE)) {
+        else if(isTab(tabKey, BLTabs.REDSTONE_BLOCKS)) {
             setRedstoneTabContent(event);
         }
-        else if(isTab(tabKey, BLTabs.TOOLS)) {
+        else if(isTab(tabKey, BLTabs.TOOLS_AND_UTILITIES)) {
             setToolsTabContent(event);
         }
         else if(isTab(tabKey, BLTabs.COMBAT)) {
             setCombatTabContent(event);
         }
-        else if(isTab(tabKey, BLTabs.FOOD_AND_DRINK)) {
+        else if(isTab(tabKey, BLTabs.FOOD_AND_DRINKS)) {
             setFoodAndDrinkTabContent(event);
         }
         else if(isTab(tabKey, BLTabs.INGREDIENTS)) {
@@ -64,6 +75,26 @@ public final class CreativeModeTabEvents {
         else if(isTab(tabKey, BLTabs.SPAWN_EGGS)) {
             setSpawnEggsTabContent(event);
         }
+    }
+
+    /**
+     * Remove the {@link BlazersMod Blazers Mod} {@link PaintingVariant Painting Variants}
+     * from the {@link CreativeModeTabs#FUNCTIONAL_BLOCKS Vanilla Functional Blocks Tab}
+     *
+     * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
+     */
+    private static void removeEblPaintings(final BuildCreativeModeTabContentsEvent event) {
+        final Set<ItemStack> paintingsToRemove = BuiltInRegistries.PAINTING_VARIANT.asLookup()
+                .listElements().filter(painting -> painting.is(PaintingVariantTags.PLACEABLE) && painting.is(BLTags.Paintings.EBL_PAINTINGS))
+                .map(
+                        painting -> {
+                            final ItemStack itemStack = new ItemStack(Items.PAINTING);
+                            itemStack.set(DataComponents.ENTITY_DATA, CustomData.EMPTY.update(Painting.VARIANT_MAP_CODEC, painting).getOrThrow().update(nbt -> nbt.putString("id", "minecraft:painting")));
+                            return itemStack;
+                        }
+                )
+                .collect(Collectors.toSet());
+        paintingsToRemove.forEach(painting -> event.getEntries().remove(painting));
     }
 
     /**
@@ -186,7 +217,7 @@ public final class CreativeModeTabEvents {
     }
 
     /**
-     * Set the content of the {@link BLTabs#NATURAL Natural Creative Mode Tab}
+     * Set the content of the {@link BLTabs#NATURAL_BLOCKS Natural Creative Mode Tab}
      *
      * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
      */
@@ -207,16 +238,25 @@ public final class CreativeModeTabEvents {
     }
 
     /**
-     * Set the content of the {@link BLTabs#FUNCTIONAL Functional Creative Mode Tab}
+     * Set the content of the {@link BLTabs#FUNCTIONAL_BLOCKS Functional Creative Mode Tab}
      *
      * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
      */
     private static void setFunctionalTabContent(final BuildCreativeModeTabContentsEvent event) {
-
+        BuiltInRegistries.PAINTING_VARIANT.asLookup()
+                .listElements().filter(painting -> painting.is(PaintingVariantTags.PLACEABLE) && painting.is(BLTags.Paintings.EBL_PAINTINGS))
+                .sorted(Comparator.comparing(Holder::value, Comparator.<PaintingVariant>comparingInt(painting -> painting.getHeight() * painting.getWidth()).thenComparing(PaintingVariant::getWidth)))
+                .forEach(
+                        painting -> {
+                            final ItemStack itemStack = new ItemStack(Items.PAINTING);
+                            itemStack.set(DataComponents.ENTITY_DATA, CustomData.EMPTY.update(Painting.VARIANT_MAP_CODEC, painting).getOrThrow().update(nbt -> nbt.putString("id", "minecraft:painting")));
+                            event.accept(itemStack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                        }
+                );
     }
 
     /**
-     * Set the content of the {@link BLTabs#REDSTONE Redstone Creative Mode Tab}
+     * Set the content of the {@link BLTabs#REDSTONE_BLOCKS Redstone Creative Mode Tab}
      *
      * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
      */
@@ -235,7 +275,7 @@ public final class CreativeModeTabEvents {
     }
 
     /**
-     * Set the content of the {@link BLTabs#TOOLS Tools Creative Mode Tab}
+     * Set the content of the {@link BLTabs#TOOLS_AND_UTILITIES Tools Creative Mode Tab}
      *
      * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
      */
@@ -355,7 +395,7 @@ public final class CreativeModeTabEvents {
     }
 
     /**
-     * Set the content of the {@link BLTabs#FOOD_AND_DRINK Food And Drink Creative Mode Tab}
+     * Set the content of the {@link BLTabs#FOOD_AND_DRINKS Food And Drink Creative Mode Tab}
      *
      * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
      */
