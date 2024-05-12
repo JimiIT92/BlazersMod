@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "minecraft:netherite_chestplate"
+  },
+  "addition": {
+    "item": "blazersmod:blazerite"
+  },
+  "result": {
+    "count": 1,
+    "id": "blazersmod:blazerite_chestplate",
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:fire_protection": 4
+        }
+      }
+    }
+  }
+}

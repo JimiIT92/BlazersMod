@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "minecraft:netherite_leggings"
+  },
+  "addition": {
+    "item": "blazersmod:gyulianite"
+  },
+  "result": {
+    "count": 1,
+    "id": "blazersmod:gyulianite_leggings",
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:projectile_protection": 4
+        }
+      }
+    }
+  }
+}

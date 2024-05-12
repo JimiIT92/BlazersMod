@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "minecraft:netherite_boots"
+  },
+  "addition": {
+    "item": "blazersmod:gyulianite"
+  },
+  "result": {
+    "count": 1,
+    "id": "blazersmod:gyulianite_boots",
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:projectile_protection": 4
+        }
+      }
+    }
+  }
+}

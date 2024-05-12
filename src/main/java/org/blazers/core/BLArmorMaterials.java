@@ -139,6 +139,32 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_IRON,
             Suppliers.memoize(() -> BLItems.MALACHITE.get())
     );
+    public static final Supplier<ArmorMaterial> BLAZERITE = createArmorMaterial(
+            ItemHelper.tierName(BLTiers.BLAZERITE),
+            3,
+            6,
+            8,
+            3,
+            8,
+            18,
+            4F,
+            0.2F,
+            Holder.direct(SoundEvents.FIRECHARGE_USE),
+            Suppliers.memoize(() -> BLItems.BLAZERITE.get())
+    );
+    public static final Supplier<ArmorMaterial> GYULIANITE = createArmorMaterial(
+            ItemHelper.tierName(BLTiers.GYULIANITE),
+            3,
+            6,
+            8,
+            3,
+            8,
+            18,
+            4F,
+            0.2F,
+            Holder.direct(SoundEvents.NETHERRACK_HIT),
+            Suppliers.memoize(() -> BLItems.GYULIANITE.get())
+    );
 
     //#endregion
 

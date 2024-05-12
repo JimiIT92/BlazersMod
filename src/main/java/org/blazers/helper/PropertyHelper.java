@@ -2,12 +2,16 @@ package org.blazers.helper;
 
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import org.blazers.core.BLMaterials;
+import org.blazers.core.BLTiers;
 
 /**
  * Helper methods for {@link BlockBehaviour.Properties Block Properties} and {@link Item.Properties Item Properties}
@@ -20,10 +24,35 @@ public final class PropertyHelper {
      * @param nutrition {@link Integer The food nutrition value}
      * @param saturationModifier {@link Float The food saturation modifier value}
      * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
-     * @return {@link Item.Properties The Item properties}
+     * @return {@link Item.Properties The Food Item properties}
      */
     public static Item.Properties food(final int nutrition, final float saturationModifier, final FeatureFlag... featureFlags) {
         return item(featureFlags).food(new FoodProperties.Builder().nutrition(nutrition).saturationModifier(saturationModifier).build());
+    }
+
+    /**
+     * Get the {@link Item.Properties properties} for a {@link SwordItem Sword Item}
+     *
+     * @param tier {@link BLTiers The Sword Tier}
+     * @param attackDamageModifier {@link Integer The attack damage modifier}
+     * @param attackSpeedModifier {@link Float The attack speed modifier}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @return {@link Item.Properties The Sword Item properties}
+     */
+    public static Item.Properties sword(final Tier tier, final int attackDamageModifier, final float attackSpeedModifier, final FeatureFlag... featureFlags) {
+        return item(featureFlags).attributes(SwordItem.createAttributes(tier, attackDamageModifier, attackSpeedModifier));
+    }
+
+    /**
+     * Get the {@link Item.Properties properties} for a {@link ArmorItem Armor Item}
+     *
+     * @param durabilityModifier {@link Integer The durability modifier}
+     * @param armorType {@link ArmorItem.Type The Armor Item type}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @return {@link Item.Properties The Armor Item properties}
+     */
+    public static Item.Properties armorItem(final ArmorItem.Type armorType, final int durabilityModifier,  final FeatureFlag... featureFlags) {
+        return item(featureFlags).durability(armorType.getDurability(durabilityModifier));
     }
 
     /**

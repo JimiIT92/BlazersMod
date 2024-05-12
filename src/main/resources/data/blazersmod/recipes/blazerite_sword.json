@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "minecraft:netherite_sword"
+  },
+  "addition": {
+    "item": "blazersmod:blazerite"
+  },
+  "result": {
+    "count": 1,
+    "id": "blazersmod:blazerite_sword",
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "minecraft:fire_aspect": 10
+        }
+      }
+    }
+  }
+}

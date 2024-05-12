@@ -7,6 +7,8 @@ import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -17,10 +19,7 @@ import org.blazers.helper.BlockHelper;
 import org.blazers.helper.ItemHelper;
 import org.blazers.helper.PropertyHelper;
 import org.blazers.helper.RegistryHelper;
-import org.blazers.item.BLHorseArmorItem;
-import org.blazers.item.CarbonBowItem;
-import org.blazers.item.CopperHornItem;
-import org.blazers.item.SpearItem;
+import org.blazers.item.*;
 
 import java.util.function.Supplier;
 
@@ -186,6 +185,28 @@ public final class BLItems {
 
     //#endregion
 
+    //#region Blazerite
+
+    public static final RegistryObject<Item> BLAZERITE_SWORD = registerItem(ItemHelper.tierName(BLTiers.BLAZERITE) + "_sword", Suppliers.memoize(() -> new PreEnchantedSwordItem(BLTiers.BLAZERITE, new EnchantmentInstance(Enchantments.FIRE_ASPECT, 10))));
+
+    public static final RegistryObject<Item> BLAZERITE_HELMET = registerItem(ItemHelper.tierName(BLTiers.BLAZERITE) + "_" + ArmorItem.Type.HELMET.getSerializedName(), Suppliers.memoize(() -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE, ArmorItem.Type.HELMET, new EnchantmentInstance(Enchantments.FIRE_PROTECTION, 4))));
+    public static final RegistryObject<Item> BLAZERITE_CHESTPLATE = registerItem(ItemHelper.tierName(BLTiers.BLAZERITE) + "_" + ArmorItem.Type.CHESTPLATE.getSerializedName(), Suppliers.memoize(() -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE, ArmorItem.Type.CHESTPLATE, new EnchantmentInstance(Enchantments.FIRE_PROTECTION, 4))));
+    public static final RegistryObject<Item> BLAZERITE_LEGGINGS = registerItem(ItemHelper.tierName(BLTiers.BLAZERITE) + "_" + ArmorItem.Type.LEGGINGS.getSerializedName(), Suppliers.memoize(() -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE, ArmorItem.Type.LEGGINGS, new EnchantmentInstance(Enchantments.FIRE_PROTECTION, 4))));
+    public static final RegistryObject<Item> BLAZERITE_BOOTS = registerItem(ItemHelper.tierName(BLTiers.BLAZERITE) + "_" + ArmorItem.Type.BOOTS.getSerializedName(), Suppliers.memoize(() -> new PreEnchantedArmorItem(BLArmorMaterials.BLAZERITE, ArmorItem.Type.BOOTS, new EnchantmentInstance(Enchantments.FIRE_PROTECTION, 4))));
+
+    //#endregion
+
+    //#region Gyulianite
+
+    public static final RegistryObject<Item> GYULIANITE_SWORD = registerItem(ItemHelper.tierName(BLTiers.GYULIANITE) + "_sword", Suppliers.memoize(() -> new PreEnchantedSwordItem(BLTiers.GYULIANITE, new EnchantmentInstance(Enchantments.KNOCKBACK, 10))));
+
+    public static final RegistryObject<Item> GYULIANITE_HELMET = registerItem(ItemHelper.tierName(BLTiers.GYULIANITE) + "_" + ArmorItem.Type.HELMET.getSerializedName(), Suppliers.memoize(() -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE, ArmorItem.Type.HELMET, new EnchantmentInstance(Enchantments.PROJECTILE_PROTECTION, 4))));
+    public static final RegistryObject<Item> GYULIANITE_CHESTPLATE = registerItem(ItemHelper.tierName(BLTiers.GYULIANITE) + "_" + ArmorItem.Type.CHESTPLATE.getSerializedName(), Suppliers.memoize(() -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE, ArmorItem.Type.CHESTPLATE, new EnchantmentInstance(Enchantments.PROJECTILE_PROTECTION, 4))));
+    public static final RegistryObject<Item> GYULIANITE_LEGGINGS = registerItem(ItemHelper.tierName(BLTiers.GYULIANITE) + "_" + ArmorItem.Type.LEGGINGS.getSerializedName(), Suppliers.memoize(() -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE, ArmorItem.Type.LEGGINGS, new EnchantmentInstance(Enchantments.PROJECTILE_PROTECTION, 4))));
+    public static final RegistryObject<Item> GYULIANITE_BOOTS = registerItem(ItemHelper.tierName(BLTiers.GYULIANITE) + "_" + ArmorItem.Type.BOOTS.getSerializedName(), Suppliers.memoize(() -> new PreEnchantedArmorItem(BLArmorMaterials.GYULIANITE, ArmorItem.Type.BOOTS, new EnchantmentInstance(Enchantments.PROJECTILE_PROTECTION, 4))));
+
+    //#endregion
+
     //#region Carbon
 
     public static final RegistryObject<Item> CARBON_BOW = registerItem("carbon_bow", Suppliers.memoize(CarbonBowItem::new));
@@ -323,7 +344,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> The registered Katana Item}
      */
     private static RegistryObject<Item> registerKatana(final DyeColor color, final FeatureFlag... featureFlags) {
-        return registerItem((color == null ? "" : (color.getSerializedName() + "_" )) + "katana" , Suppliers.memoize(() -> new SwordItem(BLTiers.CARBON, PropertyHelper.item(featureFlags).attributes(SwordItem.createAttributes(BLTiers.CARBON, 3, 0)))));
+        return registerItem((color == null ? "" : (color.getSerializedName() + "_" )) + "katana" , Suppliers.memoize(() -> new SwordItem(BLTiers.CARBON, PropertyHelper.sword(BLTiers.CARBON, 3, 0, featureFlags))));
     }
 
     /**
@@ -337,7 +358,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> The registered Sword Item}
      */
     private static RegistryObject<Item> registerSword(final Tier tier, final String itemSuffix, final int attackDamageModifier, final float attackSpeedModifier, final FeatureFlag... featureFlags) {
-        return registerItem(ItemHelper.tierName(tier) + "_" + itemSuffix, Suppliers.memoize(() -> new SwordItem(tier, PropertyHelper.item(featureFlags).attributes(SwordItem.createAttributes(tier, attackDamageModifier, attackSpeedModifier)))));
+        return registerItem(ItemHelper.tierName(tier) + "_" + itemSuffix, Suppliers.memoize(() -> new SwordItem(tier, PropertyHelper.sword(tier, attackDamageModifier, attackSpeedModifier, featureFlags))));
     }
 
     /**
@@ -421,7 +442,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> The registered Armor Item}
      */
     private static RegistryObject<Item> registerArmorItem(final Tier tier, final Supplier<ArmorMaterial> armorMaterialSupplier, final int durabilityModifier, final ArmorItem.Type armorType, final FeatureFlag... featureFlags) {
-        return registerItem(ItemHelper.tierName(tier) + "_" + armorType.getSerializedName(), Suppliers.memoize(() -> new ArmorItem(Holder.direct(armorMaterialSupplier.get()), armorType, PropertyHelper.item(featureFlags).durability(armorType.getDurability(durabilityModifier)))));
+        return registerItem(ItemHelper.tierName(tier) + "_" + armorType.getSerializedName(), Suppliers.memoize(() -> new ArmorItem(Holder.direct(armorMaterialSupplier.get()), armorType, PropertyHelper.armorItem(armorType, durabilityModifier, featureFlags))));
     }
 
     /**
