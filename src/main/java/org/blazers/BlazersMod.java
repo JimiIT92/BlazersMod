@@ -40,6 +40,7 @@ public final class BlazersMod {
         BLBlocks.register(eventBus);
         BLFeatures.register(eventBus);
 
+        BLLootModifiers.register(eventBus);
         BLEntityTypes.register(eventBus);
 
         eventBus.addListener(this::onClientSetup);
