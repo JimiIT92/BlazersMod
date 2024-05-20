@@ -14,11 +14,21 @@ public final class BLDamageTypes {
 
     //#region Damage Types
 
-    public static final ResourceKey<DamageType> SPEAR = ResourceKey.create(Registries.DAMAGE_TYPE, RegistryHelper.location("spear"));
+    public static final ResourceKey<DamageType> SPEAR = registerDamageTypeKey("spear");
 
     //#endregion
 
     //#region Methods
+
+    /**
+     * Register a {@link DamageType Damage Type} {@link ResourceKey Resource Key}
+     *
+     * @param name {@link String The Damage Type name}
+     * @return {@link ResourceKey<DamageType> The Damage Type Resource Key}
+     */
+    private static ResourceKey<DamageType> registerDamageTypeKey(final String name) {
+        return ResourceKey.create(Registries.DAMAGE_TYPE, RegistryHelper.location(name));
+    }
 
     /**
      * Register all {@link BlazersMod Blazers Mod} {@link DamageType Damage Types}

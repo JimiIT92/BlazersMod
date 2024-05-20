@@ -38,6 +38,7 @@ public final class BlazersMod {
         BLArmorMaterials.register(eventBus);
         BLItems.register(eventBus);
         BLBlocks.register(eventBus);
+        BLFeatures.register(eventBus);
 
         BLEntityTypes.register(eventBus);
 

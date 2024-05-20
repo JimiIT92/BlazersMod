@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:birch_forest",
+  "features": "minecraft:flower_meadow",
+  "step": "vegetal_decoration"
+}

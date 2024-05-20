@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": [
+    "blazersmod:ore_malachite_placed",
+    "blazersmod:ore_onice_placed",
+    "blazersmod:ore_ruby_placed",
+    "blazersmod:ore_uranium_placed"
+  ],
+  "step": "underground_ores"
+}
