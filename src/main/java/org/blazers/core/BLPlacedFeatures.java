@@ -85,7 +85,7 @@ public final class BLPlacedFeatures {
      * @param placementModifier {@link PlacementModifier Placement Modifier}
      */
     private static void registerOre(final BootstrapContext<PlacedFeature> context, final ResourceKey<PlacedFeature> oreKey, final Holder.Reference<ConfiguredFeature<?, ?>> oreConfiguration, final int count, final PlacementModifier placementModifier) {
-        context.register(oreKey, new PlacedFeature(oreConfiguration, List.of(CountPlacement.of(count), InSquarePlacement.spread(), placementModifier, BiomeFilter.biome())));
+        PlacementUtils.register(context, oreKey, oreConfiguration, List.of(CountPlacement.of(count), InSquarePlacement.spread(), placementModifier, BiomeFilter.biome()));
     }
 
     /**
@@ -96,7 +96,7 @@ public final class BLPlacedFeatures {
      * @param fallenTreeConfiguration {@link ConfiguredFeature The Fallen Tree Configured Feature}
      */
     private static void registerFallenTree(final BootstrapContext<PlacedFeature> context, final ResourceKey<PlacedFeature> fallenTreeKey, final Holder.Reference<ConfiguredFeature<?, ?>> fallenTreeConfiguration) {
-        context.register(fallenTreeKey, new PlacedFeature(fallenTreeConfiguration, VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1F, 2))));
+        PlacementUtils.register(context, fallenTreeKey, fallenTreeConfiguration, VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1F, 2)));
     }
 
     /**
@@ -115,7 +115,7 @@ public final class BLPlacedFeatures {
         registerOre(context, ORE_ONICE, configuredFeatures.getOrThrow(BLConfiguredFeatures.ORE_ONICE), 7, PlacementUtils.RANGE_10_10);
         context.register(ORE_URANIUM, new PlacedFeature(configuredFeatures.getOrThrow(BLConfiguredFeatures.ORE_URANIUM), List.of(InSquarePlacement.spread(), PlacementUtils.RANGE_8_8, BiomeFilter.biome())));
 
-        context.register(CATTAIL, new PlacedFeature(configuredFeatures.getOrThrow(BLConfiguredFeatures.CATTAIL), List.of(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, CountPlacement.of(80), BiomeFilter.biome())));
+        PlacementUtils.register(context, CATTAIL, configuredFeatures.getOrThrow(BLConfiguredFeatures.CATTAIL), List.of(InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_TOP_SOLID, CountPlacement.of(80), BiomeFilter.biome()));
 
         registerFallenTree(context, FALLEN_BIRCH_TREE, configuredFeatures.getOrThrow(BLConfiguredFeatures.FALLEN_BIRCH_TREE));
         registerFallenTree(context, FALLEN_HOLLOW_BIRCH_TREE, configuredFeatures.getOrThrow(BLConfiguredFeatures.FALLEN_HOLLOW_BIRCH_TREE));
