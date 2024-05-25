@@ -35,7 +35,7 @@ public final class BLArmorMaterials {
 
     //#region Armor Materials
 
-    public static final Supplier<ArmorMaterial> EMERALD = createArmorMaterial(
+    public static final RegistryObject<ArmorMaterial> EMERALD = registerArmorMaterial(
             ItemHelper.tierName(BLTiers.EMERALD),
             3,
             6,
@@ -48,7 +48,7 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_DIAMOND,
             Suppliers.memoize(() -> Items.EMERALD)
     );
-    public static final Supplier<ArmorMaterial> AMETHYST = createArmorMaterial(
+    public static final RegistryObject<ArmorMaterial> AMETHYST = registerArmorMaterial(
             ItemHelper.tierName(BLTiers.AMETHYST),
             2,
             4,
@@ -61,7 +61,7 @@ public final class BLArmorMaterials {
             Holder.direct(SoundEvents.AMETHYST_BLOCK_CHIME),
             Suppliers.memoize(() -> Items.AMETHYST_SHARD)
     );
-    public static final Supplier<ArmorMaterial> SAPPHIRE = createArmorMaterial(
+    public static final RegistryObject<ArmorMaterial> SAPPHIRE = registerArmorMaterial(
             ItemHelper.tierName(BLTiers.SAPPHIRE),
             3,
             6,
@@ -74,7 +74,7 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_DIAMOND,
             Suppliers.memoize(() -> BLItems.SAPPHIRE.get())
     );
-    public static final Supplier<ArmorMaterial> TOPAZ = createArmorMaterial(
+    public static final RegistryObject<ArmorMaterial> TOPAZ = registerArmorMaterial(
             ItemHelper.tierName(BLTiers.TOPAZ),
             2,
             6,
@@ -87,7 +87,7 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_IRON,
             Suppliers.memoize(() -> BLItems.TOPAZ.get())
     );
-    public static final Supplier<ArmorMaterial> PEARL = createArmorMaterial(
+    public static final RegistryObject<ArmorMaterial> PEARL = registerArmorMaterial(
             ItemHelper.tierName(BLTiers.PEARL),
             2,
             4,
@@ -100,7 +100,7 @@ public final class BLArmorMaterials {
             Holder.direct(SoundEvents.BONE_BLOCK_BREAK),
             Suppliers.memoize(() -> BLItems.PEARL.get())
     );
-    public static final Supplier<ArmorMaterial> RUBY = createArmorMaterial(
+    public static final RegistryObject<ArmorMaterial> RUBY = registerArmorMaterial(
             ItemHelper.tierName(BLTiers.RUBY),
             3,
             6,
@@ -113,7 +113,7 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_DIAMOND,
             Suppliers.memoize(() -> BLItems.RUBY.get())
     );
-    public static final Supplier<ArmorMaterial> ONICE = createArmorMaterial(
+    public static final RegistryObject<ArmorMaterial> ONICE = registerArmorMaterial(
             ItemHelper.tierName(BLTiers.ONICE),
             2,
             6,
@@ -126,7 +126,7 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_IRON,
             Suppliers.memoize(() -> BLItems.ONICE.get())
     );
-    public static final Supplier<ArmorMaterial> MALACHITE = createArmorMaterial(
+    public static final RegistryObject<ArmorMaterial> MALACHITE = registerArmorMaterial(
             ItemHelper.tierName(BLTiers.MALACHITE),
             2,
             6,
@@ -139,7 +139,7 @@ public final class BLArmorMaterials {
             SoundEvents.ARMOR_EQUIP_IRON,
             Suppliers.memoize(() -> BLItems.MALACHITE.get())
     );
-    public static final Supplier<ArmorMaterial> BLAZERITE = createArmorMaterial(
+    public static final RegistryObject<ArmorMaterial> BLAZERITE = registerArmorMaterial(
             ItemHelper.tierName(BLTiers.BLAZERITE),
             3,
             6,
@@ -152,7 +152,7 @@ public final class BLArmorMaterials {
             Holder.direct(SoundEvents.FIRECHARGE_USE),
             Suppliers.memoize(() -> BLItems.BLAZERITE.get())
     );
-    public static final Supplier<ArmorMaterial> GYULIANITE = createArmorMaterial(
+    public static final RegistryObject<ArmorMaterial> GYULIANITE = registerArmorMaterial(
             ItemHelper.tierName(BLTiers.GYULIANITE),
             3,
             6,

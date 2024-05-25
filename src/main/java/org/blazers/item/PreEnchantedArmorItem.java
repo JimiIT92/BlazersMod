@@ -1,11 +1,11 @@
 package org.blazers.item;
 
-import net.minecraft.core.Holder;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.level.block.EnchantingTableBlock;
+import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.helper.PropertyHelper;
 import org.jetbrains.annotations.NotNull;
@@ -30,8 +30,8 @@ public final class PreEnchantedArmorItem extends ArmorItem implements IPreEnchan
      * @param enchantment {@link EnchantmentInstance The Item enchantment}
      * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
      */
-    public PreEnchantedArmorItem(final Supplier<ArmorMaterial> armorMaterialSupplier, final ArmorItem.Type armorType, final EnchantmentInstance enchantment, final FeatureFlag... featureFlags) {
-        super(Holder.direct(armorMaterialSupplier.get()), armorType, PropertyHelper.armorItem(armorType, 39, featureFlags));
+    public PreEnchantedArmorItem(final RegistryObject<ArmorMaterial> armorMaterialSupplier, final ArmorItem.Type armorType, final EnchantmentInstance enchantment, final FeatureFlag... featureFlags) {
+        super(armorMaterialSupplier.getHolder().orElseThrow(), armorType, PropertyHelper.armorItem(armorType, 39, featureFlags));
         this.enchantment = enchantment;
     }
 

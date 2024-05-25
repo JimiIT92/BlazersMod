@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.FastColor;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.flag.FeatureFlag;
@@ -452,8 +453,8 @@ public final class BLItems {
      * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
      * @return {@link RegistryObject<Item> The registered Armor Item}
      */
-    private static RegistryObject<Item> registerArmorItem(final Tier tier, final Supplier<ArmorMaterial> armorMaterialSupplier, final int durabilityModifier, final ArmorItem.Type armorType, final FeatureFlag... featureFlags) {
-        return registerItem(ItemHelper.tierName(tier) + "_" + armorType.getSerializedName(), Suppliers.memoize(() -> new ArmorItem(Holder.direct(armorMaterialSupplier.get()), armorType, PropertyHelper.armorItem(armorType, durabilityModifier, featureFlags))));
+    private static RegistryObject<Item> registerArmorItem(final Tier tier, final RegistryObject<ArmorMaterial> armorMaterialSupplier, final int durabilityModifier, final ArmorItem.Type armorType, final FeatureFlag... featureFlags) {
+        return registerItem(ItemHelper.tierName(tier) + "_" + armorType.getSerializedName(), Suppliers.memoize(() -> new ArmorItem(armorMaterialSupplier.getHolder().orElseThrow(), armorType, PropertyHelper.armorItem(armorType, durabilityModifier, featureFlags))));
     }
 
     /**
@@ -464,8 +465,8 @@ public final class BLItems {
      * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
      * @return {@link RegistryObject<Item> The registered Horse Armor Item}
      */
-    private static RegistryObject<Item> registerHorseArmor(final Tier tier, final Supplier<ArmorMaterial> armorMaterialSupplier, final FeatureFlag... featureFlags) {
-        return registerItem(ItemHelper.tierName(tier) + "_horse_armor", Suppliers.memoize(() -> new BLHorseArmorItem(tier, Holder.direct(armorMaterialSupplier.get()))));
+    private static RegistryObject<Item> registerHorseArmor(final Tier tier, final RegistryObject<ArmorMaterial> armorMaterialSupplier, final FeatureFlag... featureFlags) {
+        return registerItem(ItemHelper.tierName(tier) + "_horse_armor", Suppliers.memoize(() -> new BLHorseArmorItem(tier, armorMaterialSupplier.getHolder().orElseThrow())));
     }
 
     /**
@@ -504,7 +505,7 @@ public final class BLItems {
      * @return {@link RegistryObject<Item> The registered Spawn Egg}
      */
     private static RegistryObject<Item> registerSpawnEgg(final String entityName, final Supplier<? extends EntityType<? extends Mob>> entityTypeSupplier, final int primaryColor, final int secondaryColor, final FeatureFlag... featureFlags) {
-        return registerItem(entityName + "_spawn_egg", Suppliers.memoize(() -> new ForgeSpawnEggItem(entityTypeSupplier, primaryColor, secondaryColor, PropertyHelper.item(featureFlags))));
+        return registerItem(entityName + "_spawn_egg", Suppliers.memoize(() -> new ForgeSpawnEggItem(entityTypeSupplier, FastColor.ARGB32.opaque(primaryColor), FastColor.ARGB32.opaque(secondaryColor), PropertyHelper.item(featureFlags))));
     }
 
     /**
