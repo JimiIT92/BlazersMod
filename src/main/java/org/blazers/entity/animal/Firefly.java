@@ -42,7 +42,7 @@ public class Firefly extends AmbientCreature {
      * @return {@link AttributeSupplier.Builder The attribute supplier builder}
      */
     public static AttributeSupplier.Builder createAttributes() {
-        return AgeableMob.createMobAttributes().add(Attributes.MAX_HEALTH, 0.5D).add(Attributes.MOVEMENT_SPEED, 0.001F).add(Attributes.FLYING_SPEED, 0.001F);
+        return AgeableMob.createMobAttributes().add(Attributes.MAX_HEALTH, 0.5D).add(Attributes.MOVEMENT_SPEED, 0.005F).add(Attributes.FLYING_SPEED, 0.005F);
     }
 
     /**
@@ -51,7 +51,7 @@ public class Firefly extends AmbientCreature {
     @Override
     public void tick() {
         super.tick();
-        this.setDeltaMovement(this.getDeltaMovement().multiply(1.0, 0.6, 1.0));
+        this.setDeltaMovement(this.getDeltaMovement().multiply(0.0625D, 0.0375D, 0.0625D));
     }
 
     /**
