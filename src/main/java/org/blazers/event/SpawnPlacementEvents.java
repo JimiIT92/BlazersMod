@@ -1,5 +1,6 @@
 package org.blazers.event;
 
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.SpawnPlacementTypes;
@@ -27,6 +28,7 @@ public final class SpawnPlacementEvents {
     @SubscribeEvent
     public static void onSpawnPlacementRegister(final SpawnPlacementRegisterEvent event) {
         registerSpawnPlacement(event, BLEntityTypes.WITHER_SKELETON_HORSE, (entityType, level, spawnType, blockPos, randomSource) -> true);
+        registerSpawnPlacement(event, BLEntityTypes.FIREFLY, (entityType, level, spawnType, blockPos, randomSource) -> level.getBlockState(blockPos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON));
     }
 
     /**

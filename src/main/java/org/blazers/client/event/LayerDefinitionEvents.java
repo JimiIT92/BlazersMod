@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 import org.blazers.BlazersMod;
 import org.blazers.client.model.ThrownMalachiteSpearModel;
 import org.blazers.client.model.ThrownSpearModel;
+import org.blazers.client.model.entity.FireflyModel;
 
 /**
  * Handle all events for {@link LayerDefinition Layer definitions}
@@ -24,5 +25,6 @@ public final class LayerDefinitionEvents {
     public static void onRegisterLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ThrownSpearModel.LAYER_LOCATION, ThrownSpearModel::createBodyLayer);
         event.registerLayerDefinition(ThrownMalachiteSpearModel.LAYER_LOCATION, ThrownMalachiteSpearModel::createBodyLayer);
+        event.registerLayerDefinition(FireflyModel.LAYER_LOCATION, FireflyModel::createBodyLayer);
     }
 }

@@ -5,6 +5,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.blazers.BlazersMod;
 import org.blazers.core.BLEntityTypes;
+import org.blazers.entity.animal.Firefly;
 import org.blazers.entity.animal.WitherSkeletonHorse;
 
 /**
@@ -21,6 +22,7 @@ public final class EntityAttributesEvents {
     @SubscribeEvent
     public static void onEntityAttributeSetup(final EntityAttributeCreationEvent event) {
         event.put(BLEntityTypes.WITHER_SKELETON_HORSE.get(), WitherSkeletonHorse.createAttributes().build());
+        event.put(BLEntityTypes.FIREFLY.get(), Firefly.createAttributes().build());
     }
 
 }

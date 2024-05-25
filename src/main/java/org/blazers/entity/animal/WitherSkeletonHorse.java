@@ -46,7 +46,7 @@ public class WitherSkeletonHorse extends Horse {
      * @return {@link AttributeSupplier.Builder The attribute supplier builder}
      */
     public static AttributeSupplier.Builder createAttributes() {
-        return createBaseHorseAttributes().add(Attributes.MAX_HEALTH, 15.0).add(Attributes.MOVEMENT_SPEED, 0.2F);
+        return createBaseHorseAttributes().add(Attributes.MAX_HEALTH, 15D).add(Attributes.MOVEMENT_SPEED, 0.2F);
     }
 
     /**

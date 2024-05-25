@@ -11,9 +11,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.client.renderer.AtomicTntRenderer;
+import org.blazers.client.renderer.entity.FireflyRenderer;
 import org.blazers.client.renderer.entity.WitherSkeletonHorseRenderer;
 import org.blazers.client.renderer.projectile.ThrownMalachiteSpearRenderer;
 import org.blazers.client.renderer.projectile.ThrownSpearRenderer;
+import org.blazers.entity.animal.Firefly;
 import org.blazers.entity.animal.WitherSkeletonHorse;
 import org.blazers.entity.block.PrimedAtomicTnt;
 import org.blazers.entity.projectile.ThrownSpear;
@@ -62,6 +64,12 @@ public final class BLEntityTypes {
             .fireImmune()
     );
 
+    public static final RegistryObject<EntityType<Firefly>> FIREFLY = registerEntityType("firefly", EntityType.Builder.of(Firefly::new, MobCategory.AMBIENT)
+            .sized(0.2F, 0.2F)
+            .eyeHeight(0.1F)
+            .clientTrackingRange(10)
+    );
+
     //#endregion
 
     //#region Methods
@@ -90,6 +98,7 @@ public final class BLEntityTypes {
         EntityRenderers.register(SPEAR.get(), ThrownSpearRenderer::new);
         EntityRenderers.register(MALACHITE_SPEAR.get(), ThrownMalachiteSpearRenderer::new);
         EntityRenderers.register(WITHER_SKELETON_HORSE.get(), WitherSkeletonHorseRenderer::new);
+        EntityRenderers.register(FIREFLY.get(), FireflyRenderer::new);
     }
 
     //#endregion
