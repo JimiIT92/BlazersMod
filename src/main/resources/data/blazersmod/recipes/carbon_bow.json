@@ -1,0 +1,13 @@
+{
+  "type": "blazersmod:fletching",
+  "base": {
+    "item": "minecraft:bow"
+  },
+  "addition": {
+    "item": "blazersmod:carbon"
+  },
+  "result": {
+    "count": 1,
+    "id": "blazersmod:carbon_bow"
+  }
+}

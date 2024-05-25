@@ -39,7 +39,9 @@ public final class BlazersMod {
         BLItems.register(eventBus);
         BLBlocks.register(eventBus);
         BLFeatures.register(eventBus);
-
+        BLRecipeTypes.register(eventBus);
+        BLRecipeSerializers.register(eventBus);
+        BLMenuTypes.register(eventBus);
         BLLootModifiers.register(eventBus);
         BLEntityTypes.register(eventBus);
 
@@ -56,6 +58,8 @@ public final class BlazersMod {
     private void onClientSetup(final FMLClientSetupEvent event) {
         event.enqueueWork(BLItems::registerItemProperties);
         event.enqueueWork(BLEntityTypes::registerRenderers);
+        event.enqueueWork(BLRecipeTypes::registerRecipeBookCategories);
+        event.enqueueWork(BLMenuTypes::registerMenuScreens);
     }
 
     /**

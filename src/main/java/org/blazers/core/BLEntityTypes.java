@@ -11,8 +11,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.client.renderer.AtomicTntRenderer;
+import org.blazers.client.renderer.entity.WitherSkeletonHorseRenderer;
 import org.blazers.client.renderer.projectile.ThrownMalachiteSpearRenderer;
 import org.blazers.client.renderer.projectile.ThrownSpearRenderer;
+import org.blazers.entity.animal.WitherSkeletonHorse;
 import org.blazers.entity.block.PrimedAtomicTnt;
 import org.blazers.entity.projectile.ThrownSpear;
 import org.blazers.helper.RegistryHelper;
@@ -52,6 +54,14 @@ public final class BLEntityTypes {
             .updateInterval(20)
     );
 
+    public static final RegistryObject<EntityType<WitherSkeletonHorse>> WITHER_SKELETON_HORSE = registerEntityType("wither_skeleton_horse", EntityType.Builder.of(WitherSkeletonHorse::new, MobCategory.CREATURE)
+            .sized(1.3964844F, 1.6F)
+            .eyeHeight(1.52F)
+            .passengerAttachments(1.31875F)
+            .clientTrackingRange(10)
+            .fireImmune()
+    );
+
     //#endregion
 
     //#region Methods
@@ -79,6 +89,7 @@ public final class BLEntityTypes {
         EntityRenderers.register(PRIMED_ATOMIC_TNT.get(), AtomicTntRenderer::new);
         EntityRenderers.register(SPEAR.get(), ThrownSpearRenderer::new);
         EntityRenderers.register(MALACHITE_SPEAR.get(), ThrownMalachiteSpearRenderer::new);
+        EntityRenderers.register(WITHER_SKELETON_HORSE.get(), WitherSkeletonHorseRenderer::new);
     }
 
     //#endregion

@@ -435,7 +435,9 @@ public final class CreativeModeTabEvents {
      * @param event {@link BuildCreativeModeTabContentsEvent The Creative Mode Tab Build Contents event}
      */
     private static void setSpawnEggsTabContent(final BuildCreativeModeTabContentsEvent event) {
-
+        addToTab(event,
+            BLItems.WITHER_SKELETON_HORSE_SPAWN_EGG
+        );
     }
 
     /**

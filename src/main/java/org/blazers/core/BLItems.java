@@ -5,11 +5,14 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.renderer.item.ItemPropertyFunction;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -241,6 +244,14 @@ public final class BLItems {
 
     public static final RegistryObject<Item> MUSIC_DISC_SURVIVAL = registerMusicDisc("survival", Suppliers.memoize(() -> BLSounds.MUSIC_DISC_SURVIVAL.get()), 28);
     public static final RegistryObject<Item> MUSIC_DISC_ENDERMAN_VS_BLAZE = registerMusicDisc("enderman_vs_blaze", Suppliers.memoize(() -> BLSounds.MUSIC_DISC_ENDERMAN_VS_BLAZE.get()), 173);
+
+    //#endregion
+
+    //#region Spawn Eggs
+
+    public static final RegistryObject<Item> WITHER_SKELETON_HORSE_SPAWN_EGG = registerSpawnEgg("wither_skeleton_horse", BLEntityTypes.WITHER_SKELETON_HORSE, 4672845, 1315860);
+    //public static final RegistryObject<Item> FIREFLY_SPAWN_EGG = registerSpawnEgg("firefly", BLEntityTypes.FIREFLY, 0x0A0A0A, 0xF0C43E);
+    //public static final RegistryObject<Item> COPPER_GOLEM_SPAWN_EGG = registerSpawnEgg("copper_golem", BLEntityTypes.COPPER_GOLEM, 0xCC6600, 0x00CC99);
 
     //#endregion
 
@@ -480,6 +491,20 @@ public final class BLItems {
      */
     private static RegistryObject<Item> registerMusicDisc(final String name, final Supplier<SoundEvent> soundSupplier, final int length, final FeatureFlag... featureFlags) {
         return registerItem("music_disc_" + name, Suppliers.memoize(() -> new RecordItem(15, soundSupplier.get(), PropertyHelper.item(featureFlags).rarity(Rarity.RARE).stacksTo(1), length * 20)));
+    }
+
+    /**
+     * Register a {@link ForgeSpawnEggItem Spawn Egg Item}
+     *
+     * @param entityName {@link String The entity name}
+     * @param entityTypeSupplier {@link Supplier<EntityType> The Supplier for the Entity Type}
+     * @param primaryColor {@link Integer The spawn egg primary color}
+     * @param secondaryColor {@link Integer The spawn egg secondary color}
+     * @param featureFlags {@link FeatureFlag The Feature Flags that must be enabled for the Item to work}
+     * @return {@link RegistryObject<Item> The registered Spawn Egg}
+     */
+    private static RegistryObject<Item> registerSpawnEgg(final String entityName, final Supplier<? extends EntityType<? extends Mob>> entityTypeSupplier, final int primaryColor, final int secondaryColor, final FeatureFlag... featureFlags) {
+        return registerItem(entityName + "_spawn_egg", Suppliers.memoize(() -> new ForgeSpawnEggItem(entityTypeSupplier, primaryColor, secondaryColor, PropertyHelper.item(featureFlags))));
     }
 
     /**
