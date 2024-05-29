@@ -15,7 +15,7 @@ import java.util.Optional;
 /**
  * {@link BlazersMod Blazers Mod} {@link IBLWaxedBlock waxed Block}
  */
-public class BLWaxedBlock extends Block implements IBLWaxedBlock {
+public final class BLWaxedBlock extends Block implements IBLWaxedBlock {
 
     /**
      * Constructor. Set the {@link BlockBehaviour.Properties Block properties}

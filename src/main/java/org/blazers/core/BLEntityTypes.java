@@ -11,10 +11,12 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.blazers.client.renderer.AtomicTntRenderer;
+import org.blazers.client.renderer.entity.CopperGolemRenderer;
 import org.blazers.client.renderer.entity.FireflyRenderer;
 import org.blazers.client.renderer.entity.WitherSkeletonHorseRenderer;
 import org.blazers.client.renderer.projectile.ThrownMalachiteSpearRenderer;
 import org.blazers.client.renderer.projectile.ThrownSpearRenderer;
+import org.blazers.entity.CopperGolem;
 import org.blazers.entity.animal.Firefly;
 import org.blazers.entity.animal.WitherSkeletonHorse;
 import org.blazers.entity.block.PrimedAtomicTnt;
@@ -70,6 +72,12 @@ public final class BLEntityTypes {
             .clientTrackingRange(10)
     );
 
+    public static final RegistryObject<EntityType<CopperGolem>> COPPER_GOLEM = registerEntityType("copper_golem", EntityType.Builder.of(CopperGolem::new, MobCategory.MISC)
+            .sized(0.8F, 1.3F)
+            .eyeHeight(0.8F)
+            .clientTrackingRange(10)
+    );
+
     //#endregion
 
     //#region Methods
@@ -99,6 +107,7 @@ public final class BLEntityTypes {
         EntityRenderers.register(MALACHITE_SPEAR.get(), ThrownMalachiteSpearRenderer::new);
         EntityRenderers.register(WITHER_SKELETON_HORSE.get(), WitherSkeletonHorseRenderer::new);
         EntityRenderers.register(FIREFLY.get(), FireflyRenderer::new);
+        EntityRenderers.register(COPPER_GOLEM.get(), CopperGolemRenderer::new);
     }
 
     //#endregion

@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * {@link BlazersMod Blazers Mod} {@link Animal Firefly}
  */
-public class Firefly extends AmbientCreature {
+public final class Firefly extends AmbientCreature {
 
     /**
      * {@link BlockPos The entity target position}

@@ -27,7 +27,7 @@ import java.util.Objects;
 /**
  * {@link BlazersMod Blazers Mod} {@link Horse Wither Skeleton Horse}
  */
-public class WitherSkeletonHorse extends Horse {
+public final class WitherSkeletonHorse extends Horse {
 
     /**
      * Constructor. Set the entity properties
@@ -88,7 +88,7 @@ public class WitherSkeletonHorse extends Horse {
      *
      * @param blockPos {@link BlockPos The current BlockPos}
      * @param level {@link LevelReader The level reference}
-     * @return {@link }
+     * @return {@link Float The entity valid light level for spawn}
      */
     @Override
     public float getWalkTargetValue(final @NotNull BlockPos blockPos, final LevelReader level) {

@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 import org.blazers.BlazersMod;
 import org.blazers.client.model.ThrownMalachiteSpearModel;
 import org.blazers.client.model.ThrownSpearModel;
+import org.blazers.client.model.entity.CopperGolemModel;
 import org.blazers.client.model.entity.FireflyModel;
 
 /**
@@ -26,5 +27,6 @@ public final class LayerDefinitionEvents {
         event.registerLayerDefinition(ThrownSpearModel.LAYER_LOCATION, ThrownSpearModel::createBodyLayer);
         event.registerLayerDefinition(ThrownMalachiteSpearModel.LAYER_LOCATION, ThrownMalachiteSpearModel::createBodyLayer);
         event.registerLayerDefinition(FireflyModel.LAYER_LOCATION, FireflyModel::createBodyLayer);
+        event.registerLayerDefinition(CopperGolemModel.LAYER_LOCATION, CopperGolemModel::createBodyLayer);
     }
 }

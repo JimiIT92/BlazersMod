@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:copper_block",
+    "minecraft:cut_copper",
+    "minecraft:chiseled_copper",
+    "minecraft:copper_bulb",
+    "blazersmod:cut_copper_bricks",
+    "#blazersmod:exposed_copper_golem_spawnables",
+    "#blazersmod:weathered_copper_golem_spawnables",
+    "#blazersmod:oxidized_copper_golem_spawnables",
+    "#blazersmod:waxed_copper_golem_spawnables"
+  ]
+}

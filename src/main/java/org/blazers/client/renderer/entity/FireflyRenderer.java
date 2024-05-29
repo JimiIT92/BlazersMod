@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
  * Renderer class for a {@link Firefly Firefly}
  */
 @OnlyIn(Dist.CLIENT)
-public class FireflyRenderer extends MobRenderer<Firefly, FireflyModel> {
+public final class FireflyRenderer extends MobRenderer<Firefly, FireflyModel> {
 
     /**
      * Constructor. Set the renderer properties

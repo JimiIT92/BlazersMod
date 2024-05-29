@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:exposed_copper",
+    "minecraft:waxed_exposed_copper",
+    "minecraft:exposed_cut_copper",
+    "minecraft:waxed_exposed_cut_copper",
+    "minecraft:exposed_chiseled_copper",
+    "minecraft:waxed_exposed_chiseled_copper",
+    "minecraft:exposed_copper_bulb",
+    "minecraft:waxed_exposed_copper_bulb",
+    "blazersmod:exposed_cut_copper_bricks",
+    "blazersmod:waxed_exposed_cut_copper_bricks"
+  ]
+}

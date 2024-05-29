@@ -28,7 +28,7 @@ import java.util.Optional;
 /**
  * {@link BlazersMod Blazers Mod} {@link IBLWeatheringBlock weathering Block}
  */
-public class BLWeatheringBlock extends Block implements IBLWeatheringBlock {
+public final class BLWeatheringBlock extends Block implements IBLWeatheringBlock {
 
     /**
      * The {@link MapCodec<BLWeatheringBlock> Block codec}

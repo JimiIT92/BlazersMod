@@ -21,7 +21,7 @@ import static net.minecraft.world.level.block.RotatedPillarBlock.AXIS;
 /**
  * {@link BlazersMod Blazers Mod} {@link Feature Fallen Tree Feature} implementation class
  */
-public class FallenTreeFeature extends Feature<ProbabilityFeatureConfiguration> {
+public final class FallenTreeFeature extends Feature<ProbabilityFeatureConfiguration> {
 
     /**
      * {@link Supplier<BlockState> The Supplier for the Log Block State}

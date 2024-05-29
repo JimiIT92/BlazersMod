@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 /**
  * {@link BlazersMod Blazers Mod} {@link Recipe Recipe class} for a {@link Blocks#FLETCHING_TABLE Fletching Table}
  */
-public class FletchingRecipe implements Recipe<Container> {
+public final class FletchingRecipe implements Recipe<Container> {
 
     /**
      * The {@link String Fletching Recipe Id}

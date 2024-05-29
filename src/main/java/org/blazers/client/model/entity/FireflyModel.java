@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
  * Model class for a {@link Firefly Firefly}
  */
 @OnlyIn(Dist.CLIENT)
-public class FireflyModel extends EntityModel<Firefly> {
+public final class FireflyModel extends EntityModel<Firefly> {
 
     /**
      * The {@link ModelLayerLocation Model Layer Location}

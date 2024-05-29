@@ -22,6 +22,11 @@ public final class BLTags {
         //#region Tags
 
         public static final TagKey<Block> CATTAIL_PLACEABLE = tag("cattail_placeable");
+        public static final TagKey<Block> COPPER_GOLEM_SPAWNABLES = tag("copper_golem_spawnables");
+        public static final TagKey<Block> WEATHERED_COPPER_GOLEM_SPAWNABLES = tag("weathered_copper_golem_spawnables");
+        public static final TagKey<Block> EXPOSED_COPPER_GOLEM_SPAWNABLES = tag("exposed_copper_golem_spawnables");
+        public static final TagKey<Block> OXIDIZED_COPPER_GOLEM_SPAWNABLES = tag("oxidized_copper_golem_spawnables");
+        public static final TagKey<Block> WAXED_COPPER_GOLEM_SPAWNABLES = tag("waxed_copper_golem_spawnables");
 
         //#endregion
 

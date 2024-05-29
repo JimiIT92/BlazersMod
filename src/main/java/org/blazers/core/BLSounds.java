@@ -75,6 +75,14 @@ public final class BLSounds {
 
     //#endregion
 
+    //#region Copper Golem
+
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_AMBIENT = registerSound("copper_golem_ambient");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_HURT = registerSound("copper_golem_hurt");
+    public static final RegistryObject<SoundEvent> COPPER_GOLEM_DEATH = registerSound("copper_golem_death");
+
+    //#endregion
+
     //#region Misc
 
     public static final RegistryObject<SoundEvent> BRUH = registerSound("bruh");

@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
  * Renderer class for a {@link WitherSkeletonHorse Wither Skeleton Horse}
  */
 @OnlyIn(Dist.CLIENT)
-public class WitherSkeletonHorseRenderer extends AbstractHorseRenderer<WitherSkeletonHorse, HorseModel<WitherSkeletonHorse>> {
+public final class WitherSkeletonHorseRenderer extends AbstractHorseRenderer<WitherSkeletonHorse, HorseModel<WitherSkeletonHorse>> {
 
     /**
      * Constructor. Set the renderer properties

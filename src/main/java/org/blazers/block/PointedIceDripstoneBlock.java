@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * {@link BlazersMod Blazers Mod} {@link BLPointedDripstoneBlock Ice Pointed Dripstone Block}
  */
-public class PointedIceDripstoneBlock extends BLPointedDripstoneBlock {
+public final class PointedIceDripstoneBlock extends BLPointedDripstoneBlock {
     /**
      * Constructor. Sets the {@link BlockBehaviour.Properties Block properties}
      */

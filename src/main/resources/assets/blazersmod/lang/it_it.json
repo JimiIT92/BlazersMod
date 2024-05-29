@@ -122,6 +122,7 @@
   "item.blazersmod.black_katana": "Katana nera",
   "item.blazersmod.wither_skeleton_horse_spawn_egg": "Uovo generatore di cavallo scheletro wither",
   "item.blazersmod.firefly_spawn_egg": "Uovo generatore di lucciola",
+  "item.blazersmod.copper_golem_spawn_egg": "Uovo generatore di golem di rame",
   "block.blazersmod.hollow_oak_log": "Tronco di quercia cavo",
   "block.blazersmod.hollow_stripped_oak_log": "Tronco di quercia scortecciato cavo",
   "block.blazersmod.hollow_spruce_log": "Tronco di abete cavo",
@@ -254,10 +255,13 @@
   "entity.blazersmod.spear": "Lancia",
   "entity.blazersmod.wither_skeleton_horse": "Cavallo scheletro wither",
   "entity.blazersmod.firefly": "Lucciola",
+  "entity.blazersmod.copper_golem": "Golem di rame",
   "death.attack.spear": "%1$s ha impalato %2$s",
   "death.attack.spear.item": "%1$s ha impalato %2$s con %3$s",
   "advancements.adventure.music_disc_survival.title": "#thesecretofblazers",
   "advancements.adventure.music_disc_survival.description": "Una canzone dal passato...",
+  "advancements.adventure.summon_copper_golem.title": "È vivo!",
+  "advancements.adventure.summon_copper_golem.description": "Evoca il tuo nuovo piccolo migliore amico",
   "advancements.nether.raw_uranium.title": "Maneggiare con cura",
   "advancements.nether.raw_uranium.description": "Ottieni dell'uranio",
   "advancements.nether.blazerite.title": "Salve a tutti blazers!",
@@ -447,5 +451,8 @@
   "painting.blazersmod.ebl_scream.title": "Ebl scream",
   "painting.blazersmod.ebl_scream.author": "ErenBlaze",
   "painting.blazersmod.ebl_dp.title":  "Ebl Dp",
-  "painting.blazersmod.ebl_dp.author": "ErenBlaze"
+  "painting.blazersmod.ebl_dp.author": "ErenBlaze",
+  "subtitles.entity.blazersmod.copper_golem.ambient": "Golem di rame respira",
+  "subtitles.entity.blazersmod.copper_golem.hurt": "Golem di rame ferito",
+  "subtitles.entity.blazersmod.copper_golem.death": "Golem di rame muore"
 }

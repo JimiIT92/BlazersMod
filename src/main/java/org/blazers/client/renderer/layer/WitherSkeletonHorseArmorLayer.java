@@ -24,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
  * Renderer class for the {@link WitherSkeletonHorse Wither Skeleton Horse} armor layer
  */
 @OnlyIn(Dist.CLIENT)
-public class WitherSkeletonHorseArmorLayer extends RenderLayer<WitherSkeletonHorse, HorseModel<WitherSkeletonHorse>> {
+public final class WitherSkeletonHorseArmorLayer extends RenderLayer<WitherSkeletonHorse, HorseModel<WitherSkeletonHorse>> {
 
     /**
      * The {@link WitherSkeletonHorse Wither Skeleton Horse} {@link HorseModel Model}

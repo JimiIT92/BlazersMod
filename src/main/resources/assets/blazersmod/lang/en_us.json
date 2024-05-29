@@ -122,6 +122,7 @@
   "item.blazersmod.black_katana": "Black Katana",
   "item.blazersmod.wither_skeleton_horse_spawn_egg": "Wither Skeleton Horse Spawn Egg",
   "item.blazersmod.firefly_spawn_egg": "Firefly Spawn Egg",
+  "item.blazersmod.copper_golem_spawn_egg": "Copper Golem Spawn Egg",
   "block.blazersmod.hollow_oak_log": "Hollow Oak Log",
   "block.blazersmod.hollow_stripped_oak_log": "Hollow Stripped Oak Log",
   "block.blazersmod.hollow_spruce_log": "Hollow Spruce Log",
@@ -254,10 +255,13 @@
   "entity.blazersmod.spear": "Spear",
   "entity.blazersmod.wither_skeleton_horse": "Wither Skeleton Horse",
   "entity.blazersmod.firefly": "Firefly",
+  "entity.blazersmod.copper_golem": "Copper Golem",
   "death.attack.spear": "%1$s was impaled by %2$s",
   "death.attack.spear.item": "%1$s was impaled by %2$s with %3$s",
   "advancements.adventure.music_disc_survival.title": "#thesecretofblazers",
   "advancements.adventure.music_disc_survival.description": "A song from the past...",
+  "advancements.adventure.summon_copper_golem.title": "It's alive!",
+  "advancements.adventure.summon_copper_golem.description": "Summon your new little best friend",
   "advancements.nether.raw_uranium.title": "Handle with care",
   "advancements.nether.raw_uranium.description": "Obtain Uranium",
   "advancements.nether.blazerite.title": "Hi blazers!",
@@ -447,5 +451,8 @@
   "painting.blazersmod.ebl_scream.title": "Ebl scream",
   "painting.blazersmod.ebl_scream.author": "ErenBlaze",
   "painting.blazersmod.ebl_dp.title":  "Ebl Dp",
-  "painting.blazersmod.ebl_dp.author": "ErenBlaze"
+  "painting.blazersmod.ebl_dp.author": "ErenBlaze",
+  "subtitles.entity.blazersmod.copper_golem.ambient": "Copper Golem breathes",
+  "subtitles.entity.blazersmod.copper_golem.hurt": "Copper Golem hurts",
+  "subtitles.entity.blazersmod.copper_golem.death": "Copper Golem dies"
 }

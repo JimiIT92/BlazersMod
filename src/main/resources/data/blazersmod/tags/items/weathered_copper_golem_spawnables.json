@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:weathered_copper",
+    "minecraft:waxed_weathered_copper",
+    "minecraft:weathered_cut_copper",
+    "minecraft:waxed_weathered_cut_copper",
+    "minecraft:weathered_chiseled_copper",
+    "minecraft:waxed_weathered_chiseled_copper",
+    "minecraft:weathered_copper_bulb",
+    "minecraft:waxed_weathered_copper_bulb",
+    "blazersmod:weathered_cut_copper_bricks",
+    "blazersmod:waxed_weathered_cut_copper_bricks"
+  ]
+}

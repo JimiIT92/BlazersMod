@@ -42,7 +42,7 @@ public final class BLTabs {
     public static RegistryObject<CreativeModeTab> COMBAT = registerCreativeTab("combat", TOOLS_AND_UTILITIES, Suppliers.memoize(() -> BLItems.KATANA.get().getDefaultInstance()));
     public static RegistryObject<CreativeModeTab> FOOD_AND_DRINKS = registerCreativeTab("food_and_drinks", COMBAT, Suppliers.memoize(() -> BLItems.SASHIMI.get().getDefaultInstance()));
     public static RegistryObject<CreativeModeTab> INGREDIENTS = registerCreativeTab("ingredients", FOOD_AND_DRINKS, Suppliers.memoize(() -> BLItems.RUBY.get().getDefaultInstance()));
-    public static RegistryObject<CreativeModeTab> SPAWN_EGGS = registerCreativeTab("spawn_eggs", INGREDIENTS, Suppliers.memoize(Items.DIAMOND::getDefaultInstance));
+    public static RegistryObject<CreativeModeTab> SPAWN_EGGS = registerCreativeTab("spawn_eggs", INGREDIENTS, Suppliers.memoize(() -> BLItems.COPPER_GOLEM_SPAWN_EGG.get().getDefaultInstance()));
 
     //#endregion
 

@@ -28,17 +28,19 @@ public final class FletchingTableEvents {
      */
     @SubscribeEvent
     public static void onRightClickBlock(final PlayerInteractEvent.RightClickBlock event) {
-        final BlockPos blockPos = event.getPos();
-        final Level level = event.getLevel();
-        final BlockState blockState = level.getBlockState(blockPos);
-        if(blockState.is(Blocks.FLETCHING_TABLE)) {
-            event.setCanceled(true);
-            if(level.isClientSide) {
-                event.setCancellationResult(InteractionResult.SUCCESS);
-                return;
+        if(!event.isCanceled()) {
+            final BlockPos blockPos = event.getPos();
+            final Level level = event.getLevel();
+            final BlockState blockState = level.getBlockState(blockPos);
+            if(blockState.is(Blocks.FLETCHING_TABLE)) {
+                event.setCanceled(true);
+                if(level.isClientSide) {
+                    event.setCancellationResult(InteractionResult.SUCCESS);
+                    return;
+                }
+                event.getEntity().openMenu(new SimpleMenuProvider((id, inventory, player) -> new FletchingMenu(id, inventory, ContainerLevelAccess.create(level, blockPos)), Component.translatable("container.fletching")));
+                event.setCancellationResult(InteractionResult.CONSUME);
             }
-            event.getEntity().openMenu(new SimpleMenuProvider((id, inventory, player) -> new FletchingMenu(id, inventory, ContainerLevelAccess.create(level, blockPos)), Component.translatable("container.fletching")));
-            event.setCancellationResult(InteractionResult.CONSUME);
         }
     }
 
