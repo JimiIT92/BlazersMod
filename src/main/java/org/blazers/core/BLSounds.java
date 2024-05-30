@@ -25,6 +25,21 @@ public final class BLSounds {
 
     //#region Sounds
 
+    //#region Armors
+
+    public static final RegistryObject<SoundEvent> ARMOR_EQUIP_EMERALD = registerSound("armor_equip_emerald");
+    public static final RegistryObject<SoundEvent> ARMOR_EQUIP_AMETHYST = registerSound("armor_equip_amethyst");
+    public static final RegistryObject<SoundEvent> ARMOR_EQUIP_SAPPHIRE = registerSound("armor_equip_sapphire");
+    public static final RegistryObject<SoundEvent> ARMOR_EQUIP_TOPAZ = registerSound("armor_equip_topaz");
+    public static final RegistryObject<SoundEvent> ARMOR_EQUIP_PEARL = registerSound("armor_equip_pearl");
+    public static final RegistryObject<SoundEvent> ARMOR_EQUIP_RUBY = registerSound("armor_equip_ruby");
+    public static final RegistryObject<SoundEvent> ARMOR_EQUIP_ONICE = registerSound("armor_equip_onice");
+    public static final RegistryObject<SoundEvent> ARMOR_EQUIP_MALACHITE = registerSound("armor_equip_malachite");
+    public static final RegistryObject<SoundEvent> ARMOR_EQUIP_BLAZERITE = registerSound("armor_equip_blazerite");
+    public static final RegistryObject<SoundEvent> ARMOR_EQUIP_GYULIANITE = registerSound("armor_equip_gyulianite");
+
+    //#endregion
+
     //#region Music Discs
 
     public static final RegistryObject<SoundEvent> MUSIC_DISC_SURVIVAL = registerSound("music_disc_survival");

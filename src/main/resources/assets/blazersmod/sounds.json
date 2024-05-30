@@ -225,8 +225,120 @@
       "blazersmod:copper_horn_sweet_moon_love_harmony"
     ]
   },
+  "armor_equip_emerald": {
+    "subtitle": "subtitles.blazersmod.item.armor.equip_emerald",
+    "sounds": [
+      "minecraft:item/armor/equip_diamond1",
+      "minecraft:item/armor/equip_diamond2",
+      "minecraft:item/armor/equip_diamond3",
+      "minecraft:item/armor/equip_diamond4",
+      "minecraft:item/armor/equip_diamond5",
+      "minecraft:item/armor/equip_diamond6"
+    ]
+  },
+  "armor_equip_amethyst":{
+    "subtitle": "subtitles.blazersmod.item.armor.equip_amethyst",
+    "sounds": [
+      "minecraft:block/amethyst/step1",
+      "minecraft:block/amethyst/step2",
+      "minecraft:block/amethyst/step3",
+      "minecraft:block/amethyst/step4",
+      "minecraft:block/amethyst/step5",
+      "minecraft:block/amethyst/step6",
+      "minecraft:block/amethyst/step7",
+      "minecraft:block/amethyst/step8",
+      "minecraft:block/amethyst/step9",
+      "minecraft:block/amethyst/step10",
+      "minecraft:block/amethyst/step11",
+      "minecraft:block/amethyst/step12",
+      "minecraft:block/amethyst/step13",
+      "minecraft:block/amethyst/step14"
+    ]
+  },
+  "armor_equip_sapphire": {
+    "subtitle": "subtitles.blazersmod.item.armor.equip_sapphire",
+    "sounds": [
+      "minecraft:item/armor/equip_diamond1",
+      "minecraft:item/armor/equip_diamond2",
+      "minecraft:item/armor/equip_diamond3",
+      "minecraft:item/armor/equip_diamond4",
+      "minecraft:item/armor/equip_diamond5",
+      "minecraft:item/armor/equip_diamond6"
+    ]
+  },
+  "armor_equip_topaz":{
+    "subtitle": "subtitles.blazersmod.item.armor.equip_topaz",
+    "sounds": [
+      "minecraft:item/armor/equip_iron1",
+      "minecraft:item/armor/equip_iron2",
+      "minecraft:item/armor/equip_iron3",
+      "minecraft:item/armor/equip_iron4",
+      "minecraft:item/armor/equip_iron5",
+      "minecraft:item/armor/equip_iron6"
+    ]
+  },
+  "armor_equip_pearl": {
+    "subtitle": "subtitles.blazersmod.item.armor.equip_pearl",
+    "sounds": [
+      "minecraft:block/bone_block/break1",
+      "minecraft:block/bone_block/break2",
+      "minecraft:block/bone_block/break3",
+      "minecraft:block/bone_block/break4",
+      "minecraft:block/bone_block/break5"
+    ]
+  },
+  "armor_equip_ruby":{
+    "subtitle": "subtitles.blazersmod.item.armor.equip_ruby",
+    "sounds": [
+      "minecraft:item/armor/equip_diamond1",
+      "minecraft:item/armor/equip_diamond2",
+      "minecraft:item/armor/equip_diamond3",
+      "minecraft:item/armor/equip_diamond4",
+      "minecraft:item/armor/equip_diamond5",
+      "minecraft:item/armor/equip_diamond6"
+    ]
+  },
+  "armor_equip_onice": {
+    "subtitle": "subtitles.blazersmod.item.armor.equip_onice",
+    "sounds": [
+      "minecraft:item/armor/equip_iron1",
+      "minecraft:item/armor/equip_iron2",
+      "minecraft:item/armor/equip_iron3",
+      "minecraft:item/armor/equip_iron4",
+      "minecraft:item/armor/equip_iron5",
+      "minecraft:item/armor/equip_iron6"
+    ]
+  },
+  "armor_equip_malachite":{
+    "subtitle": "subtitles.blazersmod.item.armor.equip_malachite",
+    "sounds": [
+      "minecraft:item/armor/equip_iron1",
+      "minecraft:item/armor/equip_iron2",
+      "minecraft:item/armor/equip_iron3",
+      "minecraft:item/armor/equip_iron4",
+      "minecraft:item/armor/equip_iron5",
+      "minecraft:item/armor/equip_iron6"
+    ]
+  },
+  "armor_equip_blazerite": {
+    "subtitle": "subtitles.blazersmod.item.armor.equip_blazerite",
+    "sounds": [
+      "minecraft:mob/ghast/fireball4"
+    ]
+  },
+  "armor_equip_gyulianite":{
+    "subtitle": "subtitles.blazersmod.item.armor.equip_gyulianite",
+    "sounds": [
+      "minecraft:block/netherrack/step1",
+      "minecraft:block/netherrack/step2",
+      "minecraft:block/netherrack/step3",
+      "minecraft:block/netherrack/step4",
+      "minecraft:block/netherrack/step5",
+      "minecraft:block/netherrack/step6"
+    ]
+  },
   "copper_golem_ambient": {
-    "subtitle": "subtitles.entity.blazersmod.copper_golem.ambient",
+    "subtitle": "subtitles.blazersmod.entity.copper_golem.ambient",
     "sounds": [
       "minecraft:block/copper/step1",
       "minecraft:block/copper/step2",
@@ -241,7 +353,7 @@
     ]
   },
   "copper_golem_hurt": {
-    "subtitle": "subtitles.entity.blazersmod.copper_golem.hurt",
+    "subtitle": "subtitles.blazersmod.entity.copper_golem.hurt",
     "sounds": [
       "minecraft:item/axe/wax_off_1",
       "minecraft:item/axe/wax_off_2",
@@ -249,7 +361,7 @@
     ]
   },
   "copper_golem_death": {
-    "subtitle": "subtitles.entity.blazersmod.copper_golem.death",
+    "subtitle": "subtitles.blazersmod.entity.copper_golem.death",
     "sounds": [
       "minecraft:item/axe/scrape_1",
       "minecraft:item/axe/scrape_2",

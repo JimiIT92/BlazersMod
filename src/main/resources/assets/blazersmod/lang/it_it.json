@@ -452,7 +452,17 @@
   "painting.blazersmod.ebl_scream.author": "ErenBlaze",
   "painting.blazersmod.ebl_dp.title":  "Ebl Dp",
   "painting.blazersmod.ebl_dp.author": "ErenBlaze",
-  "subtitles.entity.blazersmod.copper_golem.ambient": "Golem di rame respira",
-  "subtitles.entity.blazersmod.copper_golem.hurt": "Golem di rame ferito",
-  "subtitles.entity.blazersmod.copper_golem.death": "Golem di rame muore"
+  "subtitles.blazersmod.item.armor.equip_emerald": "Armatura di smeraldo tintinna",
+  "subtitles.blazersmod.item.armor.equip_amethyst": "Armatura d'ametista rintocca",
+  "subtitles.blazersmod.item.armor.equip_sapphire": "Armatura di zaffiro tintinna",
+  "subtitles.blazersmod.item.armor.equip_topaz": "Armatura di topazio sferraglia",
+  "subtitles.blazersmod.item.armor.equip_pearl": "Armatura di perla sferraglia",
+  "subtitles.blazersmod.item.armor.equip_ruby": "Armatura di rubino tintinna",
+  "subtitles.blazersmod.item.armor.equip_onice": "Armatura d'onice sferraglia",
+  "subtitles.blazersmod.item.armor.equip_malachite": "Armatura di malachite sferraglia",
+  "subtitles.blazersmod.item.armor.equip_blazerite": "Armatura di blazerite tintinna",
+  "subtitles.blazersmod.item.armor.equip_gyulianite": "Armatura di gyulianite tintinna",
+  "subtitles.blazersmod.entity.copper_golem.ambient": "Golem di rame respira",
+  "subtitles.blazersmod.entity.copper_golem.hurt": "Golem di rame ferito",
+  "subtitles.blazersmod.entity.copper_golem.death": "Golem di rame muore"
 }

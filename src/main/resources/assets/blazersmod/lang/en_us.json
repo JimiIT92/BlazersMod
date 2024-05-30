@@ -452,7 +452,17 @@
   "painting.blazersmod.ebl_scream.author": "ErenBlaze",
   "painting.blazersmod.ebl_dp.title":  "Ebl Dp",
   "painting.blazersmod.ebl_dp.author": "ErenBlaze",
-  "subtitles.entity.blazersmod.copper_golem.ambient": "Copper Golem breathes",
-  "subtitles.entity.blazersmod.copper_golem.hurt": "Copper Golem hurts",
-  "subtitles.entity.blazersmod.copper_golem.death": "Copper Golem dies"
+  "subtitles.blazersmod.item.armor.equip_emerald": "Emerald armor clangs",
+  "subtitles.blazersmod.item.armor.equip_amethyst": "Amethyst armor chimes",
+  "subtitles.blazersmod.item.armor.equip_sapphire": "Sapphire armor clangs",
+  "subtitles.blazersmod.item.armor.equip_topaz": "Topaz armor clanks",
+  "subtitles.blazersmod.item.armor.equip_pearl": "Pearl armor clinks",
+  "subtitles.blazersmod.item.armor.equip_ruby": "Ruby armor clangs",
+  "subtitles.blazersmod.item.armor.equip_onice": "Onice armor clanks",
+  "subtitles.blazersmod.item.armor.equip_malachite": "Malachite armor clanks",
+  "subtitles.blazersmod.item.armor.equip_blazerite": "Blazerite armor clangs",
+  "subtitles.blazersmod.item.armor.equip_gyulianite": "Gyulianite armor clangs",
+  "subtitles.blazersmod.entity.copper_golem.ambient": "Copper Golem breathes",
+  "subtitles.blazersmod.entity.copper_golem.hurt": "Copper Golem hurts",
+  "subtitles.blazersmod.entity.copper_golem.death": "Copper Golem dies"
 }

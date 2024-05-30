@@ -2,10 +2,8 @@ package org.blazers.core;
 
 import com.google.common.base.Suppliers;
 import net.minecraft.Util;
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
@@ -45,7 +43,7 @@ public final class BLArmorMaterials {
             13,
             2.5F,
             0F,
-            SoundEvents.ARMOR_EQUIP_DIAMOND,
+            BLSounds.ARMOR_EQUIP_EMERALD,
             Suppliers.memoize(() -> Items.EMERALD)
     );
     public static final RegistryObject<ArmorMaterial> AMETHYST = registerArmorMaterial(
@@ -58,7 +56,7 @@ public final class BLArmorMaterials {
             12,
             0F,
             0F,
-            Holder.direct(SoundEvents.AMETHYST_BLOCK_CHIME),
+            BLSounds.ARMOR_EQUIP_AMETHYST,
             Suppliers.memoize(() -> Items.AMETHYST_SHARD)
     );
     public static final RegistryObject<ArmorMaterial> SAPPHIRE = registerArmorMaterial(
@@ -71,7 +69,7 @@ public final class BLArmorMaterials {
             13,
             2.5F,
             0F,
-            SoundEvents.ARMOR_EQUIP_DIAMOND,
+            BLSounds.ARMOR_EQUIP_SAPPHIRE,
             Suppliers.memoize(() -> BLItems.SAPPHIRE.get())
     );
     public static final RegistryObject<ArmorMaterial> TOPAZ = registerArmorMaterial(
@@ -84,7 +82,7 @@ public final class BLArmorMaterials {
             9,
             1F,
             0F,
-            SoundEvents.ARMOR_EQUIP_IRON,
+            BLSounds.ARMOR_EQUIP_TOPAZ,
             Suppliers.memoize(() -> BLItems.TOPAZ.get())
     );
     public static final RegistryObject<ArmorMaterial> PEARL = registerArmorMaterial(
@@ -97,7 +95,7 @@ public final class BLArmorMaterials {
             12,
             0F,
             0F,
-            Holder.direct(SoundEvents.BONE_BLOCK_BREAK),
+            BLSounds.ARMOR_EQUIP_PEARL,
             Suppliers.memoize(() -> BLItems.PEARL.get())
     );
     public static final RegistryObject<ArmorMaterial> RUBY = registerArmorMaterial(
@@ -110,7 +108,7 @@ public final class BLArmorMaterials {
             13,
             2.5F,
             0F,
-            SoundEvents.ARMOR_EQUIP_DIAMOND,
+            BLSounds.ARMOR_EQUIP_RUBY,
             Suppliers.memoize(() -> BLItems.RUBY.get())
     );
     public static final RegistryObject<ArmorMaterial> ONICE = registerArmorMaterial(
@@ -123,7 +121,7 @@ public final class BLArmorMaterials {
             9,
             1F,
             0F,
-            SoundEvents.ARMOR_EQUIP_IRON,
+            BLSounds.ARMOR_EQUIP_ONICE,
             Suppliers.memoize(() -> BLItems.ONICE.get())
     );
     public static final RegistryObject<ArmorMaterial> MALACHITE = registerArmorMaterial(
@@ -136,7 +134,7 @@ public final class BLArmorMaterials {
             9,
             1F,
             0F,
-            SoundEvents.ARMOR_EQUIP_IRON,
+            BLSounds.ARMOR_EQUIP_MALACHITE,
             Suppliers.memoize(() -> BLItems.MALACHITE.get())
     );
     public static final RegistryObject<ArmorMaterial> BLAZERITE = registerArmorMaterial(
@@ -149,7 +147,7 @@ public final class BLArmorMaterials {
             18,
             4F,
             0.2F,
-            Holder.direct(SoundEvents.FIRECHARGE_USE),
+            BLSounds.ARMOR_EQUIP_BLAZERITE,
             Suppliers.memoize(() -> BLItems.BLAZERITE.get())
     );
     public static final RegistryObject<ArmorMaterial> GYULIANITE = registerArmorMaterial(
@@ -162,7 +160,7 @@ public final class BLArmorMaterials {
             18,
             4F,
             0.2F,
-            Holder.direct(SoundEvents.NETHERRACK_HIT),
+            BLSounds.ARMOR_EQUIP_GYULIANITE,
             Suppliers.memoize(() -> BLItems.GYULIANITE.get())
     );
 
@@ -182,11 +180,11 @@ public final class BLArmorMaterials {
      * @param enchantmentValue {@link Integer The armor enchantability value}
      * @param armorThoughness {@link Integer The armor thoughness}
      * @param knockbackResistance {@link Integer The armor knockback resistance}
-     * @param equipSound {@link Holder<SoundEvent> The armor equip sound}
+     * @param equipSound {@link RegistryObject<SoundEvent> The armor equip sound}
      * @param repairItemSupplier {@link Supplier<Item> The supplier for the Item used to repair the armor}
      * @return {@link RegistryObject<ArmorMaterial> The registered Armor Material}
      */
-    private static RegistryObject<ArmorMaterial> registerArmorMaterial(final String name, final int bootDefence, final int leggingsDefence, final int chestplateDefence, final int helmetDefence, final int bodyDefence, final int enchantmentValue, final float armorThoughness, final float knockbackResistance, final Holder<SoundEvent> equipSound, final Supplier<Item> repairItemSupplier) {
+    private static RegistryObject<ArmorMaterial> registerArmorMaterial(final String name, final int bootDefence, final int leggingsDefence, final int chestplateDefence, final int helmetDefence, final int bodyDefence, final int enchantmentValue, final float armorThoughness, final float knockbackResistance, final RegistryObject<SoundEvent> equipSound, final Supplier<Item> repairItemSupplier) {
         return ARMOR_MATERIALS.register(name, createArmorMaterial(name, bootDefence, leggingsDefence, chestplateDefence, helmetDefence, bodyDefence, enchantmentValue, armorThoughness, knockbackResistance, equipSound, repairItemSupplier));
     }
 
@@ -202,11 +200,11 @@ public final class BLArmorMaterials {
      * @param enchantmentValue {@link Integer The armor enchantability value}
      * @param armorThoughness {@link Integer The armor thoughness}
      * @param knockbackResistance {@link Integer The armor knockback resistance}
-     * @param equipSound {@link Holder<SoundEvent> The armor equip sound}
+     * @param equipSound {@link RegistryObject<SoundEvent> The armor equip sound}
      * @param repairItemSupplier {@link Supplier<Item> The supplier for the Item used to repair the armor}
      * @return {@link RegistryObject<ArmorMaterial> The registered Armor Material}
      */
-    private static Supplier<ArmorMaterial> createArmorMaterial(final String name, final int bootDefence, final int leggingsDefence, final int chestplateDefence, final int helmetDefence, final int bodyDefence, final int enchantmentValue, final float armorThoughness, final float knockbackResistance, final Holder<SoundEvent> equipSound, final Supplier<Item> repairItemSupplier) {
+    private static Supplier<ArmorMaterial> createArmorMaterial(final String name, final int bootDefence, final int leggingsDefence, final int chestplateDefence, final int helmetDefence, final int bodyDefence, final int enchantmentValue, final float armorThoughness, final float knockbackResistance, final RegistryObject<SoundEvent> equipSound, final Supplier<Item> repairItemSupplier) {
         return Suppliers.memoize(() -> new ArmorMaterial(
                 Util.make(new EnumMap<>(ArmorItem.Type.class), map -> {
                     map.put(ArmorItem.Type.BOOTS, bootDefence);
@@ -216,7 +214,7 @@ public final class BLArmorMaterials {
                     map.put(ArmorItem.Type.BODY, bodyDefence);
                 }),
                 enchantmentValue,
-                equipSound,
+                equipSound.getHolder().orElseThrow(),
                 Suppliers.memoize(() -> Ingredient.of(repairItemSupplier.get())),
                 List.of(new ArmorMaterial.Layer(RegistryHelper.location(name), "", true)),
                 armorThoughness,
