@@ -1,25 +1,23 @@
 modLoader = "javafml"
 loaderVersion = "${loader_version_range}"
 license = "MIT"
-issueTrackerURL="https://github.com/JimiIT92/BlazersMod/issues"
+issueTrackerURL="${mod_url}/issues"
 [[mods]]
-modId = "blazersmod"
+modId = "${mod_id}"
 version = "${mod_version}-${minecraft_version}-Forge"
-displayName = "Blazers Mod"
-displayURL="https://github.com/JimiIT92/BlazersMod"
+displayName = "${mod_name}"
+displayURL="${mod_url}"
 logoFile="icon.png"
-credits="Idea and textures by ErenBlaze | Beta tested by Francy Pugliese"
-authors = "JimiIT92"
-description = '''
-A Minecraft mod made for ErenBlaze and his community
-'''
-[[dependencies.blazersmod]]
+credits="${mod_credits}"
+authors = "${mod_author}"
+description = "${mod_description}"
+[[dependencies.${mod_id}]]
 modId = "forge"
 mandatory = true
 versionRange = "${loader_version_range}"
 ordering = "NONE"
 side = "BOTH"
-[[dependencies.blazersmod]]
+[[dependencies.${mod_id}]]
 modId = "minecraft"
 mandatory = true
 versionRange = "${minecraft_version_range}"
