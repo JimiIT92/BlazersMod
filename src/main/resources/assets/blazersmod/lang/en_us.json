@@ -1,3 +1,15 @@
 {
-  "item.blazersmod.ruby": "Ruby"
+  "itemGroup.blazersmod.ingredients": "Ingredients (Blazers Mod)",
+  "item.blazersmod.raw_uranium": "Raw Uranium",
+  "item.blazersmod.ruby": "Ruby",
+  "item.blazersmod.sapphire": "Sapphire",
+  "item.blazersmod.topaz": "Topaz",
+  "item.blazersmod.pearl": "Pearl",
+  "item.blazersmod.malachite": "Malachite",
+  "item.blazersmod.onice": "Onice",
+  "item.blazersmod.blazerite": "Blazerite",
+  "item.blazersmod.gyulianite":  "Gyulianite",
+  "item.blazersmod.uranium_nugget": "Uranium Nugget",
+  "item.blazersmod.uranium_ingot":  "Uranium Ingot",
+  "item.blazersmod.carbon":  "Carbon"
 }

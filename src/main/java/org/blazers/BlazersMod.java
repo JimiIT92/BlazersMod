@@ -4,6 +4,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.blazers.core.BLItems;
+import org.blazers.core.BLTabs;
 import org.hendrix.forge.HendrixCoreForge;
 
 /**
@@ -27,6 +28,7 @@ public final class BlazersMod {
 
         final IEventBus eventBus = context.getModEventBus();
 
+        BLTabs.register(eventBus);
         BLItems.register(eventBus);
     }
 

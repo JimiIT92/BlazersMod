@@ -1,6 +1,7 @@
 package org.blazers.core;
 
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
@@ -14,7 +15,18 @@ public final class BLItems {
 
     //#region Items
 
+    public static final RegistryObject<Item> RAW_URANIUM = ItemHelper.registerSimpleItem("raw_uranium");
+    public static final RegistryObject<Item> SAPPHIRE = ItemHelper.registerSimpleItem("sapphire");
     public static final RegistryObject<Item> RUBY = ItemHelper.registerSimpleItem("ruby");
+    public static final RegistryObject<Item> TOPAZ = ItemHelper.registerSimpleItem("topaz");
+    public static final RegistryObject<Item> PEARL = ItemHelper.registerSimpleItem("pearl");
+    public static final RegistryObject<Item> MALACHITE = ItemHelper.registerSimpleItem("malachite");
+    public static final RegistryObject<Item> ONICE = ItemHelper.registerSimpleItem("onice");
+    public static final RegistryObject<Item> BLAZERITE = ItemHelper.registerRareItem("blazerite", Rarity.RARE);
+    public static final RegistryObject<Item> GYULIANITE = ItemHelper.registerRareItem("gyulianite", Rarity.RARE);
+    public static final RegistryObject<Item> URANIUM_NUGGET = ItemHelper.registerSimpleItem("uranium_nugget");
+    public static final RegistryObject<Item> URANIUM_INGOT = ItemHelper.registerSimpleItem("uranium_ingot");
+    public static final RegistryObject<Item> CARBON = ItemHelper.registerSimpleItem("carbon");
 
     //#endregion
 

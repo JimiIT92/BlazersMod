@@ -6,24 +6,24 @@
 
 La prima, storica, ufficiale mod dei Blazers, i veri fan di [ErenBlaze](https://www.youtube.com/c/ErenBlaze)!
 
-# 🔥 Perchè proprio la Blazers Mod?
+# 🔥 Perché proprio la Blazers Mod?
 
 L'obiettivo della mod è portare alcuni elementi del mondo di ErenBlaze all'interno di Minecraft, mantenendo, però, uno stile _vanilla_
 aggiungendo anche contenuti di update mancati o che comunque non stonerebbero troppo all'interno del gioco base.
 
-Quindi, benchè questa sia la _mod dei blazers_, è in realtà adatta a praticamente tutti! 😁
+Quindi, benché questa sia la _mod dei blazers_, è in realtà adatta a praticamente tutti! 😁
 [![BLAZE UPDATE!! La MIA MOD di MINECRAFT](https://yt-embed.herokuapp.com/embed?v=C1nPkcRmptI)](https://www.youtube.com/watch?v=C1nPkcRmptI "BLAZE UPDATE!! La MIA MOD di MINECRAFT")
 
 # 🪐 Cosa aggiunge la mod?
 
-- **Due** nuovi minerali nell'Overworld: Zaffiro e Perla
+- **Due** nuovi minerali nell' Overworld: Zaffiro e Perla
 - **Quattro** nuovi minerali nel Nether: Rubino, Onice, Malachite e Uranio
 - Nuove armi, attrezzi e armature ottenuti dai minerali aggiunti e dallo Smeraldo
 - Nuovi cibi ispirati alla cultura giapponese
 - **Due** nuovi minerali "definitivi": Blazerite e Gyulianite
 - **Tre** nuovi quadri
 - Alcune feature rimosse del "Wild Update": legni cavi, lucciole, tife, funghi sui lati dei tronchi, alberi caduti...
-- Una nuova tipolgia di cavallo scheletrico nel Nether: il cavallo di scheletro wither
+- Una nuova tipologia di cavallo scheletrico nel Nether: il cavallo di scheletro wither
 - Pulsanti di rame
 - Nuove varianti di mattoni per diversi materiali
 - Funzionalità per la Fletching Table
@@ -34,11 +34,11 @@ Quindi, benchè questa sia la _mod dei blazers_, è in realtà adatta a praticam
 # 🌐 Dove posso scaricarla?
 
 La mod è scaricabile **esclusivamente** da [CurseForge](https://www.curseforge.com/minecraft/mc-mods/blazers-mod). 
-Se avete ottenuto la mod tramite altri siti **cancellate il file immediatamente**, poichè potrebbe essere dannoso.
+Se avete ottenuto la mod tramite altri siti **cancellate il file immediatamente**, poiché potrebbe essere dannoso.
 
 Ogni aggiornamento e nuova release verranno rilasciate lì, seguite da un aggiornamento (per il momento) sul sito di [MineWorld](https://mineworldminecraft.altervista.org/blog/blazers-mod-versione-1-18-e-importanti-novita), la mia mod personale. 
 
-A breve arriverà anche un sito dedicato interamente al progetto, con la wiki dei vari crafting, blocchi, oggetti, mob..
+A breve arriverà anche un sito dedicato interamente al progetto, con la wiki dei vari crafting, blocchi, oggetti, mob...
 
 Restate sintonizzati per scoprire il futuro della Blazers Mod e come questo sarà strettamente collegato a MineWorld 👀 
 
@@ -86,7 +86,7 @@ Se volete, inoltre, dare un'occhiata ai canali YouTube e Twitch miei e di ErenBl
 - Erenblaze _[YouTube](https://www.youtube.com/c/ErenBlaze) | [Twitch](https://www.twitch.tv/erenblaze)_
 
 Per il momento questo è tutto, gente! Se avete segnalazioni o idee inerenti la mod vi invito a farle utilizzando
-[il seguente link](https://github.com/JimiIT92/BlazersMod/issues). **Non inviate messaggi privati, a me o a ErenBlaze, poichè verrebbero molto probabilmente ignorati...**
+[il seguente link](https://github.com/JimiIT92/BlazersMod/issues). **Non inviate messaggi privati, a me o a ErenBlaze, poiché verrebbero molto probabilmente ignorati...**
 
 _Ciao a tutti, Blazers!_ 😎
 

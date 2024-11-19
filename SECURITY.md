@@ -9,4 +9,4 @@ verrà automaticamente considerata _non supportata_
 
 Potete segnalare una vulnerabilità, o in generale un problema con la mod, usando l'[Issue Tracker](https://github.com/JimiIT92/BlazersMod/issues).
 
-Ogni segnalazione inviata in altro modo (messaggi privati, mail...) verrà molto probabilmente ignorata.
+Ogni segnalazione inviata in altro modo, ad esempio messaggi privati, o mail, verrà molto probabilmente ignorata.
