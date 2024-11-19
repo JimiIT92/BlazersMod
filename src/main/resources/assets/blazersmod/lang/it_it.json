@@ -1,6 +1,7 @@
 {
   "itemGroup.blazersmod.food_and_drink": "Cibi e bevande (Blazers Mod)",
   "itemGroup.blazersmod.ingredients": "Ingredienti (Blazers Mod)",
+  "itemGroup.blazersmod.combat": "Combattimento (Blazers Mod)",
   "item.blazersmod.raw_uranium": "Uranio grezzo",
   "item.blazersmod.ruby": "Rubino",
   "item.blazersmod.sapphire": "Zaffiro",
@@ -15,5 +16,6 @@
   "item.blazersmod.carbon":  "Carbonio",
   "item.blazersmod.hosomaki": "Hosomaki",
   "item.blazersmod.nigiri": "Nigiri",
-  "item.blazersmod.sashimi": "Sashimi"
+  "item.blazersmod.sashimi": "Sashimi",
+  "item.blazersmod.emerald_sword": "Spada di smeraldo"
 }

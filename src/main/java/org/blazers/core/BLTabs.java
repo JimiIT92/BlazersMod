@@ -19,7 +19,8 @@ public final class BLTabs {
 
     //#region Creative Mode Tabs
 
-    public static RegistryObject<CreativeModeTab> FOOD_AND_DRINK = CreativeModeTabHelper.tab("food_and_drink", BLItems.SASHIMI);
+    public static RegistryObject<CreativeModeTab> COMBAT = CreativeModeTabHelper.tab("combat", BLItems.EMERALD_SWORD);
+    public static RegistryObject<CreativeModeTab> FOOD_AND_DRINK = CreativeModeTabHelper.tab("food_and_drink", BLItems.SASHIMI, COMBAT.getKey());
     public static RegistryObject<CreativeModeTab> INGREDIENTS = CreativeModeTabHelper.tab("ingredients", BLItems.RUBY, FOOD_AND_DRINK.getKey());
 
     //#endregion
@@ -32,6 +33,12 @@ public final class BLTabs {
     @SubscribeEvent
     public static void addItemsToCreativeModeTabs(final BuildCreativeModeTabContentsEvent event) {
         final CreativeModeTab tab = event.getTab();
+        if(CreativeModeTabHelper.isTab(event, COMBAT)) {
+            CreativeModeTabHelper.addItems(event,
+                    BLItems.EMERALD_SWORD
+            );
+            return;
+        }
         if(CreativeModeTabHelper.isTab(event, INGREDIENTS)) {
             CreativeModeTabHelper.addItems(event,
                     BLItems.RAW_URANIUM,

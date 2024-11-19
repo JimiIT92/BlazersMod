@@ -41,6 +41,12 @@ public final class BLItems {
 
     //#endregion
 
+    //#region Tools and Swords
+
+    public static final RegistryObject<Item> EMERALD_SWORD = ItemHelper.registerSword("emerald_sword", BLToolMaterials.EMERALD);
+
+    //#endregion
+
     //#endregion
 
     /**
