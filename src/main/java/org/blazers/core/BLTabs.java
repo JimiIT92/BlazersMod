@@ -19,7 +19,8 @@ public final class BLTabs {
 
     //#region Creative Mode Tabs
 
-    public static RegistryObject<CreativeModeTab> INGREDIENTS = CreativeModeTabHelper.tab("ingredients", BLItems.RUBY);
+    public static RegistryObject<CreativeModeTab> FOOD_AND_DRINK = CreativeModeTabHelper.tab("food_and_drink", BLItems.SASHIMI);
+    public static RegistryObject<CreativeModeTab> INGREDIENTS = CreativeModeTabHelper.tab("ingredients", BLItems.RUBY, FOOD_AND_DRINK.getKey());
 
     //#endregion
 
@@ -45,6 +46,14 @@ public final class BLTabs {
                     BLItems.URANIUM_NUGGET,
                     BLItems.URANIUM_INGOT,
                     BLItems.CARBON
+            );
+            return;
+        }
+        if(CreativeModeTabHelper.isTab(event, FOOD_AND_DRINK)) {
+            CreativeModeTabHelper.addItems(event,
+                    BLItems.HOSOMAKI,
+                    BLItems.NIGIRI,
+                    BLItems.SASHIMI
             );
         }
     }

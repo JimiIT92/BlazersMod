@@ -1,4 +1,5 @@
 {
+  "itemGroup.blazersmod.food_and_drink": "Food and Drinks (Blazers Mod)",
   "itemGroup.blazersmod.ingredients": "Ingredients (Blazers Mod)",
   "item.blazersmod.raw_uranium": "Raw Uranium",
   "item.blazersmod.ruby": "Ruby",
@@ -11,5 +12,8 @@
   "item.blazersmod.gyulianite":  "Gyulianite",
   "item.blazersmod.uranium_nugget": "Uranium Nugget",
   "item.blazersmod.uranium_ingot":  "Uranium Ingot",
-  "item.blazersmod.carbon":  "Carbon"
+  "item.blazersmod.carbon":  "Carbon",
+  "item.blazersmod.hosomaki": "Hosomaki",
+  "item.blazersmod.nigiri": "Nigiri",
+  "item.blazersmod.sashimi": "Sashimi"
 }

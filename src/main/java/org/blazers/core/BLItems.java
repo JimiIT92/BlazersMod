@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.RegistryObject;
 import org.blazers.BlazersMod;
 import org.hendrix.forge.helper.ItemHelper;
+import org.hendrix.forge.helper.PropertyHelper;
 import org.hendrix.forge.registries.HCRegistries;
 
 /**
@@ -14,6 +15,8 @@ import org.hendrix.forge.registries.HCRegistries;
 public final class BLItems {
 
     //#region Items
+
+    //#region Materials
 
     public static final RegistryObject<Item> RAW_URANIUM = ItemHelper.registerSimpleItem("raw_uranium");
     public static final RegistryObject<Item> SAPPHIRE = ItemHelper.registerSimpleItem("sapphire");
@@ -27,6 +30,16 @@ public final class BLItems {
     public static final RegistryObject<Item> URANIUM_NUGGET = ItemHelper.registerSimpleItem("uranium_nugget");
     public static final RegistryObject<Item> URANIUM_INGOT = ItemHelper.registerSimpleItem("uranium_ingot");
     public static final RegistryObject<Item> CARBON = ItemHelper.registerSimpleItem("carbon");
+
+    //#endregion
+
+    //#region Food
+
+    public static final RegistryObject<Item> HOSOMAKI = ItemHelper.registerFood("hosomaki", PropertyHelper.food(2, 0.1F));
+    public static final RegistryObject<Item> NIGIRI = ItemHelper.registerFood("nigiri", PropertyHelper.food(5, 0.6F));
+    public static final RegistryObject<Item> SASHIMI = ItemHelper.registerFood("sashimi", PropertyHelper.food(6, 0.8F));
+
+    //#endregion
 
     //#endregion
 
