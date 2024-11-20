@@ -19,7 +19,8 @@ public final class BLTabs {
 
     //#region Creative Mode Tabs
 
-    public static RegistryObject<CreativeModeTab> COMBAT = CreativeModeTabHelper.tab("combat", BLItems.EMERALD_SWORD);
+    public static RegistryObject<CreativeModeTab> TOOLS = CreativeModeTabHelper.tab("tools", BLItems.EMERALD_PICKAXE);
+    public static RegistryObject<CreativeModeTab> COMBAT = CreativeModeTabHelper.tab("combat", BLItems.EMERALD_SWORD, TOOLS.getKey());
     public static RegistryObject<CreativeModeTab> FOOD_AND_DRINK = CreativeModeTabHelper.tab("food_and_drink", BLItems.SASHIMI, COMBAT.getKey());
     public static RegistryObject<CreativeModeTab> INGREDIENTS = CreativeModeTabHelper.tab("ingredients", BLItems.RUBY, FOOD_AND_DRINK.getKey());
 
@@ -33,8 +34,27 @@ public final class BLTabs {
     @SubscribeEvent
     public static void addItemsToCreativeModeTabs(final BuildCreativeModeTabContentsEvent event) {
         final CreativeModeTab tab = event.getTab();
+        if(CreativeModeTabHelper.isTab(event, TOOLS)) {
+            CreativeModeTabHelper.addItems(event,
+                    BLItems.SAPPHIRE_SHOVEL,
+                    BLItems.SAPPHIRE_PICKAXE,
+                    BLItems.SAPPHIRE_AXE,
+                    BLItems.SAPPHIRE_HOE,
+                    BLItems.RUBY_SHOVEL,
+                    BLItems.RUBY_PICKAXE,
+                    BLItems.RUBY_AXE,
+                    BLItems.RUBY_HOE,
+                    BLItems.EMERALD_SHOVEL,
+                    BLItems.EMERALD_PICKAXE,
+                    BLItems.EMERALD_AXE,
+                    BLItems.EMERALD_HOE
+            );
+            return;
+        }
         if(CreativeModeTabHelper.isTab(event, COMBAT)) {
             CreativeModeTabHelper.addItems(event,
+                    BLItems.SAPPHIRE_SWORD,
+                    BLItems.RUBY_SWORD,
                     BLItems.EMERALD_SWORD
             );
             return;

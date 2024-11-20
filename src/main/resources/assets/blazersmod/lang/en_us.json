@@ -1,6 +1,7 @@
 {
   "itemGroup.blazersmod.food_and_drink": "Food and Drinks (Blazers Mod)",
   "itemGroup.blazersmod.ingredients": "Ingredients (Blazers Mod)",
+  "itemGroup.blazersmod.tools": "Tools and Utilities (Blazers Mod)",
   "itemGroup.blazersmod.combat": "Combat (Blazers Mod)",
   "item.blazersmod.raw_uranium": "Raw Uranium",
   "item.blazersmod.ruby": "Ruby",
@@ -17,5 +18,19 @@
   "item.blazersmod.hosomaki": "Hosomaki",
   "item.blazersmod.nigiri": "Nigiri",
   "item.blazersmod.sashimi": "Sashimi",
-  "item.blazersmod.emerald_sword": "Emerald Sword"
+  "item.blazersmod.sapphire_sword": "Sapphire Sword",
+  "item.blazersmod.sapphire_shovel": "Sapphire Shovel",
+  "item.blazersmod.sapphire_pickaxe": "Sapphire Pickaxe",
+  "item.blazersmod.sapphire_axe": "Sapphire Axe",
+  "item.blazersmod.sapphire_hoe": "Sapphire Hoe",
+  "item.blazersmod.ruby_sword": "Ruby Sword",
+  "item.blazersmod.ruby_shovel": "Ruby Shovel",
+  "item.blazersmod.ruby_pickaxe": "Ruby Pickaxe",
+  "item.blazersmod.ruby_axe": "Ruby Axe",
+  "item.blazersmod.ruby_hoe": "Ruby Hoe",
+  "item.blazersmod.emerald_sword": "Emerald Sword",
+  "item.blazersmod.emerald_shovel": "Emerald Shovel",
+  "item.blazersmod.emerald_pickaxe": "Emerald Pickaxe",
+  "item.blazersmod.emerald_axe": "Emerald Axe",
+  "item.blazersmod.emerald_hoe": "Emerald Hoe"
 }

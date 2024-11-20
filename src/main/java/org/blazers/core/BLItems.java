@@ -43,7 +43,23 @@ public final class BLItems {
 
     //#region Tools and Swords
 
+    public static final RegistryObject<Item> SAPPHIRE_SWORD = ItemHelper.registerSword("sapphire_sword", BLToolMaterials.SAPPHIRE);
+    public static final RegistryObject<Item> SAPPHIRE_SHOVEL = ItemHelper.registerShovel("sapphire_shovel", BLToolMaterials.SAPPHIRE);
+    public static final RegistryObject<Item> SAPPHIRE_PICKAXE = ItemHelper.registerPickaxe("sapphire_pickaxe", BLToolMaterials.SAPPHIRE);
+    public static final RegistryObject<Item> SAPPHIRE_AXE = ItemHelper.registerAxe("sapphire_axe", BLToolMaterials.SAPPHIRE, 5.0F, -3.0F);
+    public static final RegistryObject<Item> SAPPHIRE_HOE = ItemHelper.registerHoe("sapphire_hoe", BLToolMaterials.SAPPHIRE, -3.0F, 0.0F);
+
+    public static final RegistryObject<Item> RUBY_SWORD = ItemHelper.registerSword("ruby_sword", BLToolMaterials.RUBY);
+    public static final RegistryObject<Item> RUBY_SHOVEL = ItemHelper.registerShovel("ruby_shovel", BLToolMaterials.RUBY);
+    public static final RegistryObject<Item> RUBY_PICKAXE = ItemHelper.registerPickaxe("ruby_pickaxe", BLToolMaterials.RUBY);
+    public static final RegistryObject<Item> RUBY_AXE = ItemHelper.registerAxe("ruby_axe", BLToolMaterials.RUBY, 5.0F, -3.0F);
+    public static final RegistryObject<Item> RUBY_HOE = ItemHelper.registerHoe("ruby_hoe", BLToolMaterials.RUBY, -3.0F, 0.0F);
+
     public static final RegistryObject<Item> EMERALD_SWORD = ItemHelper.registerSword("emerald_sword", BLToolMaterials.EMERALD);
+    public static final RegistryObject<Item> EMERALD_SHOVEL = ItemHelper.registerShovel("emerald_shovel", BLToolMaterials.EMERALD);
+    public static final RegistryObject<Item> EMERALD_PICKAXE = ItemHelper.registerPickaxe("emerald_pickaxe", BLToolMaterials.EMERALD);
+    public static final RegistryObject<Item> EMERALD_AXE = ItemHelper.registerAxe("emerald_axe", BLToolMaterials.EMERALD, 5.0F, -3.0F);
+    public static final RegistryObject<Item> EMERALD_HOE = ItemHelper.registerHoe("emerald_hoe", BLToolMaterials.EMERALD, -3.0F, 0.0F);
 
     //#endregion
 

@@ -1,6 +1,7 @@
 {
   "itemGroup.blazersmod.food_and_drink": "Cibi e bevande (Blazers Mod)",
   "itemGroup.blazersmod.ingredients": "Ingredienti (Blazers Mod)",
+  "itemGroup.blazersmod.tools": "Attrezzi e utilità (Blazers Mod)",
   "itemGroup.blazersmod.combat": "Combattimento (Blazers Mod)",
   "item.blazersmod.raw_uranium": "Uranio grezzo",
   "item.blazersmod.ruby": "Rubino",
@@ -17,5 +18,19 @@
   "item.blazersmod.hosomaki": "Hosomaki",
   "item.blazersmod.nigiri": "Nigiri",
   "item.blazersmod.sashimi": "Sashimi",
-  "item.blazersmod.emerald_sword": "Spada di smeraldo"
+  "item.blazersmod.sapphire_sword": "Spada di zaffiro",
+  "item.blazersmod.sapphire_shovel": "Pala di zaffiro",
+  "item.blazersmod.sapphire_pickaxe": "Piccone di zaffiro",
+  "item.blazersmod.sapphire_axe": "Ascia di zaffiro",
+  "item.blazersmod.sapphire_hoe": "Zappa di zaffiro",
+  "item.blazersmod.ruby_sword": "Spada di rubino",
+  "item.blazersmod.ruby_shovel": "Pala di rubino",
+  "item.blazersmod.ruby_pickaxe": "Piccone di rubino",
+  "item.blazersmod.ruby_axe": "Ascia di rubino",
+  "item.blazersmod.ruby_hoe": "Zappa di rubino",
+  "item.blazersmod.emerald_sword": "Spada di smeraldo",
+  "item.blazersmod.emerald_shovel": "Pala di smeraldo",
+  "item.blazersmod.emerald_pickaxe": "Piccone di smeraldo",
+  "item.blazersmod.emerald_axe": "Ascia di smeraldo",
+  "item.blazersmod.emerald_hoe": "Zappa di smeraldo"
 }
