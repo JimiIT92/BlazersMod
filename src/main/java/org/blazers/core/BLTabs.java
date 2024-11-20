@@ -20,7 +20,7 @@ public final class BLTabs {
     //#region Creative Mode Tabs
 
     public static RegistryObject<CreativeModeTab> TOOLS = CreativeModeTabHelper.tab("tools", BLItems.EMERALD_PICKAXE);
-    public static RegistryObject<CreativeModeTab> COMBAT = CreativeModeTabHelper.tab("combat", BLItems.EMERALD_SWORD, TOOLS.getKey());
+    public static RegistryObject<CreativeModeTab> COMBAT = CreativeModeTabHelper.tab("combat", BLItems.KATANA, TOOLS.getKey());
     public static RegistryObject<CreativeModeTab> FOOD_AND_DRINK = CreativeModeTabHelper.tab("food_and_drink", BLItems.SASHIMI, COMBAT.getKey());
     public static RegistryObject<CreativeModeTab> INGREDIENTS = CreativeModeTabHelper.tab("ingredients", BLItems.RUBY, FOOD_AND_DRINK.getKey());
 
@@ -47,7 +47,11 @@ public final class BLTabs {
                     BLItems.EMERALD_SHOVEL,
                     BLItems.EMERALD_PICKAXE,
                     BLItems.EMERALD_AXE,
-                    BLItems.EMERALD_HOE
+                    BLItems.EMERALD_HOE,
+                    BLItems.ONICE_SHOVEL,
+                    BLItems.ONICE_PICKAXE,
+                    BLItems.ONICE_AXE,
+                    BLItems.ONICE_HOE
             );
             return;
         }
@@ -55,7 +59,28 @@ public final class BLTabs {
             CreativeModeTabHelper.addItems(event,
                     BLItems.SAPPHIRE_SWORD,
                     BLItems.RUBY_SWORD,
-                    BLItems.EMERALD_SWORD
+                    BLItems.EMERALD_SWORD,
+                    BLItems.AMETHYST_SWORD,
+                    BLItems.PEARL_SWORD,
+                    BLItems.TOPAZ_HAMMER,
+                    BLItems.ONICE_SICKLE,
+                    BLItems.KATANA,
+                    BLItems.WHITE_KATANA,
+                    BLItems.ORANGE_KATANA,
+                    BLItems.MAGENTA_KATANA,
+                    BLItems.LIGHT_BLUE_KATANA,
+                    BLItems.YELLOW_KATANA,
+                    BLItems.LIME_KATANA,
+                    BLItems.PINK_KATANA,
+                    BLItems.GRAY_KATANA,
+                    BLItems.LIGHT_GRAY_KATANA,
+                    BLItems.CYAN_KATANA,
+                    BLItems.PURPLE_KATANA,
+                    BLItems.BLUE_KATANA,
+                    BLItems.BROWN_KATANA,
+                    BLItems.GREEN_KATANA,
+                    BLItems.RED_KATANA,
+                    BLItems.BLACK_KATANA
             );
             return;
         }
