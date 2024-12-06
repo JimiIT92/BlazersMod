@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "blazersmod:malachite"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "blazersmod:malachite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "blazersmod:malachite"
+      }
+    ]
+  }
+}

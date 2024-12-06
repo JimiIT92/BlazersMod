@@ -31,51 +31,51 @@ public final class BLToolMaterials {
     /**
      * Get a {@link ToolMaterial Tool Material} for a {@link Item gem-like Item}
      *
-     * @param repairItemTags The {@link TagKey<Item> Item Tag} containing all {@link Item repair Items} for this material
+     * @param repairItemsTag The {@link TagKey<Item> Item Tag} containing all {@link Item repair Items} for this material
      * @return The {@link ToolMaterial Tool Material}
      */
-    private static ToolMaterial gemToolMaterial(final TagKey<Item> repairItemTags) {
+    private static ToolMaterial gemToolMaterial(final TagKey<Item> repairItemsTag) {
         return new ToolMaterial(
                 BlockTags.INCORRECT_FOR_DIAMOND_TOOL,
                 1796,
                 8.5F,
                 3.5F,
                 13,
-                repairItemTags
+                repairItemsTag
         );
     }
 
     /**
      * Get a {@link ToolMaterial Tool Material} for a {@link Item rock-like Item}
      *
-     * @param repairItemTags The {@link TagKey<Item> Item Tag} containing all {@link Item repair Items} for this material
+     * @param repairItemsTag The {@link TagKey<Item> Item Tag} containing all {@link Item repair Items} for this material
      * @return The {@link ToolMaterial Tool Material}
      */
-    private static ToolMaterial rockToolMaterial(final TagKey<Item> repairItemTags) {
+    private static ToolMaterial rockToolMaterial(final TagKey<Item> repairItemsTag) {
         return new ToolMaterial(
                 BlockTags.INCORRECT_FOR_IRON_TOOL,
                 905,
                 7.0F,
                 2.5F,
                 12,
-                repairItemTags
+                repairItemsTag
         );
     }
 
     /**
      * Get a {@link ToolMaterial Tool Material} for a {@link Item crystal-like Item}
      *
-     * @param repairItemTags The {@link TagKey<Item> Item Tag} containing all {@link Item repair Items} for this material
+     * @param repairItemsTag The {@link TagKey<Item> Item Tag} containing all {@link Item repair Items} for this material
      * @return The {@link ToolMaterial Tool Material}
      */
-    private static ToolMaterial crystalToolMaterial(final TagKey<Item> repairItemTags) {
+    private static ToolMaterial crystalToolMaterial(final TagKey<Item> repairItemsTag) {
         return new ToolMaterial(
                 BlockTags.INCORRECT_FOR_WOODEN_TOOL,
                 191,
                 5.0F,
                 1.5F,
                 12,
-                repairItemTags
+                repairItemsTag
         );
     }
 

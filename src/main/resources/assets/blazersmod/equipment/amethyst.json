@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "blazersmod:amethyst"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "blazersmod:amethyst"
+      }
+    ]
+  }
+}

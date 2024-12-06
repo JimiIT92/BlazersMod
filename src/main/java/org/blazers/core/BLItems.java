@@ -6,9 +6,8 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Rarity;
 import org.blazers.BlazersMod;
 import org.hendrix.helper.FoodHelper;
+import org.hendrix.helper.ResourceHelper;
 import org.hendrix.registry.HCItems;
-
-import java.util.Locale;
 
 /**
  * {@link BlazersMod Blazers Mod} {@link Item Items}
@@ -16,6 +15,8 @@ import java.util.Locale;
 public final class BLItems {
 
     //#region Items
+
+    //#region Materials
 
     public static final Item RAW_URANIUM = HCItems.registerItem("raw_uranium");
     public static final Item SAPPHIRE = HCItems.registerItem("sapphire");
@@ -30,34 +31,25 @@ public final class BLItems {
     public static final Item URANIUM_INGOT = HCItems.registerItem("uranium_ingot");
     public static final Item CARBON = HCItems.registerItem("carbon");
 
+    //#endregion
+
+    //#region Food
+
     public static final Item HOSOMAKI = HCItems.registerFood("hosomaki", FoodHelper.food(2, 0.1F));
     public static final Item NIGIRI = HCItems.registerFood("nigiri", FoodHelper.food(5, 0.6F));
     public static final Item SASHIMI = HCItems.registerFood("sashimi", FoodHelper.food(6, 0.8F));
 
+    //#endregion
+
+    //#region Weapons
+
     public static final Item EMERALD_SWORD = HCItems.registerSword("emerald_sword", BLToolMaterials.EMERALD);
-    public static final Item EMERALD_SHOVEL = HCItems.registerShovel("emerald_shovel", BLToolMaterials.EMERALD);
-    public static final Item EMERALD_PICKAXE = HCItems.registerPickaxe("emerald_pickaxe", BLToolMaterials.EMERALD);
-    public static final Item EMERALD_AXE = HCItems.registerAxe("emerald_axe", BLToolMaterials.EMERALD, 5.0F, -3.0F);
-    public static final Item EMERALD_HOE = HCItems.registerHoe("emerald_hoe", BLToolMaterials.EMERALD, -3.0F, 0F);
     public static final Item AMETHYST_SWORD = HCItems.registerSword("amethyst_sword", BLToolMaterials.AMETHYST);
     public static final Item SAPPHIRE_SWORD = HCItems.registerSword("sapphire_sword", BLToolMaterials.SAPPHIRE);
-    public static final Item SAPPHIRE_SHOVEL = HCItems.registerShovel("sapphire_shovel", BLToolMaterials.SAPPHIRE);
-    public static final Item SAPPHIRE_PICKAXE = HCItems.registerPickaxe("sapphire_pickaxe", BLToolMaterials.SAPPHIRE);
-    public static final Item SAPPHIRE_AXE = HCItems.registerAxe("sapphire_axe", BLToolMaterials.SAPPHIRE, 5.0F, -3.0F);
-    public static final Item SAPPHIRE_HOE = HCItems.registerHoe("sapphire_hoe", BLToolMaterials.SAPPHIRE, -3.0F, 0F);
     public static final Item TOPAZ_HAMMER = HCItems.registerSword("topaz_hammer", BLToolMaterials.TOPAZ, 5, -3.0F);
     public static final Item PEARL_SWORD = HCItems.registerSword("pearl_sword", BLToolMaterials.PEARL);
     public static final Item RUBY_SWORD = HCItems.registerSword("ruby_sword", BLToolMaterials.RUBY);
-    public static final Item RUBY_SHOVEL = HCItems.registerShovel("ruby_shovel", BLToolMaterials.RUBY);
-    public static final Item RUBY_PICKAXE = HCItems.registerPickaxe("ruby_pickaxe", BLToolMaterials.RUBY);
-    public static final Item RUBY_AXE = HCItems.registerAxe("ruby_axe", BLToolMaterials.RUBY, 5.0F, -3.0F);
-    public static final Item RUBY_HOE = HCItems.registerHoe("ruby_hoe", BLToolMaterials.RUBY, -3.0F, 0F);
     public static final Item ONICE_SICKLE = HCItems.registerSword("onice_sickle", BLToolMaterials.ONICE);
-    public static final Item ONICE_SHOVEL = HCItems.registerShovel("onice_shovel", BLToolMaterials.ONICE);
-    public static final Item ONICE_PICKAXE = HCItems.registerPickaxe("onice_pickaxe", BLToolMaterials.ONICE);
-    public static final Item ONICE_AXE = HCItems.registerAxe("onice_axe", BLToolMaterials.ONICE, 5.5F, -3.0F);
-    public static final Item ONICE_HOE = HCItems.registerHoe("onice_hoe", BLToolMaterials.ONICE, -2, -0.5F);
-
     public static final Item KATANA = registerKatana(null);
     public static final Item WHITE_KATANA = registerKatana(DyeColor.WHITE);
     public static final Item ORANGE_KATANA = registerKatana(DyeColor.ORANGE);
@@ -75,6 +67,65 @@ public final class BLItems {
     public static final Item GREEN_KATANA = registerKatana(DyeColor.GREEN);
     public static final Item RED_KATANA = registerKatana(DyeColor.RED);
     public static final Item BLACK_KATANA = registerKatana(DyeColor.BLACK);
+    //#endregion
+
+    //#region Tools
+
+    public static final Item EMERALD_SHOVEL = HCItems.registerShovel("emerald_shovel", BLToolMaterials.EMERALD);
+    public static final Item EMERALD_PICKAXE = HCItems.registerPickaxe("emerald_pickaxe", BLToolMaterials.EMERALD);
+    public static final Item EMERALD_AXE = HCItems.registerAxe("emerald_axe", BLToolMaterials.EMERALD, 5.0F, -3.0F);
+    public static final Item EMERALD_HOE = HCItems.registerHoe("emerald_hoe", BLToolMaterials.EMERALD, -3.0F, 0F);
+    public static final Item SAPPHIRE_SHOVEL = HCItems.registerShovel("sapphire_shovel", BLToolMaterials.SAPPHIRE);
+    public static final Item SAPPHIRE_PICKAXE = HCItems.registerPickaxe("sapphire_pickaxe", BLToolMaterials.SAPPHIRE);
+    public static final Item SAPPHIRE_AXE = HCItems.registerAxe("sapphire_axe", BLToolMaterials.SAPPHIRE, 5.0F, -3.0F);
+    public static final Item SAPPHIRE_HOE = HCItems.registerHoe("sapphire_hoe", BLToolMaterials.SAPPHIRE, -3.0F, 0F);
+    public static final Item RUBY_SHOVEL = HCItems.registerShovel("ruby_shovel", BLToolMaterials.RUBY);
+    public static final Item RUBY_PICKAXE = HCItems.registerPickaxe("ruby_pickaxe", BLToolMaterials.RUBY);
+    public static final Item RUBY_AXE = HCItems.registerAxe("ruby_axe", BLToolMaterials.RUBY, 5.0F, -3.0F);
+    public static final Item RUBY_HOE = HCItems.registerHoe("ruby_hoe", BLToolMaterials.RUBY, -3.0F, 0F);
+    public static final Item ONICE_SHOVEL = HCItems.registerShovel("onice_shovel", BLToolMaterials.ONICE);
+    public static final Item ONICE_PICKAXE = HCItems.registerPickaxe("onice_pickaxe", BLToolMaterials.ONICE);
+    public static final Item ONICE_AXE = HCItems.registerAxe("onice_axe", BLToolMaterials.ONICE, 5.5F, -3.0F);
+    public static final Item ONICE_HOE = HCItems.registerHoe("onice_hoe", BLToolMaterials.ONICE, -2, -0.5F);
+
+    //#endregion
+
+    //#region Armor
+
+    public static final Item EMERALD_HELMET = HCItems.registerHelmet("emerald_helmet", BLArmorMaterials.EMERALD);
+    public static final Item EMERALD_CHESTPLATE = HCItems.registerChestplate("emerald_chestplate", BLArmorMaterials.EMERALD);
+    public static final Item EMERALD_LEGGINGS = HCItems.registerLeggings("emerald_leggings", BLArmorMaterials.EMERALD);
+    public static final Item EMERALD_BOOTS = HCItems.registerBoots("emerald_boots", BLArmorMaterials.EMERALD);
+    public static final Item AMETHYST_HELMET = HCItems.registerHelmet("amethyst_helmet", BLArmorMaterials.AMETHYST);
+    public static final Item AMETHYST_CHESTPLATE = HCItems.registerChestplate("amethyst_chestplate", BLArmorMaterials.AMETHYST);
+    public static final Item AMETHYST_LEGGINGS = HCItems.registerLeggings("amethyst_leggings", BLArmorMaterials.AMETHYST);
+    public static final Item AMETHYST_BOOTS = HCItems.registerBoots("amethyst_boots", BLArmorMaterials.AMETHYST);
+    public static final Item SAPPHIRE_HELMET = HCItems.registerHelmet("sapphire_helmet", BLArmorMaterials.SAPPHIRE);
+    public static final Item SAPPHIRE_CHESTPLATE = HCItems.registerChestplate("sapphire_chestplate", BLArmorMaterials.SAPPHIRE);
+    public static final Item SAPPHIRE_LEGGINGS = HCItems.registerLeggings("sapphire_leggings", BLArmorMaterials.SAPPHIRE);
+    public static final Item SAPPHIRE_BOOTS = HCItems.registerBoots("sapphire_boots", BLArmorMaterials.SAPPHIRE);
+    public static final Item TOPAZ_HELMET = HCItems.registerHelmet("topaz_helmet", BLArmorMaterials.TOPAZ);
+    public static final Item TOPAZ_CHESTPLATE = HCItems.registerChestplate("topaz_chestplate", BLArmorMaterials.TOPAZ);
+    public static final Item TOPAZ_LEGGINGS = HCItems.registerLeggings("topaz_leggings", BLArmorMaterials.TOPAZ);
+    public static final Item TOPAZ_BOOTS = HCItems.registerBoots("topaz_boots", BLArmorMaterials.TOPAZ);
+    public static final Item PEARL_HELMET = HCItems.registerHelmet("pearl_helmet", BLArmorMaterials.PEARL);
+    public static final Item PEARL_CHESTPLATE = HCItems.registerChestplate("pearl_chestplate", BLArmorMaterials.PEARL);
+    public static final Item PEARL_LEGGINGS = HCItems.registerLeggings("pearl_leggings", BLArmorMaterials.PEARL);
+    public static final Item PEARL_BOOTS = HCItems.registerBoots("pearl_boots", BLArmorMaterials.PEARL);
+    public static final Item RUBY_HELMET = HCItems.registerHelmet("ruby_helmet", BLArmorMaterials.RUBY);
+    public static final Item RUBY_CHESTPLATE = HCItems.registerChestplate("ruby_chestplate", BLArmorMaterials.RUBY);
+    public static final Item RUBY_LEGGINGS = HCItems.registerLeggings("ruby_leggings", BLArmorMaterials.RUBY);
+    public static final Item RUBY_BOOTS = HCItems.registerBoots("ruby_boots", BLArmorMaterials.RUBY);
+    public static final Item MALACHITE_HELMET = HCItems.registerHelmet("malachite_helmet", BLArmorMaterials.MALACHITE);
+    public static final Item MALACHITE_CHESTPLATE = HCItems.registerChestplate("malachite_chestplate", BLArmorMaterials.MALACHITE);
+    public static final Item MALACHITE_LEGGINGS = HCItems.registerLeggings("malachite_leggings", BLArmorMaterials.MALACHITE);
+    public static final Item MALACHITE_BOOTS = HCItems.registerBoots("malachite_boots", BLArmorMaterials.MALACHITE);
+    public static final Item ONICE_HELMET = HCItems.registerHelmet("onice_helmet", BLArmorMaterials.ONICE);
+    public static final Item ONICE_CHESTPLATE = HCItems.registerChestplate("onice_chestplate", BLArmorMaterials.ONICE);
+    public static final Item ONICE_LEGGINGS = HCItems.registerLeggings("onice_leggings", BLArmorMaterials.ONICE);
+    public static final Item ONICE_BOOTS = HCItems.registerBoots("onice_boots", BLArmorMaterials.ONICE);
+
+    //#endregion
 
     //#endregion
 
@@ -85,8 +136,7 @@ public final class BLItems {
      * @return The {@link Item registered Item}
      */
     private static Item registerKatana(final DyeColor color) {
-        final String name = (color != null ? (color.name().toLowerCase(Locale.ROOT) + "_") : "") + "katana";
-        return HCItems.registerSword(name, BLToolMaterials.CARBON, 3.0F, 0F);
+        return HCItems.registerSword(ResourceHelper.suffixedColorName(color, "_") + "katana", BLToolMaterials.CARBON, 3.0F, 0F);
     }
 
     /**

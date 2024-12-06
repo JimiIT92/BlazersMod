@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "blazersmod:onice"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "blazersmod:onice"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "blazersmod:onice"
+      }
+    ]
+  }
+}

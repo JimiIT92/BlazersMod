@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "blazersmod:ruby"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "blazersmod:ruby"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "blazersmod:ruby"
+      }
+    ]
+  }
+}

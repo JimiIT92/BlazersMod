@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "blazersmod:topaz"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "blazersmod:topaz"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "blazersmod:topaz"
+      }
+    ]
+  }
+}

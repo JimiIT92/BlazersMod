@@ -1,0 +1,20 @@
+
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "blazersmod:sapphire"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "blazersmod:sapphire"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "blazersmod:sapphire"
+      }
+    ]
+  }
+}
