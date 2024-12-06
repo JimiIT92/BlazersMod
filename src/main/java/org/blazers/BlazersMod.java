@@ -1,6 +1,8 @@
 package org.blazers;
 
 import net.fabricmc.api.ModInitializer;
+import org.blazers.core.BLItems;
+import org.blazers.core.BLTabs;
 import org.hendrix.HendrixCore;
 
 /**
@@ -19,6 +21,9 @@ public final class BlazersMod implements ModInitializer {
     @Override
     public void onInitialize() {
         HendrixCore.init(MOD_ID);
+
+        BLTabs.register();
+        BLItems.register();
     }
 
 }

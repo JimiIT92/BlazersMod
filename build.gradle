@@ -15,7 +15,7 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.minecraft_version}+build.${project.yarn_mappings_version}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}+${project.minecraft_version}"
-    include (modImplementation "org.hendrix:HendrixCore-Fabric:${project.hendrixcore_version}-${project.minecraft_version}")
+    include (modImplementation "org.hendrix:HendrixCore-Fabric:${project.hendrixcore_version}-${project.minecraft_version}") { changing = true }
 }
 
 processResources {
