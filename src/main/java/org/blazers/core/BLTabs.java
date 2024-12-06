@@ -104,7 +104,12 @@ public final class BLTabs {
                 BLItems.ONICE_HELMET,
                 BLItems.ONICE_CHESTPLATE,
                 BLItems.ONICE_LEGGINGS,
-                BLItems.ONICE_BOOTS
+                BLItems.ONICE_BOOTS,
+                BLItems.EMERALD_HORSE_ARMOR,
+                BLItems.SAPPHIRE_HORSE_ARMOR,
+                BLItems.RUBY_HORSE_ARMOR,
+                BLItems.TOPAZ_HORSE_ARMOR,
+                BLItems.MALACHITE_HORSE_ARMOR
         );
 
         HCTabs.addItems(FOOD_AND_DRINK,

@@ -95,5 +95,10 @@
   "item.blazersmod.pearl_helmet": "Pearl Helmet",
   "item.blazersmod.pearl_chestplate": "Pearl Chestplate",
   "item.blazersmod.pearl_leggings": "Pearl Leggings",
-  "item.blazersmod.pearl_boots": "Pearl Boots"
+  "item.blazersmod.pearl_boots": "Pearl Boots",
+  "item.blazersmod.emerald_horse_armor": "Emerald Horse Armor",
+  "item.blazersmod.sapphire_horse_armor": "Sapphire Horse Armor",
+  "item.blazersmod.ruby_horse_armor": "Ruby Horse Armor",
+  "item.blazersmod.topaz_horse_armor": "Topaz Horse Armor",
+  "item.blazersmod.malachite_horse_armor": "Malachite Horse Armor"
 }

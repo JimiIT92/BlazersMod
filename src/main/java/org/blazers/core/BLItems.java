@@ -67,6 +67,7 @@ public final class BLItems {
     public static final Item GREEN_KATANA = registerKatana(DyeColor.GREEN);
     public static final Item RED_KATANA = registerKatana(DyeColor.RED);
     public static final Item BLACK_KATANA = registerKatana(DyeColor.BLACK);
+
     //#endregion
 
     //#region Tools
@@ -124,6 +125,12 @@ public final class BLItems {
     public static final Item ONICE_CHESTPLATE = HCItems.registerChestplate("onice_chestplate", BLArmorMaterials.ONICE);
     public static final Item ONICE_LEGGINGS = HCItems.registerLeggings("onice_leggings", BLArmorMaterials.ONICE);
     public static final Item ONICE_BOOTS = HCItems.registerBoots("onice_boots", BLArmorMaterials.ONICE);
+
+    public static final Item EMERALD_HORSE_ARMOR = HCItems.registerHorseArmor("emerald_horse_armor", BLArmorMaterials.EMERALD);
+    public static final Item SAPPHIRE_HORSE_ARMOR = HCItems.registerHorseArmor("sapphire_horse_armor", BLArmorMaterials.SAPPHIRE);
+    public static final Item RUBY_HORSE_ARMOR = HCItems.registerHorseArmor("ruby_horse_armor", BLArmorMaterials.RUBY);
+    public static final Item TOPAZ_HORSE_ARMOR = HCItems.registerHorseArmor("topaz_horse_armor", BLArmorMaterials.TOPAZ);
+    public static final Item MALACHITE_HORSE_ARMOR = HCItems.registerHorseArmor("malachite_horse_armor", BLArmorMaterials.MALACHITE);
 
     //#endregion
 
