@@ -1,13 +1,25 @@
 package org.blazers.core;
 
+import com.google.common.base.Suppliers;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentLevelEntry;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.registry.BuiltinRegistries;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Rarity;
 import org.blazers.BlazersMod;
+import org.blazers.item.IPreEnchantedItem;
+import org.blazers.item.PreEnchantedSwordItem;
 import org.hendrix.helper.FoodHelper;
 import org.hendrix.helper.ResourceHelper;
 import org.hendrix.registry.HCItems;
+
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * {@link BlazersMod Blazers Mod} {@link Item Items}
@@ -50,6 +62,8 @@ public final class BLItems {
     public static final Item PEARL_SWORD = HCItems.registerSword("pearl_sword", BLToolMaterials.PEARL);
     public static final Item RUBY_SWORD = HCItems.registerSword("ruby_sword", BLToolMaterials.RUBY);
     public static final Item ONICE_SICKLE = HCItems.registerSword("onice_sickle", BLToolMaterials.ONICE);
+    public static final Item BLAZERITE_SWORD = registerPreEnchantedSword("blazerite_sword", BLToolMaterials.BLAZERITE, Enchantments.FIRE_ASPECT);
+    public static final Item GYULIANITE_SWORD = registerPreEnchantedSword("gyulianite_sword", BLToolMaterials.GYULIANITE, Enchantments.KNOCKBACK);
     public static final Item KATANA = registerKatana(null);
     public static final Item WHITE_KATANA = registerKatana(DyeColor.WHITE);
     public static final Item ORANGE_KATANA = registerKatana(DyeColor.ORANGE);
@@ -144,6 +158,23 @@ public final class BLItems {
      */
     private static Item registerKatana(final DyeColor color) {
         return HCItems.registerSword(ResourceHelper.suffixedColorName(color, "_") + "katana", BLToolMaterials.CARBON, 3.0F, 0F);
+    }
+
+    /**
+     * Register a {@link IPreEnchantedItem pre-enchanted Sword}
+     *
+     * @param name The {@link String Item name}
+     * @param material The {@link ToolMaterial Sword Item}
+     * @param enchantment The {@link RegistryKey<Enchantment> Sword enchantment}
+     * @return The {@link Item registered Item}
+     */
+    private static Item registerPreEnchantedSword(final String name, final ToolMaterial material, final RegistryKey<Enchantment> enchantment) {
+        final AtomicReference<EnchantmentLevelEntry> enchantmentLevelEntry = new AtomicReference<>();
+        BuiltinRegistries.createWrapperLookup().getOptional(RegistryKeys.ENCHANTMENT)
+                .flatMap(registry -> registry.getOptional(enchantment))
+                .ifPresent(enchantmentEntry -> enchantmentLevelEntry.set(new EnchantmentLevelEntry(enchantmentEntry, 10)));
+
+        return HCItems.registerItem(name, Suppliers.memoize(() -> new PreEnchantedSwordItem(name, material, enchantmentLevelEntry.get())));
     }
 
     /**

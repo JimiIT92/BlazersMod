@@ -56,6 +56,8 @@ public final class BLTabs {
                 BLItems.PEARL_SWORD,
                 BLItems.RUBY_SWORD,
                 BLItems.ONICE_SICKLE,
+                BLItems.BLAZERITE_SWORD,
+                BLItems.GYULIANITE_SWORD,
                 BLItems.KATANA,
                 BLItems.WHITE_KATANA,
                 BLItems.ORANGE_KATANA,

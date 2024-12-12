@@ -20,6 +20,9 @@
       "org.blazers.BlazersMod"
     ]
   },
+  "mixins": [
+    "${mod_id}.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",

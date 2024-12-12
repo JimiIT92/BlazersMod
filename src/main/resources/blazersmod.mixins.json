@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "org.blazers.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "GiveCommandMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+  ]
+}
