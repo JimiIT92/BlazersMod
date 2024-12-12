@@ -1,9 +1,9 @@
 package org.blazers.item;
 
+import com.mojang.datafixers.util.Pair;
 import net.fabricmc.fabric.api.item.v1.EnchantingContext;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
@@ -19,18 +19,18 @@ import org.hendrix.helper.ItemHelper;
 public final class PreEnchantedSwordItem extends SwordItem implements IPreEnchantedItem {
 
     /**
-     * The {@link Item Item} {@link EnchantmentLevelEntry Enchantment and its level
+     * The {@link Item Item} {@link Pair Enchantment and its level}
      */
-    private final EnchantmentLevelEntry enchantment;
+    private final Pair<RegistryKey<Enchantment>, Integer> enchantment;
 
     /**
      * Constructor. Set the {@link Item.Settings Item properties}
      *
      * @param name The {@link String Item name}
      * @param material The {@link ToolMaterial Sword material}
-     * @param enchantment The {@link Item Item} {@link EnchantmentLevelEntry Enchantment and its level
+     * @param enchantment The {@link Item Item} {@link Pair Enchantment and its level}
      */
-    public PreEnchantedSwordItem(final String name, final ToolMaterial material, final EnchantmentLevelEntry enchantment) {
+    public PreEnchantedSwordItem(final String name, final ToolMaterial material, final Pair<RegistryKey<Enchantment>, Integer> enchantment) {
         super(material, 3.0F, -2.4F, ItemHelper.settings(name, Rarity.EPIC)
                 .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
         );
@@ -38,12 +38,12 @@ public final class PreEnchantedSwordItem extends SwordItem implements IPreEnchan
     }
 
     /**
-     * Get the {@link Item Item} {@link EnchantmentLevelEntry Enchantment and its level
+     * Get the {@link Item Item} {@link Pair Enchantment and its level}
      *
-     * @return The {@link Item Item} {@link EnchantmentLevelEntry Enchantment and its level
+     * @return The {@link Item Item} {@link Pair Enchantment and its level}
      */
     @Override
-    public EnchantmentLevelEntry getEnchantment() {
+    public Pair<RegistryKey<Enchantment>, Integer> getEnchantment() {
         return enchantment;
     }
 
@@ -58,18 +58,6 @@ public final class PreEnchantedSwordItem extends SwordItem implements IPreEnchan
     @Override
     public boolean canBeEnchantedWith(final ItemStack stack, final RegistryEntry<Enchantment> enchantment, final EnchantingContext context) {
         return false;
-    }
-
-    /**
-     * Get the {@link ItemStack default Item Stack}
-     *
-     * @return The {@link ItemStack default Item Stack}
-     */
-    @Override
-    public ItemStack getDefaultStack() {
-        ItemStack stack = super.getDefaultStack();
-        stack.addEnchantment(enchantment.enchantment, enchantment.level);
-        return stack;
     }
 
 }

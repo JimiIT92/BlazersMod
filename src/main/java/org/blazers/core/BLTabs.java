@@ -1,9 +1,14 @@
 package org.blazers.core;
 
 import com.google.common.base.Suppliers;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import org.blazers.BlazersMod;
+import org.blazers.item.IPreEnchantedItem;
 import org.hendrix.registry.HCTabs;
+
+import java.util.Arrays;
 
 /**
  * {@link BlazersMod Blazers Mod} {@link ItemGroup Item Groups}
@@ -55,9 +60,15 @@ public final class BLTabs {
                 BLItems.TOPAZ_HAMMER,
                 BLItems.PEARL_SWORD,
                 BLItems.RUBY_SWORD,
-                BLItems.ONICE_SICKLE,
+                BLItems.ONICE_SICKLE
+        );
+
+        addPreEnchantedItems(
                 BLItems.BLAZERITE_SWORD,
-                BLItems.GYULIANITE_SWORD,
+                BLItems.GYULIANITE_SWORD
+        );
+
+        HCTabs.addItems(COMBAT,
                 BLItems.KATANA,
                 BLItems.WHITE_KATANA,
                 BLItems.ORANGE_KATANA,
@@ -134,6 +145,15 @@ public final class BLTabs {
                 BLItems.URANIUM_INGOT,
                 BLItems.CARBON
         );
+    }
+
+    private static void addPreEnchantedItems(final ItemConvertible... items) {
+        if(items != null && items.length > 0) {
+            HCTabs.tabKey(COMBAT).ifPresent(tabKey -> ItemGroupEvents.modifyEntriesEvent(tabKey).register(entries -> {
+                ItemGroup.DisplayContext context = entries.getContext();
+                Arrays.asList(items).forEach(item -> entries.add(((IPreEnchantedItem)item).getItemStack(item.asItem(), context.lookup())));
+            }));
+        }
     }
 
 }
