@@ -29,7 +29,7 @@ public final class BLArmorMaterials {
     public static final ArmorMaterial AMETHYST = crystalArmorMaterial("amethyst", RegistryEntry.of(SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME), BLItemTags.REPAIRS_AMETHYST_ARMOR);
     public static final ArmorMaterial PEARL = crystalArmorMaterial("pearl", RegistryEntry.of(SoundEvents.BLOCK_BONE_BLOCK_BREAK), BLItemTags.REPAIRS_PEARL_ARMOR);
     public static final ArmorMaterial BLAZERITE = powerfulArmorMaterial("blazerite", RegistryEntry.of(SoundEvents.ITEM_FIRECHARGE_USE), BLItemTags.REPAIRS_BLAZERITE_ARMOR);
-    public static final ArmorMaterial GYULIANITE = powerfulArmorMaterial("gyulianite", RegistryEntry.of(SoundEvents.ITEM_FIRECHARGE_USE), BLItemTags.REPAIRS_GYULIANITE_ARMOR);
+    public static final ArmorMaterial GYULIANITE = powerfulArmorMaterial("gyulianite", RegistryEntry.of(SoundEvents.BLOCK_NETHERRACK_HIT), BLItemTags.REPAIRS_GYULIANITE_ARMOR);
 
     //#endregion
 

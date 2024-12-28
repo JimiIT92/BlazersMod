@@ -117,7 +117,21 @@ public final class BLTabs {
                 BLItems.ONICE_HELMET,
                 BLItems.ONICE_CHESTPLATE,
                 BLItems.ONICE_LEGGINGS,
-                BLItems.ONICE_BOOTS,
+                BLItems.ONICE_BOOTS
+        );
+
+        addPreEnchantedItems(
+                BLItems.BLAZERITE_HELMET,
+                BLItems.BLAZERITE_CHESTPLATE,
+                BLItems.BLAZERITE_LEGGINGS,
+                BLItems.BLAZERITE_BOOTS,
+                BLItems.GYULIANITE_HELMET,
+                BLItems.GYULIANITE_CHESTPLATE,
+                BLItems.GYULIANITE_LEGGINGS,
+                BLItems.GYULIANITE_BOOTS
+        );
+
+        HCTabs.addItems(COMBAT,
                 BLItems.EMERALD_HORSE_ARMOR,
                 BLItems.SAPPHIRE_HORSE_ARMOR,
                 BLItems.RUBY_HORSE_ARMOR,

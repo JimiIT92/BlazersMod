@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "blazersmod:gyulianite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "blazersmod:gyulianite"
+      }
+    ]
+  }
+}

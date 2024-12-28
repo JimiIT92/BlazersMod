@@ -7,11 +7,14 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.equipment.ArmorMaterial;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Rarity;
 import org.blazers.BlazersMod;
 import org.blazers.item.IPreEnchantedItem;
+import org.blazers.item.PreEnchantedArmorItem;
 import org.blazers.item.PreEnchantedSwordItem;
 import org.hendrix.helper.FoodHelper;
 import org.hendrix.helper.ResourceHelper;
@@ -135,6 +138,14 @@ public final class BLItems {
     public static final Item ONICE_CHESTPLATE = HCItems.registerChestplate("onice_chestplate", BLArmorMaterials.ONICE);
     public static final Item ONICE_LEGGINGS = HCItems.registerLeggings("onice_leggings", BLArmorMaterials.ONICE);
     public static final Item ONICE_BOOTS = HCItems.registerBoots("onice_boots", BLArmorMaterials.ONICE);
+    public static final Item BLAZERITE_HELMET = registerPreEnchantedArmor("blazerite_helmet", BLArmorMaterials.BLAZERITE, EquipmentType.HELMET, Enchantments.FIRE_PROTECTION);
+    public static final Item BLAZERITE_CHESTPLATE = registerPreEnchantedArmor("blazerite_chestplate", BLArmorMaterials.BLAZERITE, EquipmentType.CHESTPLATE, Enchantments.FIRE_PROTECTION);
+    public static final Item BLAZERITE_LEGGINGS = registerPreEnchantedArmor("blazerite_leggings", BLArmorMaterials.BLAZERITE, EquipmentType.LEGGINGS, Enchantments.FIRE_PROTECTION);
+    public static final Item BLAZERITE_BOOTS = registerPreEnchantedArmor("blazerite_boots", BLArmorMaterials.BLAZERITE, EquipmentType.BOOTS, Enchantments.FIRE_PROTECTION);
+    public static final Item GYULIANITE_HELMET = registerPreEnchantedArmor("gyulianite_helmet", BLArmorMaterials.GYULIANITE, EquipmentType.HELMET, Enchantments.PROJECTILE_PROTECTION);
+    public static final Item GYULIANITE_CHESTPLATE = registerPreEnchantedArmor("gyulianite_chestplate", BLArmorMaterials.GYULIANITE, EquipmentType.CHESTPLATE, Enchantments.PROJECTILE_PROTECTION);
+    public static final Item GYULIANITE_LEGGINGS = registerPreEnchantedArmor("gyulianite_leggings", BLArmorMaterials.GYULIANITE, EquipmentType.LEGGINGS, Enchantments.PROJECTILE_PROTECTION);
+    public static final Item GYULIANITE_BOOTS = registerPreEnchantedArmor("gyulianite_boots", BLArmorMaterials.GYULIANITE, EquipmentType.BOOTS, Enchantments.PROJECTILE_PROTECTION);
 
     public static final Item EMERALD_HORSE_ARMOR = HCItems.registerHorseArmor("emerald_horse_armor", BLArmorMaterials.EMERALD);
     public static final Item SAPPHIRE_HORSE_ARMOR = HCItems.registerHorseArmor("sapphire_horse_armor", BLArmorMaterials.SAPPHIRE);
@@ -160,12 +171,25 @@ public final class BLItems {
      * Register a {@link IPreEnchantedItem pre-enchanted Sword}
      *
      * @param name The {@link String Item name}
-     * @param material The {@link ToolMaterial Sword Item}
+     * @param material The {@link ToolMaterial Sword Material}
      * @param enchantment The {@link RegistryKey<Enchantment> Sword enchantment}
      * @return The {@link Item registered Item}
      */
     private static Item registerPreEnchantedSword(final String name, final ToolMaterial material, final RegistryKey<Enchantment> enchantment) {
         return HCItems.registerItem(name, Suppliers.memoize(() -> new PreEnchantedSwordItem(name, material, Pair.of(enchantment, 10))));
+    }
+
+    /**
+     * Register a {@link IPreEnchantedItem pre-enchanted Armor}
+     *
+     * @param name The {@link String Item name}
+     * @param material The {@link ArmorMaterial Armor Material}
+     * @param equipmentType The {@link EquipmentType Armor equipment type}
+     * @param enchantment The {@link RegistryKey<Enchantment> Armor enchantment}
+     * @return The {@link Item registered Item}
+     */
+    private static Item registerPreEnchantedArmor(final String name, final ArmorMaterial material, final EquipmentType equipmentType, final RegistryKey<Enchantment> enchantment) {
+        return HCItems.registerItem(name, Suppliers.memoize(() -> new PreEnchantedArmorItem(name, material, equipmentType, Pair.of(enchantment, 4))));
     }
 
     /**
