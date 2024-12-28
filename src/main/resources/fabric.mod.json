@@ -16,6 +16,9 @@
   "icon": "assets/${mod_id}/icon.png",
   "environment": "*",
   "entrypoints": {
+    "client": [
+      "org.blazers.client.BlazersModClient"
+    ],
     "main": [
       "org.blazers.BlazersMod"
     ]

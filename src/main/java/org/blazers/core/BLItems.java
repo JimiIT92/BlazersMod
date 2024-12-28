@@ -16,7 +16,9 @@ import org.blazers.BlazersMod;
 import org.blazers.item.IPreEnchantedItem;
 import org.blazers.item.PreEnchantedArmorItem;
 import org.blazers.item.PreEnchantedSwordItem;
+import org.blazers.item.SpearItem;
 import org.hendrix.helper.FoodHelper;
+import org.hendrix.helper.ItemHelper;
 import org.hendrix.helper.ResourceHelper;
 import org.hendrix.registry.HCItems;
 
@@ -80,6 +82,9 @@ public final class BLItems {
     public static final Item GREEN_KATANA = registerKatana(DyeColor.GREEN);
     public static final Item RED_KATANA = registerKatana(DyeColor.RED);
     public static final Item BLACK_KATANA = registerKatana(DyeColor.BLACK);
+
+    public static final Item SPEAR = registerSpear("spear", BLToolMaterials.FLINT, 1);
+    public static final Item MALACHITE_SPEAR = registerSpear("malachite_spear", BLToolMaterials.MALACHITE, 3);
 
     //#endregion
 
@@ -165,6 +170,18 @@ public final class BLItems {
      */
     private static Item registerKatana(final DyeColor color) {
         return HCItems.registerSword(ResourceHelper.suffixedColorName(color, "_") + "katana", BLToolMaterials.CARBON, 3.0F, 0F);
+    }
+
+    /**
+     * Register a {@link SpearItem Spear Item}
+     *
+     * @param name The {@link String Item name}
+     * @param material The {@link ToolMaterial Item material}
+     * @param attackDamage The {@link Integer Spear attack damage}
+     * @return The {@link Item registered Item}
+     */
+    private static Item registerSpear(final String name, final ToolMaterial material, final int attackDamage) {
+        return HCItems.registerItem(name, Suppliers.memoize(() -> new SpearItem(material, attackDamage, ItemHelper.settings(name).maxDamage(material.durability()))));
     }
 
     /**

@@ -1,0 +1,37 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "blazersmod:item/malachite_spear"
+        },
+        "when": [
+          "gui",
+          "ground",
+          "fixed"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:condition",
+      "on_false": {
+        "type": "minecraft:special",
+        "base": "blazersmod:item/malachite_spear_in_hand",
+        "model": {
+          "type": "blazersmod:malachite_spear"
+        }
+      },
+      "on_true": {
+        "type": "minecraft:special",
+        "base": "blazersmod:item/malachite_spear_throwing",
+        "model": {
+          "type": "blazersmod:malachite_spear"
+        }
+      },
+      "property": "minecraft:using_item"
+    },
+    "property": "minecraft:display_context"
+  }
+}

@@ -66,6 +66,8 @@
   "item.blazersmod.green_katana": "Katana verde",
   "item.blazersmod.red_katana": "Katana rossa",
   "item.blazersmod.black_katana": "Katana nera",
+  "item.blazersmod.spear": "Lancia",
+  "item.blazersmod.malachite_spear": "Lancia di malachite",
   "item.blazersmod.emerald_helmet": "Elmo di smeraldo",
   "item.blazersmod.emerald_chestplate": "Corazza di smeraldo",
   "item.blazersmod.emerald_leggings": "Gambiere di smeraldo",
@@ -110,5 +112,9 @@
   "item.blazersmod.sapphire_horse_armor": "Bardatura di zaffiro",
   "item.blazersmod.ruby_horse_armor": "Bardatura di rubino",
   "item.blazersmod.topaz_horse_armor": "Bardatura di topazio",
-  "item.blazersmod.malachite_horse_armor": "Bardatura di malachite"
+  "item.blazersmod.malachite_horse_armor": "Bardatura di malachite",
+  "entity.blazersmod.spear": "Lancia",
+  "entity.blazersmod.malachite_spear": "Lancia di malachite",
+  "death.attack.spear": "%1$s ha impalato %2$s",
+  "death.attack.spear.item": "%1$s ha impalato %2$s con %3$s"
 }

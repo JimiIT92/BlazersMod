@@ -66,6 +66,8 @@
   "item.blazersmod.green_katana": "Green Katana",
   "item.blazersmod.red_katana": "Red Katana",
   "item.blazersmod.black_katana": "Black Katana",
+  "item.blazersmod.spear": "Spear",
+  "item.blazersmod.malachite_spear": "Malachite Spear",
   "item.blazersmod.emerald_helmet": "Emerald Helmet",
   "item.blazersmod.emerald_chestplate": "Emerald Chestplate",
   "item.blazersmod.emerald_leggings": "Emerald Leggings",
@@ -110,5 +112,9 @@
   "item.blazersmod.sapphire_horse_armor": "Sapphire Horse Armor",
   "item.blazersmod.ruby_horse_armor": "Ruby Horse Armor",
   "item.blazersmod.topaz_horse_armor": "Topaz Horse Armor",
-  "item.blazersmod.malachite_horse_armor": "Malachite Horse Armor"
+  "item.blazersmod.malachite_horse_armor": "Malachite Horse Armor",
+  "entity.blazersmod.spear": "Spear",
+  "entity.blazersmod.malachite_spear": "Malachite Spear",
+  "death.attack.spear": "%1$s was impaled by %2$s",
+  "death.attack.spear.item": "%1$s was impaled by %2$s with %3$s"
 }
