@@ -1,0 +1,6 @@
+{
+  "parent": "blazersmod:item/carbon_bow",
+  "textures": {
+    "layer0": "blazersmod:item/carbon_bow_pulling_1"
+  }
+}

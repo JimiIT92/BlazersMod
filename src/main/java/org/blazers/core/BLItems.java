@@ -13,10 +13,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Rarity;
 import org.blazers.BlazersMod;
-import org.blazers.item.IPreEnchantedItem;
-import org.blazers.item.PreEnchantedArmorItem;
-import org.blazers.item.PreEnchantedSwordItem;
-import org.blazers.item.SpearItem;
+import org.blazers.item.*;
 import org.hendrix.helper.FoodHelper;
 import org.hendrix.helper.ItemHelper;
 import org.hendrix.helper.ResourceHelper;
@@ -65,6 +62,7 @@ public final class BLItems {
     public static final Item ONICE_SICKLE = HCItems.registerSword("onice_sickle", BLToolMaterials.ONICE);
     public static final Item BLAZERITE_SWORD = registerPreEnchantedSword("blazerite_sword", BLToolMaterials.BLAZERITE, Enchantments.FIRE_ASPECT);
     public static final Item GYULIANITE_SWORD = registerPreEnchantedSword("gyulianite_sword", BLToolMaterials.GYULIANITE, Enchantments.KNOCKBACK);
+
     public static final Item KATANA = registerKatana(null);
     public static final Item WHITE_KATANA = registerKatana(DyeColor.WHITE);
     public static final Item ORANGE_KATANA = registerKatana(DyeColor.ORANGE);
@@ -85,6 +83,8 @@ public final class BLItems {
 
     public static final Item SPEAR = registerSpear("spear", BLToolMaterials.FLINT, 1);
     public static final Item MALACHITE_SPEAR = registerSpear("malachite_spear", BLToolMaterials.MALACHITE, 3);
+
+    public static final Item CARBOWN_BOW = HCItems.registerItem("carbon_bow", Suppliers.memoize(() -> new CarbonBowItem(ItemHelper.settings("carbon_bow").maxDamage(384))));
 
     //#endregion
 

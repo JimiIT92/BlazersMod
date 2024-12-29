@@ -88,6 +88,7 @@ public final class BLTabs {
                 BLItems.BLACK_KATANA,
                 BLItems.SPEAR,
                 BLItems.MALACHITE_SPEAR,
+                BLItems.CARBOWN_BOW,
                 BLItems.EMERALD_HELMET,
                 BLItems.EMERALD_CHESTPLATE,
                 BLItems.EMERALD_LEGGINGS,
