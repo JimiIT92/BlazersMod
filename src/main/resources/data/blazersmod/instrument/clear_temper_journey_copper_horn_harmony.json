@@ -1,0 +1,8 @@
+{
+  "description": {
+    "translate": "instrument.blazersmod.clear_temper_journey_copper_horn_harmony"
+  },
+  "range": 256.0,
+  "sound_event": "blazersmod:copper_horn_clear_temper_journey_harmony",
+  "use_duration": 7.0
+}

@@ -1,0 +1,8 @@
+{
+  "description": {
+    "translate": "instrument.blazersmod.mumble_fire_memory_copper_horn_harmony"
+  },
+  "range": 256.0,
+  "sound_event": "blazersmod:copper_horn_mumble_fire_memory_harmony",
+  "use_duration": 7.0
+}

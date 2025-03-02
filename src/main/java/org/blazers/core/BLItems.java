@@ -87,6 +87,8 @@ public final class BLItems {
 
     public static final Item CARBOWN_BOW = HCItems.registerItem("carbon_bow", Suppliers.memoize(() -> new CarbonBowItem(ItemHelper.settings("carbon_bow").maxDamage(384))));
 
+    public static final Item COPPER_HORN = registerCopperHorn();
+
     //#endregion
 
     //#region Tools
@@ -226,6 +228,16 @@ public final class BLItems {
      */
     private static Item registerMusicDisc(final String name, final RegistryKey<JukeboxSong> jukeboxSong) {
         return HCItems.registerMusicDisc("music_disc_" + name, Rarity.RARE, jukeboxSong);
+    }
+
+    /**
+     * Register a {@link Item Copper Horn}
+     *
+     * @return The {@link Item registered Item}
+     */
+    private static Item registerCopperHorn() {
+        final String name = "copper_horn";
+        return HCItems.registerItem(name, Suppliers.memoize(() -> new CopperHornItem(ItemHelper.settings(name).maxCount(1).rarity(Rarity.UNCOMMON))));
     }
 
     /**

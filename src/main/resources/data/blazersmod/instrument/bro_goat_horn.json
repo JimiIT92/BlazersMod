@@ -1,0 +1,8 @@
+{
+  "description": {
+    "translate": "instrument.blazersmod.bro_goat_horn"
+  },
+  "range": 256.0,
+  "sound_event": "blazersmod:goat_horn_bro",
+  "use_duration": 7.0
+}

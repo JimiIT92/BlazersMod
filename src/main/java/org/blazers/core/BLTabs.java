@@ -1,10 +1,11 @@
 package org.blazers.core;
 
 import com.google.common.base.Suppliers;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.registry.RegistryKeys;
 import org.blazers.BlazersMod;
+import org.blazers.item.CopperHornItem;
 import org.blazers.item.IPreEnchantedItem;
 import org.hendrix.registry.HCTabs;
 
@@ -54,6 +55,8 @@ public final class BLTabs {
                 BLItems.MUSIC_DISC_SURVIVAL,
                 BLItems.MUSIC_DISC_ENDERMAN_VS_BLAZE
         );
+
+        addCopperHorns();
 
         HCTabs.addItems(COMBAT,
                 BLItems.EMERALD_SWORD,
@@ -166,13 +169,32 @@ public final class BLTabs {
         );
     }
 
+    /**
+     * Add some {@link IPreEnchantedItem Pre Enchanted Items} to the Creative Inventory
+     *
+     * @param items The {@link ItemConvertible Pre Enchanted Items to add}
+     */
     private static void addPreEnchantedItems(final ItemConvertible... items) {
         if(items != null && items.length > 0) {
-            HCTabs.tabKey(COMBAT).ifPresent(tabKey -> ItemGroupEvents.modifyEntriesEvent(tabKey).register(entries -> {
-                ItemGroup.DisplayContext context = entries.getContext();
+            HCTabs.modifyItems(COMBAT, entries -> {
+                final ItemGroup.DisplayContext context = entries.getContext();
                 Arrays.asList(items).forEach(item -> entries.add(((IPreEnchantedItem)item).getItemStack(item.asItem(), context.lookup())));
-            }));
+            });
         }
+    }
+
+    /**
+     * Add the {@link CopperHornItem Copper Horns} to the Creative Inventory
+     */
+    private static void addCopperHorns() {
+        HCTabs.modifyItems(TOOLS, entries -> {
+            final ItemGroup.DisplayContext context = entries.getContext();
+            context.lookup().getOptional(RegistryKeys.INSTRUMENT)
+                    .flatMap(wrapper -> wrapper.getOptional(BLTags.Instruments.MELODY_COPPER_HORNS))
+                    .ifPresent((entryList) -> entryList.stream()
+                    .map((instrument) -> CopperHornItem.getStackForInstrument(BLItems.COPPER_HORN, instrument))
+                    .forEach((stack) -> entries.add(stack, ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS)));
+        });
     }
 
 }

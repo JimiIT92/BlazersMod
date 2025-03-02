@@ -20,16 +20,16 @@ public final class BLArmorMaterials {
 
     //#region Armor Materials
 
-    public static final ArmorMaterial EMERALD = gemArmorMaterial("emerald", BLItemTags.REPAIRS_EMERALD_ARMOR);
-    public static final ArmorMaterial SAPPHIRE = gemArmorMaterial("sapphire", BLItemTags.REPAIRS_SAPPHIRE_ARMOR);
-    public static final ArmorMaterial RUBY = gemArmorMaterial("ruby", BLItemTags.REPAIRS_RUBY_ARMOR);
-    public static final ArmorMaterial TOPAZ = rockArmorMaterial("topaz", BLItemTags.REPAIRS_TOPAZ_ARMOR);
-    public static final ArmorMaterial MALACHITE = rockArmorMaterial("malachite", BLItemTags.REPAIRS_MALACHITE_ARMOR);
-    public static final ArmorMaterial ONICE = rockArmorMaterial("onice", BLItemTags.REPAIRS_ONICE_ARMOR);
-    public static final ArmorMaterial AMETHYST = crystalArmorMaterial("amethyst", RegistryEntry.of(SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME), BLItemTags.REPAIRS_AMETHYST_ARMOR);
-    public static final ArmorMaterial PEARL = crystalArmorMaterial("pearl", RegistryEntry.of(SoundEvents.BLOCK_BONE_BLOCK_BREAK), BLItemTags.REPAIRS_PEARL_ARMOR);
-    public static final ArmorMaterial BLAZERITE = powerfulArmorMaterial("blazerite", RegistryEntry.of(SoundEvents.ITEM_FIRECHARGE_USE), BLItemTags.REPAIRS_BLAZERITE_ARMOR);
-    public static final ArmorMaterial GYULIANITE = powerfulArmorMaterial("gyulianite", RegistryEntry.of(SoundEvents.BLOCK_NETHERRACK_HIT), BLItemTags.REPAIRS_GYULIANITE_ARMOR);
+    public static final ArmorMaterial EMERALD = gemArmorMaterial("emerald", BLTags.ItemTags.REPAIRS_EMERALD_ARMOR);
+    public static final ArmorMaterial SAPPHIRE = gemArmorMaterial("sapphire", BLTags.ItemTags.REPAIRS_SAPPHIRE_ARMOR);
+    public static final ArmorMaterial RUBY = gemArmorMaterial("ruby", BLTags.ItemTags.REPAIRS_RUBY_ARMOR);
+    public static final ArmorMaterial TOPAZ = rockArmorMaterial("topaz", BLTags.ItemTags.REPAIRS_TOPAZ_ARMOR);
+    public static final ArmorMaterial MALACHITE = rockArmorMaterial("malachite", BLTags.ItemTags.REPAIRS_MALACHITE_ARMOR);
+    public static final ArmorMaterial ONICE = rockArmorMaterial("onice", BLTags.ItemTags.REPAIRS_ONICE_ARMOR);
+    public static final ArmorMaterial AMETHYST = crystalArmorMaterial("amethyst", RegistryEntry.of(SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME), BLTags.ItemTags.REPAIRS_AMETHYST_ARMOR);
+    public static final ArmorMaterial PEARL = crystalArmorMaterial("pearl", RegistryEntry.of(SoundEvents.BLOCK_BONE_BLOCK_BREAK), BLTags.ItemTags.REPAIRS_PEARL_ARMOR);
+    public static final ArmorMaterial BLAZERITE = powerfulArmorMaterial("blazerite", RegistryEntry.of(SoundEvents.ITEM_FIRECHARGE_USE), BLTags.ItemTags.REPAIRS_BLAZERITE_ARMOR);
+    public static final ArmorMaterial GYULIANITE = powerfulArmorMaterial("gyulianite", RegistryEntry.of(SoundEvents.BLOCK_NETHERRACK_HIT), BLTags.ItemTags.REPAIRS_GYULIANITE_ARMOR);
 
     //#endregion
 

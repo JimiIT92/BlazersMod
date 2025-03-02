@@ -118,6 +118,7 @@
   "item.blazersmod.music_disc_survival.desc": "ErenBlaze - Survival",
   "item.blazersmod.music_disc_enderman_vs_blaze": "Disco musicale",
   "item.blazersmod.music_disc_enderman_vs_blaze.desc": "ErenBlaze - Enderman vs Blaze",
+  "item.blazersmod.copper_horn": "Corno di rame",
   "entity.blazersmod.spear": "Lancia",
   "entity.blazersmod.malachite_spear": "Lancia di malachite",
   "death.attack.spear": "%1$s ha impalato %2$s",
@@ -126,5 +127,18 @@
   "sounds.blazersmod.reversed_bruh": "Quadro Bruh si rompe",
   "sounds.blazersmod.bro": "Brooooo",
   "jukebox_song.blazersmod.survival": "ErenBlaze - Survival",
-  "jukebox_song.blazersmod.enderman_vs_blaze": "ErenBlaze - Enderman vs Blaze"
+  "jukebox_song.blazersmod.enderman_vs_blaze": "ErenBlaze - Enderman vs Blaze",
+  "instrument.blazersmod.bro_goat_horn": "Fratellanza",
+  "instrument.blazersmod.fly_goat_horn": "Volo",
+  "instrument.blazersmod.resist_goat_horn": "Resistenza",
+  "instrument.blazersmod.great_sky_falling_copper_horn": "Grande caduta",
+  "instrument.blazersmod.old_hymn_resting_copper_horn": "Vecchio inno",
+  "instrument.blazersmod.pure_water_desire_copper_horn": "Desiderio d'acqua pura",
+  "instrument.blazersmod.mumble_fire_memory_copper_horn": "Ricordo infuocato",
+  "instrument.blazersmod.dry_urge_anger_copper_horn": "Bisogno di rabbia",
+  "instrument.blazersmod.clear_temper_journey_copper_horn": "Viaggio di temperamento",
+  "instrument.blazersmod.fresh_nest_thought_copper_horn": "Pensiero vivido",
+  "instrument.blazersmod.secret_lake_tear_copper_horn": "Lacrima segreta del lago",
+  "instrument.blazersmod.fearless_river_gift_copper_horn": "Dono del fiume senza paura",
+  "instrument.blazersmod.sweet_moon_love_copper_horn": "Dolce amore lunare"
 }

@@ -1,0 +1,8 @@
+{
+  "description": {
+    "translate": "instrument.blazersmod.fearless_river_gift_copper_horn_bass"
+  },
+  "range": 256.0,
+  "sound_event": "blazersmod:copper_horn_fearless_river_gift_bass",
+  "use_duration": 7.0
+}

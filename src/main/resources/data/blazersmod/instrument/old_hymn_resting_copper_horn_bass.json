@@ -1,0 +1,8 @@
+{
+  "description": {
+    "translate": "instrument.blazersmod.old_hymn_resting_copper_horn_bass"
+  },
+  "range": 256.0,
+  "sound_event": "blazersmod:copper_horn_old_hymn_resting_bass",
+  "use_duration": 7.0
+}

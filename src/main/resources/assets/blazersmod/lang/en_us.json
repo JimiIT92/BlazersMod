@@ -118,6 +118,7 @@
   "item.blazersmod.music_disc_survival.desc": "ErenBlaze - Survival",
   "item.blazersmod.music_disc_enderman_vs_blaze": "Music Disc",
   "item.blazersmod.music_disc_enderman_vs_blaze.desc": "ErenBlaze - Enderman vs Blaze",
+  "item.blazersmod.copper_horn": "Copper Horn",
   "entity.blazersmod.spear": "Spear",
   "entity.blazersmod.malachite_spear": "Malachite Spear",
   "death.attack.spear": "%1$s was impaled by %2$s",
@@ -126,5 +127,18 @@
   "sounds.blazersmod.reversed_bruh": "Bruh painting breaks",
   "sounds.blazersmod.bro": "Brooooo",
   "jukebox_song.blazersmod.survival": "ErenBlaze - Survival",
-  "jukebox_song.blazersmod.enderman_vs_blaze": "ErenBlaze - Enderman vs Blaze"
+  "jukebox_song.blazersmod.enderman_vs_blaze": "ErenBlaze - Enderman vs Blaze",
+  "instrument.blazersmod.bro_goat_horn": "Brotherhood",
+  "instrument.blazersmod.fly_goat_horn": "Fly",
+  "instrument.blazersmod.resist_goat_horn": "Resist",
+  "instrument.blazersmod.great_sky_falling_copper_horn": "Great Sky Falling",
+  "instrument.blazersmod.old_hymn_resting_copper_horn": "Old Hymn Resting",
+  "instrument.blazersmod.pure_water_desire_copper_horn": "Pure Water Desire",
+  "instrument.blazersmod.mumble_fire_memory_copper_horn": "Mumble Fire Memory",
+  "instrument.blazersmod.dry_urge_anger_copper_horn": "Dry Urge Anger",
+  "instrument.blazersmod.clear_temper_journey_copper_horn": "Clear Temper Journey",
+  "instrument.blazersmod.fresh_nest_thought_copper_horn": "Fresh Nest Thought",
+  "instrument.blazersmod.secret_lake_tear_copper_horn": "Secret Lake Tear",
+  "instrument.blazersmod.fearless_river_gift_copper_horn": "Fearless River Gift",
+  "instrument.blazersmod.sweet_moon_love_copper_horn": "Sweet Moon Love"
 }
