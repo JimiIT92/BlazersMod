@@ -13,18 +13,18 @@ public final class BLToolMaterials {
 
     //#region Tool Materials
 
-    public static final ToolMaterial EMERALD = gemToolMaterial(BLItemTags.EMERALD_TOOL_MATERIALS);
-    public static final ToolMaterial SAPPHIRE = gemToolMaterial(BLItemTags.SAPPHIRE_TOOL_MATERIALS);
-    public static final ToolMaterial RUBY = gemToolMaterial(BLItemTags.RUBY_TOOL_MATERIALS);
-    public static final ToolMaterial TOPAZ = rockToolMaterial(BLItemTags.TOPAZ_TOOL_MATERIALS);
-    public static final ToolMaterial MALACHITE = rockToolMaterial(BLItemTags.MALACHITE_TOOL_MATERIALS);
-    public static final ToolMaterial ONICE = rockToolMaterial(BLItemTags.ONICE_TOOL_MATERIALS);
-    public static final ToolMaterial AMETHYST = crystalToolMaterial(BLItemTags.AMETHYST_TOOL_MATERIALS);
-    public static final ToolMaterial PEARL = crystalToolMaterial(BLItemTags.PEARL_TOOL_MATERIALS);
-    public static final ToolMaterial BLAZERITE = powerfulToolMaterial(BLItemTags.BLAZERITE_TOOL_MATERIALS);
-    public static final ToolMaterial GYULIANITE = powerfulToolMaterial(BLItemTags.GYULIANITE_TOOL_MATERIALS);
-    public static final ToolMaterial FLINT = new ToolMaterial(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 131, 4.0F, 1.0F, 5, BLItemTags.FLINT_TOOL_MATERIALS);
-    public static final ToolMaterial CARBON = new ToolMaterial(BlockTags.INCORRECT_FOR_STONE_TOOL, 250, 8.0F, 2.0F, 14, BLItemTags.CARBON_TOOL_MATERIALS);
+    public static final ToolMaterial EMERALD = gemToolMaterial(BLTags.ItemTags.EMERALD_TOOL_MATERIALS);
+    public static final ToolMaterial SAPPHIRE = gemToolMaterial(BLTags.ItemTags.SAPPHIRE_TOOL_MATERIALS);
+    public static final ToolMaterial RUBY = gemToolMaterial(BLTags.ItemTags.RUBY_TOOL_MATERIALS);
+    public static final ToolMaterial TOPAZ = rockToolMaterial(BLTags.ItemTags.TOPAZ_TOOL_MATERIALS);
+    public static final ToolMaterial MALACHITE = rockToolMaterial(BLTags.ItemTags.MALACHITE_TOOL_MATERIALS);
+    public static final ToolMaterial ONICE = rockToolMaterial(BLTags.ItemTags.ONICE_TOOL_MATERIALS);
+    public static final ToolMaterial AMETHYST = crystalToolMaterial(BLTags.ItemTags.AMETHYST_TOOL_MATERIALS);
+    public static final ToolMaterial PEARL = crystalToolMaterial(BLTags.ItemTags.PEARL_TOOL_MATERIALS);
+    public static final ToolMaterial BLAZERITE = powerfulToolMaterial(BLTags.ItemTags.BLAZERITE_TOOL_MATERIALS);
+    public static final ToolMaterial GYULIANITE = powerfulToolMaterial(BLTags.ItemTags.GYULIANITE_TOOL_MATERIALS);
+    public static final ToolMaterial FLINT = new ToolMaterial(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 131, 4.0F, 1.0F, 5, BLTags.ItemTags.FLINT_TOOL_MATERIALS);
+    public static final ToolMaterial CARBON = new ToolMaterial(BlockTags.INCORRECT_FOR_STONE_TOOL, 250, 8.0F, 2.0F, 14, BLTags.ItemTags.CARBON_TOOL_MATERIALS);
 
     //#endregion
 

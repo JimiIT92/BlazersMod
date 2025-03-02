@@ -1,0 +1,8 @@
+{
+  "description": {
+    "translate": "instrument.blazersmod.great_sky_falling_copper_horn"
+  },
+  "range": 256.0,
+  "sound_event": "blazersmod:copper_horn_great_sky_falling",
+  "use_duration": 7.0
+}

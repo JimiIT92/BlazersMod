@@ -1,0 +1,8 @@
+{
+  "description": {
+    "translate": "instrument.blazersmod.fresh_nest_thought_copper_horn"
+  },
+  "range": 256.0,
+  "sound_event": "blazersmod:copper_horn_fresh_nest_thought",
+  "use_duration": 7.0
+}
