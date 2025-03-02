@@ -15,7 +15,7 @@ public final class BLEntityTypes {
 
     //#region Entity Types
 
-    public static final EntityType<SpearEntity> SPEAR = HCEntities.register(
+    public static final EntityType<SpearEntity> SPEAR = HCEntities.registerEntity(
             "spear",
             Suppliers.memoize(() -> EntityType.Builder.<SpearEntity>create(SpearEntity::new, SpawnGroup.MISC)
                     .dropsNothing()
@@ -26,7 +26,7 @@ public final class BLEntityTypes {
             )
     );
 
-    public static final EntityType<MalachiteSpearEntity> MALACHITE_SPEAR = HCEntities.register(
+    public static final EntityType<MalachiteSpearEntity> MALACHITE_SPEAR = HCEntities.registerEntity(
             "malachite_spear",
             Suppliers.memoize(() -> EntityType.Builder.<MalachiteSpearEntity>create(MalachiteSpearEntity::new, SpawnGroup.MISC)
                     .dropsNothing()

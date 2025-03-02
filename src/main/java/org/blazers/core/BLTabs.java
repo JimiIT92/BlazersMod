@@ -17,16 +17,16 @@ public final class BLTabs {
 
     //#region Item Groups
 
-    //public static ItemGroup BUILDING_BLOCKS = HCTabs.tab("building_blocks", Suppliers.memoize(() -> BLBlocks.RUBY_BLOCK));
-    //public static ItemGroup COLORED_BLOCKS = HCTabs.tab("colored_blocks", Suppliers.memoize(() -> BLBlocks.YELLOW_CONCRETE_STAIRS));
-    //public static ItemGroup NATURAL = HCTabs.tab("natural", Suppliers.memoize(() -> BLBlocks.HOLLOW_BIRCH_LOG));
-    //public static ItemGroup FUNCTIONAL = HCTabs.tab("functional", Suppliers.memoize(() -> Items.PAINTING));
-    //public static ItemGroup REDSTONE = HCTabs.tab("redstone", Suppliers.memoize(() -> BLBlocks.COPPER_BUTTON));
-    public static ItemGroup TOOLS = HCTabs.tab("tools", Suppliers.memoize(() -> BLItems.EMERALD_PICKAXE));
-    public static ItemGroup COMBAT = HCTabs.tab("combat", Suppliers.memoize(() -> BLItems.KATANA));
-    public static ItemGroup FOOD_AND_DRINK = HCTabs.tab("food_and_drink", Suppliers.memoize(() -> BLItems.SASHIMI));
-    public static ItemGroup INGREDIENTS = HCTabs.tab("ingredients", Suppliers.memoize(() -> BLItems.RUBY));
-    //public static ItemGroup SPAWN_EGGS = HCTabs.tab("spawn_eggs", Suppliers.memoize(() -> BLItems.COPPER_GOLEM_SPAWN_EGG));
+    //public static ItemGroup BUILDING_BLOCKS = HCTabs.registerTab("building_blocks", Suppliers.memoize(() -> BLBlocks.RUBY_BLOCK));
+    //public static ItemGroup COLORED_BLOCKS = HCTabs.registerTab("colored_blocks", Suppliers.memoize(() -> BLBlocks.YELLOW_CONCRETE_STAIRS));
+    //public static ItemGroup NATURAL = HCTabs.registerTab("natural", Suppliers.memoize(() -> BLBlocks.HOLLOW_BIRCH_LOG));
+    //public static ItemGroup FUNCTIONAL = HCTabs.registerTab("functional", Suppliers.memoize(() -> Items.PAINTING));
+    //public static ItemGroup REDSTONE = HCTabs.registerTab("redstone", Suppliers.memoize(() -> BLBlocks.COPPER_BUTTON));
+    public static ItemGroup TOOLS = HCTabs.registerTab("tools", Suppliers.memoize(() -> BLItems.EMERALD_PICKAXE));
+    public static ItemGroup COMBAT = HCTabs.registerTab("combat", Suppliers.memoize(() -> BLItems.KATANA));
+    public static ItemGroup FOOD_AND_DRINK = HCTabs.registerTab("food_and_drink", Suppliers.memoize(() -> BLItems.SASHIMI));
+    public static ItemGroup INGREDIENTS = HCTabs.registerTab("ingredients", Suppliers.memoize(() -> BLItems.RUBY));
+    //public static ItemGroup SPAWN_EGGS = HCTabs.registerTab("spawn_eggs", Suppliers.memoize(() -> BLItems.COPPER_GOLEM_SPAWN_EGG));
 
     //#endregion
 
@@ -50,7 +50,9 @@ public final class BLTabs {
                 BLItems.ONICE_SHOVEL,
                 BLItems.ONICE_PICKAXE,
                 BLItems.ONICE_AXE,
-                BLItems.ONICE_HOE
+                BLItems.ONICE_HOE,
+                BLItems.MUSIC_DISC_SURVIVAL,
+                BLItems.MUSIC_DISC_ENDERMAN_VS_BLAZE
         );
 
         HCTabs.addItems(COMBAT,

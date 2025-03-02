@@ -2,6 +2,7 @@ package org.blazers;
 
 import net.fabricmc.api.ModInitializer;
 import org.blazers.core.BLItems;
+import org.blazers.core.BLSounds;
 import org.blazers.core.BLTabs;
 import org.hendrix.HendrixCore;
 
@@ -22,8 +23,10 @@ public final class BlazersMod implements ModInitializer {
     public void onInitialize() {
         HendrixCore.init(MOD_ID);
 
+        BLSounds.register();
         BLTabs.register();
         BLItems.register();
+
     }
 
 }

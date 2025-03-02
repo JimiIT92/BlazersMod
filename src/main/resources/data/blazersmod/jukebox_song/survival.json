@@ -1,0 +1,8 @@
+{
+  "comparator_output": 15,
+  "description": {
+    "translate": "jukebox_song.blazersmod.survival"
+  },
+  "length_in_seconds": 28.0,
+  "sound_event": "blazersmod:music_disc_survival"
+}

@@ -40,8 +40,8 @@ public final class BlazersModClient implements ClientModInitializer {
      * Register all {@link SpecialModelRenderer Item Models}
      */
     public static void registerItemModels() {
-        HCItemModels.registerItemModel(BLItems.SPEAR, new SpearModelRenderer.Unbaked());
-        HCItemModels.registerItemModel(BLItems.MALACHITE_SPEAR, new MalachiteSpearModelRenderer.Unbaked());
+        HCItemModels.itemModel(BLItems.SPEAR, new SpearModelRenderer.Unbaked());
+        HCItemModels.itemModel(BLItems.MALACHITE_SPEAR, new MalachiteSpearModelRenderer.Unbaked());
     }
 
     /**

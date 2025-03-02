@@ -114,8 +114,17 @@
   "item.blazersmod.ruby_horse_armor": "Bardatura di rubino",
   "item.blazersmod.topaz_horse_armor": "Bardatura di topazio",
   "item.blazersmod.malachite_horse_armor": "Bardatura di malachite",
+  "item.blazersmod.music_disc_survival": "Disco musicale",
+  "item.blazersmod.music_disc_survival.desc": "ErenBlaze - Survival",
+  "item.blazersmod.music_disc_enderman_vs_blaze": "Disco musicale",
+  "item.blazersmod.music_disc_enderman_vs_blaze.desc": "ErenBlaze - Enderman vs Blaze",
   "entity.blazersmod.spear": "Lancia",
   "entity.blazersmod.malachite_spear": "Lancia di malachite",
   "death.attack.spear": "%1$s ha impalato %2$s",
-  "death.attack.spear.item": "%1$s ha impalato %2$s con %3$s"
+  "death.attack.spear.item": "%1$s ha impalato %2$s con %3$s",
+  "sounds.blazersmod.bruh": "Quadro Bruh si piazza",
+  "sounds.blazersmod.reversed_bruh": "Quadro Bruh si rompe",
+  "sounds.blazersmod.bro": "Brooooo",
+  "jukebox_song.blazersmod.survival": "ErenBlaze - Survival",
+  "jukebox_song.blazersmod.enderman_vs_blaze": "ErenBlaze - Enderman vs Blaze"
 }

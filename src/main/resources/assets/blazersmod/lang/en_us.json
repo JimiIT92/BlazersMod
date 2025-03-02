@@ -114,8 +114,17 @@
   "item.blazersmod.ruby_horse_armor": "Ruby Horse Armor",
   "item.blazersmod.topaz_horse_armor": "Topaz Horse Armor",
   "item.blazersmod.malachite_horse_armor": "Malachite Horse Armor",
+  "item.blazersmod.music_disc_survival": "Music Disc",
+  "item.blazersmod.music_disc_survival.desc": "ErenBlaze - Survival",
+  "item.blazersmod.music_disc_enderman_vs_blaze": "Music Disc",
+  "item.blazersmod.music_disc_enderman_vs_blaze.desc": "ErenBlaze - Enderman vs Blaze",
   "entity.blazersmod.spear": "Spear",
   "entity.blazersmod.malachite_spear": "Malachite Spear",
   "death.attack.spear": "%1$s was impaled by %2$s",
-  "death.attack.spear.item": "%1$s was impaled by %2$s with %3$s"
+  "death.attack.spear.item": "%1$s was impaled by %2$s with %3$s",
+  "sounds.blazersmod.bruh": "Bruh painting places",
+  "sounds.blazersmod.reversed_bruh": "Bruh painting breaks",
+  "sounds.blazersmod.bro": "Brooooo",
+  "jukebox_song.blazersmod.survival": "ErenBlaze - Survival",
+  "jukebox_song.blazersmod.enderman_vs_blaze": "ErenBlaze - Enderman vs Blaze"
 }

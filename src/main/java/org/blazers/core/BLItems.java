@@ -2,6 +2,7 @@ package org.blazers.core;
 
 import com.google.common.base.Suppliers;
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.block.jukebox.JukeboxSong;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
@@ -160,6 +161,13 @@ public final class BLItems {
 
     //#endregion
 
+    //#region Music Discs
+
+    public static final Item MUSIC_DISC_SURVIVAL = registerMusicDisc("survival", BLJukeboxSongs.SURVIVAL);
+    public static final Item MUSIC_DISC_ENDERMAN_VS_BLAZE = registerMusicDisc("enderman_vs_blaze", BLJukeboxSongs.ENDERMAN_VS_BLAZE);
+
+    //#endregion
+
     //#endregion
 
     /**
@@ -207,6 +215,17 @@ public final class BLItems {
      */
     private static Item registerPreEnchantedArmor(final String name, final ArmorMaterial material, final EquipmentType equipmentType, final RegistryKey<Enchantment> enchantment) {
         return HCItems.registerItem(name, Suppliers.memoize(() -> new PreEnchantedArmorItem(name, material, equipmentType, Pair.of(enchantment, 4))));
+    }
+
+    /**
+     * Register a {@link Item Music Disc}
+     *
+     * @param name The {@link String Item name}
+     * @param jukeboxSong The {@link RegistryKey<JukeboxSong> Jukebox Song}
+     * @return The {@link Item registered Item}
+     */
+    private static Item registerMusicDisc(final String name, final RegistryKey<JukeboxSong> jukeboxSong) {
+        return HCItems.registerMusicDisc("music_disc_" + name, Rarity.RARE, jukeboxSong);
     }
 
     /**

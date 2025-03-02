@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/template_music_disc",
+  "textures": {
+    "layer0": "blazersmod:item/music_disc_enderman_vs_blaze"
+  }
+}
