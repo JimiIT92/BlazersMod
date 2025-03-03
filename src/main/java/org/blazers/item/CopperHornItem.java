@@ -10,7 +10,6 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.registry.entry.RegistryEntryList;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
@@ -21,9 +20,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.blazers.core.BLInstruments;
 import org.blazers.core.BLTags;
+import org.hendrix.helper.PlayerHelper;
 import org.hendrix.helper.RegistryHelper;
 
-import java.util.Iterator;
 import java.util.Optional;
 import java.util.function.Supplier;
 
@@ -47,6 +46,38 @@ public final class CopperHornItem extends GoatHornItem {
             .put(BLInstruments.FLY_GOAT_HORN, BLInstruments.FEARLESS_RIVER_GIFT_COPPER_HORN)
             .put(BLInstruments.RESIST_GOAT_HORN, BLInstruments.SWEET_MOON_LOVE_COPPER_HORN)
     .build());
+
+    /**
+     * The {@link Supplier<BiMap> Map Supplier} for mapping {@link RegistryKey<Instrument> Instruments} to their bass counterpart
+     */
+    private static final Supplier<BiMap<RegistryKey<Instrument>, RegistryKey<Instrument>>> INSTRUMENT_TO_BASS_INSTRUMENT = Suppliers.memoize(() -> ImmutableBiMap.<RegistryKey<Instrument>, RegistryKey<Instrument>>builder()
+            .put(BLInstruments.GREAT_SKY_FALLING_COPPER_HORN, BLInstruments.GREAT_SKY_FALLING_COPPER_HORN_BASS)
+            .put(BLInstruments.OLD_HYMN_RESTING_COPPER_HORN, BLInstruments.OLD_HYMN_RESTING_COPPER_HORN_BASS)
+            .put(BLInstruments.PURE_WATER_DESIRE_COPPER_HORN, BLInstruments.PURE_WATER_DESIRE_COPPER_HORN_BASS)
+            .put(BLInstruments.MUMBLE_FIRE_MEMORY_COPPER_HORN, BLInstruments.MUMBLE_FIRE_MEMORY_COPPER_HORN_BASS)
+            .put(BLInstruments.DRY_URGE_ANGER_COPPER_HORN, BLInstruments.DRY_URGE_ANGER_COPPER_HORN_BASS)
+            .put(BLInstruments.CLEAR_TEMPER_JOURNEY_COPPER_HORN, BLInstruments.CLEAR_TEMPER_JOURNEY_COPPER_HORN_BASS)
+            .put(BLInstruments.FRESH_NEST_THOUGHT_COPPER_HORN, BLInstruments.FRESH_NEST_THOUGHT_COPPER_HORN_BASS)
+            .put(BLInstruments.SECRET_LAKE_TEAR_COPPER_HORN, BLInstruments.SECRET_LAKE_TEAR_COPPER_HORN_BASS)
+            .put(BLInstruments.FEARLESS_RIVER_GIFT_COPPER_HORN, BLInstruments.FEARLESS_RIVER_GIFT_COPPER_HORN_BASS)
+            .put(BLInstruments.SWEET_MOON_LOVE_COPPER_HORN, BLInstruments.SWEET_MOON_LOVE_COPPER_HORN_BASS)
+            .build());
+
+    /**
+     * The {@link Supplier<BiMap> Map Supplier} for mapping {@link RegistryKey<Instrument> Instruments} to their harmony counterpart
+     */
+    private static final Supplier<BiMap<RegistryKey<Instrument>, RegistryKey<Instrument>>> INSTRUMENT_TO_HARMONY_INSTRUMENT = Suppliers.memoize(() -> ImmutableBiMap.<RegistryKey<Instrument>, RegistryKey<Instrument>>builder()
+            .put(BLInstruments.GREAT_SKY_FALLING_COPPER_HORN, BLInstruments.GREAT_SKY_FALLING_COPPER_HORN_HARMONY)
+            .put(BLInstruments.OLD_HYMN_RESTING_COPPER_HORN, BLInstruments.OLD_HYMN_RESTING_COPPER_HORN_HARMONY)
+            .put(BLInstruments.PURE_WATER_DESIRE_COPPER_HORN, BLInstruments.PURE_WATER_DESIRE_COPPER_HORN_HARMONY)
+            .put(BLInstruments.MUMBLE_FIRE_MEMORY_COPPER_HORN, BLInstruments.MUMBLE_FIRE_MEMORY_COPPER_HORN_HARMONY)
+            .put(BLInstruments.DRY_URGE_ANGER_COPPER_HORN, BLInstruments.DRY_URGE_ANGER_COPPER_HORN_HARMONY)
+            .put(BLInstruments.CLEAR_TEMPER_JOURNEY_COPPER_HORN, BLInstruments.CLEAR_TEMPER_JOURNEY_COPPER_HORN_HARMONY)
+            .put(BLInstruments.FRESH_NEST_THOUGHT_COPPER_HORN, BLInstruments.FRESH_NEST_THOUGHT_COPPER_HORN_HARMONY)
+            .put(BLInstruments.SECRET_LAKE_TEAR_COPPER_HORN, BLInstruments.SECRET_LAKE_TEAR_COPPER_HORN_HARMONY)
+            .put(BLInstruments.FEARLESS_RIVER_GIFT_COPPER_HORN, BLInstruments.FEARLESS_RIVER_GIFT_COPPER_HORN_HARMONY)
+            .put(BLInstruments.SWEET_MOON_LOVE_COPPER_HORN, BLInstruments.SWEET_MOON_LOVE_COPPER_HORN_HARMONY)
+            .build());
 
     /**
      * Constructor. Set the {@link Item.Settings Item properties}
@@ -91,16 +122,35 @@ public final class CopperHornItem extends GoatHornItem {
     private Optional<RegistryEntry<Instrument>> getInstrument(final ItemStack stack, final RegistryWrapper.WrapperLookup registryWrapperLookup, final TagKey<Instrument> instrumentTagKey) {
         final RegistryEntry<Instrument> registryEntry = stack.get(DataComponentTypes.INSTRUMENT);
         if (registryEntry != null) {
-            final Optional<RegistryEntryList.Named<Instrument>> optionalInstrument = getInstrumentRegistry(registryWrapperLookup).getOptional(instrumentTagKey);
-            if (optionalInstrument.isPresent()) {
-                final Iterator<RegistryEntry<Instrument>> instrumentIterator = optionalInstrument.get().iterator();
-                if (instrumentIterator.hasNext()) {
-                    return Optional.of(instrumentIterator.next());
+            final Optional<RegistryKey<Instrument>> optionalInstrumentKey = getInstrumentRegistryKey(registryEntry, instrumentTagKey);
+            if(optionalInstrumentKey.isPresent()) {
+                final Optional<Instrument> instrument = RegistryHelper.getValue(registryWrapperLookup, RegistryKeys.INSTRUMENT, optionalInstrumentKey.get());
+                if(instrument.isPresent()) {
+                    return Optional.of(RegistryEntry.of(instrument.get()));
                 }
             }
-
         }
         return Optional.ofNullable(registryEntry);
+    }
+
+    /**
+     * Get the {@link RegistryKey<Instrument> Instrument Registry Key} based on the current {@link RegistryEntry<Instrument> Instrument Registry Entry}
+     * and the provided {@link TagKey<Instrument> Instrument Tag Key}
+     *
+     * @param baseInstrument The {@link RegistryEntry<Instrument> current Instrument Registry Entry}
+     * @param instrumentTagKey The {@link TagKey<Instrument> Instrument Tag Key}
+     * @return The {@link RegistryKey<Instrument> Instrument Registry Key}
+     */
+    private Optional<RegistryKey<Instrument>> getInstrumentRegistryKey(final RegistryEntry<Instrument> baseInstrument, final TagKey<Instrument> instrumentTagKey) {
+        return baseInstrument.getKey().flatMap(instrument -> {
+            if(instrumentTagKey.equals(BLTags.Instruments.BASS_COPPER_HORNS)) {
+                return Optional.ofNullable(INSTRUMENT_TO_BASS_INSTRUMENT.get().get(instrument));
+            }
+            if(instrumentTagKey.equals(BLTags.Instruments.HARMONY_COPPER_HORNS)) {
+                return Optional.ofNullable(INSTRUMENT_TO_HARMONY_INSTRUMENT.get().get(instrument));
+            }
+            return Optional.of(instrument);
+        });
     }
 
     /**
@@ -112,7 +162,7 @@ public final class CopperHornItem extends GoatHornItem {
      */
     private TagKey<Instrument> getInstrumentTagKey(final PlayerEntity player) {
         return player.isSneaking() ? BLTags.Instruments.BASS_COPPER_HORNS :
-                player.getRotationClient().x == -90F ? BLTags.Instruments.HARMONY_COPPER_HORNS : BLTags.Instruments.MELODY_COPPER_HORNS;
+                PlayerHelper.isLookingUp(player) ? BLTags.Instruments.HARMONY_COPPER_HORNS : BLTags.Instruments.MELODY_COPPER_HORNS;
     }
 
     /**
