@@ -1,12 +1,15 @@
 package org.blazers.core;
 
 import com.google.common.base.Suppliers;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.item.*;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.InstrumentTags;
 import org.blazers.BlazersMod;
 import org.blazers.item.CopperHornItem;
 import org.blazers.item.IPreEnchantedItem;
+import org.hendrix.helper.RegistryHelper;
 import org.hendrix.registry.HCTabs;
 
 import java.util.Arrays;
@@ -56,6 +59,7 @@ public final class BLTabs {
                 BLItems.MUSIC_DISC_ENDERMAN_VS_BLAZE
         );
 
+        addGoatHorns();
         addCopperHorns();
 
         HCTabs.addItems(COMBAT,
@@ -184,17 +188,41 @@ public final class BLTabs {
     }
 
     /**
+     * Add the {@link GoatHornItem modded Goat Horns} to the Creative Inventory
+     */
+    private static void addGoatHorns() {
+        HCTabs.removeItemsByCondition(ItemGroups.TOOLS, BLTabs::isModdedGoatHorn);
+        HCTabs.modifyItems(TOOLS, entries ->
+                RegistryHelper.getValuesFromTag(entries.getContext().lookup(), RegistryKeys.INSTRUMENT, InstrumentTags.GOAT_HORNS).ifPresent(instruments ->
+                        instruments.stream().map(instrument -> GoatHornItem.getStackForInstrument(Items.GOAT_HORN, instrument))
+                                .filter(BLTabs::isModdedGoatHorn)
+                                .forEach(itemStack -> entries.add(itemStack, ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS))
+        ));
+    }
+
+    /**
      * Add the {@link CopperHornItem Copper Horns} to the Creative Inventory
      */
     private static void addCopperHorns() {
-        HCTabs.modifyItems(TOOLS, entries -> {
-            final ItemGroup.DisplayContext context = entries.getContext();
-            context.lookup().getOptional(RegistryKeys.INSTRUMENT)
-                    .flatMap(wrapper -> wrapper.getOptional(BLTags.Instruments.MELODY_COPPER_HORNS))
-                    .ifPresent((entryList) -> entryList.stream()
-                    .map((instrument) -> CopperHornItem.getStackForInstrument(BLItems.COPPER_HORN, instrument))
-                    .forEach((stack) -> entries.add(stack, ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS)));
-        });
+        HCTabs.modifyItems(TOOLS, entries ->
+                RegistryHelper.getValuesFromTag(entries.getContext().lookup(), RegistryKeys.INSTRUMENT, BLTags.Instruments.MELODY_COPPER_HORNS).ifPresent(instruments ->
+                        instruments.stream().map(instrument -> CopperHornItem.getStackForInstrument(BLItems.COPPER_HORN, instrument))
+                                .forEach(itemStack -> entries.add(itemStack, ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS))
+        ));
+    }
+
+    /**
+     * Check if a {@link GoatHornItem Goat Horn} is a modded one
+     *
+     * @param itemStack The {@link ItemStack Item Stack to check}
+     * @return {@link Boolean True} if is a modded {@link GoatHornItem Goat Horn}
+     */
+    private static boolean isModdedGoatHorn(final ItemStack itemStack) {
+        final RegistryEntry<Instrument> instrument = itemStack.get(DataComponentTypes.INSTRUMENT);
+        if(instrument != null) {
+            return instrument.getKey().map(key -> key.getValue().getNamespace().equalsIgnoreCase(BlazersMod.MOD_ID)).orElse(false);
+        }
+        return false;
     }
 
 }
