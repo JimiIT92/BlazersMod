@@ -3,6 +3,7 @@
   "package": "org.blazers.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "PaintingEntityMixin",
     "ShapedRecipeMixin"
   ],
   "injectors": {

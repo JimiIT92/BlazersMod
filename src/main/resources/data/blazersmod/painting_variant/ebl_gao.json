@@ -1,0 +1,13 @@
+{
+  "asset_id": "blazersmod:ebl_gao",
+  "author": {
+    "color": "gray",
+    "translate": "painting.blazersmod.author"
+  },
+  "width": 1,
+  "height": 1,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.blazersmod.ebl_gao.title"
+  }
+}

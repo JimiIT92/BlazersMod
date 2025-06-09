@@ -1,0 +1,13 @@
+{
+  "asset_id": "blazersmod:ebl_bonk",
+  "author": {
+    "color": "gray",
+    "translate": "painting.blazersmod.author"
+  },
+  "width": 2,
+  "height": 2,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.blazersmod.ebl_bonk.title"
+  }
+}

@@ -3,9 +3,12 @@ package org.blazers.core;
 import com.google.common.base.Suppliers;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.InstrumentComponent;
+import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.item.*;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.InstrumentTags;
+import net.minecraft.registry.tag.PaintingVariantTags;
 import org.blazers.BlazersMod;
 import org.blazers.item.CopperHornItem;
 import org.blazers.item.IPreEnchantedItem;
@@ -13,6 +16,7 @@ import org.hendrix.helper.RegistryHelper;
 import org.hendrix.registry.HCTabs;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * {@link BlazersMod Blazers Mod} {@link ItemGroup Item Groups}
@@ -24,7 +28,7 @@ public final class BLTabs {
     //public static ItemGroup BUILDING_BLOCKS = HCTabs.registerTab("building_blocks", Suppliers.memoize(() -> BLBlocks.RUBY_BLOCK));
     //public static ItemGroup COLORED_BLOCKS = HCTabs.registerTab("colored_blocks", Suppliers.memoize(() -> BLBlocks.YELLOW_CONCRETE_STAIRS));
     //public static ItemGroup NATURAL = HCTabs.registerTab("natural", Suppliers.memoize(() -> BLBlocks.HOLLOW_BIRCH_LOG));
-    //public static ItemGroup FUNCTIONAL = HCTabs.registerTab("functional", Suppliers.memoize(() -> Items.PAINTING));
+    public static ItemGroup FUNCTIONAL = HCTabs.registerTab("functional", Suppliers.memoize(() -> Items.PAINTING));
     //public static ItemGroup REDSTONE = HCTabs.registerTab("redstone", Suppliers.memoize(() -> BLBlocks.COPPER_BUTTON));
     public static ItemGroup TOOLS = HCTabs.registerTab("tools", Suppliers.memoize(() -> BLItems.EMERALD_PICKAXE));
     public static ItemGroup COMBAT = HCTabs.registerTab("combat", Suppliers.memoize(() -> BLItems.KATANA));
@@ -38,6 +42,8 @@ public final class BLTabs {
      * Register all {@link ItemGroup Item Groups}
      */
     public static void register() {
+        addPaintings();
+
         HCTabs.addItems(TOOLS,
                 BLItems.EMERALD_SHOVEL,
                 BLItems.EMERALD_PICKAXE,
@@ -174,6 +180,24 @@ public final class BLTabs {
     }
 
     /**
+     * Add the {@link Item modded Paintings} to the Creative Inventory
+     */
+    private static void addPaintings() {
+        HCTabs.removeItemsByCondition(ItemGroups.FUNCTIONAL, BLTabs::isModdedPainting);
+        HCTabs.modifyItems(FUNCTIONAL, entries ->
+                RegistryHelper.getRegistry(entries.getContext().lookup(), RegistryKeys.PAINTING_VARIANT)
+                        .streamEntries()
+                        .filter((registryEntry) -> registryEntry.value().assetId().getNamespace().equalsIgnoreCase(BlazersMod.MOD_ID))
+                        .filter((registryEntry) -> registryEntry.isIn(PaintingVariantTags.PLACEABLE))
+                        .sorted(Comparator.comparing(RegistryEntry::value, Comparator.comparingInt(PaintingVariant::getArea).thenComparing(PaintingVariant::width)))
+                        .forEach(paintingVariantReference -> {
+                            final ItemStack itemStack = new ItemStack(Items.PAINTING);
+                            itemStack.set(DataComponentTypes.PAINTING_VARIANT, paintingVariantReference);
+                            entries.add(itemStack, ItemGroup.StackVisibility.PARENT_AND_SEARCH_TABS);
+                        }));
+    }
+
+    /**
      * Add some {@link IPreEnchantedItem Pre Enchanted Items} to the Creative Inventory
      *
      * @param items The {@link ItemConvertible Pre Enchanted Items to add}
@@ -221,6 +245,20 @@ public final class BLTabs {
         final InstrumentComponent instrument = itemStack.get(DataComponentTypes.INSTRUMENT);
         if(instrument != null) {
             return instrument.instrument().getKey().map(key -> key.getValue().getNamespace().equalsIgnoreCase(BlazersMod.MOD_ID)).orElse(false);
+        }
+        return false;
+    }
+
+    /**
+     * Check if a {@link ItemStack Painting} is a modded one
+     *
+     * @param itemStack The {@link ItemStack Item Stack to check}
+     * @return {@link Boolean True} if is a modded {@link ItemStack Painting}
+     */
+    private static boolean isModdedPainting(final ItemStack itemStack) {
+        final RegistryEntry<PaintingVariant> paintingVariant = itemStack.get(DataComponentTypes.PAINTING_VARIANT);
+        if(paintingVariant != null) {
+            return paintingVariant.getKey().map(paintingVariantKey -> paintingVariantKey.getValue().getNamespace().equalsIgnoreCase(BlazersMod.MOD_ID)).orElse(false);
         }
         return false;
     }
