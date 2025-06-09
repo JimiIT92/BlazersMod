@@ -40,7 +40,7 @@ public final class SpearEntityModel extends Model {
         modelPartData.addChild(EntityModelPartNames.CUBE, ModelPartBuilder.create()
                 .uv(0, 0).cuboid(-0.5F, 2.0F, -0.5F, 1.0F, 25.0F, 1.0F)
                 .uv(9, 0).cuboid(-1.5F, -3.0F, -1.5F, 3.0F, 5.0F, 3.0F)
-                .uv(28, 0).cuboid(-0.5F, -6.0F, -0.5F, 1.0F, 3.0F, 1.0F), ModelTransform.pivot(0f, -3.0f, 0f));
+                .uv(28, 0).cuboid(-0.5F, -6.0F, -0.5F, 1.0F, 3.0F, 1.0F), ModelTransform.origin(0f, -3.0f, 0f));
         return TexturedModelData.of(modelData, 32, 32);
     }
 

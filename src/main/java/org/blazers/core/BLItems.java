@@ -6,7 +6,6 @@ import net.minecraft.block.jukebox.JukeboxSong;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
-import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.equipment.ArmorMaterial;
 import net.minecraft.item.equipment.EquipmentType;
@@ -173,7 +172,7 @@ public final class BLItems {
     //#endregion
 
     /**
-     * Register a {@link SwordItem Katana}
+     * Register a {@link Item Katana}
      *
      * @param color The {@link DyeColor Katana Color}
      * @return The {@link Item registered Item}

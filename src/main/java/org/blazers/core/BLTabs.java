@@ -2,9 +2,9 @@ package org.blazers.core;
 
 import com.google.common.base.Suppliers;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.InstrumentComponent;
 import net.minecraft.item.*;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.InstrumentTags;
 import org.blazers.BlazersMod;
 import org.blazers.item.CopperHornItem;
@@ -218,9 +218,9 @@ public final class BLTabs {
      * @return {@link Boolean True} if is a modded {@link GoatHornItem Goat Horn}
      */
     private static boolean isModdedGoatHorn(final ItemStack itemStack) {
-        final RegistryEntry<Instrument> instrument = itemStack.get(DataComponentTypes.INSTRUMENT);
+        final InstrumentComponent instrument = itemStack.get(DataComponentTypes.INSTRUMENT);
         if(instrument != null) {
-            return instrument.getKey().map(key -> key.getValue().getNamespace().equalsIgnoreCase(BlazersMod.MOD_ID)).orElse(false);
+            return instrument.instrument().getKey().map(key -> key.getValue().getNamespace().equalsIgnoreCase(BlazersMod.MOD_ID)).orElse(false);
         }
         return false;
     }

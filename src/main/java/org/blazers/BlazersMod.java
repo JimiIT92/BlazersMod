@@ -4,7 +4,9 @@ import net.fabricmc.api.ModInitializer;
 import org.blazers.core.BLItems;
 import org.blazers.core.BLSounds;
 import org.blazers.core.BLTabs;
-import org.hendrix.HendrixCore;
+import org.hendrix.common.HendrixCore;
+
+import javax.naming.OperationNotSupportedException;
 
 /**
  * Blazers Mod. A Minecraft mod made for ErenBlaze
@@ -21,7 +23,11 @@ public final class BlazersMod implements ModInitializer {
      */
     @Override
     public void onInitialize() {
-        HendrixCore.init(MOD_ID);
+        try {
+            HendrixCore.init(MOD_ID);
+        } catch (OperationNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
 
         BLSounds.register();
         BLTabs.register();

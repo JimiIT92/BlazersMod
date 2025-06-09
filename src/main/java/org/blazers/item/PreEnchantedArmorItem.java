@@ -4,7 +4,6 @@ import com.mojang.datafixers.util.Pair;
 import net.fabricmc.fabric.api.item.v1.EnchantingContext;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.equipment.ArmorMaterial;
@@ -15,9 +14,9 @@ import net.minecraft.util.Rarity;
 import org.hendrix.helper.ItemHelper;
 
 /**
- * Implementation class for a {@link IPreEnchantedItem pre-enchanted} {@link ArmorItem Armor Item}
+ * Implementation class for a {@link IPreEnchantedItem pre-enchanted} {@link Item Armor Item}
  */
-public final class PreEnchantedArmorItem extends ArmorItem implements IPreEnchantedItem {
+public final class PreEnchantedArmorItem extends Item implements IPreEnchantedItem {
 
     /**
      * The {@link Item Item} {@link Pair Enchantment and its level}
@@ -33,7 +32,8 @@ public final class PreEnchantedArmorItem extends ArmorItem implements IPreEnchan
      * @param enchantment The {@link Item Item} {@link Pair Enchantment and its level}
      */
     public PreEnchantedArmorItem(final String name, final ArmorMaterial material, final EquipmentType equipmentType, final Pair<RegistryKey<Enchantment>, Integer> enchantment) {
-        super(material, equipmentType, ItemHelper.settings(name, Rarity.EPIC)
+        super(ItemHelper.settings(name, Rarity.EPIC)
+                .armor(material, equipmentType)
                 .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
         );
         this.enchantment = enchantment;

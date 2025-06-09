@@ -6,7 +6,6 @@ import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.consume.UseAction;
 import net.minecraft.server.world.ServerWorld;
@@ -23,7 +22,7 @@ import org.blazers.entity.projectile.SpearEntity;
 /**
  * Implementation class for a {@link Item Spear Item}
  */
-public final class SpearItem extends SwordItem {
+public final class SpearItem extends Item {
 
     /**
      * Constructor. Set the {@link Item.Settings Item properties}
@@ -32,8 +31,8 @@ public final class SpearItem extends SwordItem {
      * @param attackDamage The {@link Float Spear attack damage}
      * @param settings The {@link Settings Item settings}
      */
-    public SpearItem(final ToolMaterial material, final float attackDamage, final Settings settings) {
-        super(material, attackDamage, -2.4F, settings);
+    public SpearItem(final ToolMaterial material, final float attackDamage, final Item.Settings settings) {
+        super(settings.sword(material, attackDamage, -2.4F));
     }
 
     /**

@@ -3,7 +3,7 @@ package org.blazers.core;
 import net.minecraft.entity.damage.DamageType;
 import net.minecraft.registry.RegistryKey;
 import org.blazers.BlazersMod;
-import org.hendrix.registry.HCDamageTypes;
+import org.hendrix.helper.RegistryKeyHelper;
 
 /**
  * {@link BlazersMod Blazers Mod} {@link DamageType Damage Types}
@@ -12,7 +12,7 @@ public final class BLDamageTypes {
 
     //#region Damage Types
 
-    public static final RegistryKey<DamageType> SPEAR = HCDamageTypes.damageType("spear");
+    public static final RegistryKey<DamageType> SPEAR = RegistryKeyHelper.damageType("spear");
 
     //#endregion
 

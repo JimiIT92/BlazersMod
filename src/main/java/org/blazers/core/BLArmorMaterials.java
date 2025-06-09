@@ -9,7 +9,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Util;
 import org.blazers.BlazersMod;
-import org.hendrix.helper.ArmorMaterialHelper;
+import org.hendrix.helper.RegistryKeyHelper;
 
 import java.util.EnumMap;
 
@@ -54,7 +54,7 @@ public final class BLArmorMaterials {
                 2.5F,
                 0F,
                 repairItemsTag,
-                ArmorMaterialHelper.equipmentKey(name)
+                RegistryKeyHelper.equipment(name)
         );
     }
 
@@ -79,7 +79,7 @@ public final class BLArmorMaterials {
                 1.0F,
                 0F,
                 repairItemsTag,
-                ArmorMaterialHelper.equipmentKey(name)
+                RegistryKeyHelper.equipment(name)
         );
     }
 
@@ -104,7 +104,7 @@ public final class BLArmorMaterials {
                 0F,
                 0F,
                 repairItemsTag,
-                ArmorMaterialHelper.equipmentKey(name)
+                RegistryKeyHelper.equipment(name)
         );
     }
 
@@ -129,7 +129,7 @@ public final class BLArmorMaterials {
                 4.0F,
                 0.2F,
                 repairItemsTag,
-                ArmorMaterialHelper.equipmentKey(name)
+                RegistryKeyHelper.equipment(name)
         );
     }
 

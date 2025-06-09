@@ -6,7 +6,6 @@ import net.minecraft.component.DataComponentTypes;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -14,9 +13,9 @@ import net.minecraft.util.Rarity;
 import org.hendrix.helper.ItemHelper;
 
 /**
- * Implementation class for a {@link IPreEnchantedItem pre-enchanted} {@link SwordItem Sword Item}
+ * Implementation class for a {@link IPreEnchantedItem pre-enchanted} {@link Item Sword Item}
  */
-public final class PreEnchantedSwordItem extends SwordItem implements IPreEnchantedItem {
+public final class PreEnchantedSwordItem extends Item implements IPreEnchantedItem {
 
     /**
      * The {@link Item Item} {@link Pair Enchantment and its level}
@@ -31,7 +30,8 @@ public final class PreEnchantedSwordItem extends SwordItem implements IPreEnchan
      * @param enchantment The {@link Item Item} {@link Pair Enchantment and its level}
      */
     public PreEnchantedSwordItem(final String name, final ToolMaterial material, final Pair<RegistryKey<Enchantment>, Integer> enchantment) {
-        super(material, 3.0F, -2.4F, ItemHelper.settings(name, Rarity.EPIC)
+        super(ItemHelper.settings(name, Rarity.EPIC)
+                .sword(material, 3.0F, -2.4F)
                 .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
         );
         this.enchantment = enchantment;

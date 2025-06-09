@@ -4,6 +4,7 @@ import com.google.common.base.Suppliers;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.InstrumentComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.RegistryKey;
@@ -85,7 +86,7 @@ public final class CopperHornItem extends GoatHornItem {
      * @param settings The {@link Settings Item settings}
      */
     public CopperHornItem(final Settings settings) {
-        super(BLTags.Instruments.COPPER_HORNS, settings);
+        super(settings);
     }
 
     /**
@@ -120,13 +121,17 @@ public final class CopperHornItem extends GoatHornItem {
      * @return The {@link RegistryEntry<Instrument> Instrument}, if any
      */
     private Optional<RegistryEntry<Instrument>> getInstrument(final ItemStack stack, final RegistryWrapper.WrapperLookup registryWrapperLookup, final TagKey<Instrument> instrumentTagKey) {
-        final RegistryEntry<Instrument> registryEntry = stack.get(DataComponentTypes.INSTRUMENT);
-        if (registryEntry != null) {
-            final Optional<RegistryKey<Instrument>> optionalInstrumentKey = getInstrumentRegistryKey(registryEntry, instrumentTagKey);
-            if(optionalInstrumentKey.isPresent()) {
-                final Optional<Instrument> instrument = RegistryHelper.getValue(registryWrapperLookup, RegistryKeys.INSTRUMENT, optionalInstrumentKey.get());
-                if(instrument.isPresent()) {
-                    return Optional.of(RegistryEntry.of(instrument.get()));
+        final InstrumentComponent instrumentComponent = stack.get(DataComponentTypes.INSTRUMENT);
+        RegistryEntry<Instrument> registryEntry = null;
+        if(instrumentComponent != null) {
+            registryEntry = instrumentComponent.getInstrument(registryWrapperLookup).orElse(null);
+            if (registryEntry != null) {
+                final Optional<RegistryKey<Instrument>> optionalInstrumentKey = getInstrumentRegistryKey(registryEntry, instrumentTagKey);
+                if(optionalInstrumentKey.isPresent()) {
+                    final Optional<Instrument> instrument = RegistryHelper.getValue(registryWrapperLookup, RegistryKeys.INSTRUMENT, optionalInstrumentKey.get());
+                    if(instrument.isPresent()) {
+                        return Optional.of(RegistryEntry.of(instrument.get()));
+                    }
                 }
             }
         }
@@ -184,10 +189,10 @@ public final class CopperHornItem extends GoatHornItem {
      * @param registryWrapperLookup The {@link RegistryWrapper.WrapperLookup Registry Wrapper Lookup}
      * @param baseInstrument The {@link RegistryEntry<Instrument> Goat Horn Instrument}
      */
-    public static void upgradeInstrument(final ItemStack stack, final RegistryWrapper.WrapperLookup registryWrapperLookup, final RegistryEntry<Instrument> baseInstrument) {
-        baseInstrument.getKey().ifPresent(baseInstrumentKey -> {
+    public static void upgradeInstrument(final ItemStack stack, final RegistryWrapper.WrapperLookup registryWrapperLookup, final InstrumentComponent baseInstrument) {
+        baseInstrument.instrument().getKey().ifPresent(baseInstrumentKey -> {
             final RegistryKey<Instrument> instrument = getUpgradedInstrument(baseInstrumentKey).orElse(BLInstruments.GREAT_SKY_FALLING_COPPER_HORN);
-            getInstrumentRegistry(registryWrapperLookup).getOptional(instrument).ifPresent(upgradedInstrument -> stack.set(DataComponentTypes.INSTRUMENT, RegistryEntry.of(upgradedInstrument.value())));
+            getInstrumentRegistry(registryWrapperLookup).getOptional(instrument).ifPresent(upgradedInstrument -> stack.set(DataComponentTypes.INSTRUMENT, new InstrumentComponent(RegistryEntry.of(upgradedInstrument.value()))));
         });
     }
 

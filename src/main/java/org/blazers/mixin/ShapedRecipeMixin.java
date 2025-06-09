@@ -1,13 +1,13 @@
 package org.blazers.mixin;
 
 import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.InstrumentComponent;
 import net.minecraft.item.Instrument;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.recipe.input.CraftingRecipeInput;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.entry.RegistryEntry;
 import org.blazers.core.BLItems;
 import org.blazers.item.CopperHornItem;
 import org.spongepowered.asm.mixin.Mixin;
@@ -33,7 +33,7 @@ public final class ShapedRecipeMixin {
         final ItemStack recipeResult = infoReturnable.getReturnValue();
         if(recipeResult.isOf(BLItems.COPPER_HORN)) {
             recipeInput.getStacks().stream().filter(itemStack -> itemStack.isOf(Items.GOAT_HORN)).findFirst().ifPresent(goatHorn -> {
-                RegistryEntry<Instrument> instrument = goatHorn.get(DataComponentTypes.INSTRUMENT);
+                final InstrumentComponent instrument = goatHorn.get(DataComponentTypes.INSTRUMENT);
                 if(instrument != null) {
                     CopperHornItem.upgradeInstrument(recipeResult, registryWrapperLookup, instrument);
                 }

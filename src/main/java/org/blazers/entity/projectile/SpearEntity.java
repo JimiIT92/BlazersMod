@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import org.blazers.core.BLDamageTypes;
 import org.blazers.core.BLEntityTypes;
 import org.blazers.core.BLItems;
-import org.hendrix.registry.HCDamageTypes;
+import org.hendrix.helper.DamageSourceHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
@@ -115,7 +115,7 @@ public class SpearEntity extends PersistentProjectileEntity {
         final Entity entity = entityHitResult.getEntity();
         float damage = damage();
         final Entity owner = this.getOwner();
-        final DamageSource damageSource = HCDamageTypes.damageSource(BLDamageTypes.SPEAR, this.getWorld(), this, owner == null ? this : owner);
+        final DamageSource damageSource = DamageSourceHelper.damageSource(BLDamageTypes.SPEAR, this.getWorld(), this, owner == null ? this : owner);
         if (this.getWorld() instanceof ServerWorld serverWorld) {
             damage = EnchantmentHelper.getDamage(serverWorld, Objects.requireNonNull(this.getWeaponStack()), entity, damageSource, damage);
         }
@@ -211,7 +211,7 @@ public class SpearEntity extends PersistentProjectileEntity {
     @Override
     public void readCustomDataFromNbt(final NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        this.dealtDamage = nbt.getBoolean("DealtDamage");
+        this.dealtDamage = nbt.getBoolean("DealtDamage", false);
     }
 
     /**
