@@ -25,7 +25,7 @@ public final class BLTabs {
 
     //#region Item Groups
 
-    //public static ItemGroup BUILDING_BLOCKS = HCTabs.registerTab("building_blocks", Suppliers.memoize(() -> BLBlocks.RUBY_BLOCK));
+    public static ItemGroup BUILDING_BLOCKS = HCTabs.registerTab("building_blocks", Suppliers.memoize(() -> BLBlocks.COBBLED_ANDESITE));
     //public static ItemGroup COLORED_BLOCKS = HCTabs.registerTab("colored_blocks", Suppliers.memoize(() -> BLBlocks.YELLOW_CONCRETE_STAIRS));
     public static ItemGroup NATURAL = HCTabs.registerTab("natural", Suppliers.memoize(() -> BLBlocks.HOLLOW_BIRCH_LOG));
     public static ItemGroup FUNCTIONAL = HCTabs.registerTab("functional", Suppliers.memoize(() -> Items.PAINTING));
@@ -42,6 +42,25 @@ public final class BLTabs {
      * Register all {@link ItemGroup Item Groups}
      */
     public static void register() {
+        HCTabs.addItems(BUILDING_BLOCKS,
+                BLBlocks.COBBLED_GRANITE,
+                BLBlocks.COBBLED_DIORITE,
+                BLBlocks.COBBLED_ANDESITE,
+                BLBlocks.SANDSTONE_BRICKS,
+                BLBlocks.CUT_BRICKS,
+                BLBlocks.PURPUR_TILES,
+                BLBlocks.STONE_TILES,
+                BLBlocks.MOSSY_STONE_TILES,
+                BLBlocks.CUT_DEEPSLATE_BRICKS,
+                BLBlocks.POLISHED_DEEPSLATE_BRICKS,
+                BLBlocks.END_STONE_TILES,
+                BLBlocks.QUARTZ_TILES,
+                BLBlocks.CUT_PRISMARINE_BRICKS,
+                BLBlocks.DARK_PRISMARINE_BRICKS,
+                BLBlocks.RED_SANDSTONE_BRICKS,
+                BLBlocks.POLISHED_BLACKSTONE_TILES
+        );
+
         HCTabs.addItems(NATURAL,
                 BLBlocks.HOLLOW_OAK_LOG,
                 BLBlocks.HOLLOW_STRIPPED_OAK_LOG,

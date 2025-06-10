@@ -3,12 +3,15 @@ package org.blazers.core;
 import com.google.common.base.Suppliers;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.WoodType;
 import org.blazers.BlazersMod;
 import org.blazers.block.HollowBlock;
 import org.hendrix.helper.BlockHelper;
 import org.hendrix.helper.ResourceHelper;
 import org.hendrix.registry.HCBlocks;
+
+import java.util.function.Supplier;
 
 /**
  * {@link BlazersMod Blazers Mod} {@link Block Blocks}
@@ -46,6 +49,27 @@ public final class BLBlocks {
 
     //#endregion
 
+    //#region Stone Variants
+
+    public static final Block COBBLED_GRANITE = registerStoneVariant("cobbled_granite", Suppliers.memoize(() -> Blocks.GRANITE));
+    public static final Block COBBLED_DIORITE = registerStoneVariant("cobbled_diorite", Suppliers.memoize(() -> Blocks.DIORITE));
+    public static final Block COBBLED_ANDESITE = registerStoneVariant("cobbled_andesite", Suppliers.memoize(() -> Blocks.ANDESITE));
+    public static final Block SANDSTONE_BRICKS = registerStoneVariant("sandstone_bricks", Suppliers.memoize(() -> Blocks.SANDSTONE));
+    public static final Block CUT_BRICKS = registerStoneVariant("cut_bricks", Suppliers.memoize(() -> Blocks.BRICKS));
+    public static final Block PURPUR_TILES = registerStoneVariant("purpur_tiles", Suppliers.memoize(() -> Blocks.PURPUR_BLOCK));
+    public static final Block STONE_TILES = registerStoneVariant("stone_tiles", Suppliers.memoize(() -> Blocks.STONE_BRICKS));
+    public static final Block MOSSY_STONE_TILES = registerStoneVariant("mossy_stone_tiles", Suppliers.memoize(() -> Blocks.MOSSY_STONE_BRICKS));
+    public static final Block CUT_DEEPSLATE_BRICKS = registerStoneVariant("cut_deepslate_bricks", Suppliers.memoize(() -> Blocks.DEEPSLATE_BRICKS));
+    public static final Block POLISHED_DEEPSLATE_BRICKS = registerStoneVariant("polished_deepslate_bricks", Suppliers.memoize(() -> Blocks.POLISHED_DEEPSLATE));
+    public static final Block END_STONE_TILES = registerStoneVariant("end_stone_tiles", Suppliers.memoize(() -> Blocks.END_STONE_BRICKS));
+    public static final Block QUARTZ_TILES = registerStoneVariant("quartz_tiles", Suppliers.memoize(() -> Blocks.QUARTZ_BRICKS));
+    public static final Block CUT_PRISMARINE_BRICKS = registerStoneVariant("cut_prismarine_bricks", Suppliers.memoize(() -> Blocks.PRISMARINE_BRICKS));
+    public static final Block DARK_PRISMARINE_BRICKS = registerStoneVariant("dark_prismarine_bricks", Suppliers.memoize(() -> Blocks.DARK_PRISMARINE));
+    public static final Block RED_SANDSTONE_BRICKS = registerStoneVariant("red_sandstone_bricks", Suppliers.memoize(() -> Blocks.RED_SANDSTONE));
+    public static final Block POLISHED_BLACKSTONE_TILES = registerStoneVariant("polished_blackstone_tiles", Suppliers.memoize(() -> Blocks.POLISHED_BLACKSTONE_BRICKS));
+
+    //#endregion
+
     //#endregion
 
     /**
@@ -58,6 +82,17 @@ public final class BLBlocks {
     private static Block registerHollowLog(final WoodType woodType, final boolean isStripped) {
         final String name = "hollow_" + ResourceHelper.logName(woodType, isStripped);
         return HCBlocks.registerBlock(name, Suppliers.memoize(() -> new HollowBlock(BlockHelper.wood(name, woodType))));
+    }
+
+    /**
+     * Register a {@link Block Stone Variant Block}
+     *
+     * @param name The {@link String Block name}
+     * @param blockSupplier The {@link Supplier<Block> base Block Supplier}
+     * @return The {@link Block registered Block}
+     */
+    private static Block registerStoneVariant(final String name, final Supplier<Block> blockSupplier) {
+        return HCBlocks.registerBlock(name, BlockHelper.settings(name, blockSupplier));
     }
 
     /**

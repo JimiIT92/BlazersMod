@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "blazersmod:cobbled_granite",
+    "blazersmod:cobbled_diorite",
+    "blazersmod:cobbled_andesite",
+    "blazersmod:sandstone_bricks",
+    "blazersmod:cut_bricks",
+    "blazersmod:purpur_tiles",
+    "blazersmod:stone_tiles",
+    "blazersmod:mossy_stone_tiles",
+    "blazersmod:cut_deepslate_bricks",
+    "blazersmod:polished_deepslate_bricks",
+    "blazersmod:end_stone_tiles",
+    "blazersmod:quartz_tiles",
+    "blazersmod:cut_prismarine_bricks",
+    "blazersmod:dark_prismarine_bricks",
+    "blazersmod:red_sandstone_bricks",
+    "blazersmod:polished_blackstone_tiles"
+  ]
+}
