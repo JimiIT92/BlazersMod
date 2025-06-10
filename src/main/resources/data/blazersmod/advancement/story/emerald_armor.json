@@ -1,0 +1,46 @@
+{
+  "parent": "blazersmod:story/mine_emerald",
+  "criteria": {
+    "emerald_armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "blazersmod:emerald_helmet"
+          },
+          {
+            "items": "blazersmod:emerald_chestplate"
+          },
+          {
+            "items": "blazersmod:emerald_leggings"
+          },
+          {
+            "items": "blazersmod:emerald_boots"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "blazersmod:emerald_chestplate",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.blazersmod.story.emerald_armor.title"
+    },
+    "description": {
+      "translate": "advancement.blazersmod.story.emerald_armor.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "emerald_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -178,7 +178,7 @@ public final class BLItems {
      * @return The {@link Item registered Item}
      */
     private static Item registerKatana(final DyeColor color) {
-        return HCItems.registerSword(ResourceHelper.suffixedColorName(color, "_") + "katana", BLToolMaterials.CARBON, 3.0F, 0F);
+        return HCItems.registerSword((color == null ? "" : (ResourceHelper.colorName(color) + "_")) + "katana", BLToolMaterials.CARBON, 3.0F, 0F);
     }
 
     /**

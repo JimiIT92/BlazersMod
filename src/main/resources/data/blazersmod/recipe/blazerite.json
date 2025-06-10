@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:quartz",
+    "blazersmod:ruby",
+    "blazersmod:onice",
+    "blazersmod:malachite",
+    "blazersmod:uranium_ingot"
+  ],
+  "result": {
+    "id": "blazersmod:blazerite"
+  }
+}

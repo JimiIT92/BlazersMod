@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:nether/root",
+  "criteria": {
+    "raw_uranium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "blazersmod:raw_uranium"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "blazersmod:raw_uranium",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.blazersmod.nether.raw_uranium.title"
+    },
+    "description": {
+      "translate": "advancement.blazersmod.nether.raw_uranium.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "raw_uranium"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,9 +1,7 @@
 package org.blazers;
 
 import net.fabricmc.api.ModInitializer;
-import org.blazers.core.BLItems;
-import org.blazers.core.BLSounds;
-import org.blazers.core.BLTabs;
+import org.blazers.core.*;
 import org.hendrix.common.HendrixCore;
 
 import javax.naming.OperationNotSupportedException;
@@ -32,7 +30,9 @@ public final class BlazersMod implements ModInitializer {
         BLSounds.register();
         BLTabs.register();
         BLItems.register();
+        BLBlocks.register();
 
+        BLEvents.register();
     }
 
 }

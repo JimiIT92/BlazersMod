@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "X": "blazersmod:pearl"
+  },
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blazersmod:pearl_boots"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "parent": "blazersmod:nether/gyulianite",
+  "criteria": {
+    "gyulianite_armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "blazersmod:gyulianite_helmet"
+          },
+          {
+            "items": "blazersmod:gyulianite_chestplate"
+          },
+          {
+            "items": "blazersmod:gyulianite_leggings"
+          },
+          {
+            "items": "blazersmod:gyulianite_boots"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "blazersmod:gyulianite_chestplate",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.blazersmod.nether.gyulianite_armor.title"
+    },
+    "description": {
+      "translate": "advancement.blazersmod.nether.gyulianite_armor.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "gyulianite_armor"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

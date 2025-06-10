@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": "minecraft:netherite_sword",
+  "addition": "#blazersmod:gyulianite_tool_materials",
+  "template": "minecraft:netherite_ingot",
+  "result": {
+    "id": "blazersmod:gyulianite_sword"
+  }
+}

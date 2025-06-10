@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": "#blazersmod:sapphire_tool_materials",
+    "#": "minecraft:leather"
+  },
+  "pattern": [
+    "# #",
+    "#X#",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blazersmod:sapphire_horse_armor"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": "#blazersmod:emerald_tool_materials",
+    "#": "minecraft:leather"
+  },
+  "pattern": [
+    "# #",
+    "#X#",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blazersmod:emerald_horse_armor"
+  }
+}

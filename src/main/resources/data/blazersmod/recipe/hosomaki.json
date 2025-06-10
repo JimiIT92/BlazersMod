@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:seagrass",
+    "X": "minecraft:cod"
+  },
+  "pattern": [
+    "#",
+    "X",
+    "#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blazersmod:hosomaki"
+  }
+}

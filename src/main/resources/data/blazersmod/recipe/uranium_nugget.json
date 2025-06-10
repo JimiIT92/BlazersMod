@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "blazersmod:uranium_ingot"
+  ],
+  "result": {
+    "count": 9,
+    "id": "blazersmod:uranium_nugget"
+  }
+}

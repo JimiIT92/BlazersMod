@@ -1,0 +1,46 @@
+{
+  "parent": "blazersmod:story/mine_sapphire",
+  "criteria": {
+    "sapphire_armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "blazersmod:sapphire_helmet"
+          },
+          {
+            "items": "blazersmod:sapphire_chestplate"
+          },
+          {
+            "items": "blazersmod:sapphire_leggings"
+          },
+          {
+            "items": "blazersmod:sapphire_boots"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "blazersmod:sapphire_chestplate",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.blazersmod.story.sapphire_armor.title"
+    },
+    "description": {
+      "translate": "advancement.blazersmod.story.sapphire_armor.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "sapphire_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

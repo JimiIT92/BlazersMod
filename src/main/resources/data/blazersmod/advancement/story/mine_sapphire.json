@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:story/iron_tools",
+  "criteria": {
+    "sapphire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "blazersmod:sapphire"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "blazersmod:sapphire",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.blazersmod.story.mine_sapphire.title"
+    },
+    "description": {
+      "translate": "advancement.blazersmod.story.mine_sapphire.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "sapphire"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

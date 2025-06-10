@@ -1,0 +1,46 @@
+{
+  "parent": "blazersmod:story/mine_ruby",
+  "criteria": {
+    "ruby_armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "blazersmod:ruby_helmet"
+          },
+          {
+            "items": "blazersmod:ruby_chestplate"
+          },
+          {
+            "items": "blazersmod:ruby_leggings"
+          },
+          {
+            "items": "blazersmod:ruby_boots"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "blazersmod:ruby_chestplate",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.blazersmod.story.ruby_armor.title"
+    },
+    "description": {
+      "translate": "advancement.blazersmod.story.ruby_armor.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "ruby_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

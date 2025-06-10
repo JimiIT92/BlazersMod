@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "uranium_ingot",
+  "key": {
+    "X": "blazersmod:uranium_nugget"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blazersmod:uranium_ingot"
+  }
+}

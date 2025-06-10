@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "katanas",
+  "key": {
+    "#": "minecraft:iron_ingot",
+    "X": "blazersmod:carbon"
+  },
+  "pattern": [
+    "X",
+    "X",
+    "#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "blazersmod:katana"
+  }
+}

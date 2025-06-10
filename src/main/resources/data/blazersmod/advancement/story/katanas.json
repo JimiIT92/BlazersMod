@@ -1,0 +1,88 @@
+{
+  "parent": "blazersmod:story/katana",
+  "criteria": {
+    "katanas": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "blazersmod:katana"
+          },
+          {
+            "items": "blazersmod:white_katana"
+          },
+          {
+            "items": "blazersmod:orange_katana"
+          },
+          {
+            "items": "blazersmod:magenta_katana"
+          },
+          {
+            "items": "blazersmod:light_blue_katana"
+          },
+          {
+            "items": "blazersmod:yellow_katana"
+          },
+          {
+            "items": "blazersmod:lime_katana"
+          },
+          {
+            "items": "blazersmod:pink_katana"
+          },
+          {
+            "items": "blazersmod:gray_katana"
+          },
+          {
+            "items": "blazersmod:light_gray_katana"
+          },
+          {
+            "items": "blazersmod:cyan_katana"
+          },
+          {
+            "items": "blazersmod:purple_katana"
+          },
+          {
+            "items": "blazersmod:blue_katana"
+          },
+          {
+            "items": "blazersmod:brown_katana"
+          },
+          {
+            "items": "blazersmod:green_katana"
+          },
+          {
+            "items": "blazersmod:red_katana"
+          },
+          {
+            "items": "blazersmod:black_katana"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "blazersmod:katana",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.blazersmod.story.katanas.title"
+    },
+    "description": {
+      "translate": "advancement.blazersmod.story.katanas.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "katanas"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

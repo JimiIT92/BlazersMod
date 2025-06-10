@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:story/iron_tools",
+  "criteria": {
+    "ruby": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "blazersmod:ruby"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "blazersmod:ruby",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.blazersmod.story.mine_ruby.title"
+    },
+    "description": {
+      "translate": "advancement.blazersmod.story.mine_ruby.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "ruby"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:story/smelt_iron",
+  "criteria": {
+    "killed_with_spear": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": "#blazersmod:spears"
+            }
+          }
+        },
+        "entity": {
+          "type": "minecraft:chicken"
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "blazersmod:spear",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.blazersmod.story.bruh.title"
+    },
+    "description": {
+      "translate": "advancement.blazersmod.story.bruh.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "killed_with_spear"
+    ]
+  ],
+  "rewards": {
+    "experience": 69
+  },
+  "sends_telemetry_event": true
+}

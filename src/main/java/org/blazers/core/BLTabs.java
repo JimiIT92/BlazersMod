@@ -27,7 +27,7 @@ public final class BLTabs {
 
     //public static ItemGroup BUILDING_BLOCKS = HCTabs.registerTab("building_blocks", Suppliers.memoize(() -> BLBlocks.RUBY_BLOCK));
     //public static ItemGroup COLORED_BLOCKS = HCTabs.registerTab("colored_blocks", Suppliers.memoize(() -> BLBlocks.YELLOW_CONCRETE_STAIRS));
-    //public static ItemGroup NATURAL = HCTabs.registerTab("natural", Suppliers.memoize(() -> BLBlocks.HOLLOW_BIRCH_LOG));
+    public static ItemGroup NATURAL = HCTabs.registerTab("natural", Suppliers.memoize(() -> BLBlocks.HOLLOW_BIRCH_LOG));
     public static ItemGroup FUNCTIONAL = HCTabs.registerTab("functional", Suppliers.memoize(() -> Items.PAINTING));
     //public static ItemGroup REDSTONE = HCTabs.registerTab("redstone", Suppliers.memoize(() -> BLBlocks.COPPER_BUTTON));
     public static ItemGroup TOOLS = HCTabs.registerTab("tools", Suppliers.memoize(() -> BLItems.EMERALD_PICKAXE));
@@ -42,6 +42,33 @@ public final class BLTabs {
      * Register all {@link ItemGroup Item Groups}
      */
     public static void register() {
+        HCTabs.addItems(NATURAL,
+                BLBlocks.HOLLOW_OAK_LOG,
+                BLBlocks.HOLLOW_STRIPPED_OAK_LOG,
+                BLBlocks.HOLLOW_SPRUCE_LOG,
+                BLBlocks.HOLLOW_STRIPPED_SPRUCE_LOG,
+                BLBlocks.HOLLOW_BIRCH_LOG,
+                BLBlocks.HOLLOW_STRIPPED_BIRCH_LOG,
+                BLBlocks.HOLLOW_JUNGLE_LOG,
+                BLBlocks.HOLLOW_STRIPPED_JUNGLE_LOG,
+                BLBlocks.HOLLOW_ACACIA_LOG,
+                BLBlocks.HOLLOW_STRIPPED_ACACIA_LOG,
+                BLBlocks.HOLLOW_DARK_OAK_LOG,
+                BLBlocks.HOLLOW_STRIPPED_DARK_OAK_LOG,
+                BLBlocks.HOLLOW_MANGROVE_LOG,
+                BLBlocks.HOLLOW_STRIPPED_MANGROVE_LOG,
+                BLBlocks.HOLLOW_BAMBOO_BLOCK,
+                BLBlocks.HOLLOW_STRIPPED_BAMBOO_BLOCK,
+                BLBlocks.HOLLOW_CHERRY_LOG,
+                BLBlocks.HOLLOW_STRIPPED_CHERRY_LOG,
+                BLBlocks.HOLLOW_PALE_OAK_LOG,
+                BLBlocks.HOLLOW_STRIPPED_PALE_OAK_LOG,
+                BLBlocks.HOLLOW_CRIMSON_STEM,
+                BLBlocks.HOLLOW_STRIPPED_CRIMSON_STEM,
+                BLBlocks.HOLLOW_WARPED_STEM,
+                BLBlocks.HOLLOW_STRIPPED_WARPED_STEM
+        );
+
         addPaintings();
 
         HCTabs.addItems(TOOLS,

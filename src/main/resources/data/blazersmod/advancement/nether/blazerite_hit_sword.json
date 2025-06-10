@@ -1,0 +1,42 @@
+{
+  "parent": "blazersmod:nether/blazerite_sword",
+  "criteria": {
+    "hurt_with_blazerite_sword": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "items": "blazersmod:blazerite_sword"
+            }
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "blazersmod:blazerite_sword",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.blazersmod.nether.blazerite_hit_sword.title"
+    },
+    "description": {
+      "translate": "advancement.blazersmod.nether.blazerite_hit_sword.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "hurt_with_blazerite_sword"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

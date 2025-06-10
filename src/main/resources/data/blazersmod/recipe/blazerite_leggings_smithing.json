@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": "minecraft:netherite_leggings",
+  "addition": "#blazersmod:blazerite_tool_materials",
+  "template": "minecraft:netherite_ingot",
+  "result": {
+    "id": "blazersmod:blazerite_leggings"
+  }
+}

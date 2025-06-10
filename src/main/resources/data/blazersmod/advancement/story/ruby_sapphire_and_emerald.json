@@ -1,0 +1,46 @@
+{
+  "parent": "minecraft:story/iron_tools",
+  "criteria": {
+    "ruby_sapphire_and_emerald": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:emerald"
+          },
+          {
+            "items": "blazersmod:ruby"
+          },
+          {
+            "items": "blazersmod:sapphire"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "minecraft:sunflower",
+      "count": 1
+    },
+    "title": {
+      "translate": "advancement.blazersmod.story.ruby_sapphire_and_emerald.title"
+    },
+    "description": {
+      "translate": "advancement.blazersmod.story.ruby_sapphire_and_emerald.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "ruby_sapphire_and_emerald"
+    ]
+  ],
+  "rewards": {
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

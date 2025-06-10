@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "katanas",
+  "ingredients": [
+    "blazersmod:katana",
+    "minecraft:orange_dye"
+  ],
+  "result": {
+    "id": "blazersmod:orange_katana"
+  }
+}
