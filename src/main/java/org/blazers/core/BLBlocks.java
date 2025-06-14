@@ -32,6 +32,15 @@ public final class BLBlocks {
     public static final Block ONICE_ORE = HCBlocks.registerNetherOre("onice_ore");
     public static final Block URANIUM_ORE = registerUraniumOre();
 
+    public static final Block SAPPHIRE_BLOCK = HCBlocks.registerOreStorageBlock("sapphire_block", MapColor.BLUE);
+    public static final Block TOPAZ_BLOCK = HCBlocks.registerOreStorageBlock("topaz_block", MapColor.ORANGE);
+    public static final Block PEARL_BLOCK = registerPearlBlock();
+    public static final Block RUBY_BLOCK = HCBlocks.registerOreStorageBlock("ruby_block", MapColor.RED);
+    public static final Block MALACHITE_BLOCK = HCBlocks.registerOreStorageBlock("malachite_block", MapColor.TERRACOTTA_GREEN);
+    public static final Block ONICE_BLOCK = HCBlocks.registerOreStorageBlock("onice_block", MapColor.TERRACOTTA_BLACK);
+    public static final Block RAW_URANIUM_BLOCK = registerRawUraniumBlock();
+    public static final Block URANIUM_BLOCK = registerUraniumBlock();
+
     //#endregion
 
     //#region Hollow Logs
@@ -120,6 +129,16 @@ public final class BLBlocks {
     }
 
     /**
+     * Register the {@link #PEARL_BLOCK Pearl Block}
+     *
+     * @return The {@link Block registered Pearl Block}
+     */
+    private static Block registerPearlBlock() {
+        final String name = "pearl_block";
+        return HCBlocks.registerBlock(name, BlockHelper.oreStorage(name, MapColor.PINK).sounds(BlockSoundGroup.CALCITE).strength(0.75F));
+    }
+
+    /**
      * Register the {@link #URANIUM_ORE Uranium Ore}
      *
      * @return The {@link Block registered Uranium Ore}
@@ -127,6 +146,26 @@ public final class BLBlocks {
     private static Block registerUraniumOre() {
         final String name = "uranium_ore";
         return HCBlocks.registerOre(name, BlockHelper.defaultOreXpProvider(), BlockHelper.ore(name).mapColor(MapColor.GREEN).strength(30.0F, 1200.0F).sounds(BlockSoundGroup.ANCIENT_DEBRIS));
+    }
+
+    /**
+     * Register the {@link #RAW_URANIUM_BLOCK Raw Uranium Block}
+     *
+     * @return The {@link Block registered Raw Uranium Block}
+     */
+    private static Block registerRawUraniumBlock() {
+        final String name = "raw_uranium_block";
+        return HCBlocks.registerBlock(name, BlockHelper.oreStorage(name, MapColor.EMERALD_GREEN).sounds(BlockSoundGroup.STONE).strength(5.0F, 6.0F));
+    }
+
+    /**
+     * Register the {@link #URANIUM_ORE Uranium Ore}
+     *
+     * @return The {@link Block registered Uranium Ore}
+     */
+    private static Block registerUraniumBlock() {
+        final String name = "uranium_block";
+        return HCBlocks.registerBlock(name, BlockHelper.oreStorage(name, MapColor.GREEN).sounds(BlockSoundGroup.COPPER).strength(3.0F, 6.0F));
     }
 
     /**

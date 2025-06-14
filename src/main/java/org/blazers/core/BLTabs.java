@@ -43,6 +43,14 @@ public final class BLTabs {
      */
     public static void register() {
         HCTabs.addItems(BUILDING_BLOCKS,
+                BLBlocks.SAPPHIRE_BLOCK,
+                BLBlocks.TOPAZ_BLOCK,
+                BLBlocks.PEARL_BLOCK,
+                BLBlocks.RUBY_BLOCK,
+                BLBlocks.MALACHITE_BLOCK,
+                BLBlocks.ONICE_BLOCK,
+                BLBlocks.RAW_URANIUM_BLOCK,
+                BLBlocks.URANIUM_BLOCK,
                 BLBlocks.COBBLED_GRANITE,
                 BLBlocks.COBBLED_DIORITE,
                 BLBlocks.COBBLED_ANDESITE,

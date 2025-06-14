@@ -5,6 +5,8 @@
     "#blazersmod:topaz_ores",
     "#blazersmod:ruby_ores",
     "#blazersmod:malachite_ores",
-    "#blazersmod:onice_ores"
+    "#blazersmod:onice_ores",
+    "blazersmod:sapphire_block",
+    "blazersmod:ruby_block"
   ]
 }

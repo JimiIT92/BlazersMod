@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "blazersmod:pearl_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "blazersmod:pearl"
+  }
+}

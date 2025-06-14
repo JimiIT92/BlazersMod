@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#blazersmod:uranium_ores"
+    "#blazersmod:uranium_ores",
+    "blazersmod:raw_uranium_block",
+    "blazersmod:uranium_block"
   ]
 }
