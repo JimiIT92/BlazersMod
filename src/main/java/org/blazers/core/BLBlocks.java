@@ -2,9 +2,9 @@ package org.blazers.core;
 
 import com.google.common.base.Suppliers;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.WoodType;
+import net.minecraft.block.*;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.ColorCode;
 import org.blazers.BlazersMod;
 import org.blazers.block.HollowBlock;
 import org.hendrix.helper.BlockHelper;
@@ -19,6 +19,20 @@ import java.util.function.Supplier;
 public final class BLBlocks {
 
     //#region Blocks
+
+    //#region Ores and Storage Blocks
+
+    public static final Block SAPPHIRE_ORE = HCBlocks.registerOre("sapphire_ore");
+    public static final Block DEEPSLATE_SAPPHIRE_ORE = HCBlocks.registerDeepslateOre("deepslate_sapphire_ore");
+    public static final Block TOPAZ_ORE = HCBlocks.registerOre("topaz_ore");
+    public static final Block DEEPSLATE_TOPAZ_ORE = HCBlocks.registerDeepslateOre("deepslate_topaz_ore");
+    public static final Block PEARL_ORE = registerPearlOre();
+    public static final Block RUBY_ORE = HCBlocks.registerNetherOre("ruby_ore");
+    public static final Block MALACHITE_ORE = HCBlocks.registerNetherOre("malachite_ore");
+    public static final Block ONICE_ORE = HCBlocks.registerNetherOre("onice_ore");
+    public static final Block URANIUM_ORE = registerUraniumOre();
+
+    //#endregion
 
     //#region Hollow Logs
 
@@ -93,6 +107,26 @@ public final class BLBlocks {
      */
     private static Block registerStoneVariant(final String name, final Supplier<Block> blockSupplier) {
         return HCBlocks.registerBlock(name, BlockHelper.settings(name, blockSupplier));
+    }
+
+    /**
+     * Register the {@link #PEARL_ORE Pearl Ore}
+     *
+     * @return The {@link Block registered Pearl Ore}
+     */
+    private static Block registerPearlOre() {
+        final String name = "pearl_ore";
+        return HCBlocks.registerBlock(name, Suppliers.memoize(() -> new SandBlock(new ColorCode(14406560), BlockHelper.ore(name).mapColor(MapColor.PALE_YELLOW).strength(0.5F).sounds(BlockSoundGroup.SAND))));
+    }
+
+    /**
+     * Register the {@link #URANIUM_ORE Uranium Ore}
+     *
+     * @return The {@link Block registered Uranium Ore}
+     */
+    private static Block registerUraniumOre() {
+        final String name = "uranium_ore";
+        return HCBlocks.registerOre(name, BlockHelper.defaultOreXpProvider(), BlockHelper.ore(name).mapColor(MapColor.GREEN).strength(30.0F, 1200.0F).sounds(BlockSoundGroup.ANCIENT_DEBRIS));
     }
 
     /**

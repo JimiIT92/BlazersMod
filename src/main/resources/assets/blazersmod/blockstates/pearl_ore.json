@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "blazersmod:block/pearl_ore"
+      },
+      {
+        "model": "blazersmod:block/pearl_ore",
+        "y": 90
+      },
+      {
+        "model": "blazersmod:block/pearl_ore",
+        "y": 180
+      },
+      {
+        "model": "blazersmod:block/pearl_ore",
+        "y": 270
+      }
+    ]
+  }
+}

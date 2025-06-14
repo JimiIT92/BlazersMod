@@ -62,6 +62,15 @@ public final class BLTabs {
         );
 
         HCTabs.addItems(NATURAL,
+                BLBlocks.SAPPHIRE_ORE,
+                BLBlocks.DEEPSLATE_SAPPHIRE_ORE,
+                BLBlocks.TOPAZ_ORE,
+                BLBlocks.DEEPSLATE_TOPAZ_ORE,
+                BLBlocks.PEARL_ORE,
+                BLBlocks.RUBY_ORE,
+                BLBlocks.MALACHITE_ORE,
+                BLBlocks.ONICE_ORE,
+                BLBlocks.URANIUM_ORE,
                 BLBlocks.HOLLOW_OAK_LOG,
                 BLBlocks.HOLLOW_STRIPPED_OAK_LOG,
                 BLBlocks.HOLLOW_SPRUCE_LOG,
