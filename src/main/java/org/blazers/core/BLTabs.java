@@ -66,7 +66,15 @@ public final class BLTabs {
                 BLBlocks.CUT_PRISMARINE_BRICKS,
                 BLBlocks.DARK_PRISMARINE_BRICKS,
                 BLBlocks.RED_SANDSTONE_BRICKS,
-                BLBlocks.POLISHED_BLACKSTONE_TILES
+                BLBlocks.POLISHED_BLACKSTONE_TILES,
+                BLBlocks.OXIDIZED_CUT_COPPER_BRICKS,
+                BLBlocks.WEATHERED_CUT_COPPER_BRICKS,
+                BLBlocks.EXPOSED_CUT_COPPER_BRICKS,
+                BLBlocks.CUT_COPPER_BRICKS,
+                BLBlocks.WAXED_OXIDIZED_CUT_COPPER_BRICKS,
+                BLBlocks.WAXED_WEATHERED_CUT_COPPER_BRICKS,
+                BLBlocks.WAXED_EXPOSED_CUT_COPPER_BRICKS,
+                BLBlocks.WAXED_CUT_COPPER_BRICKS
         );
 
         HCTabs.addItems(NATURAL,

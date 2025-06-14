@@ -1,5 +1,6 @@
 package org.blazers.core;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Instrument;
 import net.minecraft.item.Item;
 import net.minecraft.registry.tag.TagKey;
@@ -60,6 +61,17 @@ public final class BLTags {
         private static TagKey<Item> repairsArmorTag(final String name) {
             return HCTags.itemTag("repairs_" + name + "_armor");
         }
+    }
+
+    //#endregion
+
+    //#region Block Tags
+
+    /**
+     * {@link BlazersMod Blazers Mod} {@link TagKey<Block> Block Tags}
+     */
+    public static class BlockTags {
+
     }
 
     //#endregion

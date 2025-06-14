@@ -1,16 +1,20 @@
 package org.blazers.core;
 
 import com.google.common.base.Suppliers;
+import com.google.common.collect.BiMap;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.*;
+import net.minecraft.item.HoneycombItem;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.ColorCode;
 import org.blazers.BlazersMod;
+import org.blazers.block.BLOxidizableBlock;
 import org.blazers.block.HollowBlock;
 import org.hendrix.helper.BlockHelper;
 import org.hendrix.helper.ResourceHelper;
 import org.hendrix.registry.HCBlocks;
 
+import java.util.Locale;
 import java.util.function.Supplier;
 
 /**
@@ -93,6 +97,20 @@ public final class BLBlocks {
 
     //#endregion
 
+    //#region Copper Blocks
+
+    public static final Block CUT_COPPER_BRICKS = registerCutCopperBricksBlock(Oxidizable.OxidationLevel.UNAFFECTED, Suppliers.memoize(() -> Blocks.CUT_COPPER));
+    public static final Block EXPOSED_CUT_COPPER_BRICKS = registerCutCopperBricksBlock(Oxidizable.OxidationLevel.EXPOSED, Suppliers.memoize(() -> Blocks.EXPOSED_CUT_COPPER));
+    public static final Block WEATHERED_CUT_COPPER_BRICKS = registerCutCopperBricksBlock(Oxidizable.OxidationLevel.WEATHERED, Suppliers.memoize(() -> Blocks.WEATHERED_CUT_COPPER));
+    public static final Block OXIDIZED_CUT_COPPER_BRICKS = registerCutCopperBricksBlock(Oxidizable.OxidationLevel.OXIDIZED, Suppliers.memoize(() -> Blocks.OXIDIZED_CUT_COPPER));
+
+    public static final Block WAXED_CUT_COPPER_BRICKS = registerWaxedCutCopperBricksBlock(Oxidizable.OxidationLevel.UNAFFECTED, Suppliers.memoize(() -> Blocks.CUT_COPPER));
+    public static final Block WAXED_EXPOSED_CUT_COPPER_BRICKS = registerWaxedCutCopperBricksBlock(Oxidizable.OxidationLevel.EXPOSED, Suppliers.memoize(() -> Blocks.EXPOSED_CUT_COPPER));
+    public static final Block WAXED_WEATHERED_CUT_COPPER_BRICKS = registerWaxedCutCopperBricksBlock(Oxidizable.OxidationLevel.WEATHERED, Suppliers.memoize(() -> Blocks.WEATHERED_CUT_COPPER));
+    public static final Block WAXED_OXIDIZED_CUT_COPPER_BRICKS = registerWaxedCutCopperBricksBlock(Oxidizable.OxidationLevel.OXIDIZED, Suppliers.memoize(() -> Blocks.OXIDIZED_CUT_COPPER));
+
+    //#endregion
+
     //#endregion
 
     /**
@@ -169,6 +187,30 @@ public final class BLBlocks {
     }
 
     /**
+     * Register a {@link OxidizableBlock Cut Copper Bricks Block}
+     *
+     * @param oxidationLevel The {@link Oxidizable.OxidationLevel Oxidation Level}
+     * @param copperBlockSupplier The {@link Supplier<Block> Copper Block Supplier}
+     * @return The {@link Block registered Block}
+     */
+    private static Block registerCutCopperBricksBlock(final Oxidizable.OxidationLevel oxidationLevel, final Supplier<Block> copperBlockSupplier) {
+        final String name = (Oxidizable.OxidationLevel.UNAFFECTED.equals(oxidationLevel) ? "" : (oxidationLevel.asString() + "_")).toLowerCase(Locale.ROOT) + "cut_copper_bricks";
+        return HCBlocks.registerBlock(name, Suppliers.memoize(() -> new BLOxidizableBlock(oxidationLevel, BlockHelper.settings(name, copperBlockSupplier))));
+    }
+
+    /**
+     * Register a {@link Block Waxed Cut Copper Bricks Block}
+     *
+     * @param oxidationLevel The {@link Oxidizable.OxidationLevel Oxidation Level}
+     * @param copperBlockSupplier The {@link Supplier<Block> Copper Block Supplier}
+     * @return The {@link Block registered Block}
+     */
+    private static Block registerWaxedCutCopperBricksBlock(final Oxidizable.OxidationLevel oxidationLevel, final Supplier<Block> copperBlockSupplier) {
+        final String name = "waxed_" + (Oxidizable.OxidationLevel.UNAFFECTED.equals(oxidationLevel) ? "" : (oxidationLevel.asString() + "_")).toLowerCase(Locale.ROOT) + "cut_copper_bricks";
+        return HCBlocks.registerBlock(name, BlockHelper.settings(name, copperBlockSupplier));
+    }
+
+    /**
      * Register all strippable {@link Block Blocks}
      */
     public static void registerStrippableBlocks() {
@@ -216,12 +258,21 @@ public final class BLBlocks {
         );
     }
 
+    public static void registerWaxableBlocks() {
+        final BiMap<Block, Block> unwaxedToWaxedBlocks = HoneycombItem.UNWAXED_TO_WAXED_BLOCKS.get();
+        unwaxedToWaxedBlocks.put(BLBlocks.CUT_COPPER_BRICKS, BLBlocks.WAXED_CUT_COPPER_BRICKS);
+        unwaxedToWaxedBlocks.put(BLBlocks.EXPOSED_CUT_COPPER_BRICKS, BLBlocks.WAXED_EXPOSED_CUT_COPPER_BRICKS);
+        unwaxedToWaxedBlocks.put(BLBlocks.WEATHERED_CUT_COPPER_BRICKS, BLBlocks.WAXED_WEATHERED_CUT_COPPER_BRICKS);
+        unwaxedToWaxedBlocks.put(BLBlocks.OXIDIZED_CUT_COPPER_BRICKS, BLBlocks.WAXED_OXIDIZED_CUT_COPPER_BRICKS);
+    }
+
     /**
      * Register all {@link Block Blocks}
      */
     public static void register() {
         registerStrippableBlocks();
         registerFlammableBlocks();
+        registerWaxableBlocks();
     }
 
 }
